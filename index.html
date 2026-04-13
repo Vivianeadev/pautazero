@@ -1,915 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>PautaZero · Análise Institucional & Tecnologia</title>
-  <meta name="description" content="PautaZero é uma revista digital dedicada à análise de sistemas institucionais, tecnologia, comportamento e políticas estratégicas.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>PautaZero · Análise Institucional & Tecnologia</title>
+  <meta name="description" content="PautaZero é uma revista digital dedicada à análise de sistemas institucionais, tecnologia, comportamento e políticas estratégicas.">
 
-  <!-- Metatags para redes sociais -->
-  <meta property="og:title" content="PautaZero · Análise Institucional & Tecnologia">
-  <meta property="og:description" content="Análise independente de sistemas, comportamento e políticas estratégicas.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pautazero.com/">
-  <meta property="og:image" content="https://pautazero.com/assets/images/topo-pautazero.jpg">
-  <meta property="og:image:alt" content="PautaZero - Capa com análise institucional e tecnologia">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PautaZero · Análise Institucional & Tecnologia">
-  <meta name="twitter:description" content="Análise independente de sistemas, comportamento e políticas estratégicas.">
-  <meta name="twitter:image" content="https://pautazero.com/assets/imagens/topo-pautazero.jpg">
+  <!-- Metatags para redes sociais -->
+  <meta property="og:title" content="PautaZero · Análise Institucional & Tecnologia">
+  <meta property="og:description" content="Análise independente de sistemas, comportamento e políticas estratégicas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pautazero.com/">
+  <meta property="og:image" content="https://pautazero.com/assets/images/topo-pautazero.jpg">
+  <meta property="og:image:alt" content="PautaZero - Capa com análise institucional e tecnologia">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PautaZero · Análise Institucional & Tecnologia">
+  <meta name="twitter:description" content="Análise independente de sistemas, comportamento e políticas estratégicas.">
+  <meta name="twitter:image" content="https://pautazero.com/assets/imagens/topo-pautazero.jpg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-
+  <!-- Fontes e Estilos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo-area"><a href="/" class="logo">Pauta<span>Zero</span></a><span class="slogan">análise · tecnologia · sistemas contemporâneos</span></div>
-      <div class="nav-hamburger"><div class="archive-btn" id="archiveBtn"><i class="fas fa-search"></i></div></div>
-    </div>
-  </header>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <a href="/" class="logo">Pauta<span>Zero</span></a>
+        <span class="slogan">análise · tecnologia · sistemas contemporâneos</span>
+      </div>
+      <div class="nav-hamburger">
+        <div class="archive-btn" id="archiveBtn"><i class="fas fa-search"></i></div>
+      </div>
+    </div>
+  </header>
 
-  <main class="container">
-    <!-- CARROSSEL HORIZONTAL ORIGINAL -->
-    <div class="horizontal-carousel-section">
-      <div class="carousel-header"><h3><i class="fas fa-newspaper"></i> Artigos publicados recentemente</h3><span style="font-size:0.7rem; color:var(--gold-dark);">← arraste →</span></div>
-      <div class="carousel-fade"><div class="carousel-scroll" id="carouselScroll"></div></div>
-    </div>
+  <main class="container">
+    <!-- Carrossel Principal -->
+    <div class="horizontal-carousel-section">
+      <div class="carousel-header">
+        <h3><i class="fas fa-newspaper"></i> Artigos publicados recentemente</h3>
+        <span style="font-size:0.7rem; color:var(--gold-dark);">← arraste →</span>
+      </div>
+      <div class="carousel-fade">
+        <div class="carousel-scroll" id="carouselScroll"></div>
+      </div>
+    </div>
 
-    <!-- CARROSSEL DE PALAVRAS -->
-    <div class="word-carousel">
-      <div class="word-carousel-track" id="wordTrack"></div>
-    </div>
+    <!-- Carrossel de Palavras -->
+    <div class="word-carousel">
+      <div class="word-carousel-track" id="wordTrack"></div>
+    </div>
 
-    <!-- COMPARTILHAMENTO ORIGINAL -->
-    <div class="share-bar">
-      <span class="share-label"><i class="fas fa-share-alt"></i> Compartilhe:</span>
-      <a href="#" id="shareFacebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" id="shareTwitter" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-      <a href="#" id="shareLinkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" id="shareWhatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-      <a href="#" id="shareEmail"><i class="fas fa-envelope"></i></a>
-    </div>
+    <!-- Compartilhamento -->
+    <div class="share-bar">
+      <span class="share-label"><i class="fas fa-share-alt"></i> Compartilhe:</span>
+      <a href="#" id="shareFacebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" id="shareTwitter" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" id="shareLinkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" id="shareWhatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" id="shareEmail"><i class="fas fa-envelope"></i></a>
+    </div>
 
-    <!-- DESTAQUE POLÊMICAS -->
-    <div class="featured-spotlight">
-      <div class="spotlight-title"><i class="fas fa-fire"></i> <span>POLÊMICAS & BASTIDORES</span> <i class="fas fa-skull"></i></div>
-      <div class="spotlight-grid">
-        <div class="spotlight-card" data-article-link="/artigo/polemicas/o-silencio-que-condena.html">
-          <div class="card-image"><div class="img-placeholder"><i class="fas fa-gavel" style="font-size: 2.2rem; opacity: 0.7;"></i><br><span style="font-size: 0.6rem;">Foto: Arquivo</span></div></div>
-          <div class="card-content"><div class="card-badge">Investigação</div><h4>O silêncio que condena</h4><div class="card-excerpt">Como omissões institucionais transformam vítimas em algozes e o peso da prova no sistema de justiça.</div><a href="#" class="read-more">Acessar matéria →</a></div>
-        </div>
-        <div class="spotlight-card larger" data-article-link="/artigo/polemicas/a-psicopatia-do-poder.html">
-          <div class="card-image"><div class="img-placeholder"><i class="fas fa-crown" style="font-size: 2.8rem; opacity: 0.7;"></i><br><span style="font-size: 0.65rem;">Foto: Representação</span></div></div>
-          <div class="card-content"><div class="card-badge">Psicopatia & Liderança</div><h4>A psicopatia do poder: quando a falta de empatia vence eleições</h4><div class="card-excerpt">Manipulação estratégica, perfis dissimulados e o custo social de líderes sem freio emocional. Uma análise profunda.</div><a href="#" class="read-more">Ler artigo completo →</a></div>
-        </div>
-        <div class="spotlight-card" data-article-link="/artigo/polemicas/justica-as-cegas.html">
-          <div class="card-image"><div class="img-placeholder"><i class="fas fa-balance-scale" style="font-size: 2.2rem; opacity: 0.7;"></i><br><span style="font-size: 0.6rem;">Ilustração</span></div></div>
-          <div class="card-content"><div class="card-badge">Sistema Prisional</div><h4>Justiça às cegas: as entranhas do cárcere privado</h4><div class="card-excerpt">Violência estrutural, facções e a falência do discurso ressocializador. Relatos de dentro.</div><a href="#" class="read-more">Explorar →</a></div>
-        </div>
-      </div>
-    </div>
+    <!-- Destaques (Spotlight) -->
+    <div class="featured-spotlight">
+      <div class="spotlight-title">
+        <i class="fas fa-fire"></i> <span>DESTAQUES DA SEMANA</span> <i class="fas fa-crown"></i>
+      </div>
+      <div class="spotlight-grid">
+        <!-- Renderizado pelo motor.js -->
+      </div>
+    </div>
 
-    <div class="section-intro"><h2 style="border-bottom: none;">Eixos de <span style="color: var(--gold-dark);">análise</span></h2><p style="color: var(--gold-dark); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;">Curadoria estrutural · Sem ruído</p></div>
-    <div class="thematic-grid" id="thematicGrid"></div>
-    <div style="margin: 2rem 0 0; text-align: center; font-size: 0.7rem; color: var(--gold-dark); letter-spacing: 1px;"><i class="fas fa-chalkboard-teacher"></i> Selecione um tema e explore subcategorias e subtemas</div>
-  </main>
+    <!-- Grade de Temas -->
+    <div class="section-intro">
+      <h2>Eixos de <span style="color: var(--gold-dark);">análise</span></h2>
+      <p style="color: var(--gold-dark); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;">Curadoria estrutural · Sem ruído</p>
+    </div>
+    <div class="thematic-grid" id="thematicGrid">
+      <!-- Renderizado pelo motor.js -->
+    </div>
+    <div style="margin: 2rem 0 0; text-align: center; font-size: 0.7rem; color: var(--gold-dark);">
+      <i class="fas fa-chalkboard-teacher"></i> Selecione um tema e explore os artigos
+    </div>
+  </main>
 
-  <footer class="site-footer">
-    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-      <div>© 2026 PautaZero · Revista de análise de sistemas, comportamento e políticas estratégicas.</div>
-      <div style="display: flex; gap: 18px; color: var(--gold-dark); align-items: center;">
-        <a href="manifesto.html" style="color: inherit; text-decoration: none; transition: 0.2s; display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-scroll"></i> Manifesto Pauta Zero</a>
-        <span style="color: rgba(212,175,55,0.4);">|</span>
-        <i class="fab fa-linkedin"></i> <i class="fab fa-x-twitter"></i> <i class="fas fa-envelope"></i>
-        <span style="font-family: monospace;">editorial.pautazero@outlook.com</span>
-      </div>
-    </div>
-    <div class="privacy-collapsible">
-      <div class="privacy-header-note">Política de Privacidade – PautaZero · clique nos títulos para expandir</div>
-      <div class="privacy-cols">
-        <div class="privacy-col"><div class="privacy-col-title">Ambiente & Dados</div><div class="privacy-col-content"><p><strong>Ambiente independente</strong><br>Este ambiente digital é mantido por responsável independente, atuando na produção de conteúdo informacional e analítico, comprometido com a proteção da privacidade e dos direitos fundamentais dos titulares de dados.</p><p><strong>Dados coletados</strong><br>Dados de navegação (IP anonimizado, cookies técnicos), informações enviadas voluntariamente por e-mail ou formulários. Nunca coletamos dados sensíveis sem consentimento explícito.</p></div></div>
-        <div class="privacy-col"><div class="privacy-col-title">Finalidade & LGPD</div><div class="privacy-col-content"><p><strong>Finalidade</strong><br>Melhorar a experiência, gerar estatísticas agregadas, responder contatos e garantir a segurança do site. Sem tratamento abusivo ou compartilhamento com terceiros não autorizados.</p><p><strong>Base legal (LGPD)</strong><br>Execução de legítimo interesse, cumprimento de obrigação legal e consentimento quando necessário. Respeitamos a Lei 13.709/2018 e os direitos dos titulares.</p></div></div>
-        <div class="privacy-col"><div class="privacy-col-title">Direitos & Contato</div><div class="privacy-col-content"><p><strong>Seus direitos</strong><br>Você pode acessar, retificar, eliminar, limitar ou portar seus dados a qualquer momento. Pedidos devem ser enviados ao e-mail abaixo.</p><p><strong>Canal de atendimento ao titular:</strong> <span class="privacy-email">editorial.pautazero@outlook.com</span> – Respondemos em até 15 dias úteis.</p><p><em>Esta política pode ser atualizada periodicamente. Consulte sempre a versão mais recente neste rodapé.</em></p></div></div>
-      </div>
-    </div>
-    <div class="footer-legal">Conteúdo editorial independente. As análises apresentadas refletem observações estruturais e não constituem aconselhamento jurídico, financeiro ou clínico. A PautaZero atua com base em critérios de responsabilidade informacional, respeitando contextos legais e institucionais aplicáveis.</div>
-  </footer>
+  <footer class="site-footer">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>© 2026 PautaZero · Revista de análise de sistemas, comportamento e políticas estratégicas.</div>
+      <div style="display: flex; gap: 18px; color: var(--gold-dark); align-items: center;">
+        <a href="manifesto.html" style="color: inherit; text-decoration: none;"><i class="fas fa-scroll"></i> Manifesto</a>
+        <span style="color: rgba(212,175,55,0.4);">|</span>
+        <i class="fab fa-linkedin"></i> <i class="fab fa-x-twitter"></i> <i class="fas fa-envelope"></i>
+        <span style="font-family: monospace;">editorial.pautazero@outlook.com</span>
+      </div>
+    </div>
+    <div class="privacy-collapsible">
+      <div class="privacy-header-note">Política de Privacidade – PautaZero · clique nos títulos para expandir</div>
+      <div class="privacy-cols">
+        <div class="privacy-col">
+          <div class="privacy-col-title">Ambiente & Dados</div>
+          <div class="privacy-col-content">
+            <p><strong>Ambiente independente</strong><br>Este ambiente digital é mantido por responsável independente, comprometido com a proteção da privacidade.</p>
+            <p><strong>Dados coletados</strong><br>Dados de navegação (IP anonimizado, cookies técnicos).</p>
+          </div>
+        </div>
+        <div class="privacy-col">
+          <div class="privacy-col-title">Finalidade & LGPD</div>
+          <div class="privacy-col-content">
+            <p><strong>Finalidade</strong><br>Melhorar a experiência, gerar estatísticas e garantir segurança.</p>
+            <p><strong>Base legal (LGPD)</strong><br>Legítimo interesse e consentimento quando necessário.</p>
+          </div>
+        </div>
+        <div class="privacy-col">
+          <div class="privacy-col-title">Direitos & Contato</div>
+          <div class="privacy-col-content">
+            <p><strong>Seus direitos</strong><br>Acessar, retificar, eliminar ou portar seus dados.</p>
+            <p><strong>Canal:</strong> <span class="privacy-email">editorial.pautazero@outlook.com</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      Conteúdo editorial independente. As análises apresentadas refletem observações estruturais e não constituem aconselhamento jurídico, financeiro ou clínico.
+    </div>
+  </footer>
 
-  <div class="archive-overlay" id="archiveOverlay">
-    <div class="archive-panel">
-      <div class="archive-header"><h3><i class="fas fa-archive"></i> Arquivo de artigos</h3><button class="archive-close" id="archiveCloseBtn"><i class="fas fa-times"></i></button></div>
-      <div class="archive-search"><input type="text" id="archiveSearchInput" placeholder="Buscar por título, categoria ou data"></div>
-      <div class="archive-list" id="archiveList"></div>
-    </div>
-  </div>
+  <!-- Overlay de Busca -->
+  <div class="archive-overlay" id="archiveOverlay">
+    <div class="archive-panel">
+      <div class="archive-header">
+        <h3><i class="fas fa-archive"></i> Arquivo de artigos</h3>
+        <button class="archive-close" id="archiveCloseBtn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="archive-search">
+        <input type="text" id="archiveSearchInput" placeholder="Buscar por título, tema ou tag...">
+      </div>
+      <div class="archive-list" id="archiveList"></div>
+    </div>
+  </div>
 
-  <div class="luxury-modal" id="topicModal">
-    <div class="modal-content">
-      <div class="modal-header"><h3 id="modalTitle">Título</h3><button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button></div>
-      <div class="modal-subtitle">SUBGRUPOS & TEMAS ESTRATÉGICOS</div>
-      <div id="modalTopicsList"></div>
-      <div class="modal-footer-note">Artigos completos em breve nesta seção. Conteúdo progressivo.</div>
-    </div>
-  </div>
+  <!-- Modal -->
+  <div class="luxury-modal" id="topicModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Título</h3>
+        <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-subtitle">ARTIGOS PUBLICADOS</div>
+      <div id="modalTopicsList"></div>
+      <div class="modal-footer-note">Clique no artigo para ler na íntegra.</div>
+    </div>
+  </div>
 
-  <script>
-    (function() {
-      // ==================== DADOS DOS 24 EIXOS (incluindo NUTRIÇÃO) ====================
-      const subtopicsByTopic = {
-        politica: {
-          "Poder e Corrupção Estrutural": ["Caixa dois e financiamento ilegal de campanhas", "Lobby empresarial e captura do estado", "Propina sistêmica em contratos públicos", "Impunidade de altas patentes"],
-          "Geopolítica e Conflitos Híbridos": ["Guerra de informação e fake news patrocinadas", "Intervenção militar e 'democracia' exportada", "Espionagem econômica e sabotagem industrial", "Sanções como arma geopolítica"],
-          "Crise dos Sistemas Políticos": ["Ascensão do populismo autoritário", "Erosão da separação de poderes", "Judicialização da política e ativismo", "Crises de representação e partidos vazios"],
-          "Regulação e Vigilância Global": ["Acordos de vigilância digital (Five Eyes, 14 Eyes)", "Controle de fronteiras e refugiados geopolíticos", "Regulação de armas e comércio de defesa", "Criptomoedas e guerra financeira"]
-        },
-        "seguranca-total": {
-          "Segurança Pessoal em Ambiente Hostil": ["Avaliação de risco para juízes e promotores", "Proteção de ativistas e defensores de direitos", "Estratégias de baixo perfil para vítimas de ameaça", "Comportamento preventivo em áreas de conflito"],
-          "Segurança Digital e Privacidade": ["Vazamento de dados íntimos e revenge porn", "Rastreamento governamental e quebra de sigilos", "Engenharia social em golpes financeiros", "Deepfakes e extorsão algorítmica"],
-          "Segurança Patrimonial e Blindagem": ["Holdings e offshores: limites legais e éticos", "Proteção de heranças em divórcios de alta conflito", "Criptoativos e rastreabilidade forense", "Risco de sequestro patrimonial no exterior"],
-          "Inteligência Estratégica": ["Contrainteligência em empresas familiares", "Análise de ameaças internas (funcionários e sócios)", "Perfil de risco de parceiros comerciais", "Coleta de informações em ambientes regulados"]
-        },
-        "prisional-policial": {
-          "Violência Estrutural no Cárcere": ["Superlotação como tortura indireta", "Facções criminosas e controle do estado paralelo", "Morte sob custódia: estatísticas oficiais vs. realidade", "Trabalho análogo à escravidão dentro das prisões"],
-          "Investigação e Perfilamento Criminal": ["Bases de dados genéticos e privacidade", "Reconhecimento facial e falsos positivos", "Perfil racial em abordagens policiais", "Interrogatórios coercitivos e confissões forjadas"],
-          "Corrupção e Milícias": ["Milícias armadas e controle territorial", "Policiais envolvidos com tráfico de armas", "Desvio de verbas penitenciárias", "Sindicatos policiais e imunidade tácita"],
-          "Reintegração e Reincidência": ["Falência dos programas de ressocialização", "Efeito carimbo e exclusão do mercado", "Monitoramento eletrônico como espetáculo punitivo", "Falta de políticas de saúde mental pós-prisão"]
-        },
-        "politicas-publicas": {
-          "Segurança Pública e Violência": ["Uso de força letal por forças de segurança", "Política de drogas e encarceramento em massa", "Pacotes anticrime e endurecimento penal simbólico", "Prevenção comunitária vs. militarização"],
-          "Saúde Coletiva e Negligência": ["Filas de espera para cirurgias eletivas", "Saúde mental desassistida nas periferias", "Pandemias e colapso do sistema público", "Indústria de planos de saúde e regulação falha"],
-          "Economia Pública e Desigualdade": ["Renúncias fiscais para super-ricos", "Previdência complementar e rombo previdenciário", "Programas de renda mínima e condicionalidades", "Endividamento público e ajuste fiscal seletivo"],
-          "Regulação e Controle": ["Anistia de multas ambientais", "Fragilidade da lei de acesso à informação", "Influência de setores regulados na criação de leis", "Patentes farmacêuticas e acesso a medicamentos"]
-        },
-        "economia-super-ricos": {
-          "Estruturas Offshores e Paraísos Fiscais": ["Panama Papers e o mercado de opacidade", "Trusts e fundações privadas no Caribe", "Criptomoedas anônimas e lavagem facilitada", "Falsas doações para instituições de caridade"],
-          "Family Offices e Blindagem Patrimonial": ["Estratégias legais de proteção contra credores", "Separação de patrimônio em divórcios bilionários", "Holdings familiares e conflitos de sucessão", "Investimento em arte e ativos não rastreáveis"],
-          "Mercado de Luxo e Invisibilidade": ["Iates e jatos particulares como sonegação fiscal", "Propriedades fantasmas em paraísos fiscais", "Educação de elite e círculos de poder", "Assessoramento de risco para alta renda"],
-          "Desigualdade e Herança": ["Concentração de riqueza em 0,1% da população", "Tributação regressiva e isenções fiscais", "Poder dinástico na política e economia", "Filantropia como escudo reputacional"]
-        },
-        "saude-mental": {
-          "Transtornos e Estigma Social": ["Borderline e a patologização da emoção feminina", "TDAH em adultos: superdiagnóstico ou negligência?", "Depressão e o viés de gênero nos tratamentos", "Transtornos alimentares e pressão estética"],
-          "Trauma e Abuso Infantil": ["Repetição transgeracional do abuso", "Vítimas que se tornam algozes", "Memória reprimida e falsas memórias em terapia", "Abuso espiritual e seitas religiosas"],
-          "Saúde Mental no Sistema Prisional": ["Transtornos induzidos por isolamento", "Uso indiscriminado de psicotrópicos", "Suicídio como epidemia invisível", "Falta de assistência psiquiátrica pós-cárcere"],
-          "Performance e Alto Rendimento": ["Burnout em executivos e a síndrome do impostor", "Doping cognitivo em ambientes competitivos", "Ansiedade de desempenho e cobrança tóxica", "Culto à produtividade e esgotamento extremo"]
-        },
-        "psicopatia": {
-          "Perfil Clínico e Forense": ["Traços antissociais em líderes corporativos", "Psicopatia primária vs. secundária", "Estrutura cerebral e empatia zero", "Teste PCL-R e polêmicas diagnósticas"],
-          "Manipulação e Gaslighting": ["Táticas de isolamento social", "Distorção da realidade em relações abusivas", "Mentiras patológicas e criação de narrativas", "Coerção psicológica em ambientes de trabalho"],
-          "Psicopatas no Poder": ["Autocratas e a ausência de freios emocionais", "Líderes religiosos manipuladores", "Executivos que destroem empresas", "Psicopatia institucionalizada em regimes autoritários"],
-          "Serial Killers e Violência Extrema": ["Fascínio midiático e glamourização", "Motivações sexuais e rituais", "Comunicação com assassinos em série", "Falhas na investigação de vítimas marginalizadas"]
-        },
-        "familia-alienacao": {
-          "Dinâmicas de Divórcio Litigioso": ["Uso de perícias psicológicas como arma", "Falsa denúncia de abuso sexual em disputas de guarda", "Perfil de genitores manipuladores", "Assédio judicial como ferramenta de controle"],
-          "Alienação Parental e Seus Efeitos": ["Síndrome da alienação parental – controvérsia científica", "Consequências psicológicas a longo prazo", "Intervenção do judiciário e remoção da guarda", "Rejeição induzida e rompimento de vínculos"],
-          "Violência Doméstica e Relações de Poder": ["Ciclo de violência e dificuldade de saída", "Feminicídio e falhas na rede de proteção", "Violência psicológica como prova pericial", "Medidas protetivas e revitimização"],
-          "Interesse Superior da Criança": ["Conflito entre direitos parentais e proteção", "Abuso institucional em conselhos tutelares", "Adoção tardia e estigma", "Crianças como objeto de disputa emocional"]
-        },
-        "crime-investigacao": {
-          "Crimes Financeiros e Lavagem": ["Esquemas de pirâmide financeira", "Criptomoedas em ransomwares", "Lavagem via setor imobiliário", "Corrupção em compras públicas"],
-          "Crimes Violentos e Perícia": ["Homicídios por encomenda", "Violência sexual e cadeia de custódia", "Forense digital em crimes cibernéticos", "Reconstrução de cena do crime"],
-          "Psicologia Criminal": ["Motivação por vingança ou ciúmes", "Assassinos em série com pausas", "Criminosos contadores e fraudadores", "Perfil de stalker e assédio obsessivo"],
-          "Estratégia Investigativa": ["Entrevistas cognitivas e memória de testemunhas", "Delação premiada e credibilidade", "Inteligência de fontes abertas (OSINT)", "Infiltração policial e limites éticos"]
-        },
-        "saude-mental-extremo": {
-          "Confinamento e Isolamento": ["Efeitos psicológicos do isolamento total", "Prisão domiciliar e saúde mental", "Estratégias de sobrevivência em cativeiro", "Transtorno de estresse pós-traumático complexo"],
-          "Alta Pressão e Colapso": ["Burnout em profissionais da saúde", "Médicos plantonistas e transtornos do sono", "Síndrome de desgaste profissional em policiais", "Suicídio entre juízes e advogados"],
-          "Trauma e Recuperação": ["Terapia de exposição prolongada", "EMDR e controvérsias científicas", "Uso de psicodélicos em PTSD", "Reintegração após tortura ou sequestro"],
-          "Sobrevivência Psicológica": ["Resiliência em desastres naturais", "Apoio comunitário e saúde mental pós-catástrofe", "Culto à positividade tóxica", "Luto complicado e intervenções"]
-        },
-        "negocios": {
-          "Modelos de Negócio Disruptivos": ["Startups de vigilância e ética", "Economia de bicos e precarização", "Marketplaces e responsabilidade sobre vendedores", "Franchising e armadilhas contratuais"],
-          "Estruturação Patrimonial Empresarial": ["Holdings familiares e conflitos", "Offshores como planejamento tributário", "Sucessão e guerra entre herdeiros", "Venda de empresas para fundos de private equity"],
-          "Branding Pessoal e Reputação": ["Cancelamento e crise de imagem", "Assessoria de imprensa para acusações graves", "Construção de narrativa de superação", "Influenciadores digitais e responsabilidade"],
-          "Estratégias de Crescimento Agressivo": ["Aquisições hostis e defesas antiaquisição", "Venture capital e perda de controle", "IPO e pressão de resultados", "Fusões e demissões em massa"]
-        },
-        "visao-global": {
-          "Mobilidade Internacional e Refúgio": ["Vistos de investimento e cidadania por dinheiro", "Refugiados climáticos e lacuna legal", "Apátridas e direitos negados", "Extradição e tratados bilaterais"],
-          "Cultura Institucional Global": ["Diferenças entre common law e civil law", "Arbitragem internacional e soberania", "Compliance anticorrupção em multinacionais", "Sanções da ONU e bloqueios comerciais"],
-          "Networking de Alto Valor": ["Clubes privados e círculos de influência", "Conferências fechadas e tomada de decisão", "Famílias reais e poder simbólico", "Think tanks e formulação de políticas"],
-          "Risco Geopolético para Investidores": ["Expropriação de ativos em governos instáveis", "Seguro de risco político", "Golpes de estado e contratos", "Zonas de conflito e oportunidades"]
-        },
-        "filantropia": {
-          "Filantropia Estratégica e Reputação": ["Doações com contrapartidas fiscais", "Fundações familiares e controle corporativo", "Causas de alto impacto vs. marketing social", "Voluntariado corporativo como lavagem de imagem"],
-          "Investimento de Impacto Social": ["ESG e greenwashing", "Retorno financeiro vs. retorno social", "Avaliação de impacto real", "Títulos de impacto social e parcerias público-privadas"],
-          "Educação e Merito": ["Bolsas de estudo para grupos privilegiados", "Ensino bilíngue e elitismo", "Cotas e ações afirmativas", "Educação a distância e qualidade"],
-          "Justiça Social e Ativismo": ["Fundações financiadas por bilionários ativistas", "Movimentos sociais cooptados", "ONGs e dependência de doadores", "Ativismo judicial e limitações"]
-        },
-        "historias-reais": {
-          "Superação e Traumas Públicos": ["Relato de ex-presidiário e reintegração", "Vítima de violência doméstica que reage", "Empresário falido que recomeça", "Depoimento de refugiado político"],
-          "Queda e Ascensão Íntima": ["Do estrelato ao anonimato forçado", "Perda total de patrimônio e reconstrução", "Erro médico e luta por justiça", "Demissão humilhante e virada de carreira"],
-          "Bastidores do Sucesso": ["O preço psicológico da fama", "Relações abusivas nos bastidores de empresas", "Segredos de família real", "Assédio moral em startups de sucesso"],
-          "Erros e Aprendizados": ["Sócio que roubou a empresa", "Confiar em sócio errado", "Golpe financeiro que destruiu poupança", "Fraude contábil descoberta tarde"]
-        },
-        "hibridos": {
-          "Psicopatia + Negócios": ["CEO psicopata que destruiu a cultura", "Táticas de manipulação em reuniões", "Assédio moral estratégico para demissão", "Fundador narcisista e crise de sucessão"],
-          "Segurança + Economia": ["Seguro contra sequestro para ultra-ricos", "Proteção de ativos em paraísos fiscais", "Risco geopolítico para holdings offshore", "Criptomoedas e extorsão digital"],
-          "Política + Crime": ["Financiamento de campanha pelo tráfico", "Milícias digitais e desinformação eleitoral", "Corrupção em contratos de segurança", "Caixa dois e compra de sentenças"],
-          "Prisional + Psicologia": ["Transtorno de estresse pós-cárcere", "Adaptação à violência como mecanismo", "Religião como refúgio no presídio", "Rituais de iniciação em facções"]
-        },
-        "familia-saude-mental": {
-          "Sofrimento Materno e Perícias Psicológicas": ["Uso de laudos psiquiátricos em disputas de guarda", "Sobrecarga materna como alegação de incapacidade", "Manipulação narrativa por genitor dominante", "Esgotamento emocional vs. transtorno mental"],
-          "Perfil do Genitor Manipulador": ["Gaslighting e desqualificação sistemática", "Construção de imagem pública estável vs. privada", "Estratégias de alienação indireta", "Uso de falsas acusações de abuso"],
-          "Impacto da Alta Conflituosidade nas Crianças": ["Síndrome da alienação parental revisitada", "Ansiedade e depressão infantil pós-divórcio", "Lealdades divididas e culpa", "Testemunho infantil em vara de família"],
-          "Defesa da Mãe no Sistema Judiciário": ["Como reunir provas de manipulação", "Importância de perícia psicossocial aprofundada", "Estratégias jurídicas para reverter guarda", "Rede de apoio e saúde mental durante processo"]
-        },
-        "justica-tecnologia": {
-          "Inteligência Artificial no Judiciário": ["Algoritmos de decisão e viés racial", "Ferramentas de predição de reincidência", "Advocacia automatizada e acesso à justiça", "LGPD e tratamento de dados sensíveis"],
-          "Provas Digitais e Cadeia de Custódia": ["Admissibilidade de prints e mensagens apagadas", "Perícia em criptomoedas e rastreamento", "Deepfake como prova falsa", "Acesso a dispositivos móveis na investigação"],
-          "Cibercrimes e Legislação": ["Lei de segurança nacional e vigilância", "Doxing e stalking eletrônico", "Invasão de dispositivos por parceiros abusivos", "Responsabilidade de provedores por conteúdo"],
-          "Automação e Eficiência Judicial": ["Processo eletrônico e exclusão digital", "Assinaturas digitais e fraudes", "Balcão virtual e atendimento remoto", "Risco de decisões automatizadas sem revisão"]
-        },
-        "educacao-desigualdade": {
-          "Ensino Público e Abandono": ["Evasão escolar por pobreza extrema", "Violência nas escolas e falta de políticas", "Currículo defasado e desinteresse", "Greves de professores e impacto"],
-          "Educação Privada e Elitismo": ["Ensino bilíngue como ferramenta de segregação", "Testes de admissão e exclusão", "Mensalidades abusivas e bolsas limitadas", "Rede de contatos como diferencial"],
-          "Cotas e Ações Afirmativas": ["Debate sobre mérito vs. reparação", "Fraudes na autodeclaração racial", "Cotas para escolas públicas e regionais", "Resultados a longo prazo"],
-          "Tecnologia na Educação": ["Ensino remoto e exclusão digital", "Plataformas de vigilância de alunos", "Gamificação e aprendizagem real", "Dependência de grandes techs"]
-        },
-        "meio-ambiente": {
-          "Garimpo Ilegal e Violência": ["Invasão de terras indígenas", "Trabalho escravo em garimpos", "Contaminação por mercúrio e saúde", "Conflitos armados por recursos"],
-          "Desmatamento e Impunidade": ["Fazendeiros e grileiros", "Fiscalização ambiental capturada", "Queimadas criminosas e agronegócio", "Licenciamento ambiental fraudulento"],
-          "Justiça Climática e Refugiados": ["Deslocados por desastres naturais", "Responsabilidade de empresas poluidoras", "Litígios climáticos internacionais", "Políticas de adaptação ineficazes"],
-          "Economia Verde e Greenwashing": ["Créditos de carbono falsos", "Empresas que poluem e compensam", "Energia limpa e impactos sociais", "Agroecologia vs. agronegócio"]
-        },
-        "direitos-humanos": {
-          "Tortura e Maus-Tratos": ["Casos de tortura em delegacias", "Câmaras de gás em presídios", "Violência policial em protestos", "Responsabilização de agentes"],
-          "População em Situação de Rua": ["Criminalização da pobreza", "Remoções forçadas e reintegração", "Saúde mental e dependência química", "Falta de políticas habitacionais"],
-          "Migração e Apátridas": ["Detenção de migrantes e deportações", "Tráfico de pessoas e exploração", "Direitos de crianças migrantes", "Barreiras legais para refúgio"],
-          "Comunidades Tradicionais": ["Quilombolas e ameaças de despejo", "Povos indígenas e mineração", "Quebra de consulta prévia", "Violência contra lideranças"]
-        },
-        "agro-logistica": {
-          "Política de Fretes e Greves de Caminhoneiros": ["Tabela de frete mínimo e judicialização", "Impacto das greves no abastecimento nacional", "Caminhoneiros autônomos vs. transportadoras", "Participação política da categoria e pautas"],
-          "Infraestrutura Rodoviária e Concessões": ["Pedágios abusivos e qualidade das estradas", "Corrupção em contratos de concessão", "Pontos críticos e acidentes fatais", "Privatização de rodovias e monopólios regionais"],
-          "Agronegócio e Impactos Socioambientais": ["Concentração de terras e latifúndio improdutivo", "Uso de agrotóxicos e saúde dos trabalhadores", "Desmatamento para monocultura de soja e pecuária", "Conflitos agrários e violência no campo"],
-          "Logística, Escoamento e Dependência do Diesel": ["Portos, ferrovias e o gargalo do escoamento", "Subsídio ao diesel e pressão sobre preços", "Custo Brasil logístico e competitividade", "Alternativas: hidrovias e cabotagem vs. lobby rodoviário"],
-          "Homenagem aos Caminhoneiros": ["Histórias reais de caminhoneiros no Brasil", "A importância invisível da logística rodoviária", "Rotina, risco e resistência nas estradas", "Impacto dos caminhoneiros na economia nacional"]
-        },
-        "saude-fisica": {
-          "Erros Médicos e Imperícia": ["Subdiagnóstico e negligência em pronto-socorros", "Cirurgias em paciente errado e falhas de protocolo", "Responsabilização criminal de médicos", "Indenizações milionárias e omissão de prontuários"],
-          "Acesso a Tratamentos de Alto Custo": ["Judicialização da saúde e medicamentos fora da lista do SUS", "Planos de saúde que negam cobertura de terapias", "Tratamentos experimentais e comitês de ética", "Desabastecimento de fármacos essenciais"],
-          "Pandemia e Resposta Institucional": ["Colapso de UTIs e decisões de alocação de recursos", "Vacinação obrigatória e liberdade individual", "Negacionismo científico no poder público", "Efeitos pós-pandemia na infraestrutura hospitalar"],
-          "Sistema de Saúde e Desigualdade Regional": ["Fila única do SUS e diferenças entre estados", "Fugas de profissionais para a rede privada", "Hospitais filantrópicos e gestão por OSs", "Subfinanciamento crônico e sucateamento"]
-        },
-        futurismo: {
-          "Inteligência Artificial e Sociedade": ["Ética da IA em decisões judiciais", "Automação e desemprego estrutural", "Viés algorítmico e discriminação", "Regulação de sistemas autônomos"],
-          "Cidades Inteligentes e Vigilância": ["Monitoramento urbano e privacidade", "Dados em massa e controle social", "IoT e segurança pública", "Governança digital participativa"],
-          "Transumanismo e Biotecnologia": ["Melhoramento humano e desigualdade", "Edição genética e dilemas morais", "Longevidade e previdência", "Ciborgues e direitos civis"],
-          "Trabalho e Economia Pós-Escassez": ["Renda básica universal", "Plataformas descentralizadas", "Tokenização da economia", "Novos modelos de propriedade"]
-        },
-        religiao: {
-          "Domínio do Cristianismo na Esfera Pública": ["Poder político evangélico e bancada religiosa", "Influência de lideranças cristãs nas decisões do STF", "Cristianismo como religião oficial implícita no Brasil", "Privilégios fiscais para igrejas e a questão da laicidade"],
-          "Perseguição Religiosa e Mártires Contemporâneos": ["Cristãos perseguidos em países de maioria islâmica", "Mártires da fé no século XXI (Nigéria, Índia, Paquistão)", "Intolerância religiosa contra evangélicos em territórios de matriz afro", "Violência anticristã na China e Coreia do Norte"],
-          "Teologia Política e Fundamentalismo": ["Teologia da dominação e o projeto de poder", "Nacionalismo cristão e seus impactos na democracia", "Fundamentalismo protestante e censura moral", "Cruzadas modernas: intervenções religiosas em políticas públicas"],
-          "Cristianismo e Direitos Humanos": ["Apoio religioso a causas sociais (moradores de rua, presos)", "Igrejas como refúgio para vítimas de violência doméstica", "Contradições entre discurso cristão e práticas discriminatórias", "O papel dos cristãos na luta contra a fome e a desigualdade"]
-        },
-        esportes: {
-          "Futebol: Paixão Nacional": ["Clássicos e rivalidades que movem multidões", "Torcidas organizadas: violência ou paixão extrema?", "Craques que marcaram época: de Pelé a Neymar", "Copa do Mundo e memória afetiva do brasileiro"],
-          "Ídolos e Mitos Esportivos": ["Pelé, Maradona e a construção do mito no imaginário popular", "O peso da fama e da pressão psicológica sobre atletas", "Carreira pós-aposentadoria: glória ou ostracismo?", "Ídolos que viraram políticos: sucesso ou oportunismo?"],
-          "Outros Esportes em Destaque": ["Vôlei brasileiro: conquistas, superação e identidade nacional", "Basquete: a influência da NBA e o crescimento no Brasil", "Esportes olímpicos: legado, desafios e novos talentos", "Automobilismo: Ayrton Senna e a paixão nacional pela velocidade"],
-          "Política e Corrupção no Esporte": ["Máfia do apito e arbitragem: quando a justiça falha", "Desvio de verbas em confederações e federações", "Patrocínios milionários e suspeitas de lavagem de dinheiro", "Manipulação de resultados e apostas: o lado obscuro do esporte"],
-          "Psicologia do Esporte e Performance": ["Pressão psicológica em atletas de alto rendimento", "Burnout e depressão no mundo esportivo", "Preparação mental para grandes competições", "Superação de lesões e traumas: histórias de resiliência"]
-        },
-        // ====== NOVO EIXO: NUTRIÇÃO & PESQUISA ALIMENTAR ======
-        nutricao: {
-          "Bases Científicas da Nutrição": [
-            "Macronutrientes: proteínas, carboidratos e gorduras na prática clínica",
-            "Micronutrientes e deficiências silenciosas (ferro, zinco, vitamina D)",
-            "Nutrigenômica: como os alimentos interagem com seu DNA",
-            "Cronobiologia alimentar: impacto dos horários nas refeições"
-          ],
-          "Dietas e Estratégias Populares": [
-            "Jejum intermitente: evidências e controvérsias",
-            "Low carb vs. low fat: meta-análises recentes",
-            "Dieta cetogênica para performance e epilepsia",
-            "Plant-based e veganismo: nutrientes críticos e suplementação"
-          ],
-          "Alimentos Funcionais e Fitoterápicos": [
-            "Cúrcuma e curcumina: anti-inflamatório natural",
-            "Probióticos, prebióticos e saúde intestinal",
-            "Adaptógenos: ashwagandha, rhodiola e estresse",
-            "Polifenóis do cacau, chá verde e resveratrol"
-          ],
-          "Nutrição Esportiva e Performance": [
-            "Periodização nutricional para hipertrofia e endurance",
-            "Suplementos com evidência: creatina, beta-alanina, cafeína",
-            "Hidratação e eletrólitos em atletas",
-            "Janela anabólica: mito ou realidade?"
-          ],
-          "Metabolismo, Emagrecimento e Composição Corporal": [
-            "Termogênese e gasto calórico: o que realmente funciona",
-            "Efeito rebote e reprogramação metabólica",
-            "Avaliação de composição corporal (DEXA, bioimpedância)",
-            "Estratégias comportamentais para adesão a longo prazo"
-          ],
-          "Nutrição Clínica e Doenças Crônicas": [
-            "Diabetes tipo 2: abordagem nutricional baseada em evidências",
-            "Hipertensão e dieta DASH",
-            "Nutrição oncológica: suporte durante quimioterapia",
-            "Doenças autoimunes e dietas de eliminação"
-          ],
-          "Receoterapia e Culinária Funcional": [
-            "Preparo que preserva nutrientes: cocção a vapor, baixa temperatura",
-            "Substituições inteligentes (farinhas, açúcares, gorduras)",
-            "Planejamento de refeições e batch cooking",
-            "Receitas anti-inflamatórias: exemplos práticos"
-          ]
-        }
-      };
-
-      // Mapeamento de chave do eixo -> nome da pasta (URL)
-      const topicFolderMap = {
-        politica: "politica-e-geopolitica",
-        "seguranca-total": "seguranca-total",
-        "prisional-policial": "sistema-prisional-e-policial",
-        "politicas-publicas": "politicas-publicas",
-        "economia-super-ricos": "economia-e-super-ricos",
-        "saude-mental": "saude-mental",
-        psicopatia: "psicopatia-e-comportamento-extremo",
-        "familia-alienacao": "familia-e-alienacao-parental",
-        "crime-investigacao": "crime-e-investigacao",
-        "saude-mental-extremo": "saude-mental-em-contextos-extremos",
-        negocios: "negocios-e-estrategia",
-        "visao-global": "visao-global",
-        filantropia: "impacto-e-filantropia",
-        "historias-reais": "historias-reais",
-        hibridos: "conteudos-hibridos",
-        "familia-saude-mental": "direito-de-familia-e-saude-mental",
-        "justica-tecnologia": "justica-e-tecnologia",
-        "educacao-desigualdade": "educacao-e-desigualdade",
-        "meio-ambiente": "meio-ambiente-e-conflitos",
-        "direitos-humanos": "direitos-humanos-e-sistema-de-justica",
-        "agro-logistica": "agronegocio-logistica-e-transporte",
-        "saude-fisica": "saude-fisica-e-medicina",
-        futurismo: "futurismo-e-inovacao",
-        religiao: "religiao-cristianismo-perseguicoes",
-        esportes: "esportes-futebol-idolos",
-        nutricao: "nutricao-e-pesquisa-alimentar"
-      };
-
-      const topicTitles = {
-        politica: "Política & Geopolítica",
-        "seguranca-total": "Segurança Total",
-        "prisional-policial": "Sistema Prisional & Policial",
-        "politicas-publicas": "Políticas Públicas",
-        "economia-super-ricos": "Economia & Super Ricos",
-        "saude-mental": "Saúde Mental",
-        psicopatia: "Psicopatia & Comportamento Extremo",
-        "familia-alienacao": "Família & Alienação Parental",
-        "crime-investigacao": "Crime & Investigação",
-        "saude-mental-extremo": "Saúde Mental em Contextos Extremos",
-        negocios: "Negócios & Estratégia",
-        "visao-global": "Visão Global",
-        filantropia: "Impacto & Filantropia",
-        "historias-reais": "Histórias Reais",
-        hibridos: "Conteúdos Híbridos",
-        "familia-saude-mental": "Direito de Família e Saúde Mental",
-        "justica-tecnologia": "Justiça e Tecnologia",
-        "educacao-desigualdade": "Educação e Desigualdade",
-        "meio-ambiente": "Meio Ambiente e Conflitos",
-        "direitos-humanos": "Direitos Humanos e Sistema de Justiça",
-        "agro-logistica": "Agronegócio, Logística e Transporte",
-        "saude-fisica": "Saúde Física e Medicina",
-        futurismo: "Futurismo & Inovação",
-        religiao: "Religião, Cristianismo & Perseguições",
-        esportes: "Esportes, Futebol & Ídolos",
-        nutricao: "Nutrição & Pesquisa Alimentar"
-      };
-
-      const topicIcons = {
-        politica: "fas fa-landmark",
-        "seguranca-total": "fas fa-shield-alt",
-        "prisional-policial": "fas fa-gavel",
-        "politicas-publicas": "fas fa-chalkboard-user",
-        "economia-super-ricos": "fas fa-chart-pie",
-        "saude-mental": "fas fa-brain",
-        psicopatia: "fas fa-user-ninja",
-        "familia-alienacao": "fas fa-heart-broken",
-        "crime-investigacao": "fas fa-fingerprint",
-        "saude-mental-extremo": "fas fa-skull",
-        negocios: "fas fa-chart-line",
-        "visao-global": "fas fa-globe-americas",
-        filantropia: "fas fa-hand-holding-heart",
-        "historias-reais": "fas fa-book-open",
-        hibridos: "fas fa-code-branch",
-        "familia-saude-mental": "fas fa-heartbeat",
-        "justica-tecnologia": "fas fa-microchip",
-        "educacao-desigualdade": "fas fa-graduation-cap",
-        "meio-ambiente": "fas fa-tree",
-        "direitos-humanos": "fas fa-hand-peace",
-        "agro-logistica": "fas fa-truck",
-        "saude-fisica": "fas fa-stethoscope",
-        futurismo: "fas fa-robot",
-        religiao: "fas fa-church",
-        esportes: "fas fa-futbol",
-        nutricao: "fas fa-apple-alt"
-      };
-
-      function getDescription(key) {
-        const desc = {
-          politica: "Monetária, relações internacionais, regulação e poder institucional.",
-          "seguranca-total": "Pessoal, digital, patrimonial e inteligência estratégica.",
-          "prisional-policial": "Estrutura carcerária, investigação, perícia e inteligência policial.",
-          "politicas-publicas": "Segurança, saúde, economia pública e regulação.",
-          "economia-super-ricos": "Alta renda, offshores, family offices e patrimônio invisível.",
-          "saude-mental": "Transtornos, emoções, trauma e alta performance.",
-          psicopatia: "Manipulação, liderança tóxica, serial killers e falta de empatia.",
-          "familia-alienacao": "Divórcio, guarda, falsas acusações e danos psicológicos.",
-          "crime-investigacao": "Perfil criminal, crimes financeiros, motivação e detecção.",
-          "saude-mental-extremo": "Prisional, alta pressão, colapso e sobrevivência psicológica.",
-          negocios: "Modelos de negócio, holdings, captação e branding.",
-          "visao-global": "Networking internacional, mobilidade e expansão.",
-          filantropia: "Social, educação, investimento de impacto e legado.",
-          "historias-reais": "Superação, queda, ascensão e bastidores.",
-          hibridos: "Psicopatia+negócios, segurança+economia, prisão+psicologia.",
-          "familia-saude-mental": "Sofrimento materno, perícias psicológicas e manipulação narrativa.",
-          "justica-tecnologia": "IA no judiciário, provas digitais, cibercrimes e automação.",
-          "educacao-desigualdade": "Ensino público, privatização, cotas e tecnologia na educação.",
-          "meio-ambiente": "Garimpo ilegal, desmatamento, justiça climática e greenwashing.",
-          "direitos-humanos": "Tortura, população em situação de rua, migração e comunidades tradicionais.",
-          "agro-logistica": "Política de fretes, greves de caminhoneiros, infraestrutura e impactos.",
-          "saude-fisica": "Erros médicos, acesso a tratamentos, pandemias e sistema de saúde.",
-          futurismo: "IA, cidades inteligentes, transumanismo e pós-escassez.",
-          religiao: "Cristianismo, poder eclesiástico, perseguições, intolerância e fé.",
-          esportes: "Futebol, ídolos, outros esportes, política esportiva e psicologia do atleta.",
-          nutricao: "Bases científicas, dietas estratégicas, alimentos funcionais, nutrição esportiva e receoterapia baseada em evidências."
-        };
-        return desc[key] || "Análise estrutural e comportamental.";
-      }
-
-      function slugify(text) {
-        return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-      }
-
-      function getArticleUrl(topicKey, subcategory, topic) {
-        const folder = topicFolderMap[topicKey];
-        const subcatSlug = slugify(subcategory);
-        const topicSlug = slugify(topic);
-        return `/artigo/${folder}/${subcatSlug}/${topicSlug}.html`;
-      }
-
-      // ========== TÚNEL DE VERIFICAÇÃO (mesmo código original) ==========
-      const pageCache = new Map();
-      function loadCacheFromStorage() {
-        try {
-          const stored = localStorage.getItem('PautaZero_pageCache');
-          if (stored) {
-            const parsed = JSON.parse(stored);
-            if (parsed && parsed.expiry > Date.now()) {
-              for (const [url, exists] of Object.entries(parsed.data)) pageCache.set(url, exists);
-              return true;
-            }
-          }
-        } catch(e) {}
-        return false;
-      }
-      function saveCacheToStorage() {
-        try {
-          const cacheObj = {};
-          for (const [url, exists] of pageCache.entries()) cacheObj[url] = exists;
-          localStorage.setItem('PautaZero_pageCache', JSON.stringify({ data: cacheObj, expiry: Date.now() + 3600000 }));
-        } catch(e) {}
-      }
-      async function checkIfPageExists(url) {
-        if (pageCache.has(url)) return pageCache.get(url);
-        try {
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 3000);
-          const response = await fetch(url, { method: 'HEAD', signal: controller.signal });
-          clearTimeout(timeoutId);
-          const exists = response.ok;
-          pageCache.set(url, exists);
-          saveCacheToStorage();
-          return exists;
-        } catch(err) {
-          pageCache.set(url, false);
-          return false;
-        }
-      }
-      let isNavigating = false;
-      async function navigateToWithCheck(url) {
-        if (isNavigating) return;
-        if (url.includes('construcao.html')) {
-          window.location.href = url;
-          return;
-        }
-        isNavigating = true;
-        document.body.classList.add('tunnel-loading');
-        try {
-          const exists = await checkIfPageExists(url);
-          window.location.href = exists ? url : 'construcao.html';
-        } catch (err) {
-          window.location.href = 'construcao.html';
-        } finally {
-          isNavigating = false;
-          document.body.classList.remove('tunnel-loading');
-        }
-      }
-
-      document.body.addEventListener('click', (e) => {
-        let target = e.target.closest('a');
-        if (!target) return;
-        const href = target.getAttribute('href');
-        if (!href) return;
-        if (href.startsWith('/artigo/') || href.includes('/artigo/')) {
-          e.preventDefault();
-          let absoluteUrl = href.startsWith('/') ? href : '/' + href;
-          navigateToWithCheck(absoluteUrl);
-        }
-      });
-
-      // ========== RENDERIZAÇÃO DOS CARDS TEMÁTICOS (inclui nutrição) ==========
-      const grid = document.getElementById('thematicGrid');
-      for (const [key, title] of Object.entries(topicTitles)) {
-        const card = document.createElement('div');
-        card.className = 'theme-card';
-        card.setAttribute('data-topic', key);
-        card.innerHTML = `<div class="theme-icon"><i class="${topicIcons[key]}"></i></div><h3>${title}</h3><p>${getDescription(key)}</p><div class="theme-badge">clique para explorar →</div>`;
-        grid.appendChild(card);
-      }
-
-      // ========== MODAL (compartilhado) ==========
-      const modal = document.getElementById('topicModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalTopicsList = document.getElementById('modalTopicsList');
-      const closeModalBtn = document.getElementById('closeModalBtn');
-      function openModal(topicKey) {
-        const title = topicTitles[topicKey] || "Tema";
-        const subcategoriesObj = subtopicsByTopic[topicKey] || {};
-        modalTitle.innerText = title;
-        if (Object.keys(subcategoriesObj).length === 0) modalTopicsList.innerHTML = '<p style="color: var(--color-text-light);">Subtemas em breve.</p>';
-        else {
-          let html = '';
-          for (const [subcat, topics] of Object.entries(subcategoriesObj)) {
-            html += `<div class="subcategory-group"><div class="subcategory-title">${escapeHtml(subcat)}</div><ul class="topics-list">`;
-            if (topics.length === 0) {
-              html += `<li style="width:100%; color: var(--color-text-light); font-style:italic;">Nenhum tópico disponível no momento.</li>`;
-            } else {
-              topics.forEach(topic => {
-                const url = getArticleUrl(topicKey, subcat, topic);
-                html += `<li><a href="${url}">${escapeHtml(topic)}</a></li>`;
-              });
-            }
-            html += `</ul></div>`;
-          }
-          modalTopicsList.innerHTML = html;
-        }
-        modal.classList.add('active'); document.body.classList.add('modal-open');
-      }
-      function closeModal() { modal.classList.remove('active'); document.body.classList.remove('modal-open'); }
-      document.querySelectorAll('.theme-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-          const topic = card.getAttribute('data-topic');
-          if (topic) openModal(topic);
-        });
-      });
-      closeModalBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
-
-      // ========== CARROSSEL ORIGINAL (mantido) ==========
-      const articlesData = [
-        { title: "Alienação Parental: entre a proteção e a falsa acusação", category: "Família & Alienação", url: getArticleUrl("familia-alienacao", "Dinâmicas de Divórcio Litigioso", "Uso de perícias psicológicas como arma") },
-        { title: "Subdiagnóstico e negligência em pronto-socorros", category: "Saúde Física", url: getArticleUrl("saude-fisica", "Erros Médicos e Imperícia", "Subdiagnóstico e negligência em pronto-socorros") },
-        { title: "A psicopatia do poder", category: "Psicopatia", url: getArticleUrl("psicopatia", "Psicopatas no Poder", "Autocratas e a ausência de freios emocionais") },
-        { title: "Justiça às cegas", category: "Sistema Prisional", url: getArticleUrl("prisional-policial", "Violência Estrutural no Cárcere", "Superlotação como tortura indireta") },
-        { title: "Greve dos caminhoneiros e impacto econômico", category: "Agronegócio", url: getArticleUrl("agro-logistica", "Política de Fretes e Greves de Caminhoneiros", "Tabela de frete mínimo e judicialização") }
-      ];
-      const carouselContainer = document.getElementById('carouselScroll');
-      function buildCarousel() {
-        carouselContainer.innerHTML = '';
-        articlesData.forEach(article => {
-          const card = document.createElement('a');
-          card.href = article.url;
-          card.className = 'carousel-card';
-          const imgSlug = slugify(article.title);
-          const imgUrl = `assets/images/${imgSlug}.jpg`;
-          card.innerHTML = `
-            <img class="carousel-img" src="${imgUrl}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero'">
-            <div class="carousel-content">
-              <div class="carousel-category">${escapeHtml(article.category)}</div>
-              <div class="carousel-title">${escapeHtml(article.title)}</div>
-            </div>
-          `;
-          carouselContainer.appendChild(card);
-        });
-      }
-      buildCarousel();
-      let isDown = false, startX, scrollLeft;
-      carouselContainer.addEventListener('mousedown', (e) => { isDown = true; carouselContainer.style.cursor = 'grabbing'; startX = e.pageX - carouselContainer.offsetLeft; scrollLeft = carouselContainer.scrollLeft; });
-      carouselContainer.addEventListener('mouseleave', () => { isDown = false; carouselContainer.style.cursor = 'grab'; });
-      carouselContainer.addEventListener('mouseup', () => { isDown = false; carouselContainer.style.cursor = 'grab'; });
-      carouselContainer.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - carouselContainer.offsetLeft; const walk = (x - startX) * 1.5; carouselContainer.scrollLeft = scrollLeft - walk; });
-
-      // ========== COMPARTILHAMENTO ==========
-      const currentUrl = encodeURIComponent(window.location.href);
-      const shareText = encodeURIComponent("PautaZero · Análise Institucional & Tecnologia");
-      document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-      document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
-      document.getElementById('shareLinkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
-      document.getElementById('shareWhatsapp').href = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
-      document.getElementById('shareEmail').href = `mailto:?subject=${shareText}&body=${currentUrl}`;
-
-      // ========== LUPA (ARQUIVO) ==========
-      function generateAllPotentialArticles() {
-        const articles = [];
-        for (const [topicKey, subcategories] of Object.entries(subtopicsByTopic)) {
-          const categoryName = topicTitles[topicKey] || topicKey;
-          for (const [subcat, topics] of Object.entries(subcategories)) {
-            topics.forEach(topic => {
-              const url = getArticleUrl(topicKey, subcat, topic);
-              articles.push({ title: topic, category: categoryName + " · " + subcat, url: url });
-            });
-          }
-        }
-        return articles;
-      }
-      const allPotentialArticles = generateAllPotentialArticles();
-      let existingArticles = [];
-      let archiveLoaded = false;
-      async function refreshArchiveList() {
-        const container = document.getElementById("archiveList");
-        if (!container) return;
-        container.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-pulse"></i> Verificando artigos publicados...</div>';
-        const existing = [];
-        for (const article of allPotentialArticles) {
-          const exists = await checkIfPageExists(article.url);
-          if (exists) existing.push(article);
-        }
-        existingArticles = existing;
-        archiveLoaded = true;
-        renderArchiveList(document.getElementById('archiveSearchInput').value);
-      }
-      function renderArchiveList(searchTerm = "") {
-        const container = document.getElementById("archiveList");
-        if (!container) return;
-        if (!archiveLoaded) {
-          container.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-pulse"></i> Carregando...</div>';
-          return;
-        }
-        const term = searchTerm.toLowerCase().trim();
-        let filtered = existingArticles;
-        if (term !== "") {
-          filtered = existingArticles.filter(article => article.title.toLowerCase().includes(term) || article.category.toLowerCase().includes(term));
-        }
-        if (filtered.length === 0) {
-          container.innerHTML = '<div class="no-results"><i class="fas fa-book-open"></i> Nenhum artigo publicado encontrado.</div>';
-          return;
-        }
-        container.innerHTML = filtered.map(article => `
-          <a class="archive-item" href="${article.url}">
-            <div class="archive-item-title">${escapeHtml(article.title)}</div>
-            <div class="archive-item-meta"><span><i class="far fa-calendar-alt"></i> Publicado</span><span><i class="fas fa-folder"></i> ${escapeHtml(article.category)}</span></div>
-          </a>
-        `).join('');
-      }
-      function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
-      const archiveOverlay = document.getElementById('archiveOverlay');
-      async function openArchive() { archiveOverlay.classList.add('active'); if (!archiveLoaded) await refreshArchiveList(); renderArchiveList(document.getElementById('archiveSearchInput').value); }
-      function closeArchive() { archiveOverlay.classList.remove('active'); document.getElementById('archiveSearchInput').value = ''; renderArchiveList(''); }
-      document.getElementById('archiveBtn').addEventListener('click', openArchive);
-      document.getElementById('archiveCloseBtn').addEventListener('click', closeArchive);
-      archiveOverlay.addEventListener('click', (e) => { if (e.target === archiveOverlay) closeArchive(); });
-      document.getElementById('archiveSearchInput').addEventListener('input', (e) => renderArchiveList(e.target.value));
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeArchive(); });
-
-      // ========== POLÍTICA DE PRIVACIDADE ==========
-      document.querySelectorAll('.privacy-col-title').forEach(title => {
-        title.addEventListener('click', function() {
-          const content = this.parentElement.querySelector('.privacy-col-content');
-          if (content) content.style.display = content.style.display === 'none' || getComputedStyle(content).display === 'none' ? 'block' : 'none';
-        });
-      });
-      document.querySelectorAll('.privacy-col-content').forEach(cont => { cont.style.display = 'none'; });
-
-      // ========== SPOTLIGHT CARDS ==========
-      const spotlightCards = document.querySelectorAll('.spotlight-card');
-      spotlightCards.forEach(card => {
-        card.addEventListener('click', (e) => {
-          if (e.target.closest('.read-more')) return;
-          const link = card.getAttribute('data-article-link');
-          if (link) { e.preventDefault(); navigateToWithCheck(link); }
-        });
-      });
-
-      // ========== CARROSSEL DINÂMICO (mesmo original) ==========
-      async function initDynamicCarousel() {
-        const mainContainer = document.querySelector('main.container');
-        if (!mainContainer) return;
-        if (document.getElementById('dynamicCarouselSection')) return;
-        const dynamicSection = document.createElement('div');
-        dynamicSection.id = 'dynamicCarouselSection';
-        dynamicSection.className = 'dynamic-carousel-section';
-        dynamicSection.innerHTML = `
-          <div class="dynamic-header">
-            <h3><i class="fas fa-robot"></i> Artigos dinâmicos · verificação profunda</h3>
-            <span class="dynamic-sub"><i class="fas fa-sync-alt"></i> baseado em arquivos existentes</span>
-          </div>
-          <div class="carousel-fade">
-            <div class="carousel-scroll" id="dynamicCarouselScroll"></div>
-          </div>
-        `;
-        const originalCarouselSection = document.querySelector('.horizontal-carousel-section');
-        if (originalCarouselSection && originalCarouselSection.nextSibling) {
-          mainContainer.insertBefore(dynamicSection, originalCarouselSection.nextSibling);
-        } else {
-          mainContainer.appendChild(dynamicSection);
-        }
-        const dynamicScroll = document.getElementById('dynamicCarouselScroll');
-        if (!dynamicScroll) return;
-        dynamicScroll.innerHTML = '<div class="no-results" style="padding: 2rem;"><i class="fas fa-spinner fa-pulse"></i> Verificando artigos publicados...</div>';
-        const existingArticlesList = [];
-        for (const article of allPotentialArticles) {
-          const exists = await checkIfPageExists(article.url);
-          if (exists) existingArticlesList.push(article);
-        }
-        if (existingArticlesList.length === 0) {
-          dynamicScroll.innerHTML = '<div class="no-results"><i class="fas fa-newspaper"></i> Nenhum artigo publicado ainda. Volte em breve!</div>';
-          return;
-        }
-        const articlesToShow = existingArticlesList.slice(0, 12);
-        dynamicScroll.innerHTML = '';
-        articlesToShow.forEach(article => {
-          const card = document.createElement('a');
-          card.href = article.url;
-          card.className = 'carousel-card--compact';
-          const imgSlug = slugify(article.title);
-          const imgUrl = `assets/images/${imgSlug}.jpg`;
-          card.innerHTML = `
-            <img class="carousel-img" src="${imgUrl}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero'">
-            <div class="carousel-content">
-              <div class="carousel-category">${escapeHtml(article.category.split(' · ')[0])}</div>
-              <div class="carousel-title">${escapeHtml(article.title)}</div>
-            </div>
-          `;
-          dynamicScroll.appendChild(card);
-        });
-        let isDownDynamic = false, startXDynamic, scrollLeftDynamic;
-        dynamicScroll.addEventListener('mousedown', (e) => { isDownDynamic = true; dynamicScroll.style.cursor = 'grabbing'; startXDynamic = e.pageX - dynamicScroll.offsetLeft; scrollLeftDynamic = dynamicScroll.scrollLeft; });
-        dynamicScroll.addEventListener('mouseleave', () => { isDownDynamic = false; dynamicScroll.style.cursor = 'grab'; });
-        dynamicScroll.addEventListener('mouseup', () => { isDownDynamic = false; dynamicScroll.style.cursor = 'grab'; });
-        dynamicScroll.addEventListener('mousemove', (e) => { if (!isDownDynamic) return; e.preventDefault(); const x = e.pageX - dynamicScroll.offsetLeft; const walk = (x - startXDynamic) * 1.5; dynamicScroll.scrollLeft = scrollLeftDynamic - walk; });
-      }
-
-      // ========== CARROSSEL DE PALAVRAS ==========
-      function initWordCarousel() {
-        const track = document.getElementById('wordTrack');
-        if (!track) return;
-        const items = [
-          { icon: "fas fa-gavel", name: "Direito e Justiça", topicKey: "justica-tecnologia" },
-          { icon: "fas fa-chart-line", name: "Economia", topicKey: "economia-super-ricos" },
-          { icon: "fas fa-stethoscope", name: "Medicina", topicKey: "saude-fisica" },
-          { icon: "fas fa-robot", name: "Futurismo", topicKey: "futurismo" },
-          { icon: "fas fa-brain", name: "Psicologia", topicKey: "psicopatia" },
-          { icon: "fas fa-truck", name: "Logística", topicKey: "agro-logistica" },
-          { icon: "fas fa-globe", name: "Geopolítica", topicKey: "politica" },
-          { icon: "fas fa-church", name: "Religião", topicKey: "religiao" },
-          { icon: "fas fa-futbol", name: "Esportes", topicKey: "esportes" },
-          { icon: "fas fa-apple-alt", name: "Nutrição", topicKey: "nutricao" }
-        ];
-        let html = '';
-        for (let i = 0; i < 3; i++) {
-          items.forEach(item => {
-            html += `<a href="#" class="word-carousel-item" data-topic="${item.topicKey}"><i class="${item.icon}"></i> ${item.name}</a>`;
-          });
-        }
-        track.innerHTML = html;
-        document.querySelectorAll('.word-carousel-item').forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const topic = link.getAttribute('data-topic');
-            if (topic && subtopicsByTopic[topic]) openModal(topic);
-          });
-        });
-      }
-
-      // ========== BUSCA INTELIGENTE CMS ==========
-      let searchDebounceTimer;
-      const searchInput = document.getElementById('archiveSearchInput');
-      let searchCarouselContainer = null;
-      function ensureSearchCarouselContainer() {
-        if (searchCarouselContainer && document.body.contains(searchCarouselContainer)) return searchCarouselContainer;
-        const archivePanel = document.querySelector('.archive-panel');
-        if (!archivePanel) return null;
-        const searchDiv = archivePanel.querySelector('.archive-search');
-        if (!searchDiv) return null;
-        let existing = document.getElementById('smartSearchCarousel');
-        if (existing) {
-          searchCarouselContainer = existing;
-          return existing;
-        }
-        const container = document.createElement('div');
-        container.id = 'smartSearchCarousel';
-        container.className = 'search-carousel-container';
-        container.style.display = 'none';
-        container.innerHTML = `
-          <div class="search-carousel-title">
-            <i class="fas fa-magic"></i> Resultados da busca inteligente
-            <span style="font-size:0.6rem; margin-left:auto;">← arraste →</span>
-          </div>
-          <div class="search-carousel-scroll" id="smartSearchScroll"></div>
-        `;
-        searchDiv.insertAdjacentElement('afterend', container);
-        searchCarouselContainer = container;
-        return container;
-      }
-      function renderSearchCarousel(term) {
-        const container = ensureSearchCarouselContainer();
-        if (!container) return;
-        const scrollDiv = document.getElementById('smartSearchScroll');
-        if (!scrollDiv) return;
-        const archiveListDiv = document.getElementById('archiveList');
-        if (!archiveListDiv) return;
-        const cleanTerm = term.trim().toLowerCase();
-        if (cleanTerm === '') {
-          container.style.display = 'none';
-          archiveListDiv.style.display = '';
-          return;
-        }
-        if (!archiveLoaded || existingArticles.length === 0) {
-          scrollDiv.innerHTML = '<div class="no-results" style="padding:1rem;"><i class="fas fa-spinner fa-pulse"></i> Indexando artigos...</div>';
-          container.style.display = 'block';
-          archiveListDiv.style.display = 'none';
-          return;
-        }
-        const filtered = existingArticles.filter(article => {
-          const titleMatch = article.title.toLowerCase().includes(cleanTerm);
-          const categoryMatch = article.category.toLowerCase().includes(cleanTerm);
-          const slug = slugify(article.title);
-          const slugMatch = slug.includes(cleanTerm);
-          const tema = article.category.split(' · ')[0]?.toLowerCase() || '';
-          const subtema = article.category.split(' · ')[1]?.toLowerCase() || '';
-          const temaMatch = tema.includes(cleanTerm);
-          const subtemaMatch = subtema.includes(cleanTerm);
-          return titleMatch || categoryMatch || slugMatch || temaMatch || subtemaMatch;
-        });
-        if (filtered.length === 0) {
-          scrollDiv.innerHTML = '<div class="no-results" style="padding:1rem;"><i class="fas fa-search"></i> Nenhum artigo encontrado para "' + escapeHtml(cleanTerm) + '"</div>';
-          container.style.display = 'block';
-          archiveListDiv.style.display = 'none';
-          return;
-        }
-        scrollDiv.innerHTML = '';
-        filtered.slice(0, 20).forEach(article => {
-          const card = document.createElement('a');
-          card.href = article.url;
-          card.className = 'search-card';
-          const imgSlug = slugify(article.title);
-          const imgUrl = `assets/images/${imgSlug}.jpg`;
-          card.innerHTML = `
-            <img class="search-card-img" src="${imgUrl}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero'">
-            <div class="search-card-content">
-              <div class="search-card-category">${escapeHtml(article.category.split(' · ')[0])}</div>
-              <div class="search-card-title">${escapeHtml(article.title)}</div>
-            </div>
-          `;
-          scrollDiv.appendChild(card);
-        });
-        container.style.display = 'block';
-        archiveListDiv.style.display = 'none';
-        let isDownSmart = false, startXSmart, scrollLeftSmart;
-        const cleanDrag = () => { isDownSmart = false; scrollDiv.style.cursor = 'grab'; };
-        scrollDiv.addEventListener('mousedown', (e) => { isDownSmart = true; scrollDiv.style.cursor = 'grabbing'; startXSmart = e.pageX - scrollDiv.offsetLeft; scrollLeftSmart = scrollDiv.scrollLeft; });
-        scrollDiv.addEventListener('mouseleave', cleanDrag);
-        scrollDiv.addEventListener('mouseup', cleanDrag);
-        scrollDiv.addEventListener('mousemove', (e) => { if (!isDownSmart) return; e.preventDefault(); const x = e.pageX - scrollDiv.offsetLeft; const walk = (x - startXSmart) * 1.5; scrollDiv.scrollLeft = scrollLeftSmart - walk; });
-      }
-      function setupSmartSearch() {
-        if (!searchInput) return;
-        searchInput.addEventListener('input', (e) => {
-          if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
-          searchDebounceTimer = setTimeout(() => {
-            renderSearchCarousel(e.target.value);
-          }, 300);
-        });
-        const observer = new MutationObserver(() => {
-          if (archiveOverlay.classList.contains('active') && archiveLoaded && existingArticles.length > 0 && searchInput.value.trim() !== '') {
-            renderSearchCarousel(searchInput.value);
-          } else if (!archiveOverlay.classList.contains('active')) {
-            const container = ensureSearchCarouselContainer();
-            if (container) container.style.display = 'none';
-            const archiveListDiv = document.getElementById('archiveList');
-            if (archiveListDiv) archiveListDiv.style.display = '';
-          }
-        });
-        observer.observe(archiveOverlay, { attributes: true, attributeFilter: ['class'] });
-      }
-
-      // ========== INICIALIZAÇÕES ==========
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => { initDynamicCarousel(); initWordCarousel(); setupSmartSearch(); });
-      } else {
-        initDynamicCarousel();
-        initWordCarousel();
-        setupSmartSearch();
-      }
-      loadCacheFromStorage();
-    })();
-  </script>
+  <!-- SCRIPTS -->
+  <script src="/js/articles.js"></script>
+  <script src="/js/motor.js"></script>
 </body>
 </html>
