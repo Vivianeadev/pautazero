@@ -554,7 +554,7 @@
 
   <script>
     (function() {
-      // ==================== DADOS DOS EIXOS (ESTÁTICOS - NÃO MEXER) ====================
+      // ==================== DADOS DOS 24 EIXOS (incluindo NUTRIÇÃO) ====================
       const subtopicsByTopic = {
         politica: {
           "Poder e Corrupção Estrutural": ["Caixa dois e financiamento ilegal de campanhas", "Lobby empresarial e captura do estado", "Propina sistêmica em contratos públicos", "Impunidade de altas patentes"],
@@ -708,6 +708,7 @@
           "Política e Corrupção no Esporte": ["Máfia do apito e arbitragem: quando a justiça falha", "Desvio de verbas em confederações e federações", "Patrocínios milionários e suspeitas de lavagem de dinheiro", "Manipulação de resultados e apostas: o lado obscuro do esporte"],
           "Psicologia do Esporte e Performance": ["Pressão psicológica em atletas de alto rendimento", "Burnout e depressão no mundo esportivo", "Preparação mental para grandes competições", "Superação de lesões e traumas: histórias de resiliência"]
         },
+        // ====== NOVO EIXO: NUTRIÇÃO & PESQUISA ALIMENTAR ======
         nutricao: {
           "Bases Científicas da Nutrição": [
             "Macronutrientes: proteínas, carboidratos e gorduras na prática clínica",
@@ -754,6 +755,7 @@
         }
       };
 
+      // Mapeamento de chave do eixo -> nome da pasta (URL)
       const topicFolderMap = {
         politica: "politica-e-geopolitica",
         "seguranca-total": "seguranca-total",
@@ -884,7 +886,7 @@
         return `/artigo/${folder}/${subcatSlug}/${topicSlug}.html`;
       }
 
-      // ========== TÚNEL DE VERIFICAÇÃO (para links) ==========
+      // ========== TÚNEL DE VERIFICAÇÃO (mesmo código original) ==========
       const pageCache = new Map();
       function loadCacheFromStorage() {
         try {
@@ -954,7 +956,7 @@
         }
       });
 
-      // ========== RENDERIZAÇÃO DOS CARDS TEMÁTICOS ==========
+      // ========== RENDERIZAÇÃO DOS CARDS TEMÁTICOS (inclui nutrição) ==========
       const grid = document.getElementById('thematicGrid');
       for (const [key, title] of Object.entries(topicTitles)) {
         const card = document.createElement('div');
@@ -964,7 +966,7 @@
         grid.appendChild(card);
       }
 
-      // ========== MODAL ==========
+      // ========== MODAL (compartilhado) ==========
       const modal = document.getElementById('topicModal');
       const modalTitle = document.getElementById('modalTitle');
       const modalTopicsList = document.getElementById('modalTopicsList');
@@ -1003,35 +1005,18 @@
       modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
 
-      // ========== DADOS DE ARTIGOS (CARREGADOS DO JSON) ==========
-      let articlesData = [];
-
-      async function loadArticles() {
-        try {
-          // ⚠️ SUBSTITUA PELA URL RAW DO SEU articles.json NO GITHUB
-          const response = await fetch('data/articles.json');
-          articlesData = await response.json();
-        } catch (e) {
-          console.warn('articles.json não encontrado. Nenhum artigo será exibido.');
-          articlesData = [];
-        }
-        buildCarousel();
-        initDynamicCarousel();
-        if (archiveOverlay.classList.contains('active')) {
-          renderArchiveList(archiveSearchInput.value);
-        }
-      }
-
-      // ========== CARROSSEL ORIGINAL ==========
+      // ========== CARROSSEL ORIGINAL (mantido) ==========
+      const articlesData = [
+        { title: "Alienação Parental: entre a proteção e a falsa acusação", category: "Família & Alienação", url: getArticleUrl("familia-alienacao", "Dinâmicas de Divórcio Litigioso", "Uso de perícias psicológicas como arma") },
+        { title: "Subdiagnóstico e negligência em pronto-socorros", category: "Saúde Física", url: getArticleUrl("saude-fisica", "Erros Médicos e Imperícia", "Subdiagnóstico e negligência em pronto-socorros") },
+        { title: "A psicopatia do poder", category: "Psicopatia", url: getArticleUrl("psicopatia", "Psicopatas no Poder", "Autocratas e a ausência de freios emocionais") },
+        { title: "Justiça às cegas", category: "Sistema Prisional", url: getArticleUrl("prisional-policial", "Violência Estrutural no Cárcere", "Superlotação como tortura indireta") },
+        { title: "Greve dos caminhoneiros e impacto econômico", category: "Agronegócio", url: getArticleUrl("agro-logistica", "Política de Fretes e Greves de Caminhoneiros", "Tabela de frete mínimo e judicialização") }
+      ];
       const carouselContainer = document.getElementById('carouselScroll');
       function buildCarousel() {
         carouselContainer.innerHTML = '';
-        const articlesToShow = articlesData.slice(0, 5);
-        if (articlesToShow.length === 0) {
-          carouselContainer.innerHTML = '<div class="no-results">Nenhum artigo publicado ainda.</div>';
-          return;
-        }
-        articlesToShow.forEach(article => {
+        articlesData.forEach(article => {
           const card = document.createElement('a');
           card.href = article.url;
           card.className = 'carousel-card';
@@ -1046,12 +1031,13 @@
           `;
           carouselContainer.appendChild(card);
         });
-        let isDown = false, startX, scrollLeft;
-        carouselContainer.addEventListener('mousedown', (e) => { isDown = true; carouselContainer.style.cursor = 'grabbing'; startX = e.pageX - carouselContainer.offsetLeft; scrollLeft = carouselContainer.scrollLeft; });
-        carouselContainer.addEventListener('mouseleave', () => { isDown = false; carouselContainer.style.cursor = 'grab'; });
-        carouselContainer.addEventListener('mouseup', () => { isDown = false; carouselContainer.style.cursor = 'grab'; });
-        carouselContainer.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - carouselContainer.offsetLeft; const walk = (x - startX) * 1.5; carouselContainer.scrollLeft = scrollLeft - walk; });
       }
+      buildCarousel();
+      let isDown = false, startX, scrollLeft;
+      carouselContainer.addEventListener('mousedown', (e) => { isDown = true; carouselContainer.style.cursor = 'grabbing'; startX = e.pageX - carouselContainer.offsetLeft; scrollLeft = carouselContainer.scrollLeft; });
+      carouselContainer.addEventListener('mouseleave', () => { isDown = false; carouselContainer.style.cursor = 'grab'; });
+      carouselContainer.addEventListener('mouseup', () => { isDown = false; carouselContainer.style.cursor = 'grab'; });
+      carouselContainer.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - carouselContainer.offsetLeft; const walk = (x - startX) * 1.5; carouselContainer.scrollLeft = scrollLeft - walk; });
 
       // ========== COMPARTILHAMENTO ==========
       const currentUrl = encodeURIComponent(window.location.href);
@@ -1063,47 +1049,67 @@
       document.getElementById('shareEmail').href = `mailto:?subject=${shareText}&body=${currentUrl}`;
 
       // ========== LUPA (ARQUIVO) ==========
-      function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
-      const archiveOverlay = document.getElementById('archiveOverlay');
-      const archiveList = document.getElementById('archiveList');
-      const archiveSearchInput = document.getElementById('archiveSearchInput');
-
-      function renderArchiveList(searchTerm = "") {
-        if (!archiveList) return;
-        const term = searchTerm.toLowerCase().trim();
-        let filtered = articlesData;
-        if (term !== "") {
-          filtered = articlesData.filter(article =>
-            article.title.toLowerCase().includes(term) ||
-            article.category.toLowerCase().includes(term)
-          );
+      function generateAllPotentialArticles() {
+        const articles = [];
+        for (const [topicKey, subcategories] of Object.entries(subtopicsByTopic)) {
+          const categoryName = topicTitles[topicKey] || topicKey;
+          for (const [subcat, topics] of Object.entries(subcategories)) {
+            topics.forEach(topic => {
+              const url = getArticleUrl(topicKey, subcat, topic);
+              articles.push({ title: topic, category: categoryName + " · " + subcat, url: url });
+            });
+          }
         }
-        if (filtered.length === 0) {
-          archiveList.innerHTML = '<div class="no-results"><i class="fas fa-book-open"></i> Nenhum artigo encontrado.</div>';
+        return articles;
+      }
+      const allPotentialArticles = generateAllPotentialArticles();
+      let existingArticles = [];
+      let archiveLoaded = false;
+      async function refreshArchiveList() {
+        const container = document.getElementById("archiveList");
+        if (!container) return;
+        container.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-pulse"></i> Verificando artigos publicados...</div>';
+        const existing = [];
+        for (const article of allPotentialArticles) {
+          const exists = await checkIfPageExists(article.url);
+          if (exists) existing.push(article);
+        }
+        existingArticles = existing;
+        archiveLoaded = true;
+        renderArchiveList(document.getElementById('archiveSearchInput').value);
+      }
+      function renderArchiveList(searchTerm = "") {
+        const container = document.getElementById("archiveList");
+        if (!container) return;
+        if (!archiveLoaded) {
+          container.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-pulse"></i> Carregando...</div>';
           return;
         }
-        archiveList.innerHTML = filtered.map(article => `
+        const term = searchTerm.toLowerCase().trim();
+        let filtered = existingArticles;
+        if (term !== "") {
+          filtered = existingArticles.filter(article => article.title.toLowerCase().includes(term) || article.category.toLowerCase().includes(term));
+        }
+        if (filtered.length === 0) {
+          container.innerHTML = '<div class="no-results"><i class="fas fa-book-open"></i> Nenhum artigo publicado encontrado.</div>';
+          return;
+        }
+        container.innerHTML = filtered.map(article => `
           <a class="archive-item" href="${article.url}">
             <div class="archive-item-title">${escapeHtml(article.title)}</div>
             <div class="archive-item-meta"><span><i class="far fa-calendar-alt"></i> Publicado</span><span><i class="fas fa-folder"></i> ${escapeHtml(article.category)}</span></div>
           </a>
         `).join('');
       }
-
-      async function openArchive() {
-        archiveOverlay.classList.add('active');
-        renderArchiveList(archiveSearchInput.value);
-      }
-      function closeArchive() {
-        archiveOverlay.classList.remove('active');
-        archiveSearchInput.value = '';
-        renderArchiveList('');
-      }
+      function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
+      const archiveOverlay = document.getElementById('archiveOverlay');
+      async function openArchive() { archiveOverlay.classList.add('active'); if (!archiveLoaded) await refreshArchiveList(); renderArchiveList(document.getElementById('archiveSearchInput').value); }
+      function closeArchive() { archiveOverlay.classList.remove('active'); document.getElementById('archiveSearchInput').value = ''; renderArchiveList(''); }
       document.getElementById('archiveBtn').addEventListener('click', openArchive);
       document.getElementById('archiveCloseBtn').addEventListener('click', closeArchive);
       archiveOverlay.addEventListener('click', (e) => { if (e.target === archiveOverlay) closeArchive(); });
-      archiveSearchInput.addEventListener('input', (e) => renderArchiveList(e.target.value));
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && archiveOverlay.classList.contains('active')) closeArchive(); });
+      document.getElementById('archiveSearchInput').addEventListener('input', (e) => renderArchiveList(e.target.value));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeArchive(); });
 
       // ========== POLÍTICA DE PRIVACIDADE ==========
       document.querySelectorAll('.privacy-col-title').forEach(title => {
@@ -1124,19 +1130,18 @@
         });
       });
 
-      // ========== CARROSSEL DINÂMICO (ARTIGOS PUBLICADOS) ==========
-      function initDynamicCarousel() {
+      // ========== CARROSSEL DINÂMICO (mesmo original) ==========
+      async function initDynamicCarousel() {
         const mainContainer = document.querySelector('main.container');
         if (!mainContainer) return;
-        let dynamicSection = document.getElementById('dynamicCarouselSection');
-        if (dynamicSection) dynamicSection.remove();
-        dynamicSection = document.createElement('div');
+        if (document.getElementById('dynamicCarouselSection')) return;
+        const dynamicSection = document.createElement('div');
         dynamicSection.id = 'dynamicCarouselSection';
         dynamicSection.className = 'dynamic-carousel-section';
         dynamicSection.innerHTML = `
           <div class="dynamic-header">
-            <h3><i class="fas fa-robot"></i> Artigos publicados</h3>
-            <span class="dynamic-sub"><i class="fas fa-sync-alt"></i> atualizado via JSON</span>
+            <h3><i class="fas fa-robot"></i> Artigos dinâmicos · verificação profunda</h3>
+            <span class="dynamic-sub"><i class="fas fa-sync-alt"></i> baseado em arquivos existentes</span>
           </div>
           <div class="carousel-fade">
             <div class="carousel-scroll" id="dynamicCarouselScroll"></div>
@@ -1148,14 +1153,19 @@
         } else {
           mainContainer.appendChild(dynamicSection);
         }
-
         const dynamicScroll = document.getElementById('dynamicCarouselScroll');
-        if (articlesData.length === 0) {
-          dynamicScroll.innerHTML = '<div class="no-results"><i class="fas fa-newspaper"></i> Nenhum artigo publicado ainda.</div>';
+        if (!dynamicScroll) return;
+        dynamicScroll.innerHTML = '<div class="no-results" style="padding: 2rem;"><i class="fas fa-spinner fa-pulse"></i> Verificando artigos publicados...</div>';
+        const existingArticlesList = [];
+        for (const article of allPotentialArticles) {
+          const exists = await checkIfPageExists(article.url);
+          if (exists) existingArticlesList.push(article);
+        }
+        if (existingArticlesList.length === 0) {
+          dynamicScroll.innerHTML = '<div class="no-results"><i class="fas fa-newspaper"></i> Nenhum artigo publicado ainda. Volte em breve!</div>';
           return;
         }
-
-        const articlesToShow = articlesData.slice(0, 12);
+        const articlesToShow = existingArticlesList.slice(0, 12);
         dynamicScroll.innerHTML = '';
         articlesToShow.forEach(article => {
           const card = document.createElement('a');
@@ -1172,7 +1182,6 @@
           `;
           dynamicScroll.appendChild(card);
         });
-
         let isDownDynamic = false, startXDynamic, scrollLeftDynamic;
         dynamicScroll.addEventListener('mousedown', (e) => { isDownDynamic = true; dynamicScroll.style.cursor = 'grabbing'; startXDynamic = e.pageX - dynamicScroll.offsetLeft; scrollLeftDynamic = dynamicScroll.scrollLeft; });
         dynamicScroll.addEventListener('mouseleave', () => { isDownDynamic = false; dynamicScroll.style.cursor = 'grab'; });
@@ -1214,6 +1223,7 @@
 
       // ========== BUSCA INTELIGENTE CMS ==========
       let searchDebounceTimer;
+      const searchInput = document.getElementById('archiveSearchInput');
       let searchCarouselContainer = null;
       function ensureSearchCarouselContainer() {
         if (searchCarouselContainer && document.body.contains(searchCarouselContainer)) return searchCarouselContainer;
@@ -1245,26 +1255,31 @@
         const container = ensureSearchCarouselContainer();
         if (!container) return;
         const scrollDiv = document.getElementById('smartSearchScroll');
+        if (!scrollDiv) return;
         const archiveListDiv = document.getElementById('archiveList');
-        if (!scrollDiv || !archiveListDiv) return;
+        if (!archiveListDiv) return;
         const cleanTerm = term.trim().toLowerCase();
         if (cleanTerm === '') {
           container.style.display = 'none';
           archiveListDiv.style.display = '';
           return;
         }
-        if (articlesData.length === 0) {
-          scrollDiv.innerHTML = '<div class="no-results" style="padding:1rem;"><i class="fas fa-spinner fa-pulse"></i> Nenhum artigo cadastrado.</div>';
+        if (!archiveLoaded || existingArticles.length === 0) {
+          scrollDiv.innerHTML = '<div class="no-results" style="padding:1rem;"><i class="fas fa-spinner fa-pulse"></i> Indexando artigos...</div>';
           container.style.display = 'block';
           archiveListDiv.style.display = 'none';
           return;
         }
-        const filtered = articlesData.filter(article => {
+        const filtered = existingArticles.filter(article => {
           const titleMatch = article.title.toLowerCase().includes(cleanTerm);
           const categoryMatch = article.category.toLowerCase().includes(cleanTerm);
           const slug = slugify(article.title);
           const slugMatch = slug.includes(cleanTerm);
-          return titleMatch || categoryMatch || slugMatch;
+          const tema = article.category.split(' · ')[0]?.toLowerCase() || '';
+          const subtema = article.category.split(' · ')[1]?.toLowerCase() || '';
+          const temaMatch = tema.includes(cleanTerm);
+          const subtemaMatch = subtema.includes(cleanTerm);
+          return titleMatch || categoryMatch || slugMatch || temaMatch || subtemaMatch;
         });
         if (filtered.length === 0) {
           scrollDiv.innerHTML = '<div class="no-results" style="padding:1rem;"><i class="fas fa-search"></i> Nenhum artigo encontrado para "' + escapeHtml(cleanTerm) + '"</div>';
@@ -1298,20 +1313,21 @@
         scrollDiv.addEventListener('mousemove', (e) => { if (!isDownSmart) return; e.preventDefault(); const x = e.pageX - scrollDiv.offsetLeft; const walk = (x - startXSmart) * 1.5; scrollDiv.scrollLeft = scrollLeftSmart - walk; });
       }
       function setupSmartSearch() {
-        if (!archiveSearchInput) return;
-        archiveSearchInput.addEventListener('input', (e) => {
+        if (!searchInput) return;
+        searchInput.addEventListener('input', (e) => {
           if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
           searchDebounceTimer = setTimeout(() => {
             renderSearchCarousel(e.target.value);
           }, 300);
         });
         const observer = new MutationObserver(() => {
-          if (archiveOverlay.classList.contains('active') && articlesData.length > 0 && archiveSearchInput.value.trim() !== '') {
-            renderSearchCarousel(archiveSearchInput.value);
+          if (archiveOverlay.classList.contains('active') && archiveLoaded && existingArticles.length > 0 && searchInput.value.trim() !== '') {
+            renderSearchCarousel(searchInput.value);
           } else if (!archiveOverlay.classList.contains('active')) {
             const container = ensureSearchCarouselContainer();
             if (container) container.style.display = 'none';
-            if (archiveList) archiveList.style.display = '';
+            const archiveListDiv = document.getElementById('archiveList');
+            if (archiveListDiv) archiveListDiv.style.display = '';
           }
         });
         observer.observe(archiveOverlay, { attributes: true, attributeFilter: ['class'] });
@@ -1319,20 +1335,13 @@
 
       // ========== INICIALIZAÇÕES ==========
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', async () => {
-          initWordCarousel();
-          setupSmartSearch();
-          await loadArticles();
-          loadCacheFromStorage();
-        });
+        document.addEventListener('DOMContentLoaded', () => { initDynamicCarousel(); initWordCarousel(); setupSmartSearch(); });
       } else {
-        (async () => {
-          initWordCarousel();
-          setupSmartSearch();
-          await loadArticles();
-          loadCacheFromStorage();
-        })();
+        initDynamicCarousel();
+        initWordCarousel();
+        setupSmartSearch();
       }
+      loadCacheFromStorage();
     })();
   </script>
 </body>
