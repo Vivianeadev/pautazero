@@ -29,7 +29,8 @@ const articles = [
     data: "2026-04-08",
     destaque: true,
     imagem: "/assets/images/silencio.jpg"
-  },
-  // Adicione TODOS os seus artigos reais aqui
-  // Quanto mais artigos, mais rica a página fica
+  }
 ];
+
+// Se você tem mais artigos, adicione aqui.
+// Quanto mais artigos, mais rica a página fica.
