@@ -3,56 +3,93 @@ document.addEventListener("DOMContentLoaded", () => {
   // 🔥 ORDENAR POR DATA
   articles.sort((a, b) => new Date(b.data) - new Date(a.data));
 
-  // 🎞️ CARROSSEL
-  const carousel = document.getElementById("carouselScroll");
+  // =========================================
+  // 🌟 SPOTLIGHT (featured-spotlight)
+  // =========================================
+
+  const spotlightGrid = document.querySelector(".spotlight-grid");
+
+  if (spotlightGrid) {
+    const destaques = articles.filter(a => a.destaque).slice(0, 3);
+
+    spotlightGrid.innerHTML = destaques.map((a, i) => `
+      <div class="spotlight-card ${i === 1 ? 'larger' : ''}">
+        <div class="card-image">
+          <img src="${a.imagem}" class="img-placeholder">
+        </div>
+        <div class="card-content">
+          <div class="card-badge">${a.tema}</div>
+          <h4>${a.titulo}</h4>
+          <p class="card-excerpt">${a.subtema}</p>
+          <a href="${a.url}" class="read-more">Ler mais</a>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  // =========================================
+  // 🎞️ CARROSSEL PRINCIPAL
+  // =========================================
+
+  const carousel = document.querySelector(".carousel-scroll");
 
   if (carousel) {
-    articles.slice(0, 10).forEach(a => {
-      carousel.innerHTML += `
-        <div class="card">
-          <a href="${a.url}">
-            <img src="${a.imagem}">
-            <h3>${a.titulo}</h3>
-          </a>
+    carousel.innerHTML = articles.slice(0, 10).map(a => `
+      <a href="${a.url}" class="carousel-card">
+        <img src="${a.imagem}" class="carousel-img">
+        <div class="carousel-content">
+          <div class="carousel-category">${a.tema}</div>
+          <div class="carousel-title">${a.titulo}</div>
         </div>
-      `;
-    });
+      </a>
+    `).join("");
   }
 
-  // 🌟 DESTAQUE
-  const spotlight = document.getElementById("spotlight");
+  // =========================================
+  // 🧠 CARROSSEL DINÂMICO (compact)
+  // =========================================
 
-  if (spotlight) {
-    const destaque = articles.find(a => a.destaque);
+  const dynamicCarousel = document.querySelector(".dynamic-carousel-scroll");
 
-    if (destaque) {
-      spotlight.innerHTML = `
-        <a href="${destaque.url}">
-          <img src="${destaque.imagem}">
-          <h2>${destaque.titulo}</h2>
-        </a>
-      `;
-    }
+  if (dynamicCarousel) {
+    dynamicCarousel.innerHTML = articles.slice(5, 15).map(a => `
+      <a href="${a.url}" class="carousel-card--compact">
+        <img src="${a.imagem}" class="carousel-img">
+        <div class="carousel-content">
+          <div class="carousel-category">${a.tema}</div>
+          <div class="carousel-title">${a.titulo}</div>
+        </div>
+      </a>
+    `).join("");
   }
 
-  // 🧩 TEMAS
-  const thematicGrid = document.getElementById("thematicGrid");
+  // =========================================
+  // 🧩 TEMAS (theme-card)
+  // =========================================
+
+  const thematicGrid = document.querySelector(".thematic-grid");
 
   if (thematicGrid) {
     const temas = [...new Set(articles.map(a => a.tema))];
 
-    temas.forEach(tema => {
-      thematicGrid.innerHTML += `
-        <div class="tema">${tema}</div>
-      `;
-    });
+    thematicGrid.innerHTML = temas.map(tema => `
+      <div class="theme-card">
+        <div class="theme-icon">✦</div>
+        <h3>${tema}</h3>
+        <p>Explorar conteúdos sobre ${tema}</p>
+        <div class="theme-badge">Ver artigos</div>
+      </div>
+    `).join("");
   }
 
-  // 🔍 BUSCA
-  const searchInput = document.getElementById("search");
-  const resultsBox = document.getElementById("results");
+  // =========================================
+  // 🔍 BUSCA PREMIUM (search + carousel)
+  // =========================================
 
-  if (searchInput && resultsBox) {
+  const searchInput = document.querySelector("#search");
+  const searchResults = document.querySelector("#results");
+
+  if (searchInput && searchResults) {
     searchInput.addEventListener("input", () => {
 
       const q = searchInput.value.toLowerCase();
@@ -63,12 +100,27 @@ document.addEventListener("DOMContentLoaded", () => {
         a.tags.some(tag => tag.toLowerCase().includes(q))
       );
 
-      resultsBox.innerHTML = results.map(a => `
-        <div class="result">
-          <a href="${a.url}">${a.titulo}</a>
-        </div>
-      `).join("");
+      if (q.length === 0) {
+        searchResults.innerHTML = "";
+        return;
+      }
 
+      searchResults.innerHTML = `
+        <div class="search-carousel-container">
+          <div class="search-carousel-title">Resultados</div>
+          <div class="search-carousel-scroll">
+            ${results.map(a => `
+              <a href="${a.url}" class="search-card">
+                <img src="${a.imagem}" class="search-card-img">
+                <div class="search-card-content">
+                  <div class="search-card-category">${a.tema}</div>
+                  <div class="search-card-title">${a.titulo}</div>
+                </div>
+              </a>
+            `).join("")}
+          </div>
+        </div>
+      `;
     });
   }
 
