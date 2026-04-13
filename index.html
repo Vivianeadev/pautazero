@@ -167,54 +167,6 @@
     .modal-footer-note { margin-top: 1.8rem; padding-top: 1rem; font-size: 0.7rem; color: var(--gold-dark); text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2); }
     @media (max-width: 550px) { .topics-list li { width: 100%; } }
 
-    /* ========== SEÇÃO DE ARTIGOS POLÊMICOS ========== */
-    .featured-spotlight {
-      margin-bottom: 3rem;
-      border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
-      padding-bottom: 1.8rem;
-    }
-    .spotlight-title {
-      font-family: var(--font-serif);
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .spotlight-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr 1fr;
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-    .spotlight-card {
-      background: var(--color-bg-card);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s;
-      cursor: pointer;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .spotlight-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-luxury); border-color: var(--gold-primary); }
-    .card-image { width: 100%; background: linear-gradient(145deg, #e9e2d4, #d6cdbb); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; min-height: 160px; }
-    .card-image .img-placeholder { width: 100%; height: 100%; object-fit: cover; display: block; font-size: 2rem; color: var(--gold-dark); background: rgba(212, 175, 55, 0.1); text-align: center; line-height: 1.2; padding: 1rem; }
-    .spotlight-card.larger .card-image { min-height: 200px; }
-    .card-content { padding: 1.2rem 1rem 1.2rem; flex: 1; }
-    .card-badge { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-dark); border-left: 2px solid var(--gold-primary); padding-left: 8px; margin-bottom: 0.6rem; }
-    .spotlight-card h4 { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem; line-height: 1.3; }
-    .spotlight-card.larger h4 { font-size: 1.2rem; }
-    .card-excerpt { font-size: 0.75rem; color: var(--color-text-light); margin-bottom: 0.8rem; line-height: 1.4; }
-    .read-more { font-size: 0.7rem; font-weight: 500; color: var(--gold-dark); text-decoration: none; border-bottom: 1px dotted var(--gold-primary); transition: 0.2s; display: inline-block; }
-    .read-more:hover { color: var(--gold-primary); border-bottom-style: solid; }
-    @media (max-width: 850px) {
-      .spotlight-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-      .spotlight-card.larger .card-image { min-height: 180px; }
-    }
-
     /* ========== CARROSSEL HORIZONTAL ========== */
     .horizontal-carousel-section { margin-bottom: 3rem; }
     .carousel-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 1.5rem; }
@@ -259,11 +211,7 @@
     .privacy-header-note { text-align: center; font-family: var(--font-serif); font-size: 0.7rem; letter-spacing: 1px; color: var(--gold-dark); margin-bottom: 0.5rem; }
     @media (max-width: 750px) { .privacy-cols { grid-template-columns: 1fr; gap: 0.8rem; } .privacy-collapsible { padding: 0 16px; } }
 
-    /* ====== CARROSSEL DE PALAVRAS (PRESERVADO) ====== */
-    .horizontal-carousel-section .carousel-header h3 {
-      font-size: 0.85rem !important;
-      letter-spacing: 0px;
-    }
+    /* ====== CARROSSEL DE PALAVRAS (INTOCÁVEL) ====== */
     .word-carousel {
       margin: 1rem 0 2rem;
       background: rgba(212, 175, 55, 0.05);
@@ -307,6 +255,118 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+
+    /* ====== NOVO CARROSSEL DE IMAGENS ACHATADO DE LUXO ====== */
+    .luxury-flat-carousel {
+      margin: 2.5rem 0 3rem;
+      position: relative;
+    }
+    .flat-carousel-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+    }
+    .flat-carousel-header i {
+      color: var(--gold-dark);
+      font-size: 0.9rem;
+    }
+    .flat-carousel-header span {
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+    .flat-carousel-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.4), transparent);
+    }
+    .flat-carousel-container {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      gap: 1.2rem;
+      padding: 0.5rem 0 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold-dark) rgba(212,175,55,0.1);
+      cursor: grab;
+    }
+    .flat-carousel-container:active { cursor: grabbing; }
+    .flat-carousel-container::-webkit-scrollbar { height: 3px; }
+    .flat-carousel-container::-webkit-scrollbar-track { background: rgba(212,175,55,0.05); }
+    .flat-carousel-container::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
+    .flat-card {
+      flex: 0 0 200px;
+      scroll-snap-align: start;
+      background: transparent;
+      border: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .flat-card:hover { transform: translateY(-3px); }
+    .flat-card-img-wrapper {
+      width: 100%;
+      height: 120px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      background: linear-gradient(145deg, #e9e2d4, #d6cdbb);
+      position: relative;
+    }
+    .flat-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .flat-card:hover .flat-card-img { transform: scale(1.03); }
+    .flat-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: left;
+    }
+    .flat-card:hover .flat-card-overlay { transform: scaleX(1); }
+    .flat-card-label {
+      margin-top: 0.6rem;
+      font-family: var(--font-serif);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .flat-card-label i {
+      color: var(--gold-dark);
+      font-size: 0.6rem;
+      opacity: 0.8;
+    }
+    .flat-card-subtle {
+      font-size: 0.55rem;
+      color: var(--gold-dark);
+      letter-spacing: 1px;
+      margin-top: 0.2rem;
+      opacity: 0.7;
+    }
+    @media (max-width: 700px) {
+      .flat-card { flex: 0 0 160px; }
+      .flat-card-img-wrapper { height: 100px; }
+    }
+
+    /* ====== CARROSSEL DINÂMICO ====== */
     .dynamic-carousel-section {
       margin: 2rem 0 2rem;
       padding-top: 1rem;
@@ -444,13 +504,13 @@
   </header>
 
   <main class="container">
-    <!-- CARROSSEL HORIZONTAL ORIGINAL (placeholders) -->
+    <!-- CARROSSEL HORIZONTAL ORIGINAL (Placeholders) -->
     <div class="horizontal-carousel-section">
       <div class="carousel-header"><h3><i class="fas fa-newspaper"></i> Artigos publicados recentemente</h3><span style="font-size:0.7rem; color:var(--gold-dark);">← arraste →</span></div>
       <div class="carousel-fade"><div class="carousel-scroll" id="carouselScroll"></div></div>
     </div>
 
-    <!-- CARROSSEL DE PALAVRAS (INTACTO) -->
+    <!-- CARROSSEL DE PALAVRAS (INTOCÁVEL) -->
     <div class="word-carousel">
       <div class="word-carousel-track" id="wordTrack"></div>
     </div>
@@ -465,23 +525,15 @@
       <a href="#" id="shareEmail"><i class="fas fa-envelope"></i></a>
     </div>
 
-    <!-- DESTAQUE POLÊMICAS (mantido fixo, mas com placeholders visuais) -->
-    <div class="featured-spotlight">
-      <div class="spotlight-title"><i class="fas fa-fire"></i> <span>POLÊMICAS & BASTIDORES</span> <i class="fas fa-skull"></i></div>
-      <div class="spotlight-grid">
-        <div class="spotlight-card" data-article-link="#">
-          <div class="card-image"><div class="img-placeholder"><i class="fas fa-gavel" style="font-size: 2.2rem; opacity: 0.7;"></i><br><span style="font-size: 0.6rem;">Placeholder</span></div></div>
-          <div class="card-content"><div class="card-badge">Placeholder</div><h4>Conteúdo em construção</h4><div class="card-excerpt">Este espaço será preenchido com análises institucionais e tecnológicas em breve.</div><a href="#" class="read-more">Acessar matéria →</a></div>
-        </div>
-        <div class="spotlight-card larger" data-article-link="#">
-          <div class="card-image"><div class="img-placeholder"><i class="fas fa-crown" style="font-size: 2.8rem; opacity: 0.7;"></i><br><span style="font-size: 0.65rem;">Placeholder</span></div></div>
-          <div class="card-content"><div class="card-badge">Placeholder</div><h4>Em breve: nova análise</h4><div class="card-excerpt">Estamos preparando conteúdo aprofundado sobre sistemas e comportamento.</div><a href="#" class="read-more">Ler artigo completo →</a></div>
-        </div>
-        <div class="spotlight-card" data-article-link="#">
-          <div class="card-image"><div class="img-placeholder"><i class="fas fa-balance-scale" style="font-size: 2.2rem; opacity: 0.7;"></i><br><span style="font-size: 0.6rem;">Placeholder</span></div></div>
-          <div class="card-content"><div class="card-badge">Placeholder</div><h4>Conteúdo em construção</h4><div class="card-excerpt">Aguardem artigos sobre justiça, tecnologia e sociedade.</div><a href="#" class="read-more">Explorar →</a></div>
-        </div>
+    <!-- NOVO CARROSSEL DE IMAGENS ACHATADO DE LUXO (SUBSTITUI POLÊMICAS) -->
+    <div class="luxury-flat-carousel">
+      <div class="flat-carousel-header">
+        <i class="fas fa-gem"></i>
+        <span>Curadoria Visual</span>
+        <div class="flat-carousel-line"></div>
+        <i class="fas fa-chevron-right" style="opacity:0.5; font-size:0.7rem;"></i>
       </div>
+      <div class="flat-carousel-container" id="flatCarouselContainer"></div>
     </div>
 
     <div class="section-intro"><h2 style="border-bottom: none;">Eixos de <span style="color: var(--gold-dark);">análise</span></h2><p style="color: var(--gold-dark); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;">Curadoria estrutural · Sem ruído</p></div>
@@ -489,6 +541,7 @@
     <div style="margin: 2rem 0 0; text-align: center; font-size: 0.7rem; color: var(--gold-dark); letter-spacing: 1px;"><i class="fas fa-chalkboard-teacher"></i> Selecione um tema e explore subcategorias e subtemas</div>
   </main>
 
+  <!-- RODAPÉ INTOCÁVEL -->
   <footer class="site-footer">
     <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
       <div>© 2026 PautaZero · Revista de análise de sistemas, comportamento e políticas estratégicas.</div>
@@ -530,7 +583,7 @@
   <script>
     (function() {
       // ==================== PLACEHOLDER: TODOS OS TEMAS E SUBTEMAS ====================
-      // Lista de chaves mantida apenas para estrutura, mas conteúdos são placeholders genéricos.
+      // 26 eixos mantidos, mas com conteúdo placeholder genérico
       const PLACEHOLDER_KEYS = [
         "politica", "seguranca-total", "prisional-policial", "politicas-publicas",
         "economia-super-ricos", "saude-mental", "psicopatia", "familia-alienacao",
@@ -541,39 +594,68 @@
       ];
 
       // Placeholder único para todos os temas
-      const PLACEHOLDER_SUBCAT = "Subcategoria Placeholder";
-      const PLACEHOLDER_TOPIC = "Tópico em construção";
-      const PLACEHOLDER_DESC = "Conteúdo analítico em desenvolvimento. Em breve disponível.";
+      const PLACEHOLDER_SUBCAT = "Subcategoria em desenvolvimento";
+      const PLACEHOLDER_TOPICS = ["Tópico em construção", "Conteúdo em breve", "Aguardando artigo"];
+      const PLACEHOLDER_DESC = "Conteúdo analítico em desenvolvimento. Os subtemas aparecerão automaticamente quando os artigos forem publicados.";
 
-      // Construir subtopicsByTopic com placeholders
+      // Construir subtopicsByTopic com placeholders (estrutura preservada)
       const subtopicsByTopic = {};
       PLACEHOLDER_KEYS.forEach(key => {
         subtopicsByTopic[key] = {
-          [PLACEHOLDER_SUBCAT]: [PLACEHOLDER_TOPIC, "Mais tópicos placeholder", "Em breve"]
+          [PLACEHOLDER_SUBCAT]: [...PLACEHOLDER_TOPICS]
         };
       });
 
-      // Mapeamento de pastas (placeholder)
+      // Mapeamento de pastas (preservado para estrutura)
       const topicFolderMap = {};
       PLACEHOLDER_KEYS.forEach(key => { topicFolderMap[key] = "placeholder"; });
 
-      const topicTitles = {};
-      PLACEHOLDER_KEYS.forEach(key => { topicTitles[key] = "Placeholder Tema"; });
+      // Títulos placeholder para os 26 temas
+      const topicTitles = {
+        politica: "Política & Geopolítica", "seguranca-total": "Segurança Total", 
+        "prisional-policial": "Sistema Prisional & Policial", "politicas-publicas": "Políticas Públicas",
+        "economia-super-ricos": "Economia & Super Ricos", "saude-mental": "Saúde Mental",
+        psicopatia: "Psicopatia & Comportamento Extremo", "familia-alienacao": "Família & Alienação Parental",
+        "crime-investigacao": "Crime & Investigação", "saude-mental-extremo": "Saúde Mental em Contextos Extremos",
+        negocios: "Negócios & Estratégia", "visao-global": "Visão Global",
+        filantropia: "Impacto & Filantropia", "historias-reais": "Histórias Reais",
+        hibridos: "Conteúdos Híbridos", "familia-saude-mental": "Direito de Família e Saúde Mental",
+        "justica-tecnologia": "Justiça e Tecnologia", "educacao-desigualdade": "Educação e Desigualdade",
+        "meio-ambiente": "Meio Ambiente e Conflitos", "direitos-humanos": "Direitos Humanos e Sistema de Justiça",
+        "agro-logistica": "Agronegócio, Logística e Transporte", "saude-fisica": "Saúde Física e Medicina",
+        futurismo: "Futurismo & Inovação", religiao: "Religião, Cristianismo & Perseguições",
+        esportes: "Esportes, Futebol & Ídolos", nutricao: "Nutrição & Pesquisa Alimentar"
+      };
 
-      const topicIcons = {};
-      PLACEHOLDER_KEYS.forEach(key => { topicIcons[key] = "fas fa-cube"; });
+      // Ícones preservados
+      const topicIcons = {
+        politica: "fas fa-landmark", "seguranca-total": "fas fa-shield-alt",
+        "prisional-policial": "fas fa-gavel", "politicas-publicas": "fas fa-chalkboard-user",
+        "economia-super-ricos": "fas fa-chart-pie", "saude-mental": "fas fa-brain",
+        psicopatia: "fas fa-user-ninja", "familia-alienacao": "fas fa-heart-broken",
+        "crime-investigacao": "fas fa-fingerprint", "saude-mental-extremo": "fas fa-skull",
+        negocios: "fas fa-chart-line", "visao-global": "fas fa-globe-americas",
+        filantropia: "fas fa-hand-holding-heart", "historias-reais": "fas fa-book-open",
+        hibridos: "fas fa-code-branch", "familia-saude-mental": "fas fa-heartbeat",
+        "justica-tecnologia": "fas fa-microchip", "educacao-desigualdade": "fas fa-graduation-cap",
+        "meio-ambiente": "fas fa-tree", "direitos-humanos": "fas fa-hand-peace",
+        "agro-logistica": "fas fa-truck", "saude-fisica": "fas fa-stethoscope",
+        futurismo: "fas fa-robot", religiao: "fas fa-church",
+        esportes: "fas fa-futbol", nutricao: "fas fa-apple-alt"
+      };
 
-      function getDescription(key) { return PLACEHOLDER_DESC; }
+      function getDescription() { return PLACEHOLDER_DESC; }
 
       function slugify(text) {
         return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
       }
 
       function getArticleUrl(topicKey, subcategory, topic) {
-        return `/artigo/placeholder/${slugify(subcategory)}/${slugify(topic)}.html`;
+        const folder = topicFolderMap[topicKey] || "placeholder";
+        return `/artigo/${folder}/${slugify(subcategory)}/${slugify(topic)}.html`;
       }
 
-      // ========== TÚNEL DE VERIFICAÇÃO (mantido) ==========
+      // ========== TÚNEL DE VERIFICAÇÃO ==========
       const pageCache = new Map();
       function loadCacheFromStorage() {
         try {
@@ -649,7 +731,7 @@
         const card = document.createElement('div');
         card.className = 'theme-card';
         card.setAttribute('data-topic', key);
-        card.innerHTML = `<div class="theme-icon"><i class="${topicIcons[key]}"></i></div><h3>${topicTitles[key]}</h3><p>${getDescription(key)}</p><div class="theme-badge">clique para explorar →</div>`;
+        card.innerHTML = `<div class="theme-icon"><i class="${topicIcons[key]}"></i></div><h3>${topicTitles[key]}</h3><p>${getDescription()}</p><div class="theme-badge">clique para explorar →</div>`;
         grid.appendChild(card);
       });
 
@@ -659,7 +741,7 @@
       const modalTopicsList = document.getElementById('modalTopicsList');
       const closeModalBtn = document.getElementById('closeModalBtn');
       function openModal(topicKey) {
-        const title = topicTitles[topicKey] || "Placeholder";
+        const title = topicTitles[topicKey] || "Tema";
         const subcategoriesObj = subtopicsByTopic[topicKey] || {};
         modalTitle.innerText = title;
         if (Object.keys(subcategoriesObj).length === 0) {
@@ -691,11 +773,11 @@
 
       // ========== CARROSSEL ORIGINAL (PLACEHOLDER) ==========
       const articlesData = [
-        { title: "Placeholder: Análise em construção", category: "Placeholder", url: getArticleUrl("politica", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPIC) },
-        { title: "Conteúdo em breve", category: "Placeholder", url: getArticleUrl("seguranca-total", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPIC) },
-        { title: "Aguardem novidades", category: "Placeholder", url: getArticleUrl("psicopatia", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPIC) },
-        { title: "Em desenvolvimento", category: "Placeholder", url: getArticleUrl("prisional-policial", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPIC) },
-        { title: "Próximos artigos", category: "Placeholder", url: getArticleUrl("agro-logistica", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPIC) }
+        { title: "Placeholder: Análise em construção", category: "Placeholder", url: getArticleUrl("politica", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPICS[0]) },
+        { title: "Conteúdo em breve", category: "Placeholder", url: getArticleUrl("seguranca-total", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPICS[0]) },
+        { title: "Aguardem novidades", category: "Placeholder", url: getArticleUrl("psicopatia", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPICS[0]) },
+        { title: "Em desenvolvimento", category: "Placeholder", url: getArticleUrl("prisional-policial", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPICS[0]) },
+        { title: "Próximos artigos", category: "Placeholder", url: getArticleUrl("agro-logistica", PLACEHOLDER_SUBCAT, PLACEHOLDER_TOPICS[0]) }
       ];
       const carouselContainer = document.getElementById('carouselScroll');
       function buildCarousel() {
@@ -720,6 +802,44 @@
       carouselContainer.addEventListener('mouseleave', () => { isDown = false; carouselContainer.style.cursor = 'grab'; });
       carouselContainer.addEventListener('mouseup', () => { isDown = false; carouselContainer.style.cursor = 'grab'; });
       carouselContainer.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - carouselContainer.offsetLeft; const walk = (x - startX) * 1.5; carouselContainer.scrollLeft = scrollLeft - walk; });
+
+      // ========== NOVO CARROSSEL ACHATADO DE LUXO ==========
+      const flatItems = [
+        { label: "Análise Política", icon: "fas fa-landmark", img: "https://placehold.co/300x200/0a3147/D4AF37?text=Política" },
+        { label: "Segurança Total", icon: "fas fa-shield-alt", img: "https://placehold.co/300x200/1a4b6d/D4AF37?text=Segurança" },
+        { label: "Economia", icon: "fas fa-chart-pie", img: "https://placehold.co/300x200/2c3e4e/D4AF37?text=Economia" },
+        { label: "Psicopatia", icon: "fas fa-user-ninja", img: "https://placehold.co/300x200/0a3147/D4AF37?text=Psicopatia" },
+        { label: "Futurismo", icon: "fas fa-robot", img: "https://placehold.co/300x200/1a4b6d/D4AF37?text=Futurismo" },
+        { label: "Nutrição", icon: "fas fa-apple-alt", img: "https://placehold.co/300x200/2c3e4e/D4AF37?text=Nutrição" },
+        { label: "Religião", icon: "fas fa-church", img: "https://placehold.co/300x200/0a3147/D4AF37?text=Religião" },
+        { label: "Esportes", icon: "fas fa-futbol", img: "https://placehold.co/300x200/1a4b6d/D4AF37?text=Esportes" }
+      ];
+      const flatContainer = document.getElementById('flatCarouselContainer');
+      flatItems.forEach(item => {
+        const card = document.createElement('a');
+        card.href = "#";
+        card.className = 'flat-card';
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          const topicMap = { "Política": "politica", "Segurança": "seguranca-total", "Economia": "economia-super-ricos", "Psicopatia": "psicopatia", "Futurismo": "futurismo", "Nutrição": "nutricao", "Religião": "religiao", "Esportes": "esportes" };
+          const key = Object.entries(topicMap).find(([k]) => item.label.includes(k))?.[1];
+          if (key) openModal(key);
+        });
+        card.innerHTML = `
+          <div class="flat-card-img-wrapper">
+            <img class="flat-card-img" src="${item.img}" alt="${item.label}" loading="lazy">
+            <div class="flat-card-overlay"></div>
+          </div>
+          <div class="flat-card-label"><i class="${item.icon}"></i> ${item.label}</div>
+          <div class="flat-card-subtle">explorar eixo →</div>
+        `;
+        flatContainer.appendChild(card);
+      });
+      let isDownFlat = false, startXFlat, scrollLeftFlat;
+      flatContainer.addEventListener('mousedown', (e) => { isDownFlat = true; flatContainer.style.cursor = 'grabbing'; startXFlat = e.pageX - flatContainer.offsetLeft; scrollLeftFlat = flatContainer.scrollLeft; });
+      flatContainer.addEventListener('mouseleave', () => { isDownFlat = false; flatContainer.style.cursor = 'grab'; });
+      flatContainer.addEventListener('mouseup', () => { isDownFlat = false; flatContainer.style.cursor = 'grab'; });
+      flatContainer.addEventListener('mousemove', (e) => { if (!isDownFlat) return; e.preventDefault(); const x = e.pageX - flatContainer.offsetLeft; const walk = (x - startXFlat) * 1.5; flatContainer.scrollLeft = scrollLeftFlat - walk; });
 
       // ========== COMPARTILHAMENTO ==========
       const currentUrl = encodeURIComponent(window.location.href);
@@ -750,8 +870,12 @@
         const container = document.getElementById("archiveList");
         if (!container) return;
         container.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-pulse"></i> Verificando artigos publicados...</div>';
-        // Como são placeholders, não existem de verdade; mantemos lista vazia.
-        existingArticles = [];
+        const existing = [];
+        for (const article of allPotentialArticles) {
+          const exists = await checkIfPageExists(article.url);
+          if (exists) existing.push(article);
+        }
+        existingArticles = existing;
         archiveLoaded = true;
         renderArchiveList('');
       }
@@ -762,7 +886,25 @@
           container.innerHTML = '<div class="no-results"><i class="fas fa-spinner fa-pulse"></i> Carregando...</div>';
           return;
         }
-        container.innerHTML = '<div class="no-results"><i class="fas fa-book-open"></i> Nenhum artigo publicado encontrado. Placeholder.</div>';
+        if (existingArticles.length === 0) {
+          container.innerHTML = '<div class="no-results"><i class="fas fa-book-open"></i> Nenhum artigo publicado encontrado. Os artigos aparecerão aqui automaticamente quando forem publicados.</div>';
+          return;
+        }
+        const term = searchTerm.toLowerCase().trim();
+        let filtered = existingArticles;
+        if (term !== "") {
+          filtered = existingArticles.filter(article => article.title.toLowerCase().includes(term) || article.category.toLowerCase().includes(term));
+        }
+        if (filtered.length === 0) {
+          container.innerHTML = '<div class="no-results"><i class="fas fa-search"></i> Nenhum artigo corresponde à busca.</div>';
+          return;
+        }
+        container.innerHTML = filtered.map(article => `
+          <a class="archive-item" href="${article.url}">
+            <div class="archive-item-title">${escapeHtml(article.title)}</div>
+            <div class="archive-item-meta"><span><i class="far fa-calendar-alt"></i> Publicado</span><span><i class="fas fa-folder"></i> ${escapeHtml(article.category)}</span></div>
+          </a>
+        `).join('');
       }
       function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
       const archiveOverlay = document.getElementById('archiveOverlay');
@@ -782,16 +924,7 @@
       });
       document.querySelectorAll('.privacy-col-content').forEach(cont => { cont.style.display = 'none'; });
 
-      // ========== SPOTLIGHT CARDS (comportamento mantido) ==========
-      document.querySelectorAll('.spotlight-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-          if (e.target.closest('.read-more')) return;
-          const link = card.getAttribute('data-article-link');
-          if (link && link !== '#') { e.preventDefault(); navigateToWithCheck(link); }
-        });
-      });
-
-      // ========== CARROSSEL DINÂMICO (PLACEHOLDER) ==========
+      // ========== CARROSSEL DINÂMICO ==========
       async function initDynamicCarousel() {
         const mainContainer = document.querySelector('main.container');
         if (!mainContainer) return;
@@ -813,7 +946,7 @@
         dynamicScroll.innerHTML = '<div class="no-results"><i class="fas fa-newspaper"></i> Nenhum artigo publicado ainda. Volte em breve!</div>';
       }
 
-      // ========== CARROSSEL DE PALAVRAS (INTACTO) ==========
+      // ========== CARROSSEL DE PALAVRAS (INTOCÁVEL) ==========
       function initWordCarousel() {
         const track = document.getElementById('wordTrack');
         if (!track) return;
@@ -844,14 +977,6 @@
           });
         });
       }
-
-      // ========== BUSCA INTELIGENTE CMS (placeholders) ==========
-      const searchInput = document.getElementById('archiveSearchInput');
-      searchInput.addEventListener('input', () => {
-        const container = document.getElementById('smartSearchCarousel');
-        if (container) container.style.display = 'none';
-        renderArchiveList('');
-      });
 
       // ========== INICIALIZAÇÕES ==========
       if (document.readyState === 'loading') {
