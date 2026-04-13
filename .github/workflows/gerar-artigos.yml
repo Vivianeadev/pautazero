@@ -1,0 +1,30 @@
+name: Gerar Articles
+
+on:
+  push:
+    paths:
+      - 'artigo/**.html'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Instalar Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Rodar script
+        run: node scripts/generateArticles.js
+
+      - name: Commit automático
+        run: |
+          git config user.name "bot"
+          git config user.email "bot@github.com"
+          git add .
+          git commit -m "Atualizando articles.js automaticamente" || echo "Nada para commit"
+          git push
