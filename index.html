@@ -24,7 +24,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <!-- CORREÇÃO: caminho relativo -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <header class="site-header">
@@ -38,12 +39,14 @@
     <!-- CARROSSEL HORIZONTAL ORIGINAL -->
     <div class="horizontal-carousel-section">
       <div class="carousel-header"><h3><i class="fas fa-newspaper"></i> Artigos publicados recentemente</h3><span style="font-size:0.7rem; color:var(--gold-dark);">← arraste →</span></div>
-      <div class="carousel-fade"><div class="carousel-scroll" id="carouselScroll"></div></div>
+      <div class="carousel-fade">
+        <div class="carousel-scroll" id="carouselScroll">Carregando destaques...</div>
+      </div>
     </div>
 
     <!-- CARROSSEL DE PALAVRAS -->
     <div class="word-carousel">
-      <div class="word-carousel-track" id="wordTrack"></div>
+      <div class="word-carousel-track" id="wordTrack">Carregando temas...</div>
     </div>
 
     <!-- COMPARTILHAMENTO ORIGINAL -->
@@ -59,11 +62,11 @@
     <!-- DESTAQUE POLÊMICAS -->
     <div class="featured-spotlight">
       <div class="spotlight-title"><i class="fas fa-fire"></i> <span>POLÊMICAS & BASTIDORES</span> <i class="fas fa-skull"></i></div>
-      <div class="spotlight-grid" id="spotlightGrid"></div>
+      <div class="spotlight-grid" id="spotlightGrid">Preparando polêmicas...</div>
     </div>
 
     <div class="section-intro"><h2 style="border-bottom: none;">Eixos de <span style="color: var(--gold-dark);">análise</span></h2><p style="color: var(--gold-dark); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;">Curadoria estrutural · Sem ruído</p></div>
-    <div class="thematic-grid" id="thematicGrid"></div>
+    <div class="thematic-grid" id="thematicGrid">Montando eixos temáticos...</div>
     <div style="margin: 2rem 0 0; text-align: center; font-size: 0.7rem; color: var(--gold-dark); letter-spacing: 1px;"><i class="fas fa-chalkboard-teacher"></i> Selecione um tema e explore subcategorias e subtemas</div>
   </main>
 
@@ -92,7 +95,7 @@
     <div class="archive-panel">
       <div class="archive-header"><h3><i class="fas fa-archive"></i> Arquivo de artigos</h3><button class="archive-close" id="archiveCloseBtn"><i class="fas fa-times"></i></button></div>
       <div class="archive-search"><input type="text" id="archiveSearchInput" placeholder="Buscar por título, categoria ou data"></div>
-      <div class="archive-list" id="archiveList"></div>
+      <div class="archive-list" id="archiveList">Digite para buscar...</div>
     </div>
   </div>
 
@@ -105,8 +108,8 @@
     </div>
   </div>
 
-  <!-- Scripts Externos -->
-  <script src="/js/articles.js"></script>
-  <script src="/js/motor.js"></script>
+  <!-- Scripts Externos - CORREÇÃO: caminhos relativos -->
+  <script src="./js/articles.js"></script>
+  <script src="./js/motor.js"></script>
 </body>
 </html>
