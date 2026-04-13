@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
-  <!-- CSS Principal (Externo) -->
+  <!-- CSS Principal (EXTERNO - Mantenha assim!) -->
   <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -51,13 +51,17 @@
         <span style="font-size:0.7rem; color:var(--gold-dark);">← arraste →</span>
       </div>
       <div class="carousel-fade">
-        <div class="carousel-scroll" id="carouselScroll"></div>
+        <div class="carousel-scroll" id="carouselScroll">
+          <!-- Renderizado dinamicamente via JS -->
+        </div>
       </div>
     </div>
 
     <!-- CARROSSEL DE PALAVRAS (TEMAS) -->
     <div class="word-carousel">
-      <div class="word-carousel-track" id="wordTrack"></div>
+      <div class="word-carousel-track" id="wordTrack">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
     </div>
 
     <!-- COMPARTILHAMENTO -->
@@ -72,7 +76,7 @@
 
     <!-- DESTAQUE POLÊMICAS (SPOTLIGHT) -->
     <div class="featured-spotlight">
-      <div class="spotlight-title"><i class="fas fa-fire"></i> <span>POLÊMICAS & BASTIDORES</span> <i class="fas fa-skull"></i></div>
+      <div class="spotlight-title"><i class="fas fa-fire"></i> <span>DESTAQUES DA SEMANA</span> <i class="fas fa-skull"></i></div>
       <div class="spotlight-grid">
         <!-- Renderizado dinamicamente via JS -->
       </div>
@@ -104,9 +108,18 @@
     <div class="privacy-collapsible">
       <div class="privacy-header-note">Política de Privacidade – PautaZero · clique nos títulos para expandir</div>
       <div class="privacy-cols">
-        <div class="privacy-col"><div class="privacy-col-title">Ambiente & Dados</div><div class="privacy-col-content"><p><strong>Ambiente independente</strong><br>Este ambiente digital é mantido por responsável independente, atuando na produção de conteúdo informacional e analítico, comprometido com a proteção da privacidade e dos direitos fundamentais dos titulares de dados.</p><p><strong>Dados coletados</strong><br>Dados de navegação (IP anonimizado, cookies técnicos), informações enviadas voluntariamente por e-mail ou formulários. Nunca coletamos dados sensíveis sem consentimento explícito.</p></div></div>
-        <div class="privacy-col"><div class="privacy-col-title">Finalidade & LGPD</div><div class="privacy-col-content"><p><strong>Finalidade</strong><br>Melhorar a experiência, gerar estatísticas agregadas, responder contatos e garantir a segurança do site. Sem tratamento abusivo ou compartilhamento com terceiros não autorizados.</p><p><strong>Base legal (LGPD)</strong><br>Execução de legítimo interesse, cumprimento de obrigação legal e consentimento quando necessário. Respeitamos a Lei 13.709/2018 e os direitos dos titulares.</p></div></div>
-        <div class="privacy-col"><div class="privacy-col-title">Direitos & Contato</div><div class="privacy-col-content"><p><strong>Seus direitos</strong><br>Você pode acessar, retificar, eliminar, limitar ou portar seus dados a qualquer momento. Pedidos devem ser enviados ao e-mail abaixo.</p><p><strong>Canal de atendimento ao titular:</strong> <span class="privacy-email">editorial.pautazero@outlook.com</span> – Respondemos em até 15 dias úteis.</p><p><em>Esta política pode ser atualizada periodicamente. Consulte sempre a versão mais recente neste rodapé.</em></p></div></div>
+        <div class="privacy-col">
+          <div class="privacy-col-title">Ambiente & Dados</div>
+          <div class="privacy-col-content"><p><strong>Ambiente independente</strong><br>Este ambiente digital é mantido por responsável independente, atuando na produção de conteúdo informacional e analítico, comprometido com a proteção da privacidade e dos direitos fundamentais dos titulares de dados.</p><p><strong>Dados coletados</strong><br>Dados de navegação (IP anonimizado, cookies técnicos), informações enviadas voluntariamente por e-mail ou formulários. Nunca coletamos dados sensíveis sem consentimento explícito.</p></div>
+        </div>
+        <div class="privacy-col">
+          <div class="privacy-col-title">Finalidade & LGPD</div>
+          <div class="privacy-col-content"><p><strong>Finalidade</strong><br>Melhorar a experiência, gerar estatísticas agregadas, responder contatos e garantir a segurança do site. Sem tratamento abusivo ou compartilhamento com terceiros não autorizados.</p><p><strong>Base legal (LGPD)</strong><br>Execução de legítimo interesse, cumprimento de obrigação legal e consentimento quando necessário. Respeitamos a Lei 13.709/2018 e os direitos dos titulares.</p></div>
+        </div>
+        <div class="privacy-col">
+          <div class="privacy-col-title">Direitos & Contato</div>
+          <div class="privacy-col-content"><p><strong>Seus direitos</strong><br>Você pode acessar, retificar, eliminar, limitar ou portar seus dados a qualquer momento. Pedidos devem ser enviados ao e-mail abaixo.</p><p><strong>Canal de atendimento ao titular:</strong> <span class="privacy-email">editorial.pautazero@outlook.com</span> – Respondemos em até 15 dias úteis.</p><p><em>Esta política pode ser atualizada periodicamente. Consulte sempre a versão mais recente neste rodapé.</em></p></div>
+        </div>
       </div>
     </div>
     <div class="footer-legal">Conteúdo editorial independente. As análises apresentadas refletem observações estruturais e não constituem aconselhamento jurídico, financeiro ou clínico. A PautaZero atua com base em critérios de responsabilidade informacional, respeitando contextos legais e institucionais aplicáveis.</div>
@@ -143,18 +156,101 @@
     </div>
   </div>
 
-  <!-- ==================== DADOS DOS ARTIGOS ==================== -->
-  <!-- Este arquivo deve definir a constante 'articles' -->
-  <script src="/js/articles.js"></script>
+  <!-- ==================== DADOS DOS ARTIGOS (EXEMPLO) ==================== -->
+  <script>
+    // Este é um exemplo. Substitua pelo seu arquivo /js/articles.js real
+    const articles = [
+      {
+        titulo: "Psicopatia no poder: quando a falta de empatia vence eleições",
+        url: "/artigo/polemicas/psicopatia-no-poder.html",
+        tema: "Psicopatia",
+        subtema: "Poder e Manipulação",
+        tags: ["liderança", "manipulação", "psicologia"],
+        data: "2026-04-12",
+        destaque: true,
+        imagem: "https://placehold.co/400x200/0a3147/D4AF37?text=Psicopatia+no+Poder"
+      },
+      {
+        titulo: "Tokenização imobiliária: a nova fronteira do mercado",
+        url: "/artigo/economia/tokenizacao-imobiliaria.html",
+        tema: "Economia",
+        subtema: "Tokenização e Blockchain",
+        tags: ["blockchain", "imóveis", "investimento"],
+        data: "2026-04-10",
+        destaque: true,
+        imagem: "https://placehold.co/400x200/0a3147/D4AF37?text=Tokenizacao+Imobiliaria"
+      },
+      {
+        titulo: "O silêncio que condena: omissões institucionais",
+        url: "/artigo/polemicas/o-silencio-que-condena.html",
+        tema: "Justiça",
+        subtema: "Sistema Prisional",
+        tags: ["justiça", "instituições", "denúncia"],
+        data: "2026-04-08",
+        destaque: true,
+        imagem: "https://placehold.co/400x200/0a3147/D4AF37?text=Justica"
+      },
+      {
+        titulo: "Nutrição esportiva: periodização para hipertrofia",
+        url: "/artigo/nutricao/nutricao-esportiva.html",
+        tema: "Nutrição",
+        subtema: "Performance Esportiva",
+        tags: ["nutrição", "esporte", "saúde"],
+        data: "2026-04-05",
+        destaque: false,
+        imagem: "https://placehold.co/400x200/0a3147/D4AF37?text=Nutricao+Esportiva"
+      },
+      {
+        titulo: "Futebol e política: quando o esporte vira palanque",
+        url: "/artigo/esportes/futebol-e-politica.html",
+        tema: "Esportes",
+        subtema: "Futebol e Sociedade",
+        tags: ["futebol", "política", "sociedade"],
+        data: "2026-04-03",
+        destaque: false,
+        imagem: "https://placehold.co/400x200/0a3147/D4AF37?text=Futebol+e+Politica"
+      },
+      {
+        titulo: "Alienação parental: entre a proteção e a falsa acusação",
+        url: "/artigo/familia/alienacao-parental.html",
+        tema: "Família",
+        subtema: "Alienação Parental",
+        tags: ["família", "psicologia", "justiça"],
+        data: "2026-04-01",
+        destaque: false,
+        imagem: "https://placehold.co/400x200/0a3147/D4AF37?text=Alienacao+Parental"
+      },
+      {
+        titulo: "Cidades inteligentes: vigilância ou segurança?",
+        url: "/artigo/futurismo/cidades-inteligentes.html",
+        tema: "Futurismo",
+        subtema: "Tecnologia Urbana",
+        tags: ["futurismo", "tecnologia", "cidades"],
+        data: "2026-03-28",
+        destaque: false,
+        imagem: "https://placehold.co/400x200/0a3147/D4AF37?text=Cidades+Inteligentes"
+      },
+      {
+        titulo: "Dieta cetogênica: evidências e controvérsias",
+        url: "/artigo/nutricao/dieta-cetogenica.html",
+        tema: "Nutrição",
+        subtema: "Dietas e Estratégias",
+        tags: ["nutrição", "dieta", "saúde"],
+        data: "2026-03-25",
+        destaque: false,
+        imagem: "https://placehold.co/400x200/0a3147/D4AF37?text=Dieta+Cetogenica"
+      }
+    ];
+  </script>
 
   <!-- ==================== SCRIPT DE AUTOMAÇÃO UNIFICADO ==================== -->
   <script>
     (function() {
       // Verificação crítica: O array 'articles' foi carregado?
       if (typeof articles === 'undefined') {
-        console.error("❌ ERRO CRÍTICO: O arquivo 'articles.js' não foi carregado ou não definiu a constante 'articles'.");
+        console.error("❌ ERRO CRÍTICO: O array 'articles' não foi encontrado.");
         document.querySelector('.spotlight-grid').innerHTML = '<p style="color:red; padding:2rem;">Erro: Dados dos artigos não encontrados.</p>';
-        return; // Interrompe a execução
+        return;
       }
 
       // ==================== FUNÇÕES UTILITÁRIAS ====================
@@ -197,7 +293,7 @@
           </div>
         `).join("");
 
-        // Torna o card inteiro clicável, mas evita conflito com o link "Ler mais"
+        // Torna o card inteiro clicável
         document.querySelectorAll('.spotlight-card').forEach(card => {
           card.addEventListener('click', (e) => {
             if (e.target.closest('.read-more')) return;
@@ -241,16 +337,16 @@
         const grid = document.getElementById('thematicGrid');
         if (!grid) return;
         
-        // Extrai temas únicos
         const temasUnicos = [...new Set(articles.map(a => a.tema))];
         
-        // Mapeamento de ícones (expansível)
         const icones = {
           "Psicopatia": "fas fa-user-ninja",
           "Economia": "fas fa-chart-pie",
-          "Tecnologia": "fas fa-microchip",
-          "Política": "fas fa-landmark",
-          "Segurança": "fas fa-shield-alt",
+          "Justiça": "fas fa-gavel",
+          "Nutrição": "fas fa-apple-alt",
+          "Esportes": "fas fa-futbol",
+          "Família": "fas fa-heart-broken",
+          "Futurismo": "fas fa-robot",
           "default": "fas fa-newspaper"
         };
         
@@ -268,7 +364,6 @@
           </div>
         `).join("");
 
-        // Event Listeners para abrir o modal
         document.querySelectorAll('.theme-card').forEach(card => {
           card.addEventListener('click', () => {
             const temaSelecionado = card.getAttribute('data-topic');
@@ -292,7 +387,6 @@
         if (artigosDoTema.length === 0) {
           modalTopicsList.innerHTML = '<p style="padding: 1rem; color: var(--color-text-light);">Nenhum artigo publicado neste tema ainda.</p>';
         } else {
-          // Agrupa por subtema
           const agrupado = artigosDoTema.reduce((acc, artigo) => {
             (acc[artigo.subtema] = acc[artigo.subtema] || []).push(artigo);
             return acc;
@@ -335,7 +429,6 @@
         if (temasUnicos.length === 0) return;
         
         let html = '';
-        // Repete para efeito infinito suave
         for (let i = 0; i < 3; i++) {
           temasUnicos.forEach(tema => {
             html += `<a href="#" class="word-carousel-item" data-topic="${escapeHtml(tema)}">✦ ${escapeHtml(tema)}</a>`;
@@ -391,10 +484,8 @@
         
         closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
         overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('active'); });
-        
         searchInput.addEventListener('input', (e) => renderArchiveList(e.target.value.toLowerCase()));
         
-        // Inicializa a lista vazia
         renderArchiveList();
       }
 
@@ -435,7 +526,6 @@
         console.log('✅ PautaZero · Sistema de automação inicializado com sucesso.');
       }
 
-      // Aguarda o DOM estar pronto
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
       } else {
