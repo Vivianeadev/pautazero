@@ -1,30 +1,35 @@
-name: Gerar Articles
+name: Atualizar index com novos artigos
 
 on:
   push:
     paths:
-      - 'artigo/**.html'
+      - 'artigo/**'          # só dispara se arquivos dentro de /artigo mudarem
+  workflow_dispatch:         # permite rodar manualmente
 
 jobs:
-  build:
+  atualizar-index:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write        # necessário para commitar de volta
     steps:
-      - name: Clonar repositório
-        uses: actions/checkout@v3
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
 
-      - name: Instalar Node
-        uses: actions/setup-node@v3
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
-      - name: Rodar script
-        run: node scripts/generateArticles.js
+      - name: Instalar dependências (se usar cheerio, fs-extra, etc.)
+        run: npm install cheerio glob
 
-      - name: Commit automático
+      - name: Executar script de geração
+        run: node scripts/gerar-artigos.js
+
+      - name: Commit e push das alterações no index.html
         run: |
-          git config user.name "bot"
-          git config user.email "bot@github.com"
-          git add .
-          git commit -m "Atualizando articles.js automaticamente" || echo "Nada para commit"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Atualiza lista de artigos automaticamente"
           git push
