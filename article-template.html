@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>{{title}} | PautaZero</title>
+  <meta name="description" content="{{description}}">
+  
+  <meta property="og:title" content="{{title}} · PautaZero">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pautazero.com/artigos/{{eixo}}/{{slug}}.html">
+  <meta property="og:image" content="{{image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{title}} · PautaZero">
+  <meta name="twitter:description" content="{{description}}">
+  <meta name="twitter:image" content="{{image}}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* ========== CSS COMPLETO - IDÊNTICO AO INDEX PRINCIPAL ========== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --color-primary: #0a3147; --color-primary-light: #1a4b6d; --gold-primary: #D4AF37;
+      --gold-secondary: #F4E4B8; --gold-dark: #B8860B; --color-dark: #1A1A1A;
+      --color-text: #1e2a3a; --color-text-light: #2c3e4e; --color-bg: #fefaf5;
+      --color-bg-card: #ffffff; --border-light: 1px solid rgba(212, 175, 55, 0.25);
+      --shadow-luxury: 0 20px 35px -12px rgba(10, 49, 71, 0.12);
+      --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4B8 50%, #B8860B 100%);
+      --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(244, 228, 184, 0.05) 100%);
+      --font-serif: 'Cinzel', serif; --font-sans: 'Inter', sans-serif; --font-body: 'Marcellus', serif;
+    }
+    body { 
+      background: var(--color-bg); 
+      color: var(--color-text); 
+      font-family: var(--font-sans); 
+      line-height: 1.55; 
+      -webkit-font-smoothing: antialiased; 
+      overflow-x: hidden; 
+      font-size: 0.95rem; 
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 36px; }
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
+    h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem; color: var(--color-primary); }
+    h2 { font-size: 1.8rem; margin: 2rem 0 1rem; color: var(--color-primary); border-left: 4px solid var(--gold-primary); padding-left: 1rem; }
+    h3 { font-size: 1.3rem; margin: 1.5rem 0 0.8rem; color: var(--color-primary-light); font-family: var(--font-serif); }
+    
+    .site-header { 
+      position: sticky; 
+      top: 0; 
+      background: rgba(255, 253, 250, 0.96); 
+      backdrop-filter: blur(12px); 
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+      z-index: 100; 
+      padding: 1rem 0; 
+    }
+    .header-inner { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      max-width: 1280px; 
+      margin: 0 auto; 
+      padding: 0 36px; 
+    }
+    .logo { 
+      font-size: 2rem; 
+      font-weight: 700; 
+      color: var(--color-primary); 
+      text-decoration: none; 
+      letter-spacing: 1px; 
+    }
+    .logo span { color: var(--gold-dark); font-weight: 500; }
+    .archive-btn { 
+      background: rgba(212, 175, 55, 0.12); 
+      border: 1px solid rgba(212, 175, 55, 0.3); 
+      width: 44px; 
+      height: 44px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 1.2rem; 
+      color: var(--color-primary); 
+      cursor: pointer; 
+      transition: 0.2s;
+    }
+    .archive-btn:hover { background: rgba(212, 175, 55, 0.25); border-color: var(--gold-primary); }
+    
+    main { padding: 2rem 0 4rem; }
+    
+    .breadcrumb { 
+      font-size: 0.75rem; 
+      margin-bottom: 1.8rem; 
+      color: var(--gold-dark); 
+      text-transform: uppercase; 
+      letter-spacing: 1px;
+    }
+    .breadcrumb a { 
+      color: var(--color-primary-light); 
+      text-decoration: none; 
+      border-bottom: 1px dotted rgba(212,175,55,0.4);
+    }
+    .breadcrumb a:hover { color: var(--gold-primary); }
+    
+    .article-meta { 
+      display: flex; 
+      gap: 1.5rem; 
+      font-size: 0.8rem; 
+      color: var(--color-text-light); 
+      border-bottom: 1px solid rgba(212,175,55,0.2); 
+      padding-bottom: 1rem; 
+      margin-bottom: 2rem; 
+    }
+    
+    .featured-image { 
+      margin: 1.5rem 0 2rem; 
+      border-radius: 4px; 
+      overflow: hidden; 
+      border: 1px solid var(--gold-primary); 
+      box-shadow: var(--shadow-luxury); 
+    }
+    .featured-image img { 
+      width: 100%; 
+      height: auto; 
+      display: block; 
+      max-height: 480px; 
+      object-fit: cover;
+    }
+    
+    .article-content { 
+      font-family: var(--font-body); 
+      font-size: 1.05rem; 
+      line-height: 1.7; 
+      color: #2c3e4e; 
+    }
+    .article-content p { margin-bottom: 1.3rem; }
+    .article-content blockquote {
+      border-left: 3px solid var(--gold-primary);
+      background: var(--gradient-gold-subtle);
+      padding: 1rem 1.8rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #1e2a3a;
+    }
+    
+    .related-section { 
+      margin-top: 3rem; 
+      padding-top: 2rem; 
+      border-top: 2px solid rgba(212,175,55,0.25); 
+    }
+    .related-title { 
+      font-family: var(--font-serif); 
+      font-size: 1.3rem; 
+      margin-bottom: 1.5rem; 
+      color: var(--color-primary); 
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .related-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+      gap: 1.5rem; 
+    }
+    .related-card { 
+      background: var(--color-bg-card); 
+      border: var(--border-light); 
+      padding: 1.2rem; 
+      transition: all 0.2s; 
+      cursor: pointer; 
+      text-decoration: none; 
+      display: block; 
+      color: inherit; 
+    }
+    .related-card:hover { 
+      border-color: var(--gold-primary); 
+      transform: translateY(-3px); 
+      box-shadow: var(--shadow-luxury); 
+    }
+    .related-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: var(--color-primary);
+    }
+    
+    .site-footer { 
+      border-top: 1px solid rgba(212, 175, 55, 0.2); 
+      padding: 2rem 0; 
+      color: var(--color-text-light); 
+      background: var(--color-bg); 
+      font-size: 0.75rem; 
+    }
+    
+    @media (max-width: 700px) {
+      .container { padding: 0 20px; }
+      .header-inner { padding: 0 20px; }
+      h1 { font-size: 2rem; }
+      .article-meta { flex-wrap: wrap; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">Pauta<span>Zero</span></a>
+      <div class="archive-btn" onclick="window.location.href='/'"><i class="fas fa-home"></i></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <i class="fas fa-feather-alt"></i> 
+        <a href="/">PautaZero</a> / 
+        <a href="/artigos/{{eixo}}/">{{eixo}}</a> / 
+        {{title}}
+      </div>
+
+      <h1>{{title}}</h1>
+      
+      <div class="article-meta">
+        <span><i class="far fa-calendar-alt"></i> {{date}}</span>
+        <span><i class="fas fa-tag"></i> {{tema}}</span>
+        <span><i class="far fa-clock"></i> {{read_time}}</span>
+      </div>
+
+      <div class="featured-image">
+        <img src="{{image}}" alt="{{title}}" loading="eager" onerror="this.src='https://placehold.co/1200x630/0a3147/D4AF37?text=PautaZero'">
+      </div>
+
+      <div class="article-content">
+        {{content}}
+      </div>
+
+      <div class="related-section">
+        <div class="related-title">
+          <i class="fas fa-layer-group" style="color: var(--gold-dark);"></i> 
+          Mais artigos em {{eixo}}
+          <span style="font-size: 0.7rem; background: rgba(212,175,55,0.1); padding: 0.2rem 0.6rem; border-radius: 30px; margin-left: auto;">mesmo eixo</span>
+        </div>
+        <div class="related-grid" id="relatedContainer">
+          <p style="grid-column:1/-1; text-align:center;">Carregando artigos relacionados...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>© 2026 PautaZero · Revista de análise de sistemas, comportamento e políticas estratégicas.</div>
+      <div style="display: flex; gap: 18px; color: var(--gold-dark); align-items: center;">
+        <i class="fab fa-linkedin"></i> <i class="fab fa-x-twitter"></i> <i class="fas fa-envelope"></i>
+        <span style="font-family: monospace;">editorial.pautazero@outlook.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Carregar artigos relacionados do mesmo eixo
+    async function loadRelated() {
+      try {
+        const res = await fetch('/artigos/lista.json');
+        if (!res.ok) throw new Error('Lista não encontrada');
+        
+        const artigos = await res.json();
+        const relacionados = artigos
+          .filter(a => a.eixo === '{{eixo}}' && a.slug !== '{{slug}}')
+          .slice(0, 6);
+        
+        const container = document.getElementById('relatedContainer');
+        if (relacionados.length === 0) {
+          container.innerHTML = '<p style="grid-column:1/-1; text-align:center; color: var(--color-text-light);">✨ Mais artigos neste eixo em breve.</p>';
+          return;
+        }
+        
+        container.innerHTML = relacionados.map(a => `
+          <a href="/artigos/${a.eixo}/${a.slug}.html" class="related-card">
+            <h4><i class="fas fa-newspaper" style="color: var(--gold-dark); font-size: 0.8rem; margin-right: 6px;"></i>${a.titulo}</h4>
+            <p style="font-size:0.7rem; color: var(--gold-dark); margin-top: 0.5rem; letter-spacing: 0.5px;">${a.tema} · ${a.tempoLeitura}</p>
+          </a>
+        `).join('');
+      } catch(e) {
+        console.log('📋 Lista de artigos será criada ao publicar o primeiro artigo');
+        document.getElementById('relatedContainer').innerHTML = '<p style="grid-column:1/-1; text-align:center; color: var(--gold-dark);">🎁 Use a Caixinha de Surpresa para criar seu primeiro artigo!</p>';
+      }
+    }
+    loadRelated();
+  </script>
+</body>
+</html>
