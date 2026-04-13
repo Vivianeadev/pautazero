@@ -1,23 +1,35 @@
+// /js/articles.js
 const articles = [
   {
-    titulo: "Psicopatia no poder",
+    titulo: "Psicopatia no poder: quando a falta de empatia vence eleições",
     url: "/artigo/polemicas/psicopatia-no-poder.html",
-    tema: "psicopatia",
-    subtema: "poder",
-    tags: ["liderança", "manipulação"],
+    tema: "Psicopatia",
+    subtema: "Poder e Manipulação",
+    tags: ["liderança", "manipulação", "psicologia"],
     data: "2026-04-12",
     destaque: true,
-    imagem: "/assets/img/psicopatia.jpg"
+    imagem: "/assets/images/psicopatia.jpg"
   },
-
   {
-    titulo: "Tokenização imobiliária",
+    titulo: "Tokenização imobiliária: a nova fronteira do mercado",
     url: "/artigo/economia/tokenizacao-imobiliaria.html",
-    tema: "economia",
-    subtema: "tokenizacao",
-    tags: ["blockchain", "imóveis"],
+    tema: "Economia",
+    subtema: "Tokenização e Blockchain",
+    tags: ["blockchain", "imóveis", "investimento"],
     data: "2026-04-10",
-    destaque: false,
-    imagem: "/assets/img/token.jpg"
-  }
+    destaque: true,
+    imagem: "/assets/images/token.jpg"
+  },
+  {
+    titulo: "O silêncio que condena: omissões institucionais",
+    url: "/artigo/polemicas/o-silencio-que-condena.html",
+    tema: "Justiça",
+    subtema: "Sistema Prisional",
+    tags: ["justiça", "instituições", "denúncia"],
+    data: "2026-04-08",
+    destaque: true,
+    imagem: "/assets/images/silencio.jpg"
+  },
+  // Adicione TODOS os seus artigos reais aqui
+  // Quanto mais artigos, mais rica a página fica
 ];
