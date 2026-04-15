@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <!-- Meta tags serão preenchidas dinamicamente a partir do data.json -->
+  <!-- Metadados serão preenchidos dinamicamente a partir do data.json -->
   <title id="pageTitle">PautaZero</title>
   <meta name="description" id="metaDescription" content="">
   
@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ========== TODOS OS ESTILOS ORIGINAIS (mantidos integralmente) ========== */
+    /* ========== ESTILOS COMPLETOS (mantidos para preservar a aparência) ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --color-primary: #0a3147; --color-primary-light: #1a4b6d; --gold-primary: #D4AF37;
@@ -33,13 +33,10 @@
       --color-text: #1e2a3a; --color-text-light: #2c3e4e; --color-bg: #fefaf5;
       --color-bg-card: #ffffff; --border-light: 1px solid rgba(212, 175, 55, 0.25);
       --shadow-luxury: 0 20px 35px -12px rgba(10, 49, 71, 0.12);
-      --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4B8 50%, #B8860B 100%);
-      --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(244, 228, 184, 0.05) 100%);
       --font-serif: 'Cinzel', serif; --font-sans: 'Inter', sans-serif; --font-body: 'Marcellus', serif;
     }
     body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 0.95rem; }
     body.modal-open { overflow: hidden; }
-    body.tunnel-loading { cursor: wait; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 36px; }
     h1, h2, h3, h4, .logo, .section-title { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
     h2 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--color-primary); border-bottom: 2px solid rgba(212, 175, 55, 0.35); display: inline-block; padding-bottom: 8px; }
@@ -80,6 +77,11 @@
     .archive-item-title { font-family: var(--font-serif); font-size: 0.85rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.2rem; }
     .archive-item-meta { font-size: 0.65rem; color: var(--gold-dark); display: flex; gap: 1rem; margin-top: 0.2rem; }
     .no-results { text-align: center; padding: 2rem; color: var(--color-text-light); font-style: italic; }
+    @media (max-width: 700px) {
+      .slogan { display: none; }
+      .header-inner { padding: 0 20px; }
+      .archive-panel { max-width: 100%; }
+    }
     main { padding: 3rem 0 5rem; }
     .site-footer { border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 2rem 0; color: var(--color-text-light); background: var(--color-bg); font-size: 0.75rem; }
     .footer-legal { max-width: 1280px; margin: 1rem auto 0; padding: 1rem 36px 0; border-top: 1px solid rgba(212, 175, 55, 0.15); font-size: 0.65rem; line-height: 1.4; color: rgba(44, 62, 78, 0.6); text-align: center; letter-spacing: 0.3px; }
@@ -92,6 +94,8 @@
     .theme-card h3 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.75rem; letter-spacing: -0.3px; }
     .theme-card p { font-size: 0.85rem; line-height: 1.45; color: var(--color-text-light); margin-bottom: 1rem; }
     .theme-badge { display: inline-block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold-dark); border-top: 1px solid rgba(212, 175, 55, 0.25); padding-top: 0.8rem; margin-top: 0.5rem; width: 100%; }
+    @media (max-width: 900px) { .thematic-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 550px) { .thematic-grid { grid-template-columns: 1fr; } }
 
     /* Modal de luxo */
     .luxury-modal {
@@ -120,8 +124,9 @@
     .topics-list a { text-decoration: none; font-family: var(--font-serif); font-size: 0.85rem; color: var(--color-text); border-left: 2px solid transparent; padding-left: 0.6rem; display: inline-block; transition: all 0.2s; cursor: pointer; }
     .topics-list a:hover { border-left-color: var(--gold-primary); color: var(--gold-dark); padding-left: 0.9rem; }
     .modal-footer-note { margin-top: 1.8rem; padding-top: 1rem; font-size: 0.7rem; color: var(--gold-dark); text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+    @media (max-width: 550px) { .topics-list li { width: 100%; } }
 
-    /* Seção de artigos polêmicos */
+    /* Seção spotlight */
     .featured-spotlight { margin-bottom: 3rem; border-bottom: 1px dashed rgba(212, 175, 55, 0.3); padding-bottom: 1.8rem; }
     .spotlight-title { font-family: var(--font-serif); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; }
     .spotlight-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 1.5rem; align-items: stretch; }
@@ -137,6 +142,7 @@
     .card-excerpt { font-size: 0.75rem; color: var(--color-text-light); margin-bottom: 0.8rem; line-height: 1.4; }
     .read-more { font-size: 0.7rem; font-weight: 500; color: var(--gold-dark); text-decoration: none; border-bottom: 1px dotted var(--gold-primary); transition: 0.2s; display: inline-block; }
     .read-more:hover { color: var(--gold-primary); border-bottom-style: solid; }
+    @media (max-width: 850px) { .spotlight-grid { grid-template-columns: 1fr; gap: 1.2rem; } .spotlight-card.larger .card-image { min-height: 180px; } }
 
     /* Carrossel horizontal */
     .horizontal-carousel-section { margin-bottom: 3rem; }
@@ -155,7 +161,7 @@
     .carousel-content { padding: 1rem; }
     .carousel-category { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold-dark); margin-bottom: 0.4rem; }
     .carousel-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; color: var(--color-primary); line-height: 1.3; }
-
+    @media (max-width: 700px) { .carousel-card { flex: 0 0 240px; } .carousel-img { height: 140px; } }
     .carousel-fade { position: relative; }
     .carousel-fade::before, .carousel-fade::after { content: ''; position: absolute; top: 0; bottom: 0; width: 40px; pointer-events: none; z-index: 2; }
     .carousel-fade::before { left: 0; background: linear-gradient(to right, var(--color-bg), transparent); }
@@ -166,6 +172,7 @@
     .share-bar .share-label { font-family: var(--font-serif); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold-dark); }
     .share-bar a { color: var(--gold-dark); font-size: 1.2rem; transition: 0.2s; text-decoration: none; }
     .share-bar a:hover { color: var(--gold-primary); transform: translateY(-2px); }
+    @media (max-width: 550px) { .share-bar { justify-content: center; } }
 
     /* Política de privacidade colapsável */
     .privacy-collapsible { max-width: 1100px; margin: 1.5rem auto 0.5rem; padding: 0 20px; }
@@ -178,126 +185,7 @@
     .privacy-col-content strong { color: var(--color-primary); font-family: var(--font-serif); font-weight: 500; }
     .privacy-col-content .privacy-email { font-family: monospace; background: rgba(212,175,55,0.1); padding: 0.1rem 0.3rem; border-radius: 6px; }
     .privacy-header-note { text-align: center; font-family: var(--font-serif); font-size: 0.7rem; letter-spacing: 1px; color: var(--gold-dark); margin-bottom: 0.5rem; }
-
-    /* Responsividade */
-    @media (max-width: 900px) { .thematic-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 850px) { .spotlight-grid { grid-template-columns: 1fr; gap: 1.2rem; } .spotlight-card.larger .card-image { min-height: 180px; } }
     @media (max-width: 750px) { .privacy-cols { grid-template-columns: 1fr; gap: 0.8rem; } .privacy-collapsible { padding: 0 16px; } }
-    @media (max-width: 700px) {
-      .slogan { display: none; }
-      .header-inner { padding: 0 20px; }
-      .archive-panel { max-width: 100%; }
-      .carousel-card { flex: 0 0 240px; } .carousel-img { height: 140px; }
-      .carousel-fade::before, .carousel-fade::after { width: 20px; }
-      .footer-legal { padding: 0.8rem 20px 0; font-size: 0.6rem; }
-    }
-    @media (max-width: 550px) {
-      .thematic-grid { grid-template-columns: 1fr; }
-      .topics-list li { width: 100%; }
-      .share-bar { justify-content: center; }
-    }
-
-    /* Estilos adicionais para carrossel de palavras e busca inteligente (preservados) */
-    .horizontal-carousel-section .carousel-header h3 { font-size: 0.85rem !important; letter-spacing: 0px; }
-    .word-carousel {
-      margin: 1rem 0 2rem;
-      background: rgba(212, 175, 55, 0.05);
-      border-radius: 40px;
-      padding: 0.5rem 0;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .word-carousel-track {
-      display: inline-flex;
-      animation: scrollWords 25s linear infinite;
-    }
-    .word-carousel-track:hover { animation-play-state: paused; }
-    .word-carousel-item {
-      display: inline-flex;
-      align-items: center;
-      margin: 0 1rem;
-      font-family: var(--font-serif);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--color-primary);
-      text-decoration: none;
-      transition: 0.2s;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0;
-    }
-    .word-carousel-item i { margin-right: 6px; color: var(--gold-dark); font-size: 0.7rem; }
-    .word-carousel-item:hover { background: rgba(212, 175, 55, 0.15); color: var(--gold-dark); transform: translateY(-2px); }
-    @keyframes scrollWords { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .search-carousel-container {
-      margin: 0 0 1rem 0;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    }
-    .search-carousel-title {
-      font-family: var(--font-serif);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold-dark);
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .search-carousel-scroll {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      display: flex;
-      gap: 1rem;
-      padding-bottom: 0.8rem;
-      scrollbar-width: thin;
-      scrollbar-color: var(--gold-dark) rgba(212,175,55,0.2);
-      cursor: grab;
-    }
-    .search-carousel-scroll:active { cursor: grabbing; }
-    .search-carousel-scroll::-webkit-scrollbar { height: 4px; }
-    .search-carousel-scroll::-webkit-scrollbar-track { background: rgba(212,175,55,0.1); border-radius: 10px; }
-    .search-carousel-scroll::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
-    .search-card {
-      flex: 0 0 220px;
-      scroll-snap-align: start;
-      background: var(--color-bg-card);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      transition: all 0.2s ease;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border-radius: 4px;
-    }
-    .search-card:hover { transform: translateY(-4px); border-color: var(--gold-primary); box-shadow: var(--shadow-luxury); }
-    .search-card-img { width: 100%; height: 120px; object-fit: cover; background: linear-gradient(145deg, #e9e2d4, #d6cdbb); transition: transform 0.2s ease; }
-    .search-card:hover .search-card-img { transform: scale(1.02); }
-    .search-card-content { padding: 0.6rem 0.7rem 0.8rem; }
-    .search-card-category {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold-dark);
-      margin-bottom: 0.25rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .search-card-title {
-      font-family: var(--font-serif);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--color-primary);
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
   </style>
 </head>
 <body>
@@ -328,13 +216,13 @@
       <input type="text" id="archiveSearchInput" placeholder="Filtrar edições..." aria-label="Buscar no arquivo">
     </div>
     <div class="archive-list" id="archiveList">
-      <!-- Itens serão gerados via JS a partir do data.json -->
+      <!-- Itens gerados via JS -->
     </div>
   </div>
 </div>
 
 <main class="container">
-  <!-- Seção de artigos em destaque (spotlight) -->
+  <!-- Seção spotlight -->
   <section class="featured-spotlight">
     <div class="spotlight-title">
       <i class="fas fa-fire" style="color: var(--gold-dark);"></i> 
@@ -365,14 +253,9 @@
     </div>
   </section>
 
-  <!-- Carrossel de palavras (adicional) -->
-  <div class="word-carousel">
-    <div class="word-carousel-track" id="wordTrack"></div>
-  </div>
-
   <!-- Barra de compartilhamento -->
   <div class="share-bar">
-    <span class="share-label"><i class="fas fa-share-alt"></i> Compartilhar</span>
+    <span class="share-label">Compartilhar</span>
     <a href="#" id="shareTwitter" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     <a href="#" id="shareLinkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     <a href="#" id="shareFacebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -381,7 +264,7 @@
   </div>
 </main>
 
-<!-- Modal de tópicos (explorar por eixo) -->
+<!-- Modal de tópicos -->
 <div class="luxury-modal" id="topicModal">
   <div class="modal-content">
     <div class="modal-header">
@@ -402,7 +285,7 @@
       <a href="manifesto.html" style="color: inherit; text-decoration: none; transition: 0.2s; display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-scroll"></i> Manifesto Pauta Zero</a>
       <span style="color: rgba(212,175,55,0.4);">|</span>
       <i class="fab fa-linkedin"></i> <i class="fab fa-x-twitter"></i> <i class="fas fa-envelope"></i>
-      <span style="font-family: monospace;">editorial.pautazero@outlook.com</span>
+      <span style="font-family: monospace;">privacidade@pautazero.com</span>
     </div>
   </div>
   <div class="privacy-collapsible">
@@ -416,359 +299,199 @@
 
 <script>
   (function() {
-    // ---------- Função para escapar HTML ----------
-    function escapeHtml(str) {
-      return str.replace(/[&<>]/g, function(m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        return m;
-      });
-    }
-
     // ---------- Carregar dados do data.json ----------
-    let SITE_DATA = null;
     fetch('./data.json')
       .then(response => {
         if (!response.ok) throw new Error('data.json não encontrado.');
         return response.json();
       })
-      .then(data => {
-        SITE_DATA = data;
-        initializePage();
+      .then(DATA => {
+        // ---------- Metadados e cabeçalho ----------
+        document.title = DATA.site.title;
+        document.getElementById('pageTitle').textContent = DATA.site.title;
+        document.getElementById('metaDescription').setAttribute('content', DATA.site.description);
+        document.getElementById('ogTitle').setAttribute('content', DATA.site.title);
+        document.getElementById('ogDescription').setAttribute('content', DATA.site.description);
+        document.getElementById('ogUrl').setAttribute('content', DATA.site.url);
+        document.getElementById('ogImage').setAttribute('content', DATA.site.ogImage);
+        document.getElementById('ogImageAlt').setAttribute('content', DATA.site.ogImageAlt);
+        document.getElementById('twitterTitle').setAttribute('content', DATA.site.title);
+        document.getElementById('twitterDescription').setAttribute('content', DATA.site.description);
+        document.getElementById('twitterImage').setAttribute('content', DATA.site.ogImage);
+
+        document.getElementById('logoText').innerHTML = DATA.site.logoText;
+        document.getElementById('headerSlogan').textContent = DATA.site.slogan;
+        document.getElementById('footerLegalText').textContent = DATA.site.footerLegal;
+        document.getElementById('footerCopyright').innerHTML = `© ${new Date().getFullYear()} PautaZero · Revista de análise de sistemas, comportamento e políticas estratégicas.`;
+
+        // ---------- Spotlight ----------
+        document.getElementById('spotlightSectionTitle').textContent = DATA.spotlight.sectionTitle;
+        const spotlightGrid = document.getElementById('spotlightGridContainer');
+        spotlightGrid.innerHTML = DATA.spotlight.articles.map(article => `
+          <div class="spotlight-card ${article.isLarger ? 'larger' : ''}" data-link="${article.link}">
+            <div class="card-image">
+              <img class="img-placeholder" src="${article.image}" alt="${escapeHtml(article.title)}" loading="lazy">
+            </div>
+            <div class="card-content">
+              <div class="card-badge">${escapeHtml(article.badge)}</div>
+              <h4>${escapeHtml(article.title)}</h4>
+              <div class="card-excerpt">${escapeHtml(article.excerpt)}</div>
+              <span class="read-more">Ler análise →</span>
+            </div>
+          </div>
+        `).join('');
+
+        // ---------- Cards Temáticos ----------
+        document.getElementById('thematicSectionTitle').textContent = DATA.thematicCards.sectionTitle;
+        const thematicContainer = document.getElementById('thematicCardsContainer');
+        thematicContainer.innerHTML = DATA.thematicCards.cards.map(card => `
+          <a href="${card.link}" class="theme-card">
+            <div class="theme-icon">${card.icon}</div>
+            <h3>${escapeHtml(card.title)}</h3>
+            <p>${escapeHtml(card.description)}</p>
+            <span class="theme-badge">${escapeHtml(card.badge)}</span>
+          </a>
+        `).join('');
+
+        // ---------- Carrossel ----------
+        document.getElementById('carouselTitle').textContent = DATA.carousel.title;
+        const carouselContainer = document.getElementById('carouselContainer');
+        carouselContainer.innerHTML = DATA.carousel.items.map(item => `
+          <a href="${item.link}" class="carousel-card">
+            <img class="carousel-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy">
+            <div class="carousel-content">
+              <div class="carousel-category">${escapeHtml(item.category)}</div>
+              <div class="carousel-title">${escapeHtml(item.title)}</div>
+            </div>
+          </a>
+        `).join('');
+
+        // ---------- Arquivo ----------
+        const archiveListDiv = document.getElementById('archiveList');
+        const archiveItems = DATA.archive.items || [];
+        function renderArchiveList(filterText = '') {
+          const term = filterText.toLowerCase();
+          const filtered = archiveItems.filter(item => 
+            item.title.toLowerCase().includes(term) || 
+            item.category.toLowerCase().includes(term) ||
+            item.date.toLowerCase().includes(term)
+          );
+          archiveListDiv.innerHTML = filtered.length ? filtered.map(item => `
+            <a href="${item.link}" class="archive-item">
+              <div class="archive-item-title">${escapeHtml(item.title)}</div>
+              <div class="archive-item-meta">
+                <span>${escapeHtml(item.date)}</span>
+                <span>${escapeHtml(item.category)}</span>
+              </div>
+            </a>
+          `).join('') : '<div class="no-results">Nenhuma edição encontrada.</div>';
+        }
+        renderArchiveList();
+
+        // ---------- Modal ----------
+        const modal = document.getElementById('topicModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSubtitle = document.getElementById('modalSubtitle');
+        const modalFooterNote = document.getElementById('modalFooterNote');
+        const modalTopicsList = document.getElementById('modalTopicsList');
+        modalTitle.textContent = DATA.modal.title;
+        modalSubtitle.textContent = DATA.modal.subtitle;
+        modalFooterNote.textContent = DATA.modal.footerNote;
+        modalTopicsList.innerHTML = DATA.modal.topics.map(group => `
+          <div class="subcategory-group">
+            <div class="subcategory-title">${escapeHtml(group.category)}</div>
+            <ul class="topics-list">
+              ${group.items.map(item => `<li><a href="#">${escapeHtml(item)}</a></li>`).join('')}
+            </ul>
+          </div>
+        `).join('');
+
+        // ---------- Privacidade ----------
+        document.getElementById('privacyHeaderNote').textContent = DATA.privacy.headerNote;
+        const privacyCols = document.getElementById('privacyColumnsContainer');
+        privacyCols.innerHTML = DATA.privacy.columns.map(col => `
+          <div class="privacy-col">
+            <div class="privacy-col-title">${col.title}</div>
+            <div class="privacy-col-content">${col.content}</div>
+          </div>
+        `).join('');
+
+        // ---------- Compartilhamento ----------
+        const shareUrl = encodeURIComponent(DATA.site.url);
+        const shareTitle = encodeURIComponent(DATA.site.title);
+        document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`;
+        document.getElementById('shareLinkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`;
+        document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+        document.getElementById('shareWhatsapp').href = `https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}`;
+        document.getElementById('shareEmail').href = `mailto:?subject=${shareTitle}&body=${shareUrl}`;
+
+        // ---------- Interações de UI ----------
+        // Overlay de arquivo
+        const archiveOverlay = document.getElementById('archiveOverlay');
+        const archiveBtn = document.getElementById('archiveBtn');
+        const archiveCloseBtn = document.getElementById('archiveCloseBtn');
+        const archiveSearchInput = document.getElementById('archiveSearchInput');
+
+        archiveBtn.addEventListener('click', () => archiveOverlay.classList.add('active'));
+        archiveCloseBtn.addEventListener('click', () => archiveOverlay.classList.remove('active'));
+        archiveOverlay.addEventListener('click', (e) => {
+          if (e.target === archiveOverlay) archiveOverlay.classList.remove('active');
+        });
+        archiveSearchInput.addEventListener('input', (e) => renderArchiveList(e.target.value));
+
+        // Modal
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        function openModal() { modal.classList.add('active'); document.body.classList.add('modal-open'); }
+        function closeModal() { modal.classList.remove('active'); document.body.classList.remove('modal-open'); }
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+
+        // Abrir modal ao clicar em qualquer card temático (já que os links são "#")
+        document.querySelectorAll('.theme-card').forEach(card => {
+          card.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+          });
+        });
+
+        // Links do spotlight: preventDefault para '#'
+        document.querySelectorAll('.spotlight-card').forEach(card => {
+          card.addEventListener('click', (e) => {
+            const link = card.dataset.link;
+            if (!link || link === '#') e.preventDefault();
+          });
+        });
+
+        // Colunas de privacidade colapsáveis
+        document.querySelectorAll('.privacy-col-title').forEach(title => {
+          title.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            if (content) {
+              content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            }
+          });
+        });
+
+        // Função auxiliar para escape HTML
+        function escapeHtml(str) {
+          return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+          });
+        }
       })
       .catch(err => {
         console.error('Erro ao carregar data.json:', err);
-        // Fallback mínimo para não quebrar a página
-        SITE_DATA = {
-          site: {
-            title: "PautaZero",
-            slogan: "Análise Institucional & Tecnologia",
-            url: "https://pautazero.com/",
-            description: "PautaZero é uma revista digital dedicada à análise de sistemas institucionais, tecnologia, comportamento e políticas estratégicas.",
-            ogImage: "https://pautazero.com/assets/images/topo-pautazero.jpg",
-            ogImageAlt: "PautaZero - Capa com análise institucional e tecnologia",
-            logoText: "Pauta<span>Zero</span>",
-            footerLegal: "© 2025 PautaZero. Conteúdo independente."
-          },
-          archive: { items: [] },
-          spotlight: { sectionTitle: "Em discussão", articles: [] },
-          thematicCards: { sectionTitle: "Temas estratégicos", cards: [] },
-          carousel: { title: "Leituras contínuas", items: [] },
-          modal: { title: "Explorar por eixo", subtitle: "Navegue por temas estruturantes", footerNote: "Atualizado continuamente", topics: [] },
-          privacy: { headerNote: "Ética e transparência", columns: [] }
-        };
-        initializePage();
+        // Fallback mínimo
+        document.getElementById('pageTitle').textContent = 'PautaZero';
+        document.getElementById('logoText').innerHTML = 'Pauta<span>Zero</span>';
+        document.getElementById('footerLegalText').textContent = '© 2025 PautaZero. Conteúdo independente.';
       });
-
-    function initializePage() {
-      if (!SITE_DATA) return;
-
-      // 1. Metadados e cabeçalho
-      document.title = SITE_DATA.site.title;
-      document.getElementById('pageTitle').textContent = SITE_DATA.site.title;
-      document.getElementById('metaDescription').setAttribute('content', SITE_DATA.site.description);
-      document.getElementById('ogTitle').setAttribute('content', SITE_DATA.site.title);
-      document.getElementById('ogDescription').setAttribute('content', SITE_DATA.site.description);
-      document.getElementById('ogUrl').setAttribute('content', SITE_DATA.site.url);
-      document.getElementById('ogImage').setAttribute('content', SITE_DATA.site.ogImage);
-      document.getElementById('ogImageAlt').setAttribute('content', SITE_DATA.site.ogImageAlt);
-      document.getElementById('twitterTitle').setAttribute('content', SITE_DATA.site.title);
-      document.getElementById('twitterDescription').setAttribute('content', SITE_DATA.site.description);
-      document.getElementById('twitterImage').setAttribute('content', SITE_DATA.site.ogImage);
-
-      document.getElementById('logoText').innerHTML = SITE_DATA.site.logoText;
-      document.getElementById('headerSlogan').textContent = SITE_DATA.site.slogan;
-      document.getElementById('footerLegalText').textContent = SITE_DATA.site.footerLegal;
-      document.getElementById('footerCopyright').innerHTML = `© ${new Date().getFullYear()} PautaZero · Revista de análise de sistemas, comportamento e políticas estratégicas.`;
-
-      // 2. Seção Spotlight
-      const spotlightTitle = document.getElementById('spotlightSectionTitle');
-      spotlightTitle.textContent = SITE_DATA.spotlight.sectionTitle;
-      const spotlightGrid = document.getElementById('spotlightGridContainer');
-      spotlightGrid.innerHTML = SITE_DATA.spotlight.articles.map(article => `
-        <div class="spotlight-card ${article.isLarger ? 'larger' : ''}" data-link="${article.link}">
-          <div class="card-image">
-            <img class="img-placeholder" src="${article.image}" alt="${escapeHtml(article.title)}" loading="lazy">
-          </div>
-          <div class="card-content">
-            <div class="card-badge">${escapeHtml(article.badge)}</div>
-            <h4>${escapeHtml(article.title)}</h4>
-            <div class="card-excerpt">${escapeHtml(article.excerpt)}</div>
-            <span class="read-more">Ler análise →</span>
-          </div>
-        </div>
-      `).join('');
-
-      // 3. Cards Temáticos
-      document.getElementById('thematicSectionTitle').textContent = SITE_DATA.thematicCards.sectionTitle;
-      const thematicContainer = document.getElementById('thematicCardsContainer');
-      thematicContainer.innerHTML = SITE_DATA.thematicCards.cards.map(card => `
-        <a href="${card.link}" class="theme-card">
-          <div class="theme-icon">${card.icon}</div>
-          <h3>${escapeHtml(card.title)}</h3>
-          <p>${escapeHtml(card.description)}</p>
-          <span class="theme-badge">${escapeHtml(card.badge)}</span>
-        </a>
-      `).join('');
-
-      // 4. Carrossel de Leituras Contínuas
-      document.getElementById('carouselTitle').textContent = SITE_DATA.carousel.title;
-      const carouselContainer = document.getElementById('carouselContainer');
-      carouselContainer.innerHTML = SITE_DATA.carousel.items.map(item => `
-        <a href="${item.link}" class="carousel-card">
-          <img class="carousel-img" src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy">
-          <div class="carousel-content">
-            <div class="carousel-category">${escapeHtml(item.category)}</div>
-            <div class="carousel-title">${escapeHtml(item.title)}</div>
-          </div>
-        </a>
-      `).join('');
-
-      // 5. Arquivo (overlay)
-      const archiveListDiv = document.getElementById('archiveList');
-      const archiveItems = SITE_DATA.archive.items || [];
-      function renderArchiveList(filterText = '') {
-        const term = filterText.toLowerCase();
-        const filtered = archiveItems.filter(item => 
-          item.title.toLowerCase().includes(term) || 
-          item.category.toLowerCase().includes(term) ||
-          item.date.toLowerCase().includes(term)
-        );
-        archiveListDiv.innerHTML = filtered.length ? filtered.map(item => `
-          <a href="${item.link}" class="archive-item">
-            <div class="archive-item-title">${escapeHtml(item.title)}</div>
-            <div class="archive-item-meta">
-              <span>${escapeHtml(item.date)}</span>
-              <span>${escapeHtml(item.category)}</span>
-            </div>
-          </a>
-        `).join('') : '<div class="no-results">Nenhuma edição encontrada.</div>';
-      }
-      renderArchiveList();
-
-      // 6. Modal de Tópicos
-      const modal = document.getElementById('topicModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalSubtitle = document.getElementById('modalSubtitle');
-      const modalFooterNote = document.getElementById('modalFooterNote');
-      const modalTopicsList = document.getElementById('modalTopicsList');
-      modalTitle.textContent = SITE_DATA.modal.title;
-      modalSubtitle.textContent = SITE_DATA.modal.subtitle;
-      modalFooterNote.textContent = SITE_DATA.modal.footerNote;
-
-      function renderModalTopics() {
-        const topics = SITE_DATA.modal.topics || [];
-        let html = '';
-        topics.forEach(group => {
-          html += `<div class="subcategory-group">
-            <div class="subcategory-title">${escapeHtml(group.category)}</div>
-            <ul class="topics-list">`;
-          group.items.forEach(item => {
-            html += `<li><a href="#">${escapeHtml(item)}</a></li>`;
-          });
-          html += `</ul></div>`;
-        });
-        modalTopicsList.innerHTML = html;
-      }
-      renderModalTopics();
-
-      // 7. Política de Privacidade
-      document.getElementById('privacyHeaderNote').textContent = SITE_DATA.privacy.headerNote;
-      const privacyCols = document.getElementById('privacyColumnsContainer');
-      privacyCols.innerHTML = SITE_DATA.privacy.columns.map(col => `
-        <div class="privacy-col">
-          <div class="privacy-col-title">${col.title}</div>
-          <div class="privacy-col-content">${col.content}</div>
-        </div>
-      `).join('');
-
-      // 8. Links de compartilhamento
-      const shareUrl = encodeURIComponent(SITE_DATA.site.url);
-      const shareTitle = encodeURIComponent(SITE_DATA.site.title);
-      const shareDesc = encodeURIComponent(SITE_DATA.site.description);
-      document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`;
-      document.getElementById('shareLinkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}&summary=${shareDesc}`;
-      document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
-      document.getElementById('shareWhatsapp').href = `https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}`;
-      document.getElementById('shareEmail').href = `mailto:?subject=${shareTitle}&body=${shareUrl}`;
-
-      // ---------- Interações de UI (arquivo, modal, etc.) ----------
-      const archiveOverlay = document.getElementById('archiveOverlay');
-      const archiveBtn = document.getElementById('archiveBtn');
-      const archiveCloseBtn = document.getElementById('archiveCloseBtn');
-      const archiveSearchInput = document.getElementById('archiveSearchInput');
-
-      archiveBtn.addEventListener('click', () => archiveOverlay.classList.add('active'));
-      archiveCloseBtn.addEventListener('click', () => archiveOverlay.classList.remove('active'));
-      archiveOverlay.addEventListener('click', (e) => {
-        if (e.target === archiveOverlay) archiveOverlay.classList.remove('active');
-      });
-      archiveSearchInput.addEventListener('input', (e) => renderArchiveList(e.target.value));
-
-      // Modal
-      const closeModalBtn = document.getElementById('closeModalBtn');
-      function openModal() { modal.classList.add('active'); document.body.classList.add('modal-open'); }
-      function closeModal() { modal.classList.remove('active'); document.body.classList.remove('modal-open'); }
-      closeModalBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
-      });
-      // Abrir modal ao clicar em qualquer card temático (link vazio)
-      document.querySelectorAll('.theme-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-          e.preventDefault();
-          openModal();
-        });
-      });
-
-      // Colunas de privacidade colapsáveis
-      document.querySelectorAll('.privacy-col-title').forEach(title => {
-        title.addEventListener('click', function() {
-          const content = this.nextElementSibling;
-          if (content) {
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-          }
-        });
-      });
-
-      // Links do spotlight: preventDefault para '#'
-      document.querySelectorAll('.spotlight-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-          const link = card.dataset.link;
-          if (!link || link === '#') e.preventDefault();
-        });
-      });
-
-      // Carrossel drag (já incluso no CSS)
-      // (Opcional: implementar drag para carrossel, mas o scroll nativo já funciona)
-
-      // ---------- Funcionalidades extras (palavras, busca inteligente) ----------
-      initWordCarousel();
-      initSmartSearch();
-    }
-
-    // ---------- Carrossel de palavras (com dados estáticos ou do JSON) ----------
-    function initWordCarousel() {
-      const track = document.getElementById('wordTrack');
-      if (!track) return;
-      const items = [
-        { icon: "fas fa-landmark", name: "Instituições" },
-        { icon: "fas fa-brain", name: "Comportamento" },
-        { icon: "fas fa-microchip", name: "Tecnologia" },
-        { icon: "fas fa-globe", name: "Geopolítica" }
-      ];
-      let html = '';
-      for (let i = 0; i < 3; i++) {
-        items.forEach(item => {
-          html += `<span class="word-carousel-item"><i class="${item.icon}"></i> ${item.name}</span>`;
-        });
-      }
-      track.innerHTML = html;
-    }
-
-    // ---------- Busca inteligente (integrada com dados do archive) ----------
-    function initSmartSearch() {
-      const searchInput = document.getElementById('archiveSearchInput');
-      if (!searchInput) return;
-
-      let searchCarouselContainer = null;
-      function ensureSearchCarouselContainer() {
-        if (searchCarouselContainer && document.body.contains(searchCarouselContainer)) return searchCarouselContainer;
-        const archivePanel = document.querySelector('.archive-panel');
-        if (!archivePanel) return null;
-        const searchDiv = archivePanel.querySelector('.archive-search');
-        if (!searchDiv) return null;
-        let existing = document.getElementById('smartSearchCarousel');
-        if (existing) {
-          searchCarouselContainer = existing;
-          return existing;
-        }
-        const container = document.createElement('div');
-        container.id = 'smartSearchCarousel';
-        container.className = 'search-carousel-container';
-        container.style.display = 'none';
-        container.innerHTML = `
-          <div class="search-carousel-title">
-            <i class="fas fa-magic"></i> Resultados da busca inteligente
-            <span style="font-size:0.6rem; margin-left:auto;">← arraste →</span>
-          </div>
-          <div class="search-carousel-scroll" id="smartSearchScroll"></div>
-        `;
-        searchDiv.insertAdjacentElement('afterend', container);
-        searchCarouselContainer = container;
-        return container;
-      }
-
-      function renderSearchCarousel(term) {
-        const container = ensureSearchCarouselContainer();
-        if (!container) return;
-        const scrollDiv = document.getElementById('smartSearchScroll');
-        if (!scrollDiv) return;
-        const archiveListDiv = document.getElementById('archiveList');
-        const cleanTerm = term.trim().toLowerCase();
-        if (cleanTerm === '') {
-          container.style.display = 'none';
-          if (archiveListDiv) archiveListDiv.style.display = '';
-          return;
-        }
-        const items = SITE_DATA?.archive?.items || [];
-        const filtered = items.filter(item =>
-          item.title.toLowerCase().includes(cleanTerm) ||
-          item.category.toLowerCase().includes(cleanTerm) ||
-          item.date.toLowerCase().includes(cleanTerm)
-        );
-        if (filtered.length === 0) {
-          scrollDiv.innerHTML = `<div class="no-results" style="padding:1rem;"><i class="fas fa-search"></i> Nenhum resultado para "${escapeHtml(cleanTerm)}"</div>`;
-          container.style.display = 'block';
-          if (archiveListDiv) archiveListDiv.style.display = 'none';
-          return;
-        }
-        scrollDiv.innerHTML = '';
-        filtered.slice(0, 20).forEach(item => {
-          const card = document.createElement('a');
-          card.href = item.link;
-          card.className = 'search-card';
-          // Usar imagem genérica, já que o JSON não fornece imagem específica para archive
-          const imgUrl = `https://placehold.co/400x200/fefaf5/D4AF37?text=${encodeURIComponent(item.category)}`;
-          card.innerHTML = `
-            <img class="search-card-img" src="${imgUrl}" alt="${escapeHtml(item.title)}" loading="lazy">
-            <div class="search-card-content">
-              <div class="search-card-category">${escapeHtml(item.category)}</div>
-              <div class="search-card-title">${escapeHtml(item.title)}</div>
-            </div>
-          `;
-          scrollDiv.appendChild(card);
-        });
-        container.style.display = 'block';
-        if (archiveListDiv) archiveListDiv.style.display = 'none';
-      }
-
-      let debounceTimer;
-      searchInput.addEventListener('input', (e) => {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => {
-          renderSearchCarousel(e.target.value);
-        }, 300);
-      });
-
-      const archiveOverlay = document.getElementById('archiveOverlay');
-      const observer = new MutationObserver(() => {
-        if (archiveOverlay.classList.contains('active') && searchInput.value.trim() !== '') {
-          renderSearchCarousel(searchInput.value);
-        } else if (!archiveOverlay.classList.contains('active')) {
-          const container = ensureSearchCarouselContainer();
-          if (container) container.style.display = 'none';
-          const archiveListDiv = document.getElementById('archiveList');
-          if (archiveListDiv) archiveListDiv.style.display = '';
-        }
-      });
-      observer.observe(archiveOverlay, { attributes: true, attributeFilter: ['class'] });
-    }
-
-    // Túnel de verificação de páginas (mantido opcionalmente)
-    // (pode ser adicionado se necessário, mas aqui mantemos simples)
   })();
 </script>
 
