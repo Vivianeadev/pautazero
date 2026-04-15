@@ -1,0 +1,141 @@
+{
+  "site": {
+    "title": "PautaZero",
+    "slogan": "Análise Institucional & Tecnologia",
+    "url": "https://pautazero.com/",
+    "description": "PautaZero é uma revista digital dedicada à análise de sistemas institucionais, tecnologia, comportamento e políticas estratégicas.",
+    "ogImage": "https://pautazero.com/assets/images/topo-pautazero.jpg",
+    "ogImageAlt": "PautaZero - Capa com análise institucional e tecnologia",
+    "logoText": "Pauta<span>Zero</span>",
+    "footerLegal": "© 2025 PautaZero. Conteúdo independente. Reprodução autorizada mediante citação da fonte."
+  },
+  "archive": {
+    "items": [
+      { "title": "Edição #01 — O algoritmo do poder", "date": "Jan 2025", "category": "Institucional", "link": "#" },
+      { "title": "Edição #02 — Crises da confiança", "date": "Fev 2025", "category": "Comportamento", "link": "#" },
+      { "title": "Edição #03 — Diplomacia em xeque", "date": "Mar 2025", "category": "Relações Internacionais", "link": "#" }
+    ]
+  },
+  "spotlight": {
+    "sectionTitle": "Em discussão",
+    "articles": [
+      {
+        "badge": "Análise crítica",
+        "title": "O colapso da autoridade epistêmica nas democracias contemporâneas",
+        "excerpt": "Como a erosão da confiança nas instituições de conhecimento ameaça o tecido social.",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e9e2d4'/%3E%3Ctext x='20' y='110' font-family='Cinzel' font-size='18' fill='%23B8860B'%3EEpisteme%3C/text%3E%3C/svg%3E",
+        "link": "#",
+        "isLarger": true
+      },
+      {
+        "badge": "Tecnologia & Sociedade",
+        "title": "Soberania digital: a nova fronteira da geopolítica",
+        "excerpt": "Infraestruturas críticas e a disputa pelo controle dos dados.",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23d6cdbb'/%3E%3Ctext x='20' y='110' font-family='Cinzel' font-size='18' fill='%23B8860B'%3ESoberania%3C/text%3E%3C/svg%3E",
+        "link": "#"
+      },
+      {
+        "badge": "Comportamento",
+        "title": "A psicologia do extremo: por que a polarização vicia?",
+        "excerpt": "Mecanismos neurais e sociais por trás do engajamento tóxico.",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e9e2d4'/%3E%3Ctext x='20' y='110' font-family='Cinzel' font-size='18' fill='%23B8860B'%3EPolarização%3C/text%3E%3C/svg%3E",
+        "link": "#"
+      }
+    ]
+  },
+  "thematicCards": {
+    "sectionTitle": "Temas estratégicos",
+    "cards": [
+      {
+        "icon": "🏛️",
+        "title": "Instituições",
+        "description": "Análise da arquitetura do poder, governança e crise de legitimidade.",
+        "badge": "Estado · Democracia · Burocracia",
+        "link": "#"
+      },
+      {
+        "icon": "🧠",
+        "title": "Comportamento",
+        "description": "Cognição política, vieses, radicalização e dinâmica de massas.",
+        "badge": "Psicologia social · Neuropolítica",
+        "link": "#"
+      },
+      {
+        "icon": "🌐",
+        "title": "Tecnologia",
+        "description": "Infraestrutura digital, vigilância, IA e impactos na soberania.",
+        "badge": "Cibersegurança · Plataformas · Algoritmos",
+        "link": "#"
+      }
+    ]
+  },
+  "carousel": {
+    "title": "Leituras contínuas",
+    "items": [
+      {
+        "category": "Ensaio",
+        "title": "A democracia dos não eleitos: o poder das cortes constitucionais",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='160' viewBox='0 0 300 160'%3E%3Crect width='300' height='160' fill='%23e9e2d4'/%3E%3Ctext x='20' y='90' font-family='Cinzel' font-size='16' fill='%23B8860B'%3ECortes%3C/text%3E%3C/svg%3E",
+        "link": "#"
+      },
+      {
+        "category": "Reportagem",
+        "title": "Gigantes da tecnologia e a reconfiguração do contrato social",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='160' viewBox='0 0 300 160'%3E%3Crect width='300' height='160' fill='%23d6cdbb'/%3E%3Ctext x='20' y='90' font-family='Cinzel' font-size='16' fill='%23B8860B'%3EBig Tech%3C/text%3E%3C/svg%3E",
+        "link": "#"
+      },
+      {
+        "category": "Opinião",
+        "title": "Por que a burocracia importa mais do que nunca",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='160' viewBox='0 0 300 160'%3E%3Crect width='300' height='160' fill='%23e9e2d4'/%3E%3Ctext x='20' y='90' font-family='Cinzel' font-size='16' fill='%23B8860B'%3EBurocracia%3C/text%3E%3C/svg%3E",
+        "link": "#"
+      },
+      {
+        "category": "Análise",
+        "title": "Geopolítica dos cabos submarinos: quem controla a internet física",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='160' viewBox='0 0 300 160'%3E%3Crect width='300' height='160' fill='%23d6cdbb'/%3E%3Ctext x='20' y='90' font-family='Cinzel' font-size='16' fill='%23B8860B'%3ECabos%3C/text%3E%3C/svg%3E",
+        "link": "#"
+      }
+    ]
+  },
+  "modal": {
+    "title": "Explorar por eixo",
+    "subtitle": "Navegue por temas estruturantes",
+    "footerNote": "Atualizado continuamente",
+    "topics": [
+      {
+        "category": "Instituições",
+        "items": ["Separação de Poderes", "Crise de Representação", "Judicialização da Política", "Federalismo"]
+      },
+      {
+        "category": "Comportamento",
+        "items": ["Polarização Afetiva", "Desinformação", "Teoria da Identidade Social", "Psicologia das Massas"]
+      },
+      {
+        "category": "Tecnologia & Sociedade",
+        "items": ["Regulação de Plataformas", "IA e Democracia", "Vigilância Estatal", "Soberania Digital"]
+      },
+      {
+        "category": "Geopolítica",
+        "items": ["Ordem Multipolar", "Guerra Híbrida", "Diplomacia Científica", "Infraestrutura Crítica"]
+      }
+    ]
+  },
+  "privacy": {
+    "headerNote": "Ética e transparência",
+    "columns": [
+      {
+        "title": "📋 Política Editorial",
+        "content": "<p><strong>Independência</strong> — A PautaZero não recebe financiamento de partidos ou governos.</p><p><strong>Verificação</strong> — Todos os artigos passam por checagem de fatos.</p>"
+      },
+      {
+        "title": "🔒 Privacidade",
+        "content": "<p>Não coletamos dados pessoais. Utilizamos apenas cookies essenciais para funcionamento do site.</p><p>Contato: <span class='privacy-email'>privacidade@pautazero.com</span></p>"
+      },
+      {
+        "title": "⚖️ Legal",
+        "content": "<p>Todo conteúdo é protegido por direitos autorais. Citações devem referenciar a fonte.</p><p>Registrado sob ISSN 0000-000X (em solicitação).</p>"
+      }
+    ]
+  }
+}
