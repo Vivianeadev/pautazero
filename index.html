@@ -2,796 +2,151 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>PautaZero · Eixos Macro & Artigos Publicados</title>
-  <meta name="description" content="PautaZero é uma revista digital dedicada à análise de sistemas institucionais, tecnologia, comportamento e políticas estratégicas.">
-
-  <!-- Metatags para redes sociais -->
-  <meta property="og:title" content="PautaZero · Análise Institucional & Tecnologia">
-  <meta property="og:description" content="Análise independente de sistemas, comportamento e políticas estratégicas.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pautazero.com/">
-  <meta property="og:image" content="https://pautazero.com/assets/images/topo-pautazero.jpg">
-  <meta property="og:image:alt" content="PautaZero - Capa com análise institucional e tecnologia">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PautaZero · Análise Institucional & Tecnologia">
-  <meta name="twitter:description" content="Análise independente de sistemas, comportamento e políticas estratégicas.">
-  <meta name="twitter:image" content="https://pautazero.com/assets/imagens/topo-pautazero.jpg">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="siteTitle">PautaZero · Eixos Macro & Artigos</title>
+  <meta name="description" content="Portal de análise independente">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    /* ========== BASE E VARIÁVEIS (PRESERVADAS) ========== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --color-primary: #0a3147; --color-primary-light: #1a4b6d; --gold-primary: #D4AF37;
-      --gold-secondary: #F4E4B8; --gold-dark: #B8860B; --color-dark: #1A1A1A;
-      --color-text: #1e2a3a; --color-text-light: #2c3e4e; --color-bg: #fefaf5;
-      --color-bg-card: #ffffff; --border-light: 1px solid rgba(212, 175, 55, 0.25);
-      --shadow-luxury: 0 20px 35px -12px rgba(10, 49, 71, 0.12);
-      --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4B8 50%, #B8860B 100%);
-      --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(244, 228, 184, 0.05) 100%);
-      --font-serif: 'Cinzel', serif; --font-sans: 'Inter', sans-serif; --font-body: 'Marcellus', serif;
-    }
-    body { 
-      background: var(--color-bg); 
-      color: var(--color-text); 
-      font-family: var(--font-sans); 
-      line-height: 1.55; 
-      -webkit-font-smoothing: antialiased; 
-      overflow-x: hidden; 
-      font-size: 0.95rem; 
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .container { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
-    @media (min-width: 1920px) {
-      .container { max-width: 1600px; padding: 0 80px; }
-    }
-    h1, h2, h3, h4, .logo, .section-title { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
-    h2 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--color-primary); border-bottom: 2px solid rgba(212, 175, 55, 0.35); display: inline-block; padding-bottom: 8px; }
-    .site-header { 
-      position: sticky; 
-      top: 0; 
-      background: rgba(255, 253, 250, 0.96); 
-      backdrop-filter: blur(12px); 
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
-      z-index: 100; 
-      padding: 1.2rem 0;
-    }
-    .header-inner { 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      max-width: 1440px; 
-      margin: 0 auto; 
-      padding: 0 48px; 
-      gap: 1rem; 
-    }
-    @media (min-width: 1920px) {
-      .header-inner { max-width: 1600px; padding: 0 80px; }
-    }
-    .logo-area { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-    .logo { font-size: 2rem; font-weight: 700; color: var(--color-primary); text-decoration: none; letter-spacing: 1px; }
-    .logo span { color: var(--gold-dark); font-weight: 500; }
-    .slogan { 
-      font-size: 0.75rem; 
-      font-family: var(--font-body); 
-      color: var(--gold-dark); 
-      text-transform: uppercase; 
-      letter-spacing: 3px; 
-      border-left: 1px solid rgba(212, 175, 55, 0.5); 
-      padding-left: 18px; 
-    }
-    .nav-hamburger { display: flex; align-items: center; gap: 1rem; }
-    .refresh-btn {
-      background: transparent;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      color: var(--gold-dark);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border-radius: 0;
-    }
-    .refresh-btn:hover {
-      background: rgba(212, 175, 55, 0.1);
-      border-color: var(--gold-primary);
-      color: var(--gold-primary);
-    }
-    
-    main { 
-      padding: 4rem 0 6rem; 
-      flex: 1;
-    }
-
-    /* ========== FRAME DE LUXO SUPERIOR (2 COLUNAS) ========== */
-    .published-frame {
-      margin-bottom: 4rem;
-      border-top: 2px solid var(--gold-primary);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-      padding: 2rem 0;
-      background: linear-gradient(to bottom, rgba(212,175,55,0.02), transparent);
-    }
-    .frame-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 2rem;
-    }
-    .frame-header h2 {
-      border-bottom: none;
-      font-size: 1.6rem;
-      margin-bottom: 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .frame-header h2 i { color: var(--gold-dark); font-size: 1.4rem; }
-    .frame-status {
-      font-family: var(--font-serif);
-      font-size: 0.75rem;
-      color: var(--gold-dark);
-      letter-spacing: 1.5px;
-    }
-
-    /* Layout de duas colunas */
-    .published-two-col {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-    /* Coluna esquerda: eixos com artigos (estreita) */
-    .eixos-sidebar {
-      flex: 0 0 220px;
-      border-right: 1px solid rgba(212, 175, 55, 0.2);
-      padding-right: 1.5rem;
-    }
-    .eixos-sidebar-title {
-      font-family: var(--font-serif);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--gold-dark);
-      margin-bottom: 1rem;
-      border-bottom: 1px solid rgba(212,175,55,0.2);
-      padding-bottom: 0.5rem;
-    }
-    .eixo-tag-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .eixo-tag {
-      background: transparent;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      padding: 0.6rem 0.8rem;
-      font-family: var(--font-serif);
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--color-primary);
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: left;
-      border-radius: 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .eixo-tag i {
-      color: var(--gold-dark);
-      font-size: 0.8rem;
-      width: 18px;
-      text-align: center;
-    }
-    .eixo-tag:hover {
-      background: rgba(212, 175, 55, 0.1);
-      border-color: var(--gold-primary);
-    }
-    .eixo-tag.active {
-      background: rgba(212, 175, 55, 0.15);
-      border-color: var(--gold-primary);
-      color: var(--gold-dark);
-    }
-    .eixo-tag .count {
-      margin-left: auto;
-      font-size: 0.65rem;
-      background: rgba(212,175,55,0.15);
-      padding: 0.15rem 0.4rem;
-      border-radius: 0;
-      color: var(--gold-dark);
-    }
-
-    /* Coluna direita: grid de artigos (larga) */
-    .artigos-grid-area {
-      flex: 1;
-      min-width: 0;
-    }
-    .published-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .published-card {
-      background: var(--color-bg-card);
-      border: var(--border-light);
-      transition: all 0.25s ease;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border-radius: 0;
-    }
-    .published-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold-primary);
-      box-shadow: var(--shadow-luxury);
-    }
-    .published-card-img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      background: linear-gradient(145deg, #e9e2d4, #d6cdbb);
-      transition: transform 0.3s ease;
-    }
-    .published-card:hover .published-card-img { transform: scale(1.02); }
-    .published-card-content {
-      padding: 1rem 0.9rem;
-      flex: 1;
-      background: white;
-    }
-    .published-card-category {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gold-dark);
-      margin-bottom: 0.3rem;
-    }
-    .published-card-title {
-      font-family: var(--font-serif);
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--color-primary);
-      line-height: 1.3;
-    }
-    .empty-frame-message {
-      text-align: center;
-      padding: 3rem;
-      color: var(--gold-dark);
-      font-style: italic;
-      font-family: var(--font-serif);
-      grid-column: 1 / -1;
-    }
-
-    /* ========== GRADE DE EIXOS MACRO ========== */
-    .macro-section { margin-top: 2rem; }
-    .macro-header { margin-bottom: 2.5rem; text-align: center; }
-    .macro-header h2 { border-bottom: none; font-size: 2.2rem; margin-bottom: 0.5rem; }
-    .macro-subtitle {
-      font-family: var(--font-body);
-      color: var(--gold-dark);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.75rem;
-    }
-    .macro-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-    }
-    .macro-card {
-      background: var(--color-bg-card);
-      border: var(--border-light);
-      padding: 2rem 1.8rem;
-      transition: all 0.3s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      border-radius: 0;
-    }
-    .macro-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--gold-primary);
-      box-shadow: var(--shadow-luxury);
-    }
-    .macro-icon { font-size: 2.2rem; color: var(--gold-dark); margin-bottom: 1.2rem; }
-    .macro-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--color-primary);
-      margin-bottom: 0.8rem;
-    }
-    .macro-card p { font-size: 0.85rem; line-height: 1.5; color: var(--color-text-light); margin-bottom: 1.2rem; }
-    .macro-badge {
-      display: inline-block;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--gold-dark);
-      border-top: 1px solid rgba(212, 175, 55, 0.3);
-      padding-top: 1rem;
-      width: 100%;
-    }
-
-    /* ========== CARROSSEL DE PALAVRAS ========== */
-    .word-carousel {
-      margin: 3rem 0 1rem;
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(244, 228, 184, 0.03) 100%);
-      border-radius: 60px;
-      padding: 0.7rem 0;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .word-carousel-track {
-      display: inline-flex;
-      align-items: center;
-      animation: scrollWords 30s linear infinite;
-    }
-    .word-carousel-track:hover { animation-play-state: paused; }
-    .word-carousel-item {
-      display: inline-flex;
-      align-items: center;
-      margin: 0 1.8rem;
-      font-family: var(--font-serif);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--color-primary);
-      text-decoration: none;
-      padding: 0.3rem 0.8rem;
-    }
-    .word-carousel-item i { margin-right: 8px; color: var(--gold-dark); }
-    .word-carousel-item:hover { background: rgba(212, 175, 55, 0.12); color: var(--gold-dark); }
-    @keyframes scrollWords {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ========== FOOTER ========== */
-    .site-footer { 
-      border-top: 2px solid rgba(212, 175, 55, 0.25); 
-      padding: 3rem 0 2.5rem; 
-      color: var(--color-text-light); 
-      background: linear-gradient(to bottom, #fefaf5 0%, #f9f2e4 100%);
-      font-size: 0.8rem; 
-      margin-top: auto;
-    }
-    .footer-inner { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
-    @media (min-width: 1920px) { .footer-inner { max-width: 1600px; padding: 0 80px; } }
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
-    .footer-brand { display: flex; align-items: center; gap: 1rem; }
-    .footer-logo { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; color: var(--color-primary); }
-    .footer-logo span { color: var(--gold-dark); }
-    .footer-tagline {
-      font-family: var(--font-body);
-      color: var(--gold-dark);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.7rem;
-      border-left: 1px solid var(--gold-primary);
-      padding-left: 1.5rem;
-    }
-    .footer-social { display: flex; gap: 1.5rem; }
-    .footer-social a { color: var(--gold-dark); font-size: 1.4rem; transition: 0.2s; opacity: 0.8; }
-    .footer-social a:hover { color: var(--gold-primary); opacity: 1; transform: translateY(-3px); }
-    .footer-contact { display: flex; align-items: center; gap: 1rem; font-size: 0.75rem; }
-    .footer-legal {
-      max-width: 1440px;
-      margin: 1.5rem auto 0;
-      padding: 1.5rem 48px 0;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
-      font-size: 0.7rem;
-      line-height: 1.6;
-      color: rgba(44, 62, 78, 0.7);
-      text-align: center;
-      font-family: var(--font-serif);
-      font-weight: 300;
-    }
-
-    /* Política de privacidade */
-    .privacy-collapsible { max-width: 1280px; margin: 2.5rem auto 0.5rem; padding: 0 20px; }
-    .privacy-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1.5rem; }
-    .privacy-col { background: rgba(255,255,245,0.5); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 4px; }
-    .privacy-col-title {
-      font-family: var(--font-serif); font-weight: 600; font-size: 0.85rem; text-align: center;
-      letter-spacing: 1.5px; color: var(--color-primary); background: rgba(212, 175, 55, 0.08);
-      padding: 1rem 0.5rem; cursor: pointer; border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-      text-transform: uppercase;
-    }
-    .privacy-col-title:hover { background: rgba(212, 175, 55, 0.18); color: var(--gold-dark); }
-    .privacy-col-content { display: none; padding: 1.2rem; font-size: 0.75rem; line-height: 1.6; background: var(--color-bg-card); }
-    .privacy-col-content p { margin-bottom: 0.8rem; }
-    .privacy-col-content strong { color: var(--color-primary); font-family: var(--font-serif); }
-    .privacy-email { font-family: monospace; background: rgba(212,175,55,0.1); padding: 0.15rem 0.4rem; border-radius: 6px; }
-    .privacy-header-note { text-align: center; font-family: var(--font-serif); font-size: 0.75rem; letter-spacing: 2px; color: var(--gold-dark); margin-bottom: 0.8rem; text-transform: uppercase; }
-
-    /* Responsividade */
-    @media (max-width: 1100px) {
-      .macro-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 850px) {
-      .published-two-col { flex-direction: column; }
-      .eixos-sidebar { flex: auto; width: 100%; border-right: none; padding-right: 0; border-bottom: 1px solid rgba(212,175,55,0.2); padding-bottom: 1rem; }
-      .eixo-tag-list { flex-direction: row; flex-wrap: wrap; }
-      .eixo-tag { flex: 1 0 auto; }
-    }
-    @media (max-width: 750px) {
-      .macro-grid { grid-template-columns: 1fr; }
-      .privacy-cols { grid-template-columns: 1fr; }
-      .container { padding: 0 24px; }
-      .header-inner { padding: 0 24px; }
-      .footer-top { flex-direction: column; align-items: flex-start; }
-      .slogan { display: none; }
-    }
-    @media (max-width: 550px) {
-      .frame-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-      .published-grid { grid-template-columns: 1fr; }
-    }
+    *{margin:0;padding:0;box-sizing:border-box}:root{--color-primary:#0a3147;--gold-primary:#D4AF37;--gold-dark:#B8860B;--color-bg:#fefaf5;--color-bg-card:#ffffff;--border-light:1px solid rgba(212,175,55,0.25);--shadow-luxury:0 20px 35px -12px rgba(10,49,71,0.12);--font-serif:'Cinzel',serif;--font-sans:'Inter',sans-serif;--font-body:'Marcellus',serif}body{background:var(--color-bg);color:#1e2a3a;font-family:var(--font-sans);line-height:1.55;min-height:100vh;display:flex;flex-direction:column}.container{max-width:1440px;margin:0 auto;padding:0 48px}.site-header{position:sticky;top:0;background:rgba(255,253,250,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.2);z-index:100;padding:1.2rem 0}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1440px;margin:0 auto;padding:0 48px}.logo{font-size:2rem;font-weight:700;color:var(--color-primary);text-decoration:none}.logo span{color:var(--gold-dark)}.slogan{font-size:0.75rem;font-family:var(--font-body);color:var(--gold-dark);text-transform:uppercase;letter-spacing:3px;border-left:1px solid rgba(212,175,55,0.5);padding-left:18px}main{padding:4rem 0 6rem;flex:1}.published-frame{margin-bottom:4rem;border-top:2px solid var(--gold-primary);border-bottom:1px solid rgba(212,175,55,0.2);padding:2rem 0}.frame-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2rem}.frame-header h2{font-family:var(--font-serif);font-size:1.6rem;color:var(--color-primary)}.published-two-col{display:flex;gap:2rem}.eixos-sidebar{flex:0 0 220px;border-right:1px solid rgba(212,175,55,0.2);padding-right:1.5rem}.eixo-tag-list{display:flex;flex-direction:column;gap:0.5rem}.eixo-tag{background:transparent;border:1px solid rgba(212,175,55,0.3);padding:0.6rem 0.8rem;font-family:var(--font-serif);font-size:0.75rem;cursor:pointer;display:flex;align-items:center;gap:8px}.eixo-tag.active{background:rgba(212,175,55,0.15);border-color:var(--gold-primary)}.eixo-tag .count{margin-left:auto;background:rgba(212,175,55,0.15);padding:0.15rem 0.4rem}.artigos-grid-area{flex:1}.published-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}.published-card{background:var(--color-bg-card);border:var(--border-light);text-decoration:none;color:inherit;transition:all 0.2s;display:flex;flex-direction:column}.published-card:hover{transform:translateY(-6px);border-color:var(--gold-primary);box-shadow:var(--shadow-luxury)}.published-card-img{width:100%;height:150px;object-fit:cover}.published-card-content{padding:1rem}.published-card-category{font-size:0.6rem;text-transform:uppercase;color:var(--gold-dark)}.published-card-title{font-family:var(--font-serif);font-size:0.9rem;font-weight:600;color:var(--color-primary)}.macro-section{margin-top:2rem}.macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}.macro-card{background:var(--color-bg-card);border:var(--border-light);padding:2rem 1.8rem;cursor:pointer;text-decoration:none;color:inherit}.macro-card:hover{transform:translateY(-8px);border-color:var(--gold-primary)}.macro-icon{font-size:2.2rem;color:var(--gold-dark);margin-bottom:1.2rem}.macro-card h3{font-family:var(--font-serif);font-size:1.5rem}.site-footer{border-top:2px solid rgba(212,175,55,0.25);padding:3rem 0;background:linear-gradient(to bottom,#fefaf5,#f9f2e4);margin-top:auto}@media (max-width:850px){.published-two-col{flex-direction:column}.eixos-sidebar{border-right:none}.macro-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo-area">
-        <a href="/" class="logo">Pauta<span>Zero</span></a>
-        <span class="slogan">análise · tecnologia · sistemas contemporâneos</span>
-      </div>
-      <div class="nav-hamburger">
-        <button class="refresh-btn" id="refreshPublishedBtn" aria-label="Atualizar artigos publicados">
-          <i class="fas fa-sync-alt"></i>
-        </button>
-      </div>
+<header class="site-header">
+  <div class="header-inner">
+    <div style="display:flex;align-items:baseline;gap:14px">
+      <a href="/" class="logo" id="logoText">Pauta<span>Zero</span></a>
+      <span class="slogan" id="sloganText">análise · tecnologia</span>
     </div>
-  </header>
-
-  <main class="container">
-    <!-- FRAME DE LUXO: 2 COLUNAS -->
-    <section class="published-frame">
-      <div class="frame-header">
-        <h2><i class="fas fa-check-circle"></i> Artigos Completos Publicados</h2>
-        <span class="frame-status"><span id="publishedCount">0</span> disponíveis</span>
-      </div>
-      
-      <div class="published-two-col">
-        <!-- Coluna esquerda: Eixos com artigos -->
-        <div class="eixos-sidebar">
-          <div class="eixos-sidebar-title"><i class="fas fa-tags"></i> Eixos com publicações</div>
-          <div class="eixo-tag-list" id="eixoTagList">
-            <!-- Preenchido dinamicamente -->
-          </div>
-        </div>
-        
-        <!-- Coluna direita: Grid de artigos -->
-        <div class="artigos-grid-area">
-          <div id="publishedGrid" class="published-grid">
-            <div class="empty-frame-message">
-              <i class="fas fa-spinner fa-pulse"></i> Verificando artigos publicados...
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GRADE DE EIXOS MACRO -->
-    <section class="macro-section">
-      <div class="macro-header">
-        <h2>Eixos de <span style="color: var(--gold-dark);">Análise</span></h2>
-        <div class="macro-subtitle">Curadoria Estrutural · Sem Ruído</div>
-      </div>
-      <div class="macro-grid" id="macroGrid"></div>
-    </section>
-
-    <!-- CARROSSEL DE PALAVRAS -->
-    <div class="word-carousel">
-      <div class="word-carousel-track" id="wordTrack"></div>
+    <button id="refreshBtn" style="background:none;border:1px solid var(--gold-primary);padding:0.5rem 1rem;border-radius:30px;color:var(--gold-dark);cursor:pointer"><i class="fas fa-sync-alt"></i> Atualizar</button>
+  </div>
+</header>
+<main class="container">
+  <section class="published-frame">
+    <div class="frame-header"><h2><i class="fas fa-check-circle"></i> Artigos Publicados</h2><span id="publishedCount">0</span></div>
+    <div class="published-two-col">
+      <div class="eixos-sidebar"><div class="eixo-tag-list" id="eixoTagList"></div></div>
+      <div class="artigos-grid-area"><div id="publishedGrid" class="published-grid"></div></div>
     </div>
-  </main>
+  </section>
+  <section class="macro-section">
+    <h2 style="font-family:var(--font-serif);text-align:center;margin-bottom:2rem">Eixos de Análise</h2>
+    <div class="macro-grid" id="macroGrid"></div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container" style="text-align:center" id="footerText">© 2026 PautaZero · Todos os direitos reservados</div>
+</footer>
+<script>
+(function(){
+  let siteConfig = { siteName: 'PautaZero', slogan: 'análise · tecnologia', primaryColor: '#0a3147', goldColor: '#D4AF37', footerText: '© 2026 PautaZero' };
+  let publishedArticles = [];
+  let eixosComArtigos = new Map();
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <span class="footer-logo">Pauta<span>Zero</span></span>
-          <span class="footer-tagline">Análise · Tecnologia · Sistemas Contemporâneos</span>
-        </div>
-        <div class="footer-social">
-          <!-- LINK DO LINKEDIN (mantido como placeholder) -->
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <!-- LINK DO X (AGORA FUNCIONA COMO COMPARTILHAMENTO) -->
-          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fpautazero.com%2F&text=PautaZero%20%E2%80%A2%20An%C3%A1lise%20Institucional%20%26%20Tecnologia" target="_blank" rel="noopener noreferrer" aria-label="Compartilhar no X (Twitter)">
-            <i class="fab fa-x-twitter"></i>
-          </a>
-          <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        </div>
-        <div class="footer-contact">
-          <span><i class="far fa-copyright"></i> 2026 PautaZero</span>
-        </div>
-      </div>
-      <div style="display: flex; justify-content: center; margin: 1.5rem 0 0.5rem;">
-        <a href="manifesto.html" style="color: var(--gold-dark); text-decoration: none; font-family: var(--font-serif); letter-spacing: 2px; font-size: 0.75rem; border-bottom: 1px dotted rgba(212,175,55,0.5); padding-bottom: 3px;"><i class="fas fa-scroll"></i> Manifesto Pauta Zero</a>
-      </div>
-    </div>
-    <div class="privacy-collapsible">
-      <div class="privacy-header-note">Política de Privacidade – PautaZero · clique nos títulos para expandir</div>
-      <div class="privacy-cols">
-        <div class="privacy-col"><div class="privacy-col-title">Ambiente & Dados</div><div class="privacy-col-content"><p><strong>Ambiente independente</strong><br>Este ambiente digital é mantido por responsável independente, atuando na produção de conteúdo informacional e analítico, comprometido com a proteção da privacidade e dos direitos fundamentais dos titulares de dados.</p><p><strong>Dados coletados</strong><br>Dados de navegação (IP anonimizado, cookies técnicos), informações enviadas voluntariamente por e-mail ou formulários. Nunca coletamos dados sensíveis sem consentimento explícito.</p></div></div>
-        <div class="privacy-col"><div class="privacy-col-title">Finalidade & LGPD</div><div class="privacy-col-content"><p><strong>Finalidade</strong><br>Melhorar a experiência, gerar estatísticas agregadas, responder contatos e garantir a segurança do site. Sem tratamento abusivo ou compartilhamento com terceiros não autorizados.</p><p><strong>Base legal (LGPD)</strong><br>Execução de legítimo interesse, cumprimento de obrigação legal e consentimento quando necessário. Respeitamos a Lei 13.709/2018 e os direitos dos titulares.</p></div></div>
-        <div class="privacy-col"><div class="privacy-col-title">Direitos & Contato</div><div class="privacy-col-content"><p><strong>Seus direitos</strong><br>Você pode acessar, retificar, eliminar, limitar ou portar seus dados a qualquer momento. Pedidos devem ser enviados ao e-mail abaixo.</p><p><strong>Canal de atendimento ao titular:</strong> <span class="privacy-email">editorial.pautazero@outlook.com</span> – Respondemos em até 15 dias úteis.</p><p><em>Esta política pode ser atualizada periodicamente. Consulte sempre a versão mais recente neste rodapé.</em></p></div></div>
-      </div>
-    </div>
-    <div class="footer-legal">
-      Conteúdo editorial independente. As análises apresentadas refletem observações estruturais e não constituem aconselhamento jurídico, financeiro ou clínico.<br> 
-      A PautaZero atua com base em critérios de responsabilidade informacional, respeitando contextos legais e institucionais aplicáveis.
-    </div>
-  </footer>
+  // Tenta carregar config.json
+  fetch('./config.json').then(r=>r.json()).then(c=>{
+    siteConfig = c;
+    applyConfig();
+  }).catch(()=>{});
 
-  <script>
-    (function() {
-      // ========== DADOS (MESMA ESTRUTURA ANTERIOR) ==========
-      const macroEixos = {
-        "direito-justica-seguranca": {
-          title: "Direito, Justiça e Segurança", icon: "fas fa-gavel",
-          description: "Ordem social, proteção do cidadão e estabilidade institucional.",
-          topics: {
-            "Sistema Prisional & Policial": ["Superlotação como tortura indireta", "Facções criminosas", "Morte sob custódia"],
-            "Crime & Investigação": ["Crimes financeiros", "Criptomoedas em ransomwares", "Lavagem via setor imobiliário"],
-            "Segurança Total": ["Avaliação de risco para juízes", "Proteção de ativistas", "Deepfakes"],
-            "Justiça e Tecnologia": ["IA no judiciário", "Provas digitais", "Cibercrimes"]
+  function applyConfig(){
+    document.title = siteConfig.siteName + ' · Eixos Macro & Artigos';
+    document.getElementById('logoText').innerHTML = siteConfig.siteName.replace(/(\w+)/, '<span>$1</span>');
+    document.getElementById('sloganText').textContent = siteConfig.slogan;
+    document.getElementById('footerText').textContent = siteConfig.footerText;
+    document.documentElement.style.setProperty('--color-primary', siteConfig.primaryColor);
+    document.documentElement.style.setProperty('--gold-primary', siteConfig.goldColor);
+    document.documentElement.style.setProperty('--gold-dark', siteConfig.goldColor);
+  }
+
+  const macroEixos = {
+    "sustentabilidade":{title:"Sustentabilidade",icon:"fas fa-leaf",desc:"Meio ambiente e futuro"},
+    "direito-justica-seguranca":{title:"Direito e Justiça",icon:"fas fa-gavel",desc:"Ordem e instituições"},
+    "politica-poder":{title:"Política e Poder",icon:"fas fa-landmark",desc:"Geopolítica e governança"},
+    "saude-mental":{title:"Saúde Mental",icon:"fas fa-brain",desc:"Bem-estar emocional"},
+    "saude-fisica":{title:"Saúde Física",icon:"fas fa-heartbeat",desc:"Medicina e longevidade"},
+    "nutricao":{title:"Nutrição",icon:"fas fa-apple-alt",desc:"Performance e saúde"},
+    "economia":{title:"Economia",icon:"fas fa-chart-line",desc:"Finanças e mercados"},
+    "tecnologia":{title:"Tecnologia",icon:"fas fa-robot",desc:"IA e inovação"},
+    "sociedade":{title:"Sociedade",icon:"fas fa-users",desc:"Família e valores"},
+    "esportes":{title:"Esportes",icon:"fas fa-futbol",desc:"Análise esportiva"},
+    "agro":{title:"Agronegócio",icon:"fas fa-truck",desc:"Logística e produção"}
+  };
+
+  async function loadArticles(){
+    try{
+      const res = await fetch('./data.json?v='+Date.now());
+      const data = await res.json();
+      publishedArticles = [];
+      eixosComArtigos.clear();
+      if(data.articles && Array.isArray(data.articles)){
+        data.articles.forEach(art => {
+          publishedArticles.push(art);
+          if(art.macroKey){
+            if(!eixosComArtigos.has(art.macroKey)) eixosComArtigos.set(art.macroKey, {title:art.macroTitle,icon:art.macroIcon,count:0,articles:[]});
+            const e = eixosComArtigos.get(art.macroKey);
+            e.count++; e.articles.push(art);
           }
-        },
-        "politica-poder": {
-          title: "Política, Poder e Geopolítica", icon: "fas fa-landmark",
-          description: "Decisões que moldam o mundo e relações de força.",
-          topics: {
-            "Política & Geopolítica": ["Caixa dois", "Lobby empresarial", "Guerra de informação"],
-            "Políticas Públicas": ["Uso de força letal", "Saúde coletiva", "Renúncias fiscais"],
-            "Direitos Humanos": ["Tortura em delegacias", "População de rua", "Migração"]
-          }
-        },
-        "saude-mental": {
-          title: "Saúde Mental", icon: "fas fa-brain",
-          description: "Estabilidade emocional e qualidade de vida.",
-          topics: {
-            "Saúde Mental": ["Borderline", "TDAH em adultos", "Depressão"],
-            "Saúde Mental em Contextos Extremos": ["Isolamento total", "Burnout", "Terapia de exposição"],
-            "Psicopatia": ["Traços antissociais", "Gaslighting", "Psicopatas no poder"]
-          }
-        },
-        "saude-fisica": {
-          title: "Saúde Física e Medicina", icon: "fas fa-heartbeat",
-          description: "Longevidade e inovação médica.",
-          topics: { "Saúde Física": ["Erros médicos", "Judicialização da saúde", "Colapso de UTIs"] }
-        },
-        "nutricao": {
-          title: "Nutrição e Performance", icon: "fas fa-apple-alt",
-          description: "Energia e saúde baseada em evidências.",
-          topics: { "Nutrição": ["Macronutrientes", "Jejum intermitente", "Cúrcuma"] }
-        },
-        "economia": {
-          title: "Economia e Finanças", icon: "fas fa-chart-line",
-          description: "Geração e proteção de patrimônio.",
-          topics: {
-            "Economia & Super Ricos": ["Offshores", "Family offices", "Iates e jatos"],
-            "Negócios & Estratégia": ["Startups de vigilância", "Holdings familiares"]
-          }
-        },
-        "tecnologia": {
-          title: "Tecnologia e IA", icon: "fas fa-robot",
-          description: "Transformação global e impactos.",
-          topics: { "Futurismo": ["IA e sociedade", "Cidades inteligentes", "Transumanismo"] }
-        },
-        "sociedade": {
-          title: "Sociedade, Família e Valores", icon: "fas fa-users",
-          description: "Base estrutural humana.",
-          topics: {
-            "Família & Alienação": ["Perícias psicológicas", "Falsa denúncia"],
-            "Direito de Família": ["Laudos psiquiátricos", "Gaslighting"],
-            "Educação": ["Evasão escolar", "Ensino bilíngue"],
-            "Religião": ["Poder evangélico", "Cristãos perseguidos"]
-          }
-        },
-        "sustentabilidade": {
-          title: "Sustentabilidade", icon: "fas fa-leaf",
-          description: "Sobrevivência e inovação.",
-          topics: { "Meio Ambiente": ["Garimpo ilegal", "Desmatamento", "Justiça climática"] }
-        },
-        "esportes": {
-          title: "Esportes", icon: "fas fa-futbol",
-          description: "Paixão nacional e bastidores.",
-          topics: { "Esportes": ["Clássicos", "Pelé e Maradona", "Vôlei"] }
-        },
-        "agro": {
-          title: "Agronegócio e Logística", icon: "fas fa-truck",
-          description: "Setor estratégico nacional.",
-          topics: { "Agro e Logística": ["Tabela de frete", "Greves", "Pedágios"] }
-        }
-      };
-
-      const macroFolderMap = {
-        "direito-justica-seguranca": "direito", "politica-poder": "politica", "saude-mental": "saude-mental",
-        "saude-fisica": "saude-fisica", "nutricao": "nutricao", "economia": "economia",
-        "tecnologia": "tecnologia", "sociedade": "sociedade", "sustentabilidade": "sustentabilidade",
-        "esportes": "esportes", "agro": "agro"
-      };
-
-      function slugify(t) { return t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
-      
-      function generateAllArticles() {
-        const arts = [];
-        for (const [macroKey, data] of Object.entries(macroEixos)) {
-          for (const [cat, topics] of Object.entries(data.topics)) {
-            topics.forEach(topic => {
-              arts.push({
-                title: topic,
-                category: cat,
-                macroKey: macroKey,
-                macroTitle: data.title,
-                macroIcon: data.icon,
-                url: `/artigo/${macroFolderMap[macroKey]}/${slugify(cat)}/${slugify(topic)}.html`
-              });
-            });
-          }
-        }
-        return arts;
-      }
-
-      const allPotentialArticles = generateAllArticles();
-
-      async function checkExists(url) {
-        try { const r = await fetch(url, { method: 'HEAD' }); return r.ok; } catch { return false; }
-      }
-
-      let publishedArticles = [];
-      let eixosComArtigos = new Map(); // macroKey -> { title, icon, count, articles }
-
-      async function loadPublishedArticles() {
-        publishedArticles = [];
-        eixosComArtigos.clear();
-        for (const art of allPotentialArticles) {
-          if (await checkExists(art.url)) {
-            const imgSlug = slugify(art.title);
-            let imgOk = false;
-            try { const ir = await fetch(`assets/images/${imgSlug}.jpg`, { method: 'HEAD' }); imgOk = ir.ok; } catch {}
-            publishedArticles.push({
-              ...art,
-              image: imgOk ? `assets/images/${imgSlug}.jpg` : 'https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero'
-            });
-            // Agrupa por eixo
-            if (!eixosComArtigos.has(art.macroKey)) {
-              eixosComArtigos.set(art.macroKey, {
-                title: art.macroTitle,
-                icon: art.macroIcon,
-                count: 0,
-                articles: []
-              });
-            }
-            const eixoData = eixosComArtigos.get(art.macroKey);
-            eixoData.count++;
-            eixoData.articles.push(publishedArticles[publishedArticles.length-1]);
-          }
-        }
-        return publishedArticles;
-      }
-
-      function renderEixosSidebar(activeKey = null) {
-        const container = document.getElementById('eixoTagList');
-        if (eixosComArtigos.size === 0) {
-          container.innerHTML = '<div style="color: var(--gold-dark); font-style:italic; padding:0.5rem;">Nenhum eixo com publicações</div>';
-          return;
-        }
-        let html = `<div class="eixo-tag ${!activeKey ? 'active' : ''}" data-macro="all"><i class="fas fa-globe"></i> Todos <span class="count">${publishedArticles.length}</span></div>`;
-        for (const [key, data] of eixosComArtigos.entries()) {
-          html += `<div class="eixo-tag ${activeKey === key ? 'active' : ''}" data-macro="${key}"><i class="${data.icon}"></i> ${data.title} <span class="count">${data.count}</span></div>`;
-        }
-        container.innerHTML = html;
-        
-        // Event listeners
-        document.querySelectorAll('.eixo-tag').forEach(tag => {
-          tag.addEventListener('click', () => {
-            const macro = tag.dataset.macro;
-            document.querySelectorAll('.eixo-tag').forEach(t => t.classList.remove('active'));
-            tag.classList.add('active');
-            filterArticlesByMacro(macro === 'all' ? null : macro);
-          });
         });
       }
+      renderAll();
+    }catch(e){
+      document.getElementById('publishedGrid').innerHTML = '<p>Erro ao carregar artigos. Verifique se data.json existe.</p>';
+    }
+  }
 
-      function filterArticlesByMacro(macroKey) {
-        const filtered = macroKey ? (eixosComArtigos.get(macroKey)?.articles || []) : publishedArticles;
-        renderPublishedGrid(filtered);
-      }
+  function renderAll(){
+    renderSidebar();
+    renderGrid(publishedArticles);
+    renderMacroGrid();
+    document.getElementById('publishedCount').textContent = publishedArticles.length;
+  }
 
-      function renderPublishedGrid(articles) {
-        const grid = document.getElementById('publishedGrid');
-        const countSpan = document.getElementById('publishedCount');
-        countSpan.textContent = articles.length;
-        if (articles.length === 0) {
-          grid.innerHTML = '<div class="empty-frame-message"><i class="fas fa-book-open"></i> Nenhum artigo neste eixo ainda.</div>';
-          return;
-        }
-        grid.innerHTML = articles.map(a => `
-          <a href="${a.url}" class="published-card">
-            <img class="published-card-img" src="${a.image}" alt="${escapeHtml(a.title)}" loading="lazy" onerror="this.src='https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero'">
-            <div class="published-card-content">
-              <div class="published-card-category">${escapeHtml(a.category)}</div>
-              <div class="published-card-title">${escapeHtml(a.title)}</div>
-            </div>
-          </a>
-        `).join('');
-      }
+  function renderSidebar(){
+    const container = document.getElementById('eixoTagList');
+    let html = `<div class="eixo-tag active" data-macro="all"><i class="fas fa-globe"></i> Todos <span class="count">${publishedArticles.length}</span></div>`;
+    for(let [key,data] of eixosComArtigos){
+      html += `<div class="eixo-tag" data-macro="${key}"><i class="${data.icon}"></i> ${data.title} <span class="count">${data.count}</span></div>`;
+    }
+    container.innerHTML = html;
+    document.querySelectorAll('.eixo-tag').forEach(t=>t.addEventListener('click',function(){
+      document.querySelectorAll('.eixo-tag').forEach(x=>x.classList.remove('active'));
+      this.classList.add('active');
+      const macro = this.dataset.macro;
+      renderGrid(macro === 'all' ? publishedArticles : (eixosComArtigos.get(macro)?.articles || []));
+    }));
+  }
 
-      async function refreshFrame() {
-        const grid = document.getElementById('publishedGrid');
-        grid.innerHTML = '<div class="empty-frame-message"><i class="fas fa-spinner fa-pulse"></i> Verificando artigos publicados...</div>';
-        await loadPublishedArticles();
-        renderEixosSidebar(null);
-        renderPublishedGrid(publishedArticles);
-      }
+  function renderGrid(articles){
+    const grid = document.getElementById('publishedGrid');
+    if(!articles.length){ grid.innerHTML = '<p>Nenhum artigo neste eixo.</p>'; return; }
+    grid.innerHTML = articles.map(a=>`
+      <a href="${a.url}" class="published-card">
+        <img class="published-card-img" src="${a.image}" alt="${escapeHtml(a.title)}" onerror="this.src='https://placehold.co/400x200/fefaf5/D4AF37?text='">
+        <div class="published-card-content">
+          <div class="published-card-category">${escapeHtml(a.category)}</div>
+          <div class="published-card-title">${escapeHtml(a.title)}</div>
+        </div>
+      </a>
+    `).join('');
+  }
 
-      function renderMacroGrid() {
-        const grid = document.getElementById('macroGrid');
-        let html = '';
-        for (const [key, data] of Object.entries(macroEixos)) {
-          html += `<div class="macro-card" data-macro="${key}"><div class="macro-icon"><i class="${data.icon}"></i></div><h3>${data.title}</h3><p>${data.description}</p><div class="macro-badge">clique para explorar →</div></div>`;
-        }
-        grid.innerHTML = html;
-        document.querySelectorAll('.macro-card').forEach(c => c.addEventListener('click', () => alert('Em breve: página do eixo.')));
-      }
+  function renderMacroGrid(){
+    const grid = document.getElementById('macroGrid');
+    let html = '';
+    for(let [key,data] of Object.entries(macroEixos)){
+      html += `<div class="macro-card"><div class="macro-icon"><i class="${data.icon}"></i></div><h3>${data.title}</h3><p>${data.desc}</p></div>`;
+    }
+    grid.innerHTML = html;
+  }
 
-      function escapeHtml(s) { return s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
+  function escapeHtml(s){ return s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
-      function initWordCarousel() {
-        const track = document.getElementById('wordTrack');
-        const items = [
-          { icon: "fas fa-gavel", name: "Direito" }, { icon: "fas fa-landmark", name: "Política" }, { icon: "fas fa-brain", name: "Saúde Mental" },
-          { icon: "fas fa-heartbeat", name: "Saúde Física" }, { icon: "fas fa-apple-alt", name: "Nutrição" }, { icon: "fas fa-chart-line", name: "Economia" },
-          { icon: "fas fa-robot", name: "Tecnologia" }, { icon: "fas fa-users", name: "Sociedade" }, { icon: "fas fa-leaf", name: "Sustentabilidade" },
-          { icon: "fas fa-futbol", name: "Esportes" }, { icon: "fas fa-truck", name: "Logística" }
-        ];
-        let h = ''; for (let i=0;i<3;i++) items.forEach(it => h += `<span class="word-carousel-item"><i class="${it.icon}"></i> ${it.name}</span>`);
-        track.innerHTML = h;
-      }
-
-      function initPrivacy() {
-        document.querySelectorAll('.privacy-col-title').forEach(t => {
-          t.addEventListener('click', function() {
-            const c = this.parentElement.querySelector('.privacy-col-content');
-            if(c) c.style.display = c.style.display === 'none' || getComputedStyle(c).display === 'none' ? 'block' : 'none';
-          });
-        });
-        document.querySelectorAll('.privacy-col-content').forEach(c => c.style.display = 'none');
-      }
-
-      document.getElementById('refreshPublishedBtn').addEventListener('click', refreshFrame);
-      
-      window.addEventListener('DOMContentLoaded', async () => {
-        renderMacroGrid();
-        initWordCarousel();
-        initPrivacy();
-        await refreshFrame();
-      });
-    })();
-  </script>
+  document.getElementById('refreshBtn').addEventListener('click', loadArticles);
+  window.addEventListener('DOMContentLoaded', loadArticles);
+})();
+</script>
 </body>
 </html>
