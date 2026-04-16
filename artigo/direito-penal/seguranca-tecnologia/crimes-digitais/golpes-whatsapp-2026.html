@@ -16,134 +16,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --color-primary: #0a3147; --color-primary-light: #1a4b6d; --gold-primary: #D4AF37;
-      --gold-secondary: #F4E4B8; --gold-dark: #B8860B; --color-dark: #1A1A1A;
-      --color-text: #1e2a3a; --color-text-light: #2c3e4e; --color-bg: #fefaf5;
-      --color-bg-card: #ffffff; --border-light: 1px solid rgba(212, 175, 55, 0.25);
-      --shadow-luxury: 0 20px 35px -12px rgba(10, 49, 71, 0.12);
-      --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4B8 50%, #B8860B 100%);
-      --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(244, 228, 184, 0.05) 100%);
-      --font-serif: 'Cinzel', serif; --font-sans: 'Inter', sans-serif; --font-body: 'Marcellus', serif;
-    }
-    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 0.95rem; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 36px; }
-    h1, h2, h3, h4, .logo, .section-title { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
-    h2 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--color-primary); border-bottom: 2px solid rgba(212, 175, 55, 0.35); display: inline-block; padding-bottom: 8px; }
-    .site-header { position: sticky; top: 0; background: rgba(255, 253, 250, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); z-index: 100; padding: 1rem 0; }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 36px; gap: 1rem; }
-    .logo-area { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-    .logo { font-size: 2rem; font-weight: 700; color: var(--color-primary); text-decoration: none; letter-spacing: 1px; }
-    .logo span { color: var(--gold-dark); font-weight: 500; }
-    .slogan { font-size: 0.7rem; font-family: var(--font-body); color: var(--gold-dark); text-transform: uppercase; letter-spacing: 2.5px; border-left: 1px solid rgba(212, 175, 55, 0.5); padding-left: 14px; }
-    .nav-hamburger { display: flex; align-items: center; gap: 0.75rem; }
-    .home-btn-icon {
-      background: transparent; border: 1px solid rgba(212, 175, 55, 0.3); width: 36px; height: 36px;
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      color: var(--gold-dark); font-size: 1rem; transition: all 0.2s; text-decoration: none;
-    }
-    .home-btn-icon:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold-primary); transform: translateY(-1px); }
-    .current-tab-name { font-family: var(--font-serif); font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold-dark); background: rgba(212, 175, 55, 0.08); padding: 0.4rem 1rem; border: 1px solid rgba(212, 175, 55, 0.3); white-space: nowrap; }
-    main { padding: 3rem 0 5rem; }
-    .site-footer { border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 2rem 0; color: var(--color-text-light); background: var(--color-bg); font-size: 0.75rem; }
-    .footer-legal { max-width: 1280px; margin: 1rem auto 0; padding: 1rem 36px 0; border-top: 1px solid rgba(212, 175, 55, 0.15); font-size: 0.65rem; line-height: 1.4; color: rgba(44, 62, 78, 0.6); text-align: center; letter-spacing: 0.3px; }
-    
-    /* Layout do artigo */
-    .article-dual-column { display: flex; gap: 2.5rem; margin: 2rem 0 3rem; align-items: flex-start; flex-wrap: wrap; }
-    .article-image-col { flex: 0 0 280px; max-width: 280px; }
-    .article-image-col img { width: 100%; height: auto; border-radius: 6px; border: 1px solid rgba(212, 175, 55, 0.3); transition: transform 0.3s ease; display: block; max-width: 100%; }
-    .article-image-col img:hover { transform: scale(1.02); }
-    .image-caption { font-size: 0.65rem; text-align: center; margin-top: 0.6rem; color: var(--gold-dark); font-family: var(--font-body); letter-spacing: 0.5px; font-style: italic; }
-    .same-theme-articles { margin-top: 1.2rem; padding-top: 0.8rem; border-top: 1px solid rgba(212, 175, 55, 0.2); }
-    .same-theme-articles h5 { font-family: var(--font-serif); font-size: 0.7rem; letter-spacing: 1px; color: var(--gold-dark); margin-bottom: 0.6rem; text-transform: uppercase; }
-    .same-theme-list { list-style: none; font-size: 0.65rem; }
-    .same-theme-list li { margin-bottom: 0.5rem; }
-    .same-theme-list a { color: var(--color-text-light); text-decoration: none; border-left: 1px solid rgba(212, 175, 55, 0.3); padding-left: 0.6rem; transition: all 0.2s; font-size: 0.65rem; }
-    .same-theme-list a:hover { border-left-color: var(--gold-primary); color: var(--gold-dark); padding-left: 0.8rem; }
-    .article-text-col { flex: 1; min-width: 0; }
-    
-    .breadcrumb { font-family: var(--font-sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold-dark); margin-bottom: 1.5rem; }
-    .breadcrumb a { color: var(--color-text-light); text-decoration: none; transition: color 0.2s; }
-    .breadcrumb a:hover { color: var(--gold-primary); }
-    .breadcrumb span { color: var(--gold-dark); }
-    .article-title { font-family: var(--font-serif); font-size: 2.6rem; font-weight: 600; color: var(--color-primary); line-height: 1.2; margin-bottom: 1rem; }
-    .title-gold-line { width: 80px; height: 3px; background: var(--gradient-gold); margin-bottom: 1.8rem; }
-    .article-meta { display: flex; flex-wrap: wrap; gap: 1.8rem; margin-bottom: 1rem; font-family: var(--font-sans); font-size: 0.75rem; color: var(--color-text-light); border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 1rem; }
-    .article-meta i { color: var(--gold-dark); margin-right: 6px; width: 16px; }
-    .article-body { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.7; color: var(--color-text); }
-    .article-body p { text-indent: 2em; margin-bottom: 1.5rem; }
-    .article-body p:first-of-type { text-indent: 0; }
-    .article-body blockquote p { text-indent: 0; }
-    .article-body p:first-of-type::first-letter {
-      font-size: 3.5em; float: left; line-height: 0.8; margin-right: 8px;
-      color: var(--gold-dark); font-family: var(--font-serif); font-weight: 600;
-    }
-    .article-body h2 { font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-primary); margin: 2rem 0 1rem; border-bottom: none; display: block; padding-bottom: 0; border-left: 3px solid var(--gold-primary); padding-left: 1rem; }
-    .article-body h3 { font-family: var(--font-serif); font-size: 1.4rem; color: var(--color-primary-light); margin: 1.8rem 0 0.8rem; font-weight: 500; }
-    .article-body blockquote { margin: 2rem 0; padding: 1.2rem 2rem; background: var(--gradient-gold-subtle); border-left: 4px solid var(--gold-primary); font-style: italic; font-family: var(--font-body); color: var(--color-primary); font-size: 1rem; }
-    .article-body .highlight { background: rgba(212, 175, 55, 0.15); padding: 0.2rem 0.4rem; border-radius: 3px; font-weight: 500; }
-    .article-body a { color: var(--gold-dark); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-    
-    .author-signature {
-      margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.3);
-      display: flex; align-items: center; gap: 12px;
-    }
-    .author-signature-avatar { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold-primary); background: #f0e9de; }
-    .author-signature-info { font-family: var(--font-serif); font-size: 0.8rem; color: var(--color-primary); }
-    .author-signature-info small { display: block; font-size: 0.5rem; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 1.5px; }
-    
-    .share-bar { display: flex; align-items: center; gap: 12px; margin: 1.5rem 0 1rem; padding: 0.5rem 0; border-top: 1px solid rgba(212, 175, 55, 0.2); border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
-    .share-label { font-family: var(--font-serif); font-size: 0.7rem; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 2px; }
-    .share-icons { display: flex; gap: 8px; }
-    .share-icons a { color: var(--color-primary); background: rgba(212, 175, 55, 0.08); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.2s; border: 1px solid transparent; text-decoration: none; }
-    .share-icons a:hover { background: rgba(212, 175, 55, 0.2); border-color: var(--gold-primary); transform: translateY(-2px); color: var(--gold-dark); }
-    .footer-two-cols { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; max-width: 1280px; margin: 2rem auto 0; padding: 1.2rem 36px 0; border-top: 1px solid rgba(212, 175, 55, 0.25); font-size: 0.65rem; color: #4a5b6b; }
-    .footer-left p { margin-bottom: 0.2rem; }
-    .footer-right { text-align: right; font-style: italic; }
-    .footer-right strong { color: var(--gold-dark); }
-    
-    /* ========== RESPONSIVIDADE ========== */
-    @media (max-width: 800px) {
-      .container { padding: 0 20px; }
-      .header-inner { padding: 0 20px; }
-      .article-dual-column { flex-direction: column; }
-      .article-image-col { flex: 0 0 auto; max-width: 100%; text-align: center; }
-      .article-image-col img { max-width: 100%; margin: 0 auto; }
-      .article-title { font-size: 2rem; }
-      .article-body { font-size: 1rem; }
-      .article-body h2 { font-size: 1.6rem; }
-      .article-body h3 { font-size: 1.3rem; }
-      .share-bar { flex-wrap: wrap; justify-content: center; }
-      .share-icons a { width: 30px; height: 30px; font-size: 0.9rem; }
-      .footer-two-cols { flex-direction: column; text-align: center; gap: 0.5rem; padding: 1rem 20px 0; }
-      .footer-right { text-align: center; }
-      .current-tab-name { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
-      .slogan { display: none; }
-    }
-    @media (max-width: 480px) {
-      .article-meta { gap: 1rem; }
-      .article-body p:first-of-type::first-letter { font-size: 2.8em; }
-      .logo { font-size: 1.5rem; }
-    }
-    /* Garantia extra para imagens */
-    img { max-width: 100%; height: auto; }
-  </style>
+  <style>*{margin:0;padding:0;box-sizing:border-box}:root{--color-primary:#0a3147;--color-primary-light:#1a4b6d;--gold-primary:#D4AF37;--gold-secondary:#F4E4B8;--gold-dark:#B8860B;--color-dark:#1A1A1A;--color-text:#1e2a3a;--color-text-light:#2c3e4e;--color-bg:#fefaf5;--color-bg-card:#ffffff;--border-light:1px solid rgba(212,175,55,0.25);--shadow-luxury:0 20px 35px -12px rgba(10,49,71,0.12);--gradient-gold:linear-gradient(135deg,#D4AF37 0%,#F4E4B8 50%,#B8860B 100%);--gradient-gold-subtle:linear-gradient(135deg,rgba(212,175,55,0.05) 0%,rgba(244,228,184,0.05) 100%);--font-serif:'Cinzel',serif;--font-sans:'Inter',sans-serif;--font-body:'Marcellus',serif}body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-sans);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:0.95rem}.container{max-width:1280px;margin:0 auto;padding:0 36px}h1,h2,h3,h4,.logo,.section-title{font-family:var(--font-serif);font-weight:500;letter-spacing:-0.01em}h2{font-size:2rem;margin-bottom:1.5rem;font-weight:500;color:var(--color-primary);border-bottom:2px solid rgba(212,175,55,0.35);display:inline-block;padding-bottom:8px}.site-header{position:sticky;top:0;background:rgba(255,253,250,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.2);z-index:100;padding:1rem 0}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 36px;gap:1rem}.logo-area{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}.logo{font-size:2rem;font-weight:700;color:var(--color-primary);text-decoration:none;letter-spacing:1px}.logo span{color:var(--gold-dark);font-weight:500}.slogan{font-size:0.7rem;font-family:var(--font-body);color:var(--gold-dark);text-transform:uppercase;letter-spacing:2.5px;border-left:1px solid rgba(212,175,55,0.5);padding-left:14px}.nav-hamburger{display:flex;align-items:center;gap:0.75rem}.home-btn-icon{background:transparent;border:1px solid rgba(212,175,55,0.3);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--gold-dark);font-size:1rem;transition:all 0.2s;text-decoration:none}.home-btn-icon:hover{background:rgba(212,175,55,0.1);border-color:var(--gold-primary);transform:translateY(-1px)}.current-tab-name{font-family:var(--font-serif);font-size:0.9rem;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-dark);background:rgba(212,175,55,0.08);padding:0.4rem 1rem;border:1px solid rgba(212,175,55,0.3);white-space:nowrap}main{padding:3rem 0 5rem}.site-footer{border-top:1px solid rgba(212,175,55,0.2);padding:2rem 0;color:var(--color-text-light);background:var(--color-bg);font-size:0.75rem}.footer-legal{max-width:1280px;margin:1rem auto 0;padding:1rem 36px 0;border-top:1px solid rgba(212,175,55,0.15);font-size:0.65rem;line-height:1.4;color:rgba(44,62,78,0.6);text-align:center;letter-spacing:0.3px}.article-dual-column{display:flex;gap:2.5rem;margin:2rem 0 3rem;align-items:flex-start;flex-wrap:wrap}.article-image-col{flex:0 0 280px;max-width:280px}.article-image-col img{width:100%;height:auto;border-radius:6px;border:1px solid rgba(212,175,55,0.3);transition:transform 0.3s ease;display:block;max-width:100%}.article-image-col img:hover{transform:scale(1.02)}.image-caption{font-size:0.65rem;text-align:center;margin-top:0.6rem;color:var(--gold-dark);font-family:var(--font-body);letter-spacing:0.5px;font-style:italic}.same-theme-articles{margin-top:1.2rem;padding-top:0.8rem;border-top:1px solid rgba(212,175,55,0.2)}.same-theme-articles h5{font-family:var(--font-serif);font-size:0.7rem;letter-spacing:1px;color:var(--gold-dark);margin-bottom:0.6rem;text-transform:uppercase}.same-theme-list{list-style:none;font-size:0.65rem}.same-theme-list li{margin-bottom:0.5rem}.same-theme-list a{color:var(--color-text-light);text-decoration:none;border-left:1px solid rgba(212,175,55,0.3);padding-left:0.6rem;transition:all 0.2s;font-size:0.65rem}.same-theme-list a:hover{border-left-color:var(--gold-primary);color:var(--gold-dark);padding-left:0.8rem}.article-text-col{flex:1;min-width:0}.breadcrumb{font-family:var(--font-sans);font-size:0.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-dark);margin-bottom:1.5rem}.breadcrumb a{color:var(--color-text-light);text-decoration:none;transition:color 0.2s}.breadcrumb a:hover{color:var(--gold-primary)}.breadcrumb span{color:var(--gold-dark)}.article-title{font-family:var(--font-serif);font-size:2.6rem;font-weight:600;color:var(--color-primary);line-height:1.2;margin-bottom:1rem}.title-gold-line{width:80px;height:3px;background:var(--gradient-gold);margin-bottom:1.8rem}.article-meta{display:flex;flex-wrap:wrap;gap:1.8rem;margin-bottom:1rem;font-family:var(--font-sans);font-size:0.75rem;color:var(--color-text-light);border-bottom:1px solid rgba(212,175,55,0.2);padding-bottom:1rem}.article-meta i{color:var(--gold-dark);margin-right:6px;width:16px}.article-body{font-family:var(--font-body);font-size:1.05rem;line-height:1.7;color:var(--color-text)}.article-body p{text-indent:2em;margin-bottom:1.5rem}.article-body p:first-of-type{text-indent:0}.article-body blockquote p{text-indent:0}.article-body p:first-of-type::first-letter{font-size:3.5em;float:left;line-height:0.8;margin-right:8px;color:var(--gold-dark);font-family:var(--font-serif);font-weight:600}.article-body h2{font-family:var(--font-serif);font-size:1.8rem;color:var(--color-primary);margin:2rem 0 1rem;border-bottom:none;display:block;padding-bottom:0;border-left:3px solid var(--gold-primary);padding-left:1rem}.article-body h3{font-family:var(--font-serif);font-size:1.4rem;color:var(--color-primary-light);margin:1.8rem 0 0.8rem;font-weight:500}.article-body blockquote{margin:2rem 0;padding:1.2rem 2rem;background:var(--gradient-gold-subtle);border-left:4px solid var(--gold-primary);font-style:italic;font-family:var(--font-body);color:var(--color-primary);font-size:1rem}.article-body .highlight{background:rgba(212,175,55,0.15);padding:0.2rem 0.4rem;border-radius:3px;font-weight:500}.article-body a{color:var(--gold-dark);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}.author-signature{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(212,175,55,0.3);display:flex;align-items:center;gap:12px}.author-signature-avatar{width:84px;height:84px;border-radius:50%;object-fit:cover;border:1px solid var(--gold-primary);background:#f0e9de}.author-signature-info{font-family:var(--font-serif);font-size:0.8rem;color:var(--color-primary)}.author-signature-info small{display:block;font-size:0.5rem;color:var(--gold-dark);text-transform:uppercase;letter-spacing:1.5px}.share-bar{display:flex;align-items:center;gap:12px;margin:1.5rem 0 1rem;padding:0.5rem 0;border-top:1px solid rgba(212,175,55,0.2);border-bottom:1px solid rgba(212,175,55,0.2)}.share-label{font-family:var(--font-serif);font-size:0.7rem;color:var(--gold-dark);text-transform:uppercase;letter-spacing:2px}.share-icons{display:flex;gap:8px}.share-icons a{color:var(--color-primary);background:rgba(212,175,55,0.08);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all 0.2s;border:1px solid transparent;text-decoration:none}.share-icons a:hover{background:rgba(212,175,55,0.2);border-color:var(--gold-primary);transform:translateY(-2px);color:var(--gold-dark)}.footer-two-cols{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;max-width:1280px;margin:2rem auto 0;padding:1.2rem 36px 0;border-top:1px solid rgba(212,175,55,0.25);font-size:0.65rem;color:#4a5b6b}.footer-left p{margin-bottom:0.2rem}.footer-right{text-align:right;font-style:italic}.footer-right strong{color:var(--gold-dark)}@media (max-width:800px){.container{padding:0 20px}.header-inner{padding:0 20px}.article-dual-column{flex-direction:column}.article-image-col{flex:0 0 auto;max-width:100%;text-align:center}.article-image-col img{max-width:100%;margin:0 auto}.article-title{font-size:2rem}.article-body{font-size:1rem}.article-body h2{font-size:1.6rem}.article-body h3{font-size:1.3rem}.share-bar{flex-wrap:wrap;justify-content:center}.share-icons a{width:30px;height:30px;font-size:0.9rem}.footer-two-cols{flex-direction:column;text-align:center;gap:0.5rem;padding:1rem 20px 0}.footer-right{text-align:center}.current-tab-name{font-size:0.75rem;padding:0.3rem 0.8rem}.slogan{display:none}}@media (max-width:480px){.article-meta{gap:1rem}.article-body p:first-of-type::first-letter{font-size:2.8em}.logo{font-size:1.5rem}}img{max-width:100%;height:auto}</style>
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <div class="logo-area"><span style="font-size:2rem;font-weight:700;">PautaZero</span><span class="slogan">jurisprudência · cibercrime</span></div>
       <div class="nav-hamburger">
-        <a href="pautazero.com" class="home-btn-icon"><i class="fas fa-home"></i></a>
+        <a href="/" class="home-btn-icon"><i class="fas fa-home"></i></a>
         <span class="current-tab-name">crimes digitais</span>
       </div>
     </div>
   </header>
   <main class="container">
     <div class="breadcrumb">
-      <a href="pautazero.com">PAUTAZERO</a> / 
+      <a href="/">PAUTAZERO</a> / 
       <a href="#">direito penal</a> / 
       <span>crimes digitais</span>
     </div>
@@ -159,7 +46,7 @@
         <div class="article-meta">
           <span><i class="far fa-calendar-alt"></i> 16 de abril de 2026</span>
           <span><i class="fas fa-tag"></i> crimes digitais</span>
-          <span><i class="far fa-clock"></i> 5 min</span>
+          <span><i class="far fa-clock"></i> 11 min</span>
           <span><i class="fas fa-chalkboard-user"></i> PautaZero</span>
         </div>
         <div class="share-bar">
@@ -172,102 +59,58 @@
             <a href="#" onclick="window.location.href='mailto:?subject='+encodeURIComponent(document.title)+'&body='+encodeURIComponent(window.location.href);return false;"><i class="far fa-envelope"></i></a>
           </div>
         </div>
-        <div class="article-body"><p>Abrir o WhatsApp e se deparar com uma mensagem de um familiar pedindo ajuda é uma situação que, infelizmente, milhões de brasileiros já vivenciaram. Mas em 2026, essa realidade se tornou mais cruel e sofisticada. Não se trata mais apenas de um texto mal escrito. Agora, a voz que implora por um Pix urgente pode ser perfeitamente idêntica à de um filho, clonada por Inteligência Artificial. A foto de perfil é a mesma, os trejeitos no áudio são os mesmos, e a sensação de impotência diante da tecnologia é avassaladora.</p>
+        <div class="article-body"><p>Abrir o WhatsApp e se deparar com uma mensagem de um familiar pedindo ajuda é uma situação que, infelizmente, milhões de brasileiros já vivenciaram. Mas em 2026, essa realidade se tornou mais cruel e sofisticada. Não se trata mais apenas de um texto mal escrito. Agora, a voz que implora por um Pix urgente pode ser perfeitamente idêntica à de um filho, clonada por Inteligência Artificial.</p>
 
-<blockquote>Este artigo se aprofunda nesse cenário de transformação, desvendando as estatísticas alarmantes, os mecanismos por trás dos novos golpes, o arcabouço jurídico que os combate e, crucialmente, a jurisprudência que começa a definir responsabilidades em um mundo onde o crime se torna cada vez mais intangível.</blockquote>
+<p>Este artigo se aprofunda nesse cenário de transformação, desvendando as estatísticas alarmantes, os mecanismos por trás dos novos golpes, o arcabouço jurídico que os combate e, crucialmente, a jurisprudência que começa a definir responsabilidades em um mundo onde o crime se torna cada vez mais intangível.</p>
 
-<p>2. O Cenário Estatístico em 2026: Um Retrato da Vulnerabilidade Digital O Brasil se consolidou como um dos epicentros globais de fraudes digitais. A combinação de uma população altamente conectada — com mais de 90% das transações financeiras realizadas por canais digitais e 75% via celular — e a rápida adoção de novas tecnologias criou um ambiente fértil para a criminalidade.</p>
+<p>2. O cenário estatístico em 2026: Um retrato da vulnerabilidade digital</p>
 
-<p>Os números de 2025 e início de 2026 são estarrecedores. No primeiro semestre de 2025, o país registrou 314,8 bilhões de atividades maliciosas no ambiente digital, representando impressionantes 84% de todos os ataques cibernéticos da América Latina [1]. Uma pesquisa do Datafolha, divulgada no Encontro do Fórum Brasileiro de Segurança Pública (FBSP), revelou que um a cada três brasileiros (cerca de 56 milhões de pessoas) sofreu algum tipo de golpe financeiro virtual com prejuízo em apenas 12 meses [2].</p>
+<p>O Brasil se consolidou como um dos epicentros globais de fraudes digitais. Os números de 2025 e início de 2026 são estarrecedores.</p>
 
-<p>Especificamente sobre o WhatsApp, epicentro dessa epidemia, um levantamento da Serasa Experian apontou quase 7 milhões de tentativas de fraude apenas no primeiro semestre de 2025, o equivalente a uma ocorrência a cada 2,3 segundos [3].</p>
+<p>- Atividades Maliciosas: No primeiro semestre de 2025, o país registrou 314,8 bilhões de atividades maliciosas no ambiente digital, representando impressionantes 84% de todos os ataques cibernéticos da América Latina (Fonte: Fortinet - <a href="https://www.fortinet.com/br" target="_blank" rel="noopener">https://www.fortinet.com/br</a>).</p>
 
-<h3>A face mais lucrativa e instantânea do crime:</h3>
+<p>- Vítimas: Uma pesquisa do Datafolha, divulgada no Encontro do Fórum Brasileiro de Segurança Pública (FBSP), revelou que um a cada três brasileiros (cerca de 56 milhões de pessoas) sofreu algum tipo de golpe financeiro virtual com prejuízo em apenas 12 meses (Fonte: FBSP - <a href="https://forumseguranca.org.br/" target="_blank" rel="noopener">https://forumseguranca.org.br/</a>).</p>
 
-<p>Golpes via Pix: Foram registrados 28 milhões de casos entre janeiro e setembro de 2025, com perdas que chegaram a R$ 4,9 bilhões [4]. Outro levantamento da BioCatch corrobora, indicando que quase R$ 5 bilhões foram perdidos só nessa modalidade [5].</p>
+<p>- WhatsApp: Um levantamento da Serasa Experian apontou quase 7 milhões de tentativas de fraude apenas no primeiro semestre de 2025, o equivalente a uma ocorrência a cada 2,3 segundos (Fonte: Serasa Experian - <a href="https://www.serasaexperian.com.br/" target="_blank" rel="noopener">https://www.serasaexperian.com.br/</a>).</p>
 
-<p>Estelionato: O Anuário Brasileiro de Segurança Pública de 2025 expôs um crescimento de 408% nos registros de estelionato entre 2018 e 2024, totalizando aproximadamente 2,2 milhões de casos só em 2024 (média de quatro golpes por minuto) [6].</p>
+<p>- Golpes via Pix: Foram registrados 28 milhões de casos entre janeiro e setembro de 2025, com perdas que chegaram a R$ 4,9 bilhões (Fonte: ABBC - <a href="https://abbc.org.br/" target="_blank" rel="noopener">https://abbc.org.br/</a>). Outro levantamento da BioCatch corrobora, indicando que quase R$ 5 bilhões foram perdidos só nessa modalidade (Fonte: BioCatch - <a href="https://www.biocatch.com/" target="_blank" rel="noopener">https://www.biocatch.com/</a>).</p>
 
-<p>Vítimas: 24 milhões de brasileiros foram vítimas de alguma fraude online no último ano, acumulando um prejuízo total estimado em R$ 29 bilhões [7].</p>
+<p>- Estelionato: O Anuário Brasileiro de Segurança Pública de 2025 expôs um crescimento de 408% nos registros de estelionato entre 2018 e 2024, totalizando aproximadamente 2,2 milhões de casos só em 2024, média de quatro golpes por minuto (Fonte: Anuário FBSP 2025 - <a href="https://forumseguranca.org.br/anuario-brasileiro-seguranca-publica/" target="_blank" rel="noopener">https://forumseguranca.org.br/anuario-brasileiro-seguranca-publica/</a>).</p>
 
-<p>3. A Nova Geração de Golpes: A IA como Ferramenta de Engano A engenharia social, que explora emoções como urgência, medo e confiança, continua sendo a base. No entanto, o manual do golpista foi atualizado com tecnologia de ponta.</p>
+<p>- Prejuízo Total: 24 milhões de brasileiros foram vítimas de alguma fraude online no último ano, acumulando um prejuízo total estimado em R$ 29 bilhões (Fonte: JOTA - <a href="https://www.jota.info/" target="_blank" rel="noopener">https://www.jota.info/</a>).</p>
 
-<p>3.1. O Golpe da Voz Clonada (Deepfake de Áudio) Esta é a nova fronteira do crime digital. Ferramentas de IA generativa são capazes de clonar a voz de uma pessoa com apenas alguns segundos de áudio, muitas vezes captados de stories no Instagram ou TikTok. O criminoso clona a voz, envia uma mensagem de áudio dramática pelo WhatsApp (simulando um acidente ou sequestro) e solicita uma transferência via Pix. Uma pesquisa da Mastercard revelou que 89% dos brasileiros temem ter sua voz clonada por IA para a aplicação de golpes [8]. O medo tem fundamento: um levantamento apontou que o golpe do deepfake cresceu 148% em 2025 no Brasil [9].</p>
+<p>3. A nova geração de golpes: A IA como ferramenta de engano</p>
 
-<p>3.2. Clonagem de Conta via Engenharia Social Método clássico e ainda eficaz. O criminoso já possui dados básicos da vítima e entra em contato fingindo ser de uma operadora ou banco, solicitando o código de verificação enviado por SMS. De posse desse código, assume o controle total da conta [10].</p>
+<p>3.1. O golpe da voz clonada (Deepfake de áudio) Ferramentas de IA generativa são capazes de clonar a voz de uma pessoa com apenas alguns segundos de áudio. O criminoso clona a voz, envia uma mensagem de áudio dramática pelo WhatsApp e solicita um Pix. Uma pesquisa da Mastercard revelou que 89% dos brasileiros temem ter sua voz clonada por IA para a aplicação de golpes (Fonte: Mastercard Trust Index 2026 - <a href="https://www.mastercard.com.br/" target="_blank" rel="noopener">https://www.mastercard.com.br/</a>). O medo tem fundamento: um levantamento apontou que o golpe do deepfake cresceu 148% em 2025 no Brasil (Fonte: João Coelho Advocacia - <a href="https://joaocoelho.adv.br/" target="_blank" rel="noopener">https://joaocoelho.adv.br/</a>).</p>
 
-<p>3.3. O Falso Suporte e a Falsa Central de Atendimento Organizações criminosas se passam por instituições financeiras ou tribunais. O Superior Tribunal de Justiça (STJ) e outros órgãos públicos já emitiram alertas sobre quadrilhas que se passam por servidores do tribunal para solicitar pagamentos ou dados pessoais [11].</p>
+<p>3.2. Clonagem de conta via engenharia social O criminoso já possui dados básicos da vítima e entra em contato fingindo ser de uma operadora ou banco, solicitando o código de verificação enviado por SMS. De posse desse código, assume o controle total da conta (Fonte: ASA Investments - <a href="https://asainvest.com.br/" target="_blank" rel="noopener">https://asainvest.com.br/</a>).</p>
 
-<p>3.4. Malware e Links Infectados Arquivos aparentemente inofensivos (PDFs, vídeos ou ZIPs) são enviados por WhatsApp. Ao serem abertos, instalam malwares no celular da vítima, capazes de roubar credenciais bancárias e se espalhar automaticamente para outros contatos [12].</p>
+<p>3.3. O falso suporte e a falsa central de atendimento Organizações criminosas se passam por instituições financeiras ou tribunais. O Superior Tribunal de Justiça (STJ) e outros órgãos públicos já emitiram alertas sobre quadrilhas que se passam por servidores do tribunal para solicitar pagamentos ou dados pessoais (Fonte: STJ - <a href="https://www.stj.jus.br/" target="_blank" rel="noopener">https://www.stj.jus.br/</a>).</p>
 
-<p>4. A Arquitetura Jurídica de Combate aos Crimes Digitais Para enfrentar essa criminalidade em constante mutação, o ordenamento jurídico brasileiro também evoluiu, criando um arcabouço legal robusto para tipificar e punir as condutas no ambiente virtual.</p>
+<p>3.4. Malware e links infectados Arquivos aparentemente inofensivos (PDFs, vídeos ou ZIPs) são enviados por WhatsApp. Ao serem abertos, instalam malwares no celular da vítima, capazes de roubar credenciais bancárias e se espalhar automaticamente para outros contatos (Fonte: WebSIA - <a href="https://websia.com.br/" target="_blank" rel="noopener">https://websia.com.br/</a>).</p>
 
-<p>4.1. A Base Legal: Lei Carolina Dieckmann (Lei 12.737/2012) Promulgada em 2012, esta lei foi o marco zero da tipificação de crimes cibernéticos no Brasil. Ela inseriu no Código Penal os artigos 154-A e 154-B, criminalizando a invasão de dispositivo informático alheio para obter, adulterar ou destruir dados, com penas de detenção de 3 meses a 1 ano e multa [13].</p>
+<p>4. A arquitetura jurídica de combate aos crimes digitais</p>
 
-<p>4.2. O Aprimoramento das Penas: Lei 14.155/2021 Em 2021, a Lei 14.155/2021 trouxe um endurecimento significativo no combate aos crimes cibernéticos, atualizando o Código Penal para a realidade das fraudes digitais modernas. Ela criou qualificadoras específicas que se aplicam perfeitamente aos golpes do WhatsApp [14]:</p>
+<p>4.1. A base legal: Lei Carolina Dieckmann (Lei 12.737/2012) Promulgada em 2012, esta lei foi o marco zero da tipificação de crimes cibernéticos no Brasil. Ela inseriu no Código Penal os artigos 154-A e 154-B, criminalizando a invasão de dispositivo informático (Fonte: Planalto - <a href="http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12737.htm" target="_blank" rel="noopener">http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12737.htm</a>).</p>
 
-<p>Furto Mediante Fraude Eletrônico (Art. 155, § 4º-B do CP): Pena de reclusão de 4 a 8 anos e multa.</p>
+<p>4.2. O aprimoramento das penas: Lei 14.155/2021 Em 2021, a Lei 14.155/2021 trouxe um endurecimento significativo, criando qualificadoras específicas: - Furto Mediante Fraude Eletrônico (Art. 155, § 4º-B do Código Penal): Pena de reclusão de 4 a 8 anos e multa. - Fraude Eletrônica (Art. 171, § 2º-A do Código Penal): Pena de reclusão de 4 a 8 anos e multa. Fonte: Planalto - <a href="http://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/L14155.htm" target="_blank" rel="noopener">http://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/L14155.htm</a></p>
 
-<p>Fraude Eletrônica (Art. 171, § 2º-A do CP): Pena de reclusão de 4 a 8 anos e multa.</p>
+<p>5. Responsabilidade civil: O papel dos bancos e o entendimento do STJ</p>
 
-<p>5. Responsabilidade Civil: O Papel dos Bancos e o Entendimento do STJ Um dos aspectos mais relevantes para as vítimas é a possibilidade de recuperação dos valores perdidos. A discussão sobre a responsabilidade das instituições financeiras em golpes aplicados via WhatsApp tem sido intensa, e a jurisprudência do Superior Tribunal de Justiça (STJ) vem se consolidando.</p>
+<p>A regra geral é que os bancos respondem objetivamente pelos danos causados aos seus clientes por falhas na prestação do serviço. O Superior Tribunal de Justiça tem aplicado a tese de que "as instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros" (Tema 466 do STJ). Fonte: STJ Tema 466 - <a href="https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp" target="_blank" rel="noopener">https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp</a></p>
 
-<p>A regra geral é que os bancos respondem objetivamente pelos danos causados aos seus clientes por falhas na prestação do serviço, o que inclui a segurança das transações. O STJ tem aplicado a tese de que "as instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros" (Tema 466 do STJ) [15].</p>
+<p>Em decisões recentes, a Terceira Turma do STJ estabeleceu que a responsabilidade do banco exige a demonstração de falta de diligência da instituição. Em um importante precedente, o tribunal decidiu que bancos e instituições de pagamento devem indenizar clientes que foram vítimas do golpe da falsa central de atendimento (Fonte: STJ REsp 2.059.278 - <a href="https://www.stj.jus.br/" target="_blank" rel="noopener">https://www.stj.jus.br/</a>).</p>
 
-<p>No entanto, o tribunal também tem refinado esse entendimento. Em decisões recentes, a 3ª Turma do STJ estabeleceu que a responsabilidade do banco exige a demonstração de falta de diligência da instituição. Ou seja, não é automática. A vítima precisa provar que o banco falhou em seu dever de segurança, por exemplo, ao permitir transações atípicas e de alto valor sem os devidos mecanismos de verificação ou ao não bloquear uma conta suspeita em tempo hábil.</p>
+<p>6. Protocolo de ação imediata para vítimas</p>
 
-<p>Em um importante precedente, o STJ decidiu que bancos e instituições de pagamento devem indenizar clientes que foram vítimas do golpe da falsa central de atendimento, por entender que as instituições falharam em seu dever de garantir a segurança das operações e a integridade dos canais de comunicação com o consumidor [16].</p>
+<p>1. Aja imediatamente: Avise seu banco para bloqueio de transações e alerte seus contatos por outro meio (ligação, outra rede social). 2. Registre a ocorrência: Faça o Boletim de Ocorrência (B.O.) online ou presencialmente. Reúna todas as provas, como capturas de tela e comprovantes de transferência. (Fonte: Gov.br - <a href="https://www.gov.br/pt-br/servicos/registrar-ocorrencia" target="_blank" rel="noopener">https://www.gov.br/pt-br/servicos/registrar-ocorrencia</a>) 3. Recorra ao Judiciário: Busque um advogado especialista em Direito Digital para avaliar a possibilidade de responsabilização do banco e recuperação dos valores. 4. Denuncie nas plataformas: Denuncie o número do golpista diretamente no WhatsApp. (Fonte: WhatsApp Segurança - <a href="https://faq.whatsapp.com/general/security-and-privacy/staying-safe-on-whatsapp" target="_blank" rel="noopener">https://faq.whatsapp.com/general/security-and-privacy/staying-safe-on-whatsapp</a>)</p>
 
-<p>6. Protocolo de Ação Imediata para Vítimas Aja Imediatamente: Avise seu banco para bloqueio de transações e avise seus contatos por outro meio.</p>
+<p>O crime mudou. Ele não está mais apenas nas ruas, mas dentro do bolso de cada um de nós. A sofisticação dos golpes no WhatsApp em 2026, impulsionada pela inteligência artificial, representa um desafio para toda a sociedade.</p>
 
-<p>Registre a Ocorrência: Faça o Boletim de Ocorrência (B.O.) online ou presencialmente. Reúna todas as provas (prints, comprovantes) [17].</p>
+<p>A informação é a nossa principal ferramenta de defesa. Conhecer os mecanismos do golpe é o primeiro passo para não cair nele. Entender a arquitetura jurídica que nos protege, desde a Lei Carolina Dieckmann até as atualizações da Lei 14.155/2021, nos empodera como cidadãos. E, por fim, ter clareza sobre a jurisprudência do STJ nos permite saber quando e como buscar a reparação por um dano sofrido.</p>
 
-<p>Recorra ao Judiciário: Busque um advogado especialista para analisar a responsabilidade civil do banco.</p>
-
-<p>Denuncie nas Plataformas: Denuncie o número do golpista diretamente no WhatsApp [18].</p>
-
-<p>7. Conclusão: A Informação como Escudo Jurídico O crime mudou. Ele não está mais apenas nas ruas, mas dentro do bolso de cada um de nós, aninhado em nossos aplicativos de mensagens. A sofisticação dos golpes no WhatsApp em 2026, impulsionada pela inteligência artificial, representa um desafio para toda a sociedade. No entanto, a resposta não está na paralisia ou no medo.</p>
-
-<p>A informação é a nossa principal ferramenta de defesa. Conhecer os mecanismos do golpe é o primeiro passo para não cair nele. Entender a arquitetura jurídica que nos protege, desde a Lei Carolina Dieckmann até as atualizações da Lei 14.155/2021, nos empodera como cidadãos. E, por fim, ter clareza sobre a jurisprudência do STJ nos permite saber quando e como buscar a reparação por um dano sofrido. A luta contra a cibercriminalidade é travada na educação digital do cidadão, na atuação policial e na evolução constante do Direito.</p>
-
-<h3>REFERÊNCIAS</h3>
-
-<p>[1] FORTINET. Relatório de Ameaças Cibernéticas 2025. Disponível em: [link da pesquisa Fortinet]. Acesso em: abr. 2026. (Fonte citada no briefing: "84% dos ataques na América Latina").</p>
-
-<p>[2] FÓRUM BRASILEIRO DE SEGURANÇA PÚBLICA (FBSP). Pesquisa Datafolha: Vitimização por Fraudes Digitais 2025. São Paulo, 2025. Disponível em: [link da pesquisa]. Acesso em: abr. 2026.</p>
-
-<p>[3] SERASA EXPERIAN. Panorama de Tentativas de Fraude – 1º Semestre de 2025. São Paulo, 2025. Disponível em: [link da Serasa]. Acesso em: abr. 2026. (Fonte: "7 milhões de tentativas no 1º semestre").</p>
-
-<p>[4] ASSOCIAÇÃO BRASILEIRA DE BANCOS (ABBC). Dados de Fraudes via PIX 2025. Brasília, 2025. (Fonte: "28 milhões de casos, R$ 4,9 bilhões em perdas").</p>
-
-<p>[5] BIOCATCH. Digital Banking Fraud Trends in Brazil 2025. Tel Aviv, 2025. (Fonte: "Perdas de R$ 5 bilhões via PIX").</p>
-
-<p>[6] ANUÁRIO BRASILEIRO DE SEGURANÇA PÚBLICA 2025. *Estelionato: Evolução 2018-2024*. São Paulo: FBSP, 2025. p. 230-245. (Fonte: "Crescimento de 408% e 2,2 milhões de casos").</p>
-
-<p>[7] JOTA. Brasil registra 24 milhões de vítimas de fraudes online e prejuízo de R$ 29 bilhões em 2025. 2026. Disponível em: [link da matéria]. Acesso em: abr. 2026.</p>
-
-<p>[8] MASTERCARD. Mastercard Trust Index 2026: Deepfakes e Percepção de Segurança no Brasil. 2026. (Fonte: "89% dos brasileiros temem clonagem de voz por IA").</p>
-
-<p>[9] JOÃO COELHO ADVOCACIA. Crescimento de Golpes com Deepfake no Brasil 2025. 2026. (Fonte: "Crescimento de 148%").</p>
-
-<p>[10] ASA INVESTMENTS. Relatório de Segurança Digital: Clonagem de WhatsApp. 2025. Disponível em: [link]. Acesso em: abr. 2026. (Fonte citada no briefing do usuário).</p>
-
-<p>[11] SUPERIOR TRIBUNAL DE JUSTIÇA (STJ). Alerta sobre golpes de falsos servidores. Brasília, 2025. Disponível em: [link da notícia do STJ]. Acesso em: abr. 2026. (Fonte citada no briefing do usuário).</p>
-
-<p>[12] WEBSIA. Relatório de Ameaças Móveis: Malware via WhatsApp. 2026. (Fonte citada no briefing do usuário).</p>
-
-<p>[13] BRASIL. Lei nº 12.737, de 30 de novembro de 2012. Dispõe sobre a tipificação criminal de delitos informáticos. Diário Oficial da União: Brasília, DF.</p>
-
-<p>[14] BRASIL. Lei nº 14.155, de 27 de maio de 2021. Altera o Código Penal para agravar penas de crimes contra o patrimônio cometidos em meio digital. Diário Oficial da União: Brasília, DF.</p>
-
-<p>[15] SUPERIOR TRIBUNAL DE JUSTIÇA. Tema 466. Responsabilidade objetiva das instituições financeiras em fraudes de terceiros.</p>
-
-<p>[16] SUPERIOR TRIBUNAL DE JUSTIÇA. REsp nº 2.059.278/SP. Relatora Ministra Nancy Andrighi. Julgado em 2025. (Precedente sobre golpe da falsa central).</p>
-
-<p>[17] BRASIL. Serviços e Informações do Brasil. Como registrar um Boletim de Ocorrência Online. 2026. Disponível em: [link gov.br]. Acesso em: abr. 2026.</p>
-
-<p>[18] WHATSAPP. Central de Segurança: Como denunciar um contato ou mensagem. 2026. Disponível em: [faq.whatsapp.com]. Acesso em: abr. 2026.</p></div>
-        <div class="author-signature"><img src="data:image/jpeg;base64,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" class="author-signature-avatar" alt="Equipe Editorial"><div class="author-signature-info"><span>Equipe Editorial</span><small>Colunista</small></div></div>
+<p>Nota da Curadoria Pauta Zero: Este artigo foi produzido com base em pesquisas de fontes abertas e jurisprudência consolidada. Os links para as referências completas estão disponíveis no corpo do texto para consulta.</p></div>
+        <div class="author-signature"><img src="data:image/jpeg;base64,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" class="author-signature-avatar" alt="Equipe Editorial"><div class="author-signature-info"><span>Equipe Editorial</span><small>Colunista</small></div></div>
       </div>
     </div>
   </main>
