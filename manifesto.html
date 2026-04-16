@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>PautaZero · Manifesto Editorial | Análise, integridade e pensamento crítico</title>
+  <meta name="description" content="O manifesto da PautaZero: compromisso com a análise sistêmica, independência intelectual, rigor técnico e o equilíbrio entre inovação e responsabilidade institucional.">
+  <meta property="og:title" content="PautaZero · Manifesto Editorial">
+  <meta property="og:description" content="Os princípios que orientam nossa curadoria de sistemas, comportamento humano e políticas estratégicas.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== ESTILOS COMPLETOS (PRESERVADOS) ========== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --color-primary: #0a3147; --color-primary-light: #1a4b6d; --gold-primary: #D4AF37;
+      --gold-secondary: #F4E4B8; --gold-dark: #B8860B; --color-dark: #1A1A1A;
+      --color-text: #1e2a3a; --color-text-light: #2c3e4e; --color-bg: #fefaf5;
+      --color-bg-card: #ffffff; --border-light: 1px solid rgba(212, 175, 55, 0.25);
+      --shadow-luxury: 0 20px 35px -12px rgba(10, 49, 71, 0.12);
+      --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4B8 50%, #B8860B 100%);
+      --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(244, 228, 184, 0.05) 100%);
+      --font-serif: 'Cinzel', serif; --font-sans: 'Inter', sans-serif; --font-body: 'Marcellus', serif;
+    }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 0.95rem; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 36px; }
+    h1, h2, h3, h4, .logo, .section-title { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
+    h2 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--color-primary); border-bottom: 2px solid rgba(212, 175, 55, 0.35); display: inline-block; padding-bottom: 8px; }
+    .site-header { position: sticky; top: 0; background: rgba(255, 253, 250, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); z-index: 100; padding: 1rem 0; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 36px; gap: 1rem; }
+    .logo-area { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .logo { font-size: 2rem; font-weight: 700; color: var(--color-primary); text-decoration: none; letter-spacing: 1px; }
+    .logo span { color: var(--gold-dark); font-weight: 500; }
+    .slogan { font-size: 0.7rem; font-family: var(--font-body); color: var(--gold-dark); text-transform: uppercase; letter-spacing: 2.5px; border-left: 1px solid rgba(212, 175, 55, 0.5); padding-left: 14px; }
+    .nav-hamburger { display: flex; align-items: center; gap: 1rem; }
+    .archive-btn, .return-home-btn { background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.3); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--color-primary); cursor: pointer; transition: 0.2s; text-decoration: none; }
+    .archive-btn:hover, .return-home-btn:hover { background: rgba(212, 175, 55, 0.25); border-color: var(--gold-primary); }
+    .return-home-btn { font-size: 0.85rem; width: auto; padding: 0 1rem; font-family: var(--font-serif); gap: 6px; text-decoration: none; }
+    .current-tab-name { font-family: var(--font-serif); font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold-dark); background: rgba(212, 175, 55, 0.08); padding: 0.4rem 1rem; border: 1px solid rgba(212, 175, 55, 0.3); white-space: nowrap; }
+    .archive-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 49, 71, 0.8); backdrop-filter: blur(6px); z-index: 1000; display: flex; align-items: center; justify-content: flex-end; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .archive-overlay.active { opacity: 1; visibility: visible; }
+    .archive-panel { background: var(--color-bg-card); width: 100%; max-width: 500px; height: 100%; right: 0; position: absolute; box-shadow: -5px 0 30px rgba(0,0,0,0.2); display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.3s ease; border-left: 1px solid var(--gold-primary); }
+    .archive-overlay.active .archive-panel { transform: translateX(0); }
+    .archive-header { padding: 1.5rem; border-bottom: 1px solid rgba(212,175,55,0.2); display: flex; justify-content: space-between; align-items: center; background: white; }
+    .archive-header h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--color-primary); }
+    .archive-close { background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--gold-dark); }
+    .archive-search { padding: 1rem 1.5rem; border-bottom: 1px solid rgba(212,175,55,0.1); }
+    .archive-search input { width: 100%; padding: 0.8rem 1rem; border: 1px solid rgba(212,175,55,0.3); font-family: var(--font-sans); font-size: 0.9rem; background: white; outline: none; }
+    .archive-search input:focus { border-color: var(--gold-primary); }
+    .archive-list { flex: 1; overflow-y: auto; padding: 1rem 1.5rem; }
+    .archive-item { background: var(--color-bg-card); border: 1px solid rgba(212,175,55,0.15); padding: 0.8rem 1rem; margin-bottom: 0.8rem; cursor: pointer; transition: all 0.2s; }
+    .archive-item:hover { border-color: var(--gold-primary); background: rgba(212,175,55,0.02); transform: translateX(3px); }
+    .archive-item-title { font-family: var(--font-serif); font-size: 0.85rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.2rem; }
+    .archive-item-meta { font-size: 0.65rem; color: var(--gold-dark); display: flex; gap: 1rem; margin-top: 0.2rem; }
+    .no-results { text-align: center; padding: 2rem; color: var(--color-text-light); font-style: italic; }
+    @media (max-width: 700px) {
+      .slogan { display: none; }
+      .current-tab-name { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+      .return-home-btn span { display: none; }
+      .return-home-btn { width: 44px; padding: 0; justify-content: center; }
+      .header-inner { padding: 0 20px; }
+      .archive-panel { max-width: 100%; }
+    }
+    main { padding: 3rem 0 5rem; }
+    .site-footer { border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 2rem 0; color: var(--color-text-light); background: var(--color-bg); font-size: 0.75rem; }
+    .footer-legal { max-width: 1280px; margin: 1rem auto 0; padding: 1rem 36px 0; border-top: 1px solid rgba(212, 175, 55, 0.15); font-size: 0.65rem; line-height: 1.4; color: rgba(44, 62, 78, 0.6); text-align: center; letter-spacing: 0.3px; }
+    @media (max-width: 700px) { .footer-legal { padding: 0.8rem 20px 0; font-size: 0.6rem; } }
+
+    /* ========== LAYOUT DO MANIFESTO (CENTRALIZADO, SEM IMAGEM LATERAL) ========== */
+    .manifesto-container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .breadcrumb {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-dark);
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+      color: var(--color-text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+      color: var(--gold-primary);
+    }
+    .breadcrumb span {
+      color: var(--gold-dark);
+    }
+    .manifesto-title {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .title-gold-line {
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-gold);
+      margin-bottom: 1.8rem;
+    }
+    .manifesto-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding-bottom: 1rem;
+    }
+    .manifesto-meta i {
+      color: var(--gold-dark);
+      margin-right: 6px;
+      width: 16px;
+    }
+    .manifesto-body {
+      font-family: var(--font-body);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+    .manifesto-body p {
+      margin-bottom: 1.5rem;
+    }
+    .manifesto-body h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-primary);
+      margin: 2.5rem 0 1rem;
+      border-bottom: none;
+      display: block;
+      padding-bottom: 0;
+      border-left: 3px solid var(--gold-primary);
+      padding-left: 1rem;
+    }
+    .manifesto-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-primary-light);
+      margin: 1.8rem 0 0.8rem;
+      font-weight: 500;
+    }
+    .manifesto-body blockquote {
+      margin: 2rem 0;
+      padding: 1.2rem 2rem;
+      background: var(--gradient-gold-subtle);
+      border-left: 4px solid var(--gold-primary);
+      font-style: italic;
+      font-family: var(--font-body);
+      color: var(--color-primary);
+      font-size: 1rem;
+    }
+    .manifesto-body .highlight {
+      background: rgba(212, 175, 55, 0.08);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+    .manifesto-body a {
+      color: var(--gold-dark);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .principle-card {
+      background: var(--color-bg-card);
+      border: var(--border-light);
+      padding: 1.2rem;
+      transition: all 0.2s;
+    }
+    .principle-card i {
+      font-size: 1.8rem;
+      color: var(--gold-dark);
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
+    .principle-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-primary);
+    }
+    .principle-card p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    /* SEÇÃO DOS 17 EIXOS */
+    .section-themes {
+      margin-top: 4rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.2);
+      padding-top: 2rem;
+    }
+    .section-themes h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .theme-mini-card {
+      background: var(--color-bg-card);
+      border: var(--border-light);
+      padding: 0.9rem 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .theme-mini-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-luxury);
+    }
+    .theme-mini-card i {
+      font-size: 1.4rem;
+      color: var(--gold-dark);
+      width: 32px;
+      text-align: center;
+    }
+    .theme-mini-card span {
+      font-family: var(--font-serif);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-area"><a href="index.html" class="logo">Pauta<span>Zero</span></a><span class="slogan">análise · tecnologia · sistemas contemporâneos</span></div>
+      <div class="nav-hamburger">
+        <div class="archive-btn" id="archiveBtn"><i class="fas fa-search"></i></div>
+        <span class="current-tab-name" id="currentTabLabel">Manifesto</span>
+        <a href="index.html" class="return-home-btn"><i class="fas fa-home"></i> <span>Retornar ao início</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container manifesto-container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">PAUTAZERO</a> <span>/</span> 
+        <a href="manifesto.html">EDITORIAL</a> <span>/</span> 
+        <span>MANIFESTO</span>
+      </div>
+
+      <h1 class="manifesto-title">Manifesto PautaZero</h1>
+      <div class="title-gold-line"></div>
+      <div class="manifesto-meta">
+        <span><i class="far fa-calendar-alt"></i> <time datetime="2026-04-11">14 de abril de 2026</time></span>
+        <span><i class="fas fa-feather-alt"></i> Equipe Editorial</span>
+        <span><i class="fas fa-code-branch"></i> Revisão institucional v.2.0</span>
+        <span><i class="fas fa-gavel"></i> Compromisso público</span>
+      </div>
+
+      <div class="manifesto-body">
+        <p>A <span class="highlight">PautaZero</span> nasce do encontro entre a urgência analítica e a sobriedade institucional. Não somos uma revista de opinião comum, nem um agregador de tendências. Somos um observatório de sistemas – jurídicos, políticos, comportamentais, tecnológicos e econômicos – que se propõe a dissecar camadas, apontar contradições e oferecer leitura estrutural onde muitos veem apenas ruído.</p>
+
+        <p>Nosso nome evoca o ponto de partida: a pauta original, livre de ruídos, o primeiro traço antes da construção do pensamento. <span class="highlight">Zero</span> como o instante de clareza anterior ao viés, mas também como o compromisso com a honestidade intelectual – mesmo quando ela incomoda.</p>
+
+        <blockquote>
+          <p>“Analisar sem agenda, narrar sem espetáculo, confrontar sem arrogância.”</p>
+        </blockquote>
+
+        <h2>1. Nossa razão de existir</h2>
+        <p>Vivemos a era da superexposição informacional e da fragmentação do debate público. Em meio à saturação de dados, opiniões bélicas e algoritmos que premiam o extremo, a análise aprofundada tornou-se rara. A PautaZero existe para restaurar a espessura crítica: cada artigo, cada relato, cada recorte de eixo temático é tratado com rigor metodológico, transparência sobre fontes e consciência dos limites da própria análise.</p>
+
+        <p>Atuamos como ponte entre o conhecimento técnico (direito, psicologia, ciência política, economia) e a leitura acessível, sem simplificações perigosas. Acreditamos que o leitor merece complexidade bem explicada, não respostas prontas.</p>
+
+        <h2>2. Eixos estratégicos e curadoria temática</h2>
+        <p>A arquitetura da PautaZero está organizada em <strong>17 eixos</strong> – desde <em>Política & Geopolítica</em> até <em>Psicopatia & Comportamento Extremo</em>, passando por <em>Sistema Prisional</em>, <em>Saúde Mental</em>, <em>Economia & Super Ricos</em>, <em>Família & Alienação Parental</em>, <em>Crime & Investigação</em> e <em>Conteúdos Híbridos</em>. Cada eixo é um campo de observação contínua, alimentado por pesquisas acadêmicas, decisões judiciais, dados oficiais e relatos de campo.</p>
+
+        <p>A curadoria não segue moda ou viés político-partidário. Nosso recorte é sistêmico: buscamos identificar padrões recorrentes, falhas estruturais, inovações silenciosas e riscos emergentes. A neutralidade não é um valor – mas a honestidade metodológica, sim.</p>
+
+        <div class="principles-grid">
+          <div class="principle-card"><i class="fas fa-brain"></i><h4>Rigor analítico</h4><p>Toda afirmação é acompanhada de referência verificável ou explicação do grau de inferência.</p></div>
+          <div class="principle-card"><i class="fas fa-balance-scale"></i><h4>Independência</h4><p>Não temos vínculo com governos, partidos ou patrocínios que comprometam nossa linha editorial.</p></div>
+          <div class="principle-card"><i class="fas fa-shield-alt"></i><h4>Proteção de fontes</h4><p>Garantimos anonimato responsável para denúncias e relatos sensíveis (Eixo Anônimo).</p></div>
+          <div class="principle-card"><i class="fas fa-chalkboard-user"></i><h4>Didática sem simplismo</h4><p>Traduzimos linguagem técnica sem esvaziar a complexidade dos fenômenos.</p></div>
+        </div>
+
+        <h2>3. Compromisso com a verdade institucional</h2>
+        <p>A PautaZero reconhece que a verdade é um horizonte, não uma posse. Por isso, adotamos o princípio da <strong>responsabilidade informacional</strong>: cada conteúdo é passível de revisão, correção pública e atualização à luz de novos fatos ou evidências. Não cultivamos a cultura do “furo” irresponsável. Priorizamos a consistência.</p>
+
+        <p>Em temas sensíveis – como acusações de alienação parental, violência sistêmica, falhas prisionais ou diagnósticos psiquiátricos controversos – mantemos uma curadoria dupla: especialistas internos e revisão por pares externos sempre que possível. Nosso compromisso não é agradar, mas iluminar arestas.</p>
+
+        <h3>Diretrizes editoriais fundamentais</h3>
+        <p>— <span class="highlight">Separação entre análise e opinião:</span> textos opinativos são sinalizados como tal; análises institucionais seguem protocolo de distanciamento crítico.<br>
+        — <span class="highlight">Direito de resposta e errata:</span> qualquer pessoa ou instituição citada pode solicitar espaço para esclarecimento, e erratas são publicadas com destaque.<br>
+        — <span class="highlight">Proteção de vulneráveis:</span> não expomos vítimas de violência ou crianças em situação de risco. Relatos são anonimizados ou autorizados formalmente.</p>
+
+        <h2>4. Inovação e tecnologia como aliadas</h2>
+        <p>Acreditamos que a tecnologia – quando orientada por princípios éticos – pode fortalecer a análise indepentente. A PautaZero experimenta ferramentas de IA para identificação de padrões em grandes volumes de decisões judiciais, detecção de litigância predatória e análise de correlações em políticas públicas. Mas nenhum algoritmo substitui o olhar humano. Nossa equipe mantém supervisão integral sobre qualquer recurso automatizado, e os limites do uso de IA são sempre declarados.</p>
+
+        <blockquote>
+          <p>“O futuro da análise institucional não é humano versus máquina, mas humano orientado por máquinas transparentes.”</p>
+        </blockquote>
+
+        <h2>5. Compromisso com a língua e a forma</h2>
+        <p>A clareza não é inimiga da densidade. Adotamos uma escrita precisa, sem jargões desnecessários, mas também sem achatamento semântico. Valorizamos a beleza discreta do texto bem organizado – e o cuidado com a diagramação. A PautaZero é também uma experiência estética de leitura.</p>
+
+        <h2>6. Não somos juízes, somos observadores participantes</h2>
+        <p>Nosso lugar é o de observador que reconhece seu próprio pertencimento ao sistema que analisa. Não nos colocamos acima das instituições, tampouco nos curvamos acriticamente a elas. A PautaZero atua como um agente de accountability suave: apontamos incoerências, celebramos avanços genuínos e denunciamos retrocessos com evidências.</p>
+
+        <p>Este manifesto é um contrato aberto com nossos leitores. Convidamos você, leitor, a ser parte ativa dessa construção: críticas, sugestões de pauta e relatos responsáveis são bem-vindos através do nosso canal editorial (<a href="mailto:editorial.pautazero@outlook.com">editorial.pautazero@outlook.com</a>).</p>
+
+        <p><em>São Paulo, 14 de abril de 2026. — Equipe PautaZero</em></p>
+      </div>
+    </div>
+
+    <!-- SEÇÃO DOS 17 EIXOS (ABAIXO DO MANIFESTO) -->
+    <div class="container">
+      <div class="section-themes">
+        <h3><i class="fas fa-compass"></i> Navegue pelos 17 eixos</h3>
+        <div class="themes-grid" id="themesGrid"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>© 2026 PautaZero · Revista de análise de sistemas, comportamento e políticas estratégicas.</div>
+      <div style="display: flex; gap: 18px; color: var(--gold-dark); align-items: center;">
+        <i class="fab fa-linkedin"></i> <i class="fab fa-x-twitter"></i> <i class="fas fa-envelope"></i>
+        <span style="font-family: monospace;">editorial.pautazero@outlook.com</span>
+      </div>
+    </div>
+    <div class="footer-legal">Conteúdo editorial independente. As análises apresentadas refletem observações estruturais e não constituem aconselhamento jurídico, financeiro ou clínico. A PautaZero atua com base em critérios de responsabilidade informacional, respeitando contextos legais e institucionais aplicáveis.</div>
+  </footer>
+
+  <!-- ARCHIVE OVERLAY (LUPA) -->
+  <div class="archive-overlay" id="archiveOverlay">
+    <div class="archive-panel">
+      <div class="archive-header"><h3><i class="fas fa-archive"></i> Arquivo de eixos</h3><button class="archive-close" id="archiveCloseBtn"><i class="fas fa-times"></i></button></div>
+      <div class="archive-search"><input type="text" id="archiveSearchInput" placeholder="Buscar por tema, eixo..."></div>
+      <div class="archive-list" id="archiveList"></div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ========== DADOS DOS 17 EIXOS (para a lupa e para os cards) ==========
+      const topicTitles = {
+        politica: "Política & Geopolítica",
+        "seguranca-total": "Segurança Total",
+        "prisional-policial": "Sistema Prisional & Policial",
+        "politicas-publicas": "Políticas Públicas",
+        "economia-super-ricos": "Economia & Super Ricos",
+        "saude-mental": "Saúde Mental",
+        "psicopatia": "Psicopatia & Comportamento Extremo",
+        "familia-alienacao": "Família & Alienação Parental",
+        "crime-investigacao": "Crime & Investigação",
+        "saude-mental-extremo": "Saúde Mental em Contextos Extremos",
+        "negocios": "Negócios & Estratégia",
+        "visao-global": "Visão Global",
+        "filantropia": "Impacto & Filantropia",
+        "historias-reais": "Histórias Reais",
+        "anonimo": "Espaço Anônimo",
+        "hibridos": "Conteúdos Híbridos"
+      };
+
+      const topicIcons = {
+        politica: "fas fa-landmark",
+        "seguranca-total": "fas fa-shield-alt",
+        "prisional-policial": "fas fa-gavel",
+        "politicas-publicas": "fas fa-chalkboard-user",
+        "economia-super-ricos": "fas fa-chart-pie",
+        "saude-mental": "fas fa-brain",
+        "psicopatia": "fas fa-user-ninja",
+        "familia-alienacao": "fas fa-heart-broken",
+        "crime-investigacao": "fas fa-fingerprint",
+        "saude-mental-extremo": "fas fa-skull",
+        "negocios": "fas fa-chart-line",
+        "visao-global": "fas fa-globe-americas",
+        "filantropia": "fas fa-hand-holding-heart",
+        "historias-reais": "fas fa-book-open",
+        "anonimo": "fas fa-user-secret",
+        "hibridos": "fas fa-code-branch"
+      };
+
+      // Gera a grade dos 17 eixos (cards)
+      const themesGrid = document.getElementById('themesGrid');
+      if (themesGrid) {
+        for (const [key, title] of Object.entries(topicTitles)) {
+          const card = document.createElement('a');
+          card.className = 'theme-mini-card';
+          card.href = 'construcao.html';
+          card.innerHTML = `<i class="${topicIcons[key]}"></i><span>${title}</span>`;
+          themesGrid.appendChild(card);
+        }
+      }
+
+      // ========== ARQUIVO (LUPA) - exibe os 17 eixos como itens pesquisáveis ==========
+      const today = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      const themesForArchive = Object.entries(topicTitles).map(([key, title]) => ({
+        title: title,
+        date: today,
+        link: 'construcao.html',
+        category: 'Eixo PautaZero'
+      }));
+
+      function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m){
+          if(m === '&') return '&amp;';
+          if(m === '<') return '&lt;';
+          if(m === '>') return '&gt;';
+          return m;
+        });
+      }
+
+      function renderArchiveList(searchTerm = "") {
+        const container = document.getElementById("archiveList");
+        if (!container) return;
+        const term = searchTerm.toLowerCase().trim();
+        let filtered = themesForArchive;
+        if (term !== "") {
+          filtered = themesForArchive.filter(item => 
+            item.title.toLowerCase().includes(term) || 
+            item.category.toLowerCase().includes(term)
+          );
+        }
+        if (filtered.length === 0) {
+          container.innerHTML = '<div class="no-results"><i class="fas fa-book-open"></i> Nenhum eixo encontrado.</div>';
+          return;
+        }
+        container.innerHTML = filtered.map(item => `
+          <div class="archive-item" data-url="${item.link}">
+            <div class="archive-item-title">${escapeHtml(item.title)}</div>
+            <div class="archive-item-meta"><span><i class="far fa-calendar-alt"></i> ${item.date}</span><span><i class="fas fa-folder"></i> ${escapeHtml(item.category)}</span></div>
+          </div>
+        `).join('');
+        document.querySelectorAll('.archive-item').forEach(el => {
+          el.addEventListener('click', () => { window.location.href = el.getAttribute('data-url'); });
+        });
+      }
+
+      // Controles da lupa
+      const archiveBtn = document.getElementById('archiveBtn');
+      const archiveOverlay = document.getElementById('archiveOverlay');
+      const archiveCloseBtn = document.getElementById('archiveCloseBtn');
+      const searchInput = document.getElementById('archiveSearchInput');
+      function openArchive() { archiveOverlay.classList.add('active'); renderArchiveList(searchInput.value); }
+      function closeArchive() { archiveOverlay.classList.remove('active'); searchInput.value = ''; renderArchiveList(''); }
+      if (archiveBtn) archiveBtn.addEventListener('click', openArchive);
+      if (archiveCloseBtn) archiveCloseBtn.addEventListener('click', closeArchive);
+      if (archiveOverlay) archiveOverlay.addEventListener('click', (e) => { if(e.target === archiveOverlay) closeArchive(); });
+      if (searchInput) searchInput.addEventListener('input', (e) => renderArchiveList(e.target.value));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeArchive(); });
+    })();
+  </script>
+</body>
+</html>
