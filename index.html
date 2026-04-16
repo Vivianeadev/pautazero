@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>PautaZero · Túnel Mágico de Artigos</title>
+  <title>PautaZero · Eixos Macro & Artigos Publicados</title>
   <meta name="description" content="PautaZero é uma revista digital dedicada à análise de sistemas institucionais, tecnologia, comportamento e políticas estratégicas.">
 
-  <!-- Metatags para redes sociais (mantidas) -->
+  <!-- Metatags para redes sociais -->
   <meta property="og:title" content="PautaZero · Análise Institucional & Tecnologia">
   <meta property="og:description" content="Análise independente de sistemas, comportamento e políticas estratégicas.">
   <meta property="og:type" content="website">
@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
-    /* ========== CSS ORIGINAL COMPLETO (PRESERVADO INTACTO) ========== */
+    /* ========== BASE E VARIÁVEIS (PRESERVADAS) ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --color-primary: #0a3147; --color-primary-light: #1a4b6d; --gold-primary: #D4AF37;
@@ -38,95 +38,122 @@
       --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(244, 228, 184, 0.05) 100%);
       --font-serif: 'Cinzel', serif; --font-sans: 'Inter', sans-serif; --font-body: 'Marcellus', serif;
     }
-    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 0.95rem; }
-    body.modal-open { overflow: hidden; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 36px; }
+    body { 
+      background: var(--color-bg); 
+      color: var(--color-text); 
+      font-family: var(--font-sans); 
+      line-height: 1.55; 
+      -webkit-font-smoothing: antialiased; 
+      overflow-x: hidden; 
+      font-size: 0.95rem; 
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
+    @media (min-width: 1920px) {
+      .container { max-width: 1600px; padding: 0 80px; }
+    }
     h1, h2, h3, h4, .logo, .section-title { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
     h2 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--color-primary); border-bottom: 2px solid rgba(212, 175, 55, 0.35); display: inline-block; padding-bottom: 8px; }
-    .site-header { position: sticky; top: 0; background: rgba(255, 253, 250, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); z-index: 100; padding: 1rem 0; }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 36px; gap: 1rem; }
+    .site-header { 
+      position: sticky; 
+      top: 0; 
+      background: rgba(255, 253, 250, 0.96); 
+      backdrop-filter: blur(12px); 
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+      z-index: 100; 
+      padding: 1.2rem 0;
+    }
+    .header-inner { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      max-width: 1440px; 
+      margin: 0 auto; 
+      padding: 0 48px; 
+      gap: 1rem; 
+    }
+    @media (min-width: 1920px) {
+      .header-inner { max-width: 1600px; padding: 0 80px; }
+    }
     .logo-area { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
     .logo { font-size: 2rem; font-weight: 700; color: var(--color-primary); text-decoration: none; letter-spacing: 1px; }
     .logo span { color: var(--gold-dark); font-weight: 500; }
-    .slogan { font-size: 0.7rem; font-family: var(--font-body); color: var(--gold-dark); text-transform: uppercase; letter-spacing: 2.5px; border-left: 1px solid rgba(212, 175, 55, 0.5); padding-left: 14px; }
+    .slogan { 
+      font-size: 0.75rem; 
+      font-family: var(--font-body); 
+      color: var(--gold-dark); 
+      text-transform: uppercase; 
+      letter-spacing: 3px; 
+      border-left: 1px solid rgba(212, 175, 55, 0.5); 
+      padding-left: 18px; 
+    }
     .nav-hamburger { display: flex; align-items: center; gap: 1rem; }
-    .archive-btn {
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.3);
+    /* Botão retangular discreto */
+    .refresh-btn {
+      background: transparent;
+      border: 1px solid rgba(212, 175, 55, 0.4);
       width: 44px;
       height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
-      color: var(--color-primary);
+      font-size: 1.1rem;
+      color: var(--gold-dark);
       cursor: pointer;
-      transition: 0.2s;
+      transition: all 0.2s ease;
+      border-radius: 0; /* Cantos quadrados */
     }
-    .archive-btn:hover { background: rgba(212, 175, 55, 0.25); border-color: var(--gold-primary); }
-    main { padding: 3rem 0 5rem; }
-    .site-footer { border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 2rem 0; color: var(--color-text-light); background: var(--color-bg); font-size: 0.75rem; }
-    .footer-legal { max-width: 1280px; margin: 1rem auto 0; padding: 1rem 36px 0; border-top: 1px solid rgba(212, 175, 55, 0.15); font-size: 0.65rem; line-height: 1.4; color: rgba(44, 62, 78, 0.6); text-align: center; letter-spacing: 0.3px; }
-    @media (max-width: 700px) { .slogan { display: none; } .header-inner { padding: 0 20px; } .footer-legal { padding: 0.8rem 20px 0; font-size: 0.6rem; } }
-
-    /* ========== CARROSSEL DE PALAVRAS (INTACTO) ========== */
-    .word-carousel {
-      margin: 1rem 0 2rem;
-      background: rgba(212, 175, 55, 0.05);
-      border-radius: 40px;
-      padding: 0.5rem 0;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      overflow: hidden;
-      white-space: nowrap;
+    .refresh-btn:hover {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
     }
-    .word-carousel-track {
-      display: inline-flex;
-      animation: scrollWords 25s linear infinite;
-    }
-    .word-carousel-track:hover { animation-play-state: paused; }
-    .word-carousel-item {
-      display: inline-flex;
-      align-items: center;
-      margin: 0 1rem;
-      font-family: var(--font-serif);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--color-primary);
-      text-decoration: none;
-      transition: 0.2s;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0;
-    }
-    .word-carousel-item i { margin-right: 6px; color: var(--gold-dark); font-size: 0.7rem; }
-    .word-carousel-item:hover { background: rgba(212, 175, 55, 0.15); color: var(--gold-dark); transform: translateY(-2px); }
-    @keyframes scrollWords {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    
+    main { 
+      padding: 4rem 0 6rem; 
+      flex: 1;
     }
 
-    /* ========== GRADE MÁGICA DE ARTIGOS ========== */
-    .magic-grid-section {
-      margin: 2rem 0 3rem;
+    /* ========== FRAME DE LUXO SUPERIOR (ARTIGOS COMPLETOS) ========== */
+    .published-frame {
+      margin-bottom: 4rem;
+      border-top: 2px solid var(--gold-primary);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 2rem 0;
+      background: linear-gradient(to bottom, rgba(212,175,55,0.02), transparent);
     }
-    .magic-header {
+    .frame-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
     }
-    .magic-header h2 {
+    .frame-header h2 {
       border-bottom: none;
-      margin-bottom: 0;
       font-size: 1.6rem;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .magic-grid {
+    .frame-header h2 i {
+      color: var(--gold-dark);
+      font-size: 1.4rem;
+    }
+    .frame-status {
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      color: var(--gold-dark);
+      letter-spacing: 1.5px;
+    }
+    .published-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 2rem;
     }
-    .magic-card {
+    .published-card {
       background: var(--color-bg-card);
       border: var(--border-light);
       transition: all 0.25s ease;
@@ -137,67 +164,316 @@
       flex-direction: column;
       overflow: hidden;
     }
-    .magic-card:hover {
+    .published-card:hover {
       transform: translateY(-6px);
       border-color: var(--gold-primary);
       box-shadow: var(--shadow-luxury);
     }
-    .magic-card-img {
+    .published-card-img {
       width: 100%;
       height: 180px;
       object-fit: cover;
       background: linear-gradient(145deg, #e9e2d4, #d6cdbb);
       transition: transform 0.3s ease;
     }
-    .magic-card:hover .magic-card-img { transform: scale(1.02); }
-    .magic-card-content {
+    .published-card:hover .published-card-img { transform: scale(1.02); }
+    .published-card-content {
       padding: 1.2rem 1rem;
       flex: 1;
+      background: white;
     }
-    .magic-card-category {
+    .published-card-category {
       font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--gold-dark);
       margin-bottom: 0.5rem;
     }
-    .magic-card-title {
+    .published-card-title {
       font-family: var(--font-serif);
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--color-primary);
       line-height: 1.3;
     }
-    .magic-status {
-      margin-top: 0.5rem;
-      font-size: 0.65rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .magic-loading {
+    .empty-frame-message {
       text-align: center;
       padding: 3rem;
       color: var(--gold-dark);
       font-style: italic;
+      font-family: var(--font-serif);
+      letter-spacing: 1px;
+      grid-column: 1 / -1;
     }
 
-    /* ========== POLÍTICA DE PRIVACIDADE (INTACTA) ========== */
-    .privacy-collapsible { max-width: 1100px; margin: 1.5rem auto 0.5rem; padding: 0 20px; }
-    .privacy-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
-    .privacy-col { background: rgba(255,255,245,0.4); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 4px; transition: all 0.2s; }
-    .privacy-col-title { font-family: var(--font-serif); font-weight: 600; font-size: 0.85rem; text-align: center; letter-spacing: 1px; color: var(--color-primary); background: rgba(212, 175, 55, 0.08); padding: 0.9rem 0.5rem; cursor: pointer; border-bottom: 1px solid rgba(212, 175, 55, 0.2); transition: 0.2s; text-transform: uppercase; }
-    .privacy-col-title:hover { background: rgba(212, 175, 55, 0.18); color: var(--gold-dark); }
-    .privacy-col-content { display: none; padding: 1rem; font-size: 0.7rem; line-height: 1.5; color: var(--color-text-light); background: var(--color-bg-card); }
-    .privacy-col-content p { margin-bottom: 0.6rem; }
-    .privacy-col-content strong { color: var(--color-primary); font-family: var(--font-serif); font-weight: 500; }
-    .privacy-col-content .privacy-email { font-family: monospace; background: rgba(212,175,55,0.1); padding: 0.1rem 0.3rem; border-radius: 6px; }
-    .privacy-header-note { text-align: center; font-family: var(--font-serif); font-size: 0.7rem; letter-spacing: 1px; color: var(--gold-dark); margin-bottom: 0.5rem; }
-    @media (max-width: 750px) { .privacy-cols { grid-template-columns: 1fr; gap: 0.8rem; } .privacy-collapsible { padding: 0 16px; } }
+    /* ========== GRADE DE EIXOS MACRO ========== */
+    .macro-section {
+      margin-top: 2rem;
+    }
+    .macro-header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    .macro-header h2 {
+      border-bottom: none;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .macro-subtitle {
+      font-family: var(--font-body);
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.75rem;
+    }
+    .macro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    .macro-card {
+      background: var(--color-bg-card);
+      border: var(--border-light);
+      padding: 2rem 1.8rem;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .macro-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-luxury);
+    }
+    .macro-icon {
+      font-size: 2.2rem;
+      color: var(--gold-dark);
+      margin-bottom: 1.2rem;
+    }
+    .macro-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.3px;
+    }
+    .macro-card p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--color-text-light);
+      margin-bottom: 1.2rem;
+    }
+    .macro-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold-dark);
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      padding-top: 1rem;
+      width: 100%;
+    }
 
-    /* Ajustes para responsividade */
+    /* ========== CARROSSEL DE PALAVRAS (REFINADO) ========== */
+    .word-carousel {
+      margin: 3rem 0 1rem;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(244, 228, 184, 0.03) 100%);
+      border-radius: 60px;
+      padding: 0.7rem 0;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .word-carousel-track {
+      display: inline-flex;
+      align-items: center;
+      animation: scrollWords 30s linear infinite;
+    }
+    .word-carousel-track:hover { animation-play-state: paused; }
+    .word-carousel-item {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 1.8rem;
+      font-family: var(--font-serif);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: all 0.2s;
+      padding: 0.3rem 0.8rem;
+      letter-spacing: 0.5px;
+    }
+    .word-carousel-item i { margin-right: 8px; color: var(--gold-dark); }
+    .word-carousel-item:hover {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold-dark);
+      transform: translateY(-1px);
+    }
+    @keyframes scrollWords {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ========== SITE FOOTER (LUXO FULL HD) ========== */
+    .site-footer { 
+      border-top: 2px solid rgba(212, 175, 55, 0.25); 
+      padding: 3rem 0 2.5rem; 
+      color: var(--color-text-light); 
+      background: linear-gradient(to bottom, #fefaf5 0%, #f9f2e4 100%);
+      font-size: 0.8rem; 
+      margin-top: auto;
+    }
+    .footer-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    @media (min-width: 1920px) {
+      .footer-inner { max-width: 1600px; padding: 0 80px; }
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 2px;
+    }
+    .footer-logo span { color: var(--gold-dark); }
+    .footer-tagline {
+      font-family: var(--font-body);
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.7rem;
+      border-left: 1px solid var(--gold-primary);
+      padding-left: 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .footer-social a {
+      color: var(--gold-dark);
+      font-size: 1.4rem;
+      transition: all 0.2s;
+      opacity: 0.8;
+    }
+    .footer-social a:hover {
+      color: var(--gold-primary);
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+    .footer-legal {
+      max-width: 1440px;
+      margin: 1.5rem auto 0;
+      padding: 1.5rem 48px 0;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      font-size: 0.7rem;
+      line-height: 1.6;
+      color: rgba(44, 62, 78, 0.7);
+      text-align: center;
+      letter-spacing: 0.5px;
+      font-family: var(--font-serif);
+      font-weight: 300;
+    }
+
+    /* ========== POLÍTICA DE PRIVACIDADE ========== */
+    .privacy-collapsible { 
+      max-width: 1280px; 
+      margin: 2.5rem auto 0.5rem; 
+      padding: 0 20px; 
+    }
+    .privacy-cols { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 2rem; 
+      margin-top: 1.5rem; 
+    }
+    .privacy-col { 
+      background: rgba(255,255,245,0.5); 
+      border: 1px solid rgba(212, 175, 55, 0.2); 
+      border-radius: 4px; 
+      transition: all 0.2s; 
+    }
+    .privacy-col-title { 
+      font-family: var(--font-serif); 
+      font-weight: 600; 
+      font-size: 0.85rem; 
+      text-align: center; 
+      letter-spacing: 1.5px; 
+      color: var(--color-primary); 
+      background: rgba(212, 175, 55, 0.08); 
+      padding: 1rem 0.5rem; 
+      cursor: pointer; 
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+      transition: 0.2s; 
+      text-transform: uppercase; 
+    }
+    .privacy-col-title:hover { background: rgba(212, 175, 55, 0.18); color: var(--gold-dark); }
+    .privacy-col-content { 
+      display: none; 
+      padding: 1.2rem; 
+      font-size: 0.75rem; 
+      line-height: 1.6; 
+      color: var(--color-text-light); 
+      background: var(--color-bg-card); 
+    }
+    .privacy-col-content p { margin-bottom: 0.8rem; }
+    .privacy-col-content strong { color: var(--color-primary); font-family: var(--font-serif); font-weight: 500; }
+    .privacy-col-content .privacy-email { 
+      font-family: monospace; 
+      background: rgba(212,175,55,0.1); 
+      padding: 0.15rem 0.4rem; 
+      border-radius: 6px; 
+    }
+    .privacy-header-note { 
+      text-align: center; 
+      font-family: var(--font-serif); 
+      font-size: 0.75rem; 
+      letter-spacing: 2px; 
+      color: var(--gold-dark); 
+      margin-bottom: 0.8rem; 
+      text-transform: uppercase;
+    }
+
+    /* ========== RESPONSIVIDADE ========== */
+    @media (max-width: 1100px) {
+      .macro-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 750px) {
+      .macro-grid { grid-template-columns: 1fr; }
+      .privacy-cols { grid-template-columns: 1fr; }
+      .container { padding: 0 24px; }
+      .header-inner { padding: 0 24px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .slogan { display: none; }
+    }
     @media (max-width: 550px) {
-      .container { padding: 0 20px; }
+      .frame-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .published-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -209,39 +485,61 @@
         <span class="slogan">análise · tecnologia · sistemas contemporâneos</span>
       </div>
       <div class="nav-hamburger">
-        <div class="archive-btn" id="magicRefreshBtn"><i class="fas fa-sync-alt"></i></div>
+        <button class="refresh-btn" id="refreshPublishedBtn" aria-label="Atualizar artigos publicados">
+          <i class="fas fa-sync-alt"></i>
+        </button>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- FRAME MÁGICO: ONDE OS ARTIGOS APARECEM -->
-    <section class="magic-grid-section">
-      <div class="magic-header">
-        <h2><i class="fas fa-magic" style="color: var(--gold-dark); margin-right: 10px;"></i> Túnel de Artigos · Aparição Instantânea</h2>
-        <span style="font-size:0.7rem; color:var(--gold-dark);"><span id="articleCount">0</span> artigos no túnel</span>
+    <!-- FRAME DE LUXO: APENAS ARTIGOS COMPLETOS VERIFICADOS -->
+    <section class="published-frame">
+      <div class="frame-header">
+        <h2><i class="fas fa-check-circle"></i> Artigos Completos Publicados</h2>
+        <span class="frame-status"><span id="publishedCount">0</span> disponíveis</span>
       </div>
-      <div id="magicGrid" class="magic-grid">
-        <div class="magic-loading">
-          <i class="fas fa-spinner fa-pulse"></i> Invocando artigos do túnel...
+      <div id="publishedGrid" class="published-grid">
+        <div class="empty-frame-message">
+          <i class="fas fa-spinner fa-pulse"></i> Verificando artigos publicados...
         </div>
       </div>
     </section>
 
-    <!-- CARROSSEL DE PALAVRAS (ATUALIZADO COM NOVOS EIXOS) -->
+    <!-- GRADE DE EIXOS MACRO -->
+    <section class="macro-section">
+      <div class="macro-header">
+        <h2>Eixos de <span style="color: var(--gold-dark);">Análise</span></h2>
+        <div class="macro-subtitle">Curadoria Estrutural · Sem Ruído</div>
+      </div>
+      <div class="macro-grid" id="macroGrid"></div>
+    </section>
+
+    <!-- CARROSSEL DE PALAVRAS -->
     <div class="word-carousel">
       <div class="word-carousel-track" id="wordTrack"></div>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-      <div>© 2026 PautaZero · Revista de análise de sistemas, comportamento e políticas estratégicas.</div>
-      <div style="display: flex; gap: 18px; color: var(--gold-dark); align-items: center;">
-        <a href="manifesto.html" style="color: inherit; text-decoration: none; transition: 0.2s; display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-scroll"></i> Manifesto Pauta Zero</a>
-        <span style="color: rgba(212,175,55,0.4);">|</span>
-        <i class="fab fa-linkedin"></i> <i class="fab fa-x-twitter"></i> <i class="fas fa-envelope"></i>
-        <span style="font-family: monospace;">editorial.pautazero@outlook.com</span>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">Pauta<span>Zero</span></span>
+          <span class="footer-tagline">Análise · Tecnologia · Sistemas Contemporâneos</span>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="footer-contact">
+          <span><i class="fas fa-map-marker-alt"></i> São Paulo · Brasil</span>
+          <span><i class="far fa-copyright"></i> 2026 PautaZero</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center; margin: 1.5rem 0 0.5rem;">
+        <a href="manifesto.html" style="color: var(--gold-dark); text-decoration: none; font-family: var(--font-serif); letter-spacing: 2px; font-size: 0.75rem; border-bottom: 1px dotted rgba(212,175,55,0.5); padding-bottom: 3px;"><i class="fas fa-scroll"></i> Manifesto Pauta Zero</a>
       </div>
     </div>
     <div class="privacy-collapsible">
@@ -252,148 +550,188 @@
         <div class="privacy-col"><div class="privacy-col-title">Direitos & Contato</div><div class="privacy-col-content"><p><strong>Seus direitos</strong><br>Você pode acessar, retificar, eliminar, limitar ou portar seus dados a qualquer momento. Pedidos devem ser enviados ao e-mail abaixo.</p><p><strong>Canal de atendimento ao titular:</strong> <span class="privacy-email">editorial.pautazero@outlook.com</span> – Respondemos em até 15 dias úteis.</p><p><em>Esta política pode ser atualizada periodicamente. Consulte sempre a versão mais recente neste rodapé.</em></p></div></div>
       </div>
     </div>
-    <div class="footer-legal">Conteúdo editorial independente. As análises apresentadas refletem observações estruturais e não constituem aconselhamento jurídico, financeiro ou clínico. A PautaZero atua com base em critérios de responsabilidade informacional, respeitando contextos legais e institucionais aplicáveis.</div>
+    <div class="footer-legal">
+      Conteúdo editorial independente. As análises apresentadas refletem observações estruturais e não constituem aconselhamento jurídico, financeiro ou clínico.<br> 
+      A PautaZero atua com base em critérios de responsabilidade informacional, respeitando contextos legais e institucionais aplicáveis.
+    </div>
   </footer>
 
   <script>
     (function() {
-      // ========== NOVOS 11 EIXOS TEMÁTICOS (BASEADO NA LISTA FORNECIDA) ==========
-      const subtopicsByTopic = {
+      // ========== MAPEAMENTO: 27 TEMAS ORIGINAIS DENTRO DOS 11 EIXOS MACRO ==========
+      // Estrutura: macroKey -> { title, icon, description, topics (objeto com subcategorias) }
+      const macroEixos = {
         "direito-justica-seguranca": {
-          "Direito Constitucional e Garantias": ["Garantias fundamentais na era digital", "Controle de constitucionalidade", "Direitos humanos e democracia"],
-          "Direito Penal e Crimes Contemporâneos": ["Crimes cibernéticos", "Lavagem de dinheiro com criptomoedas", "Responsabilidade penal da pessoa jurídica"],
-          "Segurança Pública e Policiamento": ["Policiamento preditivo com IA", "Uso de câmeras corporais", "Estratégias de redução de homicídios"],
-          "Investigação Criminal e Forense": ["Perícia em dispositivos móveis", "Análise de dados em investigações", "Cadeia de custódia digital"],
-          "Sistema Prisional e Ressocialização": ["Alternativas penais", "Educação no cárcere", "Reincidência criminal"],
-          "Crimes Digitais e Cibersegurança": ["Golpes financeiros online", "Ransomware e extorsão digital", "Deepfakes e crimes de honra"],
-          "Direito Civil e Família": ["Alienação parental", "Guarda compartilhada", "Pensão alimentícia"],
-          "Direito Empresarial e Patrimonial": ["Blindagem patrimonial", "Recuperação judicial", "Contratos inteligentes"],
-          "Combate à Corrupção": ["Lei anticorrupção", "Delação premiada", "Transparência pública"]
+          title: "Direito, Justiça e Segurança",
+          icon: "fas fa-gavel",
+          description: "Ordem social, proteção do cidadão e estabilidade institucional.",
+          topics: {
+            "Sistema Prisional & Policial": ["Superlotação como tortura indireta", "Facções criminosas e controle", "Morte sob custódia", "Trabalho análogo à escravidão"],
+            "Crime & Investigação": ["Crimes financeiros", "Criptomoedas em ransomwares", "Lavagem via setor imobiliário", "Corrupção em compras públicas"],
+            "Segurança Total": ["Avaliação de risco para juízes", "Proteção de ativistas", "Vazamento de dados íntimos", "Deepfakes e extorsão"],
+            "Justiça e Tecnologia": ["IA no judiciário", "Provas digitais", "Cibercrimes e legislação", "Automação judicial"]
+          }
         },
-        "politica-poder-geopolitica": {
-          "Democracia e Governança": ["Crise da representatividade", "Reformas eleitorais", "Participação popular"],
-          "Políticas Públicas": ["Saúde pública", "Educação", "Segurança"],
-          "Eleições e Comportamento": ["Pesquisas eleitorais", "Voto útil", "Abstenção"],
-          "Relações Internacionais": ["Guerras comerciais", "Diplomacia", "Acordos multilaterais"],
-          "Geopolítica Econômica": ["Petróleo e energia", "Rotas comerciais", "Sanções econômicas"],
-          "Regulação Tecnológica": ["Marco civil da internet", "Proteção de dados", "IA e legislação"]
+        "politica-poder": {
+          title: "Política, Poder e Geopolítica",
+          icon: "fas fa-landmark",
+          description: "Decisões que moldam o mundo e relações de força.",
+          topics: {
+            "Política & Geopolítica": ["Caixa dois e financiamento ilegal", "Lobby empresarial", "Guerra de informação", "Sanções como arma geopolítica"],
+            "Políticas Públicas": ["Uso de força letal", "Saúde coletiva", "Renúncias fiscais", "Anistia de multas ambientais"],
+            "Direitos Humanos": ["Tortura em delegacias", "População em situação de rua", "Migração e apátridas", "Comunidades tradicionais"]
+          }
         },
         "saude-mental": {
-          "Ansiedade e Depressão": ["Transtornos na pandemia", "Tratamentos inovadores", "Estigma social"],
-          "Saúde Emocional no Trabalho": ["Burnout", "Assédio moral", "Qualidade de vida"],
-          "Psicologia Comportamental": ["Terapia cognitivo-comportamental", "Hábitos", "Mindfulness"],
-          "Desenvolvimento Pessoal": ["Autoconhecimento", "Resiliência", "Propósito"],
-          "Inteligência Emocional": ["Gestão de emoções", "Empatia", "Liderança"],
-          "Terapias Modernas": ["Terapia online", "EMDR", "Psicodélicos assistidos"]
+          title: "Saúde Mental",
+          icon: "fas fa-brain",
+          description: "Estabilidade emocional, produtividade e qualidade de vida.",
+          topics: {
+            "Saúde Mental": ["Borderline e patologização", "TDAH em adultos", "Depressão e viés de gênero", "Transtornos alimentares"],
+            "Saúde Mental em Contextos Extremos": ["Efeitos do isolamento total", "Burnout em profissionais", "Terapia de exposição", "Resiliência em desastres"],
+            "Psicopatia & Comportamento Extremo": ["Traços antissociais", "Gaslighting", "Psicopatas no poder", "Serial killers"]
+          }
         },
         "saude-fisica": {
-          "Medicina Preventiva": ["Check-ups", "Vacinação", "Rastreamento de câncer"],
-          "Doenças Crônicas": ["Diabetes", "Hipertensão", "Obesidade"],
-          "Sistema Imunológico": ["Imunidade inata", "Doenças autoimunes", "Inflamação"],
-          "Longevidade e Anti-aging": ["Restrição calórica", "Senolíticos", "Terapias regenerativas"],
-          "Biotecnologia e Medicina": ["Edição genética CRISPR", "Medicina personalizada", "Bioimpressão 3D"]
+          title: "Saúde Física e Medicina",
+          icon: "fas fa-heartbeat",
+          description: "Longevidade, performance humana e inovação médica.",
+          topics: {
+            "Saúde Física e Medicina": ["Erros médicos", "Judicialização da saúde", "Colapso de UTIs", "Subfinanciamento do SUS"]
+          }
         },
-        "nutricao-performance": {
-          "Alimentação Saudável": ["Dieta mediterrânea", "Alimentos funcionais", "Orgânicos"],
-          "Dietas Modernas": ["Low carb", "Cetogênica", "Jejum intermitente"],
-          "Nutrição Esportiva": ["Suplementação", "Hidratação", "Periodização"],
-          "Metabolismo": ["Taxa metabólica basal", "Termogênese", "Resistência à insulina"],
-          "Microbiota Intestinal": ["Probióticos", "Prebióticos", "Eixo intestino-cérebro"]
+        "nutricao": {
+          title: "Nutrição e Performance",
+          icon: "fas fa-apple-alt",
+          description: "Energia, estética e saúde baseada em evidências.",
+          topics: {
+            "Nutrição & Pesquisa Alimentar": ["Macronutrientes", "Jejum intermitente", "Cúrcuma e curcumina", "Periodização nutricional"]
+          }
         },
-        "economia-financas": {
-          "Investimentos Tradicionais": ["Renda fixa", "Ações", "Fundos imobiliários"],
-          "Criptomoedas e Blockchain": ["Bitcoin", "DeFi", "NFTs"],
-          "Tokenização de Ativos": ["Imóveis tokenizados", "Tokens de recebíveis", "Regulação"],
-          "Empreendedorismo": ["Startups", "Escalabilidade", "Captação de recursos"],
-          "Educação Financeira": ["Planejamento", "Orçamento", "Aposentadoria"]
+        "economia": {
+          title: "Economia e Finanças",
+          icon: "fas fa-chart-line",
+          description: "Geração e proteção de patrimônio na nova economia.",
+          topics: {
+            "Economia & Super Ricos": ["Offshores e paraísos fiscais", "Family offices", "Iates e jatos", "Concentração de riqueza"],
+            "Negócios & Estratégia": ["Startups de vigilância", "Holdings familiares", "Branding e reputação", "Aquisições hostis"]
+          }
         },
-        "tecnologia-ia": {
-          "Inteligência Artificial": ["IA generativa", "Machine learning", "Ética em IA"],
-          "Automação": ["RPA", "Indústria 4.0", "Desemprego tecnológico"],
-          "Big Data": ["Análise preditiva", "Privacidade", "Data lakes"],
-          "Blockchain": ["Contratos inteligentes", "Web3", "Identidade digital"],
-          "Segurança Digital": ["Criptografia", "Firewalls humanos", "Zero trust"]
+        "tecnologia": {
+          title: "Tecnologia e IA",
+          icon: "fas fa-robot",
+          description: "Transformação global e impactos na sociedade.",
+          topics: {
+            "Futurismo & Inovação": ["IA e sociedade", "Cidades inteligentes", "Transumanismo", "Renda básica universal"]
+          }
         },
-        "sociedade-familia": {
-          "Estrutura Familiar": ["Novas configurações", "Famílias monoparentais", "Conflitos"],
-          "Educação": ["Escola tradicional vs moderna", "Homeschooling", "Inclusão"],
-          "Cultura e Comportamento": ["Mudanças geracionais", "Consumo de mídia", "Valores"],
-          "Religião e Espiritualidade": ["Laicidade", "Intolerância", "Espiritualidade sem religião"],
-          "Relações Humanas": ["Amizade na era digital", "Namoro online", "Solidão"]
+        "sociedade": {
+          title: "Sociedade, Família e Valores",
+          icon: "fas fa-users",
+          description: "Base estrutural humana e relações contemporâneas.",
+          topics: {
+            "Família & Alienação Parental": ["Perícias psicológicas", "Falsa denúncia de abuso", "Síndrome da alienação", "Violência doméstica"],
+            "Direito de Família e Saúde Mental": ["Laudos psiquiátricos", "Gaslighting", "Ansiedade infantil", "Defesa da mãe no judiciário"],
+            "Educação e Desigualdade": ["Evasão escolar", "Ensino bilíngue elitista", "Cotas e ações afirmativas", "Tecnologia na educação"],
+            "Religião, Cristianismo & Perseguições": ["Poder político evangélico", "Cristãos perseguidos", "Teologia da dominação", "Igrejas como refúgio"]
+          }
         },
-        "temas-policiais": {
-          "Crimes Reais": ["Casos famosos", "Análise comportamental", "Investigação"],
-          "Psicologia Criminal": ["Perfil de serial killers", "Motivação", "Psicopatia"],
-          "Segurança Urbana": ["Políticas de tolerância zero", "Guarda municipal", "Iluminação pública"],
-          "Crimes Digitais": ["Golpes", "Estelionato sentimental", "Pornografia de vingança"]
+        "policial": {
+          title: "Temas Policiais e Investigativos",
+          icon: "fas fa-shield-alt",
+          description: "Alta audiência e impacto social.",
+          topics: {
+            // Já incluso em Direito, mas podemos duplicar se quiser manter separado
+          }
         },
         "sustentabilidade": {
-          "Mudanças Climáticas": ["Aquecimento global", "Eventos extremos", "Mitigação"],
-          "Energia Limpa": ["Solar", "Eólica", "Hidrogênio verde"],
-          "ESG": ["Governança corporativa", "Responsabilidade social", "Métricas"],
-          "Economia Verde": ["Créditos de carbono", "Agricultura regenerativa", "Economia circular"]
+          title: "Sustentabilidade e Futuro",
+          icon: "fas fa-leaf",
+          description: "Sobrevivência e inovação para o planeta.",
+          topics: {
+            "Meio Ambiente e Conflitos": ["Garimpo ilegal", "Desmatamento", "Justiça climática", "Greenwashing"]
+          }
         },
-        "educacao": {
-          "Ensino Digital": ["EAD", "Plataformas adaptativas", "Gamificação"],
-          "Educação Financeira": ["Orçamento familiar", "Investimentos para jovens", "Impostos"],
-          "Capacitação Profissional": ["Soft skills", "Reskilling", "Cursos técnicos"],
-          "Aprendizado Contínuo": ["Microlearning", "Podcasts educativos", "Comunidades de prática"]
+        "esportes": {
+          title: "Esportes, Futebol e Ídolos",
+          icon: "fas fa-futbol",
+          description: "Paixão nacional, ídolos e bastidores.",
+          topics: {
+            "Esportes, Futebol & Ídolos": ["Clássicos e rivalidades", "Pelé e Maradona", "Vôlei brasileiro", "Máfia do apito"]
+          }
+        },
+        "agro": {
+          title: "Agronegócio e Logística",
+          icon: "fas fa-truck",
+          description: "Setor estratégico e infraestrutura nacional.",
+          topics: {
+            "Agronegócio, Logística e Transporte": ["Tabela de frete", "Greves de caminhoneiros", "Pedágios abusivos", "Desmatamento para soja"]
+          }
         }
       };
 
-      // Mapeamento de chave do eixo -> nome da pasta (URL amigável)
-      const topicFolderMap = {
-        "direito-justica-seguranca": "direito-justica-seguranca",
-        "politica-poder-geopolitica": "politica-poder-geopolitica",
-        "saude-mental": "saude-mental",
-        "saude-fisica": "saude-fisica",
-        "nutricao-performance": "nutricao-performance",
-        "economia-financas": "economia-financas",
-        "tecnologia-ia": "tecnologia-ia",
-        "sociedade-familia": "sociedade-familia",
-        "temas-policiais": "temas-policiais",
-        "sustentabilidade": "sustentabilidade",
-        "educacao": "educacao"
+      // Mapeamento reverso: de tópico original para macro eixo
+      // Usaremos para construir URLs e verificar existência
+      const topicToMacro = {
+        "Política & Geopolítica": "politica-poder",
+        "Segurança Total": "direito-justica-seguranca",
+        "Sistema Prisional & Policial": "direito-justica-seguranca",
+        "Políticas Públicas": "politica-poder",
+        "Economia & Super Ricos": "economia",
+        "Saúde Mental": "saude-mental",
+        "Psicopatia & Comportamento Extremo": "saude-mental",
+        "Família & Alienação Parental": "sociedade",
+        "Crime & Investigação": "direito-justica-seguranca",
+        "Saúde Mental em Contextos Extremos": "saude-mental",
+        "Negócios & Estratégia": "economia",
+        "Visão Global": "politica-poder",
+        "Impacto & Filantropia": "sociedade",
+        "Histórias Reais": "sociedade",
+        "Conteúdos Híbridos": "sociedade",
+        "Direito de Família e Saúde Mental": "sociedade",
+        "Justiça e Tecnologia": "direito-justica-seguranca",
+        "Educação e Desigualdade": "sociedade",
+        "Meio Ambiente e Conflitos": "sustentabilidade",
+        "Direitos Humanos e Sistema de Justiça": "politica-poder",
+        "Agronegócio, Logística e Transporte": "agro",
+        "Saúde Física e Medicina": "saude-fisica",
+        "Futurismo & Inovação": "tecnologia",
+        "Religião, Cristianismo & Perseguições": "sociedade",
+        "Esportes, Futebol & Ídolos": "esportes",
+        "Nutrição & Pesquisa Alimentar": "nutricao"
       };
 
-      const topicTitles = {
-        "direito-justica-seguranca": "Direito, Justiça e Segurança",
-        "politica-poder-geopolitica": "Política, Poder e Geopolítica",
-        "saude-mental": "Saúde Mental",
-        "saude-fisica": "Saúde Física e Medicina",
-        "nutricao-performance": "Nutrição e Performance",
-        "economia-financas": "Economia e Finanças",
-        "tecnologia-ia": "Tecnologia e IA",
-        "sociedade-familia": "Sociedade, Família e Valores",
-        "temas-policiais": "Temas Policiais e Investigativos",
-        "sustentabilidade": "Sustentabilidade e Futuro",
-        "educacao": "Educação e Conhecimento"
+      // Pastas para URLs (slug dos macro eixos)
+      const macroFolderMap = {
+        "direito-justica-seguranca": "direito-justica-seguranca",
+        "politica-poder": "politica-poder",
+        "saude-mental": "saude-mental",
+        "saude-fisica": "saude-fisica",
+        "nutricao": "nutricao",
+        "economia": "economia",
+        "tecnologia": "tecnologia",
+        "sociedade": "sociedade",
+        "sustentabilidade": "sustentabilidade",
+        "esportes": "esportes",
+        "agro": "agro"
       };
 
       function slugify(text) {
         return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
       }
-      function getArticleUrl(topicKey, subcategory, topic) {
-        const folder = topicFolderMap[topicKey];
-        const subcatSlug = slugify(subcategory);
-        const topicSlug = slugify(topic);
-        return `/artigo/${folder}/${subcatSlug}/${topicSlug}.html`;
-      }
 
-      // Gera todos os artigos potenciais
+      // Gera todos os artigos potenciais a partir dos tópicos originais
       function generateAllPotentialArticles() {
         const articles = [];
-        for (const [topicKey, subcategories] of Object.entries(subtopicsByTopic)) {
-          const categoryName = topicTitles[topicKey] || topicKey;
-          for (const [subcat, topics] of Object.entries(subcategories)) {
+        for (const [macroKey, macroData] of Object.entries(macroEixos)) {
+          for (const [categoryName, topics] of Object.entries(macroData.topics)) {
             topics.forEach(topic => {
-              const url = getArticleUrl(topicKey, subcat, topic);
-              articles.push({ 
-                title: topic, 
+              const url = `/artigo/${macroFolderMap[macroKey]}/${slugify(categoryName)}/${slugify(topic)}.html`;
+              articles.push({
+                title: topic,
                 category: categoryName,
-                subcategory: subcat,
-                url: url,
-                topicKey: topicKey
+                macroKey: macroKey,
+                url: url
               });
             });
           }
@@ -401,9 +739,10 @@
         return articles;
       }
 
-      const allArticles = generateAllPotentialArticles();
-      
-      async function imageExists(url) {
+      const allPotentialArticles = generateAllPotentialArticles();
+
+      // Verifica se arquivo existe via HEAD
+      async function checkIfPageExists(url) {
         try {
           const res = await fetch(url, { method: 'HEAD' });
           return res.ok;
@@ -411,70 +750,96 @@
       }
 
       function getImageUrl(title) {
-        const slug = slugify(title);
-        return `assets/images/${slug}.jpg`;
+        return `assets/images/${slugify(title)}.jpg`;
       }
 
-      async function renderMagicGrid() {
-        const grid = document.getElementById('magicGrid');
-        const countSpan = document.getElementById('articleCount');
+      // Renderiza o frame de artigos publicados (apenas os que existem)
+      async function renderPublishedFrame() {
+        const grid = document.getElementById('publishedGrid');
+        const countSpan = document.getElementById('publishedCount');
         
-        grid.innerHTML = '<div class="magic-loading"><i class="fas fa-spinner fa-pulse"></i> Invocando artigos do túnel...</div>';
+        grid.innerHTML = '<div class="empty-frame-message"><i class="fas fa-spinner fa-pulse"></i> Verificando arquivos publicados...</div>';
         
-        const articleCards = [];
-        for (const article of allArticles) {
-          const imgUrl = getImageUrl(article.title);
-          const imgExists = await imageExists(imgUrl);
-          const finalImg = imgExists ? imgUrl : 'https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero';
-          
-          articleCards.push({
-            ...article,
-            image: finalImg,
-            hasRealImage: imgExists
-          });
+        const publishedArticles = [];
+        for (const article of allPotentialArticles) {
+          const exists = await checkIfPageExists(article.url);
+          if (exists) {
+            const imgUrl = getImageUrl(article.title);
+            let imgExists = false;
+            try {
+              const imgRes = await fetch(imgUrl, { method: 'HEAD' });
+              imgExists = imgRes.ok;
+            } catch {}
+            publishedArticles.push({
+              ...article,
+              image: imgExists ? imgUrl : 'https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero'
+            });
+          }
         }
         
-        articleCards.sort(() => Math.random() - 0.5);
+        countSpan.textContent = publishedArticles.length;
         
-        if (articleCards.length === 0) {
-          grid.innerHTML = '<div class="magic-loading">Nenhum artigo encontrado no túnel.</div>';
-          countSpan.textContent = '0';
+        if (publishedArticles.length === 0) {
+          grid.innerHTML = '<div class="empty-frame-message"><i class="fas fa-book-open"></i> Nenhum artigo completo publicado ainda.</div>';
           return;
         }
         
-        countSpan.textContent = articleCards.length;
-        
-        grid.innerHTML = articleCards.map(article => `
-          <a href="${article.url}" class="magic-card">
-            <img class="magic-card-img" src="${article.image}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero'">
-            <div class="magic-card-content">
-              <div class="magic-card-category">${escapeHtml(article.category)} · ${escapeHtml(article.subcategory)}</div>
-              <div class="magic-card-title">${escapeHtml(article.title)}</div>
-              <div class="magic-status">
-                ${article.hasRealImage ? '<i class="fas fa-image" style="color: var(--gold-dark);"></i> Imagem real' : '<i class="fas fa-image" style="color: #aaa;"></i> Placeholder'}
-              </div>
+        grid.innerHTML = publishedArticles.map(article => `
+          <a href="${article.url}" class="published-card">
+            <img class="published-card-img" src="${article.image}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x200/fefaf5/D4AF37?text=PautaZero'">
+            <div class="published-card-content">
+              <div class="published-card-category">${escapeHtml(article.category)}</div>
+              <div class="published-card-title">${escapeHtml(article.title)}</div>
             </div>
           </a>
         `).join('');
+      }
+
+      // Renderiza os cards dos eixos macro
+      function renderMacroGrid() {
+        const grid = document.getElementById('macroGrid');
+        let html = '';
+        for (const [key, data] of Object.entries(macroEixos)) {
+          html += `
+            <div class="macro-card" data-macro="${key}">
+              <div class="macro-icon"><i class="${data.icon}"></i></div>
+              <h3>${data.title}</h3>
+              <p>${data.description}</p>
+              <div class="macro-badge">clique para explorar →</div>
+            </div>
+          `;
+        }
+        grid.innerHTML = html;
+        
+        // Adiciona evento de clique para abrir modal com subtemas (implementação futura ou redirecionar)
+        document.querySelectorAll('.macro-card').forEach(card => {
+          card.addEventListener('click', () => {
+            const macro = card.dataset.macro;
+            // Aqui você pode abrir um modal com os subtópicos ou redirecionar para uma página do eixo
+            console.log('Explorar eixo:', macro);
+            // Por enquanto, apenas um alert elegante (pode ser substituído por modal luxuoso)
+            alert(`Explorar eixo: ${macroEixos[macro].title}\n\nEm breve: navegação detalhada.`);
+          });
+        });
       }
 
       function escapeHtml(str) { return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
       function initWordCarousel() {
         const track = document.getElementById('wordTrack');
-        if (!track) return;
         const items = [
           { icon: "fas fa-gavel", name: "Direito e Justiça" },
           { icon: "fas fa-landmark", name: "Política e Poder" },
           { icon: "fas fa-brain", name: "Saúde Mental" },
           { icon: "fas fa-heartbeat", name: "Saúde Física" },
           { icon: "fas fa-apple-alt", name: "Nutrição" },
-          { icon: "fas fa-chart-line", name: "Economia e Finanças" },
+          { icon: "fas fa-chart-line", name: "Economia" },
           { icon: "fas fa-robot", name: "Tecnologia e IA" },
-          { icon: "fas fa-users", name: "Sociedade e Família" },
-          { icon: "fas fa-shield-alt", name: "Temas Policiais" },
+          { icon: "fas fa-users", name: "Sociedade" },
+          { icon: "fas fa-shield-alt", name: "Policial" },
           { icon: "fas fa-leaf", name: "Sustentabilidade" },
-          { icon: "fas fa-graduation-cap", name: "Educação" }
+          { icon: "fas fa-futbol", name: "Esportes" },
+          { icon: "fas fa-truck", name: "Agro e Logística" }
         ];
         let html = '';
         for (let i = 0; i < 3; i++) {
@@ -493,12 +858,15 @@
         document.querySelectorAll('.privacy-col-content').forEach(cont => cont.style.display = 'none');
       }
 
-      document.getElementById('magicRefreshBtn').addEventListener('click', () => {
-        renderMagicGrid();
+      // Botão de refresh
+      document.getElementById('refreshPublishedBtn').addEventListener('click', () => {
+        renderPublishedFrame();
       });
 
+      // Inicialização
       window.addEventListener('DOMContentLoaded', () => {
-        renderMagicGrid();
+        renderPublishedFrame();
+        renderMacroGrid();
         initWordCarousel();
         initPrivacy();
       });
