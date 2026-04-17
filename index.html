@@ -2,151 +2,533 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="siteTitle">PautaZero · Eixos Macro & Artigos</title>
-  <meta name="description" content="Portal de análise independente">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Pauta Zero · Ultra Luxo · A Revista Digital do Futuro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Cinzel:wght@400;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}:root{--color-primary:#0a3147;--gold-primary:#D4AF37;--gold-dark:#B8860B;--color-bg:#fefaf5;--color-bg-card:#ffffff;--border-light:1px solid rgba(212,175,55,0.25);--shadow-luxury:0 20px 35px -12px rgba(10,49,71,0.12);--font-serif:'Cinzel',serif;--font-sans:'Inter',sans-serif;--font-body:'Marcellus',serif}body{background:var(--color-bg);color:#1e2a3a;font-family:var(--font-sans);line-height:1.55;min-height:100vh;display:flex;flex-direction:column}.container{max-width:1440px;margin:0 auto;padding:0 48px}.site-header{position:sticky;top:0;background:rgba(255,253,250,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,0.2);z-index:100;padding:1.2rem 0}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1440px;margin:0 auto;padding:0 48px}.logo{font-size:2rem;font-weight:700;color:var(--color-primary);text-decoration:none}.logo span{color:var(--gold-dark)}.slogan{font-size:0.75rem;font-family:var(--font-body);color:var(--gold-dark);text-transform:uppercase;letter-spacing:3px;border-left:1px solid rgba(212,175,55,0.5);padding-left:18px}main{padding:4rem 0 6rem;flex:1}.published-frame{margin-bottom:4rem;border-top:2px solid var(--gold-primary);border-bottom:1px solid rgba(212,175,55,0.2);padding:2rem 0}.frame-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2rem}.frame-header h2{font-family:var(--font-serif);font-size:1.6rem;color:var(--color-primary)}.published-two-col{display:flex;gap:2rem}.eixos-sidebar{flex:0 0 220px;border-right:1px solid rgba(212,175,55,0.2);padding-right:1.5rem}.eixo-tag-list{display:flex;flex-direction:column;gap:0.5rem}.eixo-tag{background:transparent;border:1px solid rgba(212,175,55,0.3);padding:0.6rem 0.8rem;font-family:var(--font-serif);font-size:0.75rem;cursor:pointer;display:flex;align-items:center;gap:8px}.eixo-tag.active{background:rgba(212,175,55,0.15);border-color:var(--gold-primary)}.eixo-tag .count{margin-left:auto;background:rgba(212,175,55,0.15);padding:0.15rem 0.4rem}.artigos-grid-area{flex:1}.published-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}.published-card{background:var(--color-bg-card);border:var(--border-light);text-decoration:none;color:inherit;transition:all 0.2s;display:flex;flex-direction:column}.published-card:hover{transform:translateY(-6px);border-color:var(--gold-primary);box-shadow:var(--shadow-luxury)}.published-card-img{width:100%;height:150px;object-fit:cover}.published-card-content{padding:1rem}.published-card-category{font-size:0.6rem;text-transform:uppercase;color:var(--gold-dark)}.published-card-title{font-family:var(--font-serif);font-size:0.9rem;font-weight:600;color:var(--color-primary)}.macro-section{margin-top:2rem}.macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}.macro-card{background:var(--color-bg-card);border:var(--border-light);padding:2rem 1.8rem;cursor:pointer;text-decoration:none;color:inherit}.macro-card:hover{transform:translateY(-8px);border-color:var(--gold-primary)}.macro-icon{font-size:2.2rem;color:var(--gold-dark);margin-bottom:1.2rem}.macro-card h3{font-family:var(--font-serif);font-size:1.5rem}.site-footer{border-top:2px solid rgba(212,175,55,0.25);padding:3rem 0;background:linear-gradient(to bottom,#fefaf5,#f9f2e4);margin-top:auto}@media (max-width:850px){.published-two-col{flex-direction:column}.eixos-sidebar{border-right:none}.macro-grid{grid-template-columns:1fr}}
+    :root {
+      --bg-color: #ffffff;
+      --petrol-blue: #0a3147;
+      --petrol-light: #1a4b6d;
+      --aged-gold: #b8860b;
+      --gold-line: rgba(184, 134, 11, 0.2);
+      --text-muted: #5a7d91;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Cinzel', serif;
+      --font-body: 'Marcellus', serif;
+      --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--petrol-blue);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* Header */
+    header {
+      padding: 60px 0 30px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(15px);
+      z-index: 1000;
+      border-bottom: 0.5px solid var(--gold-line);
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 8px;
+      text-decoration: none;
+      color: var(--petrol-blue);
+      display: block;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+
+    .logo span { color: var(--aged-gold); font-weight: 700; }
+
+    .tagline {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      color: var(--aged-gold);
+      opacity: 0.8;
+    }
+
+    /* Carrossel */
+    .macro-carousel {
+      padding: 25px 0;
+      background: #fafafa;
+      border-bottom: 0.5px solid var(--gold-line);
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+      animation: scroll 40s linear infinite;
+      width: max-content;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .macro-item {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--petrol-blue);
+      text-decoration: none;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      opacity: 0.6;
+    }
+
+    .macro-item:hover {
+      opacity: 1;
+      color: var(--aged-gold);
+    }
+
+    .macro-item::after {
+      content: "•";
+      color: var(--aged-gold);
+      margin-left: 40px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--aged-gold);
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      font-weight: 400;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Seção de Nichos */
+    .niche-section {
+      padding: 80px 0;
+      border-top: 0.5px solid var(--gold-line);
+    }
+
+    .niche-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    /* Grupo expansível */
+    .niche-group {
+      border-left: 0.5px solid var(--gold-line);
+      padding-left: 25px;
+      margin-bottom: 40px;
+    }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .group-title {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      font-weight: 700;
+      margin: 0;
+      transition: var(--transition);
+    }
+
+    .group-header i {
+      color: var(--aged-gold);
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+      opacity: 0.6;
+    }
+
+    .niche-group.expanded .group-header i {
+      transform: rotate(180deg);
+    }
+
+    .group-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+                  opacity 0.4s ease,
+                  margin 0.3s ease;
+      margin-top: 0;
+    }
+
+    .niche-group.expanded .group-content {
+      max-height: 2000px; /* suficiente para todo conteúdo */
+      opacity: 1;
+      margin-top: 25px;
+    }
+
+    /* Lista de subtemas (sem numeração) */
+    .theme-list {
+      list-style: none;
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+    }
+
+    .theme-item {
+      position: relative;
+    }
+
+    .theme-link {
+      text-decoration: none;
+      color: var(--petrol-blue);
+      font-size: 0.8rem;
+      font-weight: 300;
+      transition: var(--transition);
+      display: inline-block;
+      padding: 3px 0;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .theme-link:hover {
+      color: var(--aged-gold);
+      border-bottom-color: var(--aged-gold);
+    }
+
+    /* Grade de artigos (3 colunas) */
+    .article-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .article-card {
+      background: rgba(184, 134, 11, 0.03);
+      border: 0.5px solid var(--gold-line);
+      padding: 12px;
+      transition: var(--transition);
+      backdrop-filter: blur(2px);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .article-card:hover {
+      border-color: var(--aged-gold);
+      box-shadow: 0 10px 20px -5px rgba(10, 49, 71, 0.1);
+      transform: translateY(-4px);
+      background: rgba(184, 134, 11, 0.06);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #eaeaea;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 0.5px solid var(--gold-line);
+    }
+
+    .card-subtema {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--aged-gold);
+      margin-bottom: 5px;
+    }
+
+    .card-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--petrol-blue);
+    }
+
+    /* Footer */
+    footer {
+      padding: 120px 0 60px;
+      background: var(--petrol-blue);
+      color: #fff;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      letter-spacing: 10px;
+      color: #fff;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    .footer-logo span { color: var(--aged-gold); }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      transition: var(--transition);
+    }
+
+    .footer-nav a:hover { color: var(--aged-gold); }
+
+    .copyright {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 2px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 1200px) {
+      .niche-grid { grid-template-columns: repeat(3, 1fr); }
+      .container { padding: 0 40px; }
+    }
+
+    @media (max-width: 900px) {
+      .niche-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+      .hero-title { font-size: 2.8rem; }
+      .logo { font-size: 2.5rem; }
+      .article-preview-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .niche-grid { grid-template-columns: 1fr; gap: 24px; }
+      .container { padding: 0 20px; }
+      .hero-title { font-size: 1.8rem; }
+      .logo { font-size: 2rem; letter-spacing: 6px; }
+      .macro-item { font-size: 0.75rem; }
+      .footer-nav { flex-direction: column; gap: 20px; }
+      .article-preview-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <div style="display:flex;align-items:baseline;gap:14px">
-      <a href="/" class="logo" id="logoText">Pauta<span>Zero</span></a>
-      <span class="slogan" id="sloganText">análise · tecnologia</span>
+
+  <header>
+    <div class="container">
+      <a href="#" class="logo">PAUTA <span>ZERO</span></a>
+      <div class="tagline">A Revista Digital do Futuro</div>
     </div>
-    <button id="refreshBtn" style="background:none;border:1px solid var(--gold-primary);padding:0.5rem 1rem;border-radius:30px;color:var(--gold-dark);cursor:pointer"><i class="fas fa-sync-alt"></i> Atualizar</button>
+  </header>
+
+  <div class="macro-carousel">
+    <div class="carousel-track">
+      <a href="#" class="macro-item">Medicina & Biohacking</a>
+      <a href="#" class="macro-item">Economia Estratégica</a>
+      <a href="#" class="macro-item">Geopolítica Global</a>
+      <a href="#" class="macro-item">Justiça & Tecnologia</a>
+      <a href="#" class="macro-item">Futurismo Sistêmico</a>
+      <a href="#" class="macro-item">Psicologia Social</a>
+      <a href="#" class="macro-item">Logística Avançada</a>
+      <a href="#" class="macro-item">Arquitetura & Design</a>
+      <!-- duplicados para scroll infinito -->
+      <a href="#" class="macro-item">Medicina & Biohacking</a>
+      <a href="#" class="macro-item">Economia Estratégica</a>
+      <a href="#" class="macro-item">Geopolítica Global</a>
+      <a href="#" class="macro-item">Justiça & Tecnologia</a>
+      <a href="#" class="macro-item">Futurismo Sistêmico</a>
+      <a href="#" class="macro-item">Psicologia Social</a>
+      <a href="#" class="macro-item">Logística Avançada</a>
+      <a href="#" class="macro-item">Arquitetura & Design</a>
+    </div>
   </div>
-</header>
-<main class="container">
-  <section class="published-frame">
-    <div class="frame-header"><h2><i class="fas fa-check-circle"></i> Artigos Publicados</h2><span id="publishedCount">0</span></div>
-    <div class="published-two-col">
-      <div class="eixos-sidebar"><div class="eixo-tag-list" id="eixoTagList"></div></div>
-      <div class="artigos-grid-area"><div id="publishedGrid" class="published-grid"></div></div>
+
+  <main class="container">
+    
+    <section class="hero">
+      <span class="section-label">Editorial de Luxo</span>
+      <h1 class="hero-title">A Convergência entre o Pensamento Sistêmico e a Estética do Futuro.</h1>
+      <p style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+        Uma curadoria impecável para mentes que buscam a profundidade no caos da informação.
+      </p>
+    </section>
+
+    <section class="niche-section">
+      <span class="section-label" style="margin-bottom: 60px;">Exploração por Nichos (64 Categorias)</span>
+      
+      <div class="niche-grid" id="nicheGrid"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="#" class="footer-logo">PAUTA <span>ZERO</span></a>
+      <div class="footer-nav">
+        <a href="#">O Manifesto</a>
+        <a href="#">Arquivo Digital</a>
+        <a href="#">Privacidade de Dados</a>
+        <a href="#">Inteligência Editorial</a>
+      </div>
+      <p class="copyright">&copy; 2026 PAUTA ZERO. TODOS OS DIREITOS RESERVADOS. DESIGN BY MANUS ULTRA IA.</p>
     </div>
-  </section>
-  <section class="macro-section">
-    <h2 style="font-family:var(--font-serif);text-align:center;margin-bottom:2rem">Eixos de Análise</h2>
-    <div class="macro-grid" id="macroGrid"></div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container" style="text-align:center" id="footerText">© 2026 PautaZero · Todos os direitos reservados</div>
-</footer>
-<script>
-(function(){
-  let siteConfig = { siteName: 'PautaZero', slogan: 'análise · tecnologia', primaryColor: '#0a3147', goldColor: '#D4AF37', footerText: '© 2026 PautaZero' };
-  let publishedArticles = [];
-  let eixosComArtigos = new Map();
+  </footer>
 
-  // Tenta carregar config.json
-  fetch('./config.json').then(r=>r.json()).then(c=>{
-    siteConfig = c;
-    applyConfig();
-  }).catch(()=>{});
+  <script>
+    (function(){
+      const niches = [
+        {
+          title: "Sistemas de Saúde",
+          items: ["Medicina de Precisão", "Biohacking", "Longevidade", "Neurociência", "Saúde Pública", "Genética", "Nutrição Sistêmica", "Psiquiatria"]
+        },
+        {
+          title: "Economia & Poder",
+          items: ["Mercados Globais", "Cripto-Economia", "Wealth Management", "Geopolítica Financeira", "Sustentabilidade", "Venture Capital", "Macroeconomia", "Fiscalidade"]
+        },
+        {
+          title: "Tecnologia & IA",
+          items: ["Inteligência Artificial", "Computação Quântica", "Cibersegurança", "Blockchain", "Robótica", "Ética Digital", "Cloud Computing", "SaaS"]
+        },
+        {
+          title: "Justiça & Direito",
+          items: ["Direito Digital", "Sistemas Jurídicos", "Compliance", "Propriedade Intelectual", "Direitos Humanos", "Arbitragem", "Legislação IA", "Governança"]
+        },
+        {
+          title: "Sociedade & Cultura",
+          items: ["Psicologia Social", "Antropologia", "Educação do Futuro", "Comportamento", "Religião", "Filosofia", "Mídia & Verdade", "Urbanismo"]
+        },
+        {
+          title: "Estratégia & Logística",
+          items: ["Supply Chain", "Infraestrutura", "Energia", "Mobilidade", "Agro-Logística", "Defesa", "Exploração Espacial", "Telecomunicações"]
+        },
+        {
+          title: "Estética & Design",
+          items: ["Arquitetura", "Design de Luxo", "Moda Ética", "Artes Visuais", "Minimalismo", "Experiência do Usuário", "Branding", "Curadoria"]
+        },
+        {
+          title: "Futurismo & Ciência",
+          items: ["Física Teórica", "Climatologia", "Biotecnologia", "Exploração Oceânica", "Energia Limpa", "Materiais Avançados", "Exoplanetas", "Singularidade"]
+        }
+      ];
 
-  function applyConfig(){
-    document.title = siteConfig.siteName + ' · Eixos Macro & Artigos';
-    document.getElementById('logoText').innerHTML = siteConfig.siteName.replace(/(\w+)/, '<span>$1</span>');
-    document.getElementById('sloganText').textContent = siteConfig.slogan;
-    document.getElementById('footerText').textContent = siteConfig.footerText;
-    document.documentElement.style.setProperty('--color-primary', siteConfig.primaryColor);
-    document.documentElement.style.setProperty('--gold-primary', siteConfig.goldColor);
-    document.documentElement.style.setProperty('--gold-dark', siteConfig.goldColor);
-  }
+      const grid = document.getElementById('nicheGrid');
 
-  const macroEixos = {
-    "sustentabilidade":{title:"Sustentabilidade",icon:"fas fa-leaf",desc:"Meio ambiente e futuro"},
-    "direito-justica-seguranca":{title:"Direito e Justiça",icon:"fas fa-gavel",desc:"Ordem e instituições"},
-    "politica-poder":{title:"Política e Poder",icon:"fas fa-landmark",desc:"Geopolítica e governança"},
-    "saude-mental":{title:"Saúde Mental",icon:"fas fa-brain",desc:"Bem-estar emocional"},
-    "saude-fisica":{title:"Saúde Física",icon:"fas fa-heartbeat",desc:"Medicina e longevidade"},
-    "nutricao":{title:"Nutrição",icon:"fas fa-apple-alt",desc:"Performance e saúde"},
-    "economia":{title:"Economia",icon:"fas fa-chart-line",desc:"Finanças e mercados"},
-    "tecnologia":{title:"Tecnologia",icon:"fas fa-robot",desc:"IA e inovação"},
-    "sociedade":{title:"Sociedade",icon:"fas fa-users",desc:"Família e valores"},
-    "esportes":{title:"Esportes",icon:"fas fa-futbol",desc:"Análise esportiva"},
-    "agro":{title:"Agronegócio",icon:"fas fa-truck",desc:"Logística e produção"}
-  };
-
-  async function loadArticles(){
-    try{
-      const res = await fetch('./data.json?v='+Date.now());
-      const data = await res.json();
-      publishedArticles = [];
-      eixosComArtigos.clear();
-      if(data.articles && Array.isArray(data.articles)){
-        data.articles.forEach(art => {
-          publishedArticles.push(art);
-          if(art.macroKey){
-            if(!eixosComArtigos.has(art.macroKey)) eixosComArtigos.set(art.macroKey, {title:art.macroTitle,icon:art.macroIcon,count:0,articles:[]});
-            const e = eixosComArtigos.get(art.macroKey);
-            e.count++; e.articles.push(art);
-          }
-        });
+      // Função para gerar placeholders de artigos (3 por grupo)
+      function generateArticleCards(nicheTitle) {
+        const dummyTitles = [
+          "A Nova Fronteira da " + nicheTitle,
+          "Perspectivas Sistêmicas em " + nicheTitle,
+          "O Futuro Disruptivo de " + nicheTitle
+        ];
+        let cards = '';
+        for (let i = 0; i < 3; i++) {
+          cards += `
+            <a href="#" class="article-card">
+              <div class="card-img"><i class="fas fa-image" style="margin-right:5px;"></i> PAUTA ZERO</div>
+              <div class="card-subtema">${nicheTitle}</div>
+              <div class="card-title">${dummyTitles[i]}</div>
+            </a>
+          `;
+        }
+        return cards;
       }
-      renderAll();
-    }catch(e){
-      document.getElementById('publishedGrid').innerHTML = '<p>Erro ao carregar artigos. Verifique se data.json existe.</p>';
-    }
-  }
 
-  function renderAll(){
-    renderSidebar();
-    renderGrid(publishedArticles);
-    renderMacroGrid();
-    document.getElementById('publishedCount').textContent = publishedArticles.length;
-  }
+      niches.forEach((niche, index) => {
+        const group = document.createElement('div');
+        group.className = 'niche-group';
 
-  function renderSidebar(){
-    const container = document.getElementById('eixoTagList');
-    let html = `<div class="eixo-tag active" data-macro="all"><i class="fas fa-globe"></i> Todos <span class="count">${publishedArticles.length}</span></div>`;
-    for(let [key,data] of eixosComArtigos){
-      html += `<div class="eixo-tag" data-macro="${key}"><i class="${data.icon}"></i> ${data.title} <span class="count">${data.count}</span></div>`;
-    }
-    container.innerHTML = html;
-    document.querySelectorAll('.eixo-tag').forEach(t=>t.addEventListener('click',function(){
-      document.querySelectorAll('.eixo-tag').forEach(x=>x.classList.remove('active'));
-      this.classList.add('active');
-      const macro = this.dataset.macro;
-      renderGrid(macro === 'all' ? publishedArticles : (eixosComArtigos.get(macro)?.articles || []));
-    }));
-  }
+        // Lista de subtemas sem numeração
+        let itemsHtml = '';
+        niche.items.forEach(item => {
+          itemsHtml += `<li class="theme-item"><a href="#" class="theme-link">${item}</a></li>`;
+        });
 
-  function renderGrid(articles){
-    const grid = document.getElementById('publishedGrid');
-    if(!articles.length){ grid.innerHTML = '<p>Nenhum artigo neste eixo.</p>'; return; }
-    grid.innerHTML = articles.map(a=>`
-      <a href="${a.url}" class="published-card">
-        <img class="published-card-img" src="${a.image}" alt="${escapeHtml(a.title)}" onerror="this.src='https://placehold.co/400x200/fefaf5/D4AF37?text='">
-        <div class="published-card-content">
-          <div class="published-card-category">${escapeHtml(a.category)}</div>
-          <div class="published-card-title">${escapeHtml(a.title)}</div>
-        </div>
-      </a>
-    `).join('');
-  }
+        // Cards de artigos
+        const articleCardsHtml = generateArticleCards(niche.title);
 
-  function renderMacroGrid(){
-    const grid = document.getElementById('macroGrid');
-    let html = '';
-    for(let [key,data] of Object.entries(macroEixos)){
-      html += `<div class="macro-card"><div class="macro-icon"><i class="${data.icon}"></i></div><h3>${data.title}</h3><p>${data.desc}</p></div>`;
-    }
-    grid.innerHTML = html;
-  }
+        group.innerHTML = `
+          <div class="group-header">
+            <h3 class="group-title">${niche.title}</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="group-content">
+            <ul class="theme-list">
+              ${itemsHtml}
+            </ul>
+            <div class="article-preview-grid">
+              ${articleCardsHtml}
+            </div>
+          </div>
+        `;
 
-  function escapeHtml(s){ return s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
+        // Toggle expansão ao clicar no cabeçalho
+        const header = group.querySelector('.group-header');
+        header.addEventListener('click', (e) => {
+          e.stopPropagation();
+          group.classList.toggle('expanded');
+        });
 
-  document.getElementById('refreshBtn').addEventListener('click', loadArticles);
-  window.addEventListener('DOMContentLoaded', loadArticles);
-})();
-</script>
+        grid.appendChild(group);
+      });
+
+      // Por padrão, o primeiro grupo já vem expandido (opcional)
+      // document.querySelector('.niche-group')?.classList.add('expanded');
+    })();
+  </script>
 </body>
 </html>
