@@ -385,6 +385,34 @@
     .ql-font-sans-serif { font-family: sans-serif; }
     .ql-font-monospace { font-family: monospace; }
     /* ===== FIM DA CORREÇÃO ===== */
+
+    /* ===== AJUSTE DE ENGENHARIA: RODAPÉ RESPONSIVO PERFEITO (MOBILE) ===== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 20px;
+      }
+      footer {
+        padding: 40px 0 30px;
+      }
+      .footer-logo {
+        font-size: 1.5rem;
+        letter-spacing: 6px;
+        margin-bottom: 20px;
+      }
+      .footer-nav {
+        gap: 20px 30px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+      }
+      .footer-nav a {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+      }
+      .copyright {
+        font-size: 0.55rem;
+      }
+    }
+    /* ===== FIM DO AJUSTE DE RODAPÉ ===== */
   </style>
 </head>
 <body>
