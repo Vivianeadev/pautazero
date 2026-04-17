@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>PautaZero · Rede de Profissionais</title>
+  <meta property="og:title" content="PautaZero · Rede de Profissionais">
+  <meta property="og:description" content="Conectando você a especialistas de excelência. Curadoria de serviços e contatos verificados.">
+  <meta property="og:type" content="website">
+  
+  <!-- Fontes e Estilos (IDÊNTICOS AO ARTIGO ORIGINAL) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Cinzel:wght@400;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- ESTILOS PRESERVADOS DO PAUTAZERO ---------- */
+    :root {
+      --bg-color: #ffffff;
+      --petrol-blue: #0a3147;
+      --petrol-light: #1a4b6d;
+      --aged-gold: #b8860b;
+      --gold-line: rgba(184, 134, 11, 0.18);
+      --text-muted: #5a7d91;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Cinzel', serif;
+      --font-body: 'Marcellus', serif;
+      --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--petrol-blue);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* Header */
+    header {
+      padding: 60px 0 30px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(15px);
+      z-index: 1000;
+      border-bottom: 0.5px solid var(--gold-line);
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 8px;
+      text-decoration: none;
+      color: var(--petrol-blue);
+      display: block;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+
+    .logo span { color: var(--aged-gold); font-weight: 700; }
+
+    .tagline {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      color: var(--aged-gold);
+      opacity: 0.8;
+    }
+
+    .ethereal-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.25) 20%, rgba(184,134,11,0.4) 50%, rgba(184,134,11,0.25) 80%, transparent 100%);
+      margin: 0;
+      border: 0;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 30px 0 20px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      text-decoration: none;
+      border-bottom: 1px dotted transparent;
+      transition: var(--transition);
+    }
+    .back-link i { margin-right: 8px; }
+    .back-link:hover { border-bottom-color: var(--aged-gold); }
+
+    /* ---------- ÁREA DE PROFISSIONAIS (NOVO CONTEÚDO) ---------- */
+    .professionals-header {
+      margin-bottom: 40px;
+    }
+
+    .professionals-title {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      line-height: 1.2;
+      font-weight: 400;
+      color: var(--petrol-blue);
+      margin-bottom: 15px;
+    }
+
+    .professionals-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    /* Filtro por Categoria (estilo carrossel) */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px 25px;
+      margin: 30px 0 40px;
+      padding-bottom: 15px;
+      border-bottom: 0.5px solid var(--gold-line);
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--petrol-blue);
+      opacity: 0.5;
+      cursor: pointer;
+      padding: 5px 0;
+      transition: var(--transition);
+      border-bottom: 1px solid transparent;
+    }
+
+    .filter-btn.active {
+      opacity: 1;
+      color: var(--aged-gold);
+      border-bottom-color: var(--aged-gold);
+    }
+
+    .filter-btn:hover {
+      opacity: 0.8;
+    }
+
+    /* Grid de Profissionais (similar ao related-grid) */
+    .professionals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 30px;
+      margin-bottom: 70px;
+    }
+
+    .professional-card {
+      border-left: 0.5px solid var(--gold-line);
+      padding-left: 20px;
+      transition: var(--transition);
+      cursor: default;
+      position: relative;
+    }
+
+    .professional-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(0deg, rgba(184,134,11,0.03) 0%, transparent 100%);
+      transition: height 0.4s ease;
+      z-index: -1;
+    }
+
+    .professional-card:hover {
+      border-left-color: var(--aged-gold);
+      padding-left: 25px;
+    }
+
+    .professional-card:hover::after {
+      height: 100%;
+    }
+
+    .professional-avatar {
+      width: 60px;
+      height: 60px;
+      background: var(--gold-line);
+      border-radius: 50%;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--petrol-blue);
+      font-size: 1.8rem;
+      border: 0.5px solid var(--aged-gold);
+    }
+
+    .professional-name {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 5px;
+      color: var(--petrol-blue);
+    }
+
+    .professional-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--aged-gold);
+      margin-bottom: 15px;
+    }
+
+    .professional-bio {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-family: var(--font-body);
+    }
+
+    .professional-contacts {
+      display: flex;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    .contact-icon {
+      color: var(--petrol-blue);
+      opacity: 0.6;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .contact-icon:hover {
+      opacity: 1;
+      color: var(--aged-gold);
+    }
+
+    /* Bloco de convite (estilo niche-group) */
+    .invite-section {
+      margin: 60px 0;
+      padding: 40px;
+      border: 0.5px solid var(--aged-gold);
+      background: rgba(184,134,11,0.02);
+      text-align: center;
+    }
+
+    .invite-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--petrol-blue);
+    }
+
+    .invite-text {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+
+    .invite-btn {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--aged-gold);
+      padding: 12px 30px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--aged-gold);
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .invite-btn:hover {
+      background: var(--aged-gold);
+      color: white;
+    }
+
+    /* Seção de Nichos (mantida igual) */
+    .niche-section {
+      padding: 80px 0;
+      border-top: 0.5px solid var(--gold-line);
+    }
+    /* ... (estilos de niche iguais ao original) ... */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--aged-gold);
+      margin-bottom: 40px;
+      display: block;
+    }
+    .niche-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    .niche-group {
+      border-left: 0.5px solid var(--gold-line);
+      padding-left: 25px;
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    .group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .group-title {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      font-weight: 700;
+      margin: 0;
+    }
+    .group-header i {
+      color: var(--aged-gold);
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+      opacity: 0.6;
+    }
+    .niche-group.expanded .group-header i {
+      transform: rotate(180deg);
+    }
+    .group-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+                  opacity 0.5s ease,
+                  margin 0.3s ease;
+      margin-top: 0;
+    }
+    .niche-group.expanded .group-content {
+      max-height: 1400px;
+      opacity: 1;
+      margin-top: 25px;
+    }
+    .theme-list {
+      list-style: none;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+    }
+    .theme-link {
+      text-decoration: none;
+      color: var(--petrol-blue);
+      font-size: 0.8rem;
+      font-weight: 300;
+      transition: var(--transition);
+      display: inline-block;
+      padding: 3px 0;
+      border-bottom: 1px dotted transparent;
+      cursor: pointer;
+    }
+    .theme-link:hover {
+      color: var(--aged-gold);
+      border-bottom-color: var(--aged-gold);
+    }
+
+    /* Carrossel inferior */
+    .macro-carousel {
+      padding: 25px 0;
+      background: #fafafa;
+      border-top: 0.5px solid var(--gold-line);
+      border-bottom: 0.5px solid var(--gold-line);
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+      animation: scroll 40s linear infinite;
+      width: max-content;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .macro-item {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--petrol-blue);
+      text-decoration: none;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      opacity: 0.6;
+      cursor: pointer;
+    }
+    .macro-item:hover {
+      opacity: 1;
+      color: var(--aged-gold);
+    }
+    .macro-item::after {
+      content: "•";
+      color: var(--aged-gold);
+      margin-left: 40px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 80px 0 40px;
+      background: var(--petrol-blue);
+      color: #fff;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      letter-spacing: 10px;
+      color: #fff;
+      margin-bottom: 30px;
+      display: block;
+      text-align: center;
+    }
+    .footer-logo span { color: var(--aged-gold); }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-bottom: 50px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    .footer-links a, .footer-links .privacy-toggle {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border-bottom: 1px dotted transparent;
+    }
+    .footer-links a:hover, .footer-links .privacy-toggle:hover {
+      color: var(--aged-gold);
+      border-bottom-color: var(--aged-gold);
+    }
+    .privacy-panel {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid var(--gold-line);
+      padding: 25px 30px;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+    }
+    .privacy-panel h4 {
+      font-family: var(--font-serif);
+      color: var(--aged-gold);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin: 20px 0 10px;
+      font-weight: 400;
+      border-bottom: 0.5px solid var(--gold-line);
+      padding-bottom: 5px;
+    }
+    .copyright {
+      text-align: center;
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* Responsivo */
+    @media (max-width: 1200px) {
+      .niche-grid { grid-template-columns: repeat(3, 1fr); }
+      .container { padding: 0 40px; }
+      .professionals-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .niche-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+      .logo { font-size: 2.5rem; }
+      .professionals-title { font-size: 2.2rem; }
+    }
+    @media (max-width: 600px) {
+      .niche-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .professionals-grid { grid-template-columns: 1fr; }
+      .footer-links { flex-direction: column; gap: 20px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">PAUTA<span>ZERO</span></a>
+      <div class="tagline">A Revista Digital do Futuro</div>
+    </div>
+  </header>
+
+  <hr class="ethereal-divider" aria-hidden="true">
+
+  <main class="container">
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar à edição</a>
+
+    <!-- SEÇÃO PRINCIPAL DE PROFISSIONAIS -->
+    <div class="professionals-header">
+      <h1 class="professionals-title">Rede de Profissionais PautaZero</h1>
+      <p class="professionals-subtitle">Curadoria de especialistas em diversas áreas. Conecte-se com excelência.</p>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="Saúde">Saúde</button>
+      <button class="filter-btn" data-filter="Manutenção">Manutenção & Reparos</button>
+      <button class="filter-btn" data-filter="Jurídico">Jurídico</button>
+    </div>
+
+    <!-- Grid de Profissionais (Dados de exemplo) -->
+    <div class="professionals-grid" id="professionalsGrid"></div>
+
+    <!-- Seção de Convite -->
+    <div class="invite-section">
+      <h2 class="invite-title">Faça parte da Rede PautaZero</h2>
+      <p class="invite-text">Você é um profissional de destaque na sua área? A PautaZero convida especialistas para integrar nossa curadoria de serviços. Conecte-se a um público qualificado e tenha seu perfil destacado em nossa plataforma.</p>
+      <a href="#" class="invite-btn" id="inviteBtn">Solicitar Convite</a>
+      <p style="font-size:0.65rem; margin-top:20px; color:var(--text-muted); letter-spacing:1px;">Todos os perfis passam por verificação editorial.</p>
+    </div>
+
+    <!-- EXPLORAÇÃO POR NICHOS (mantida do original) -->
+    <section class="niche-section">
+      <span class="section-label" style="margin-bottom: 60px;">Exploração por Nichos (26 Eixos · 128 Subtemas)</span>
+      <div class="niche-grid" id="nicheGrid"></div>
+    </section>
+  </main>
+
+  <!-- CARROSSEL INFERIOR -->
+  <div class="macro-carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <a class="macro-item" data-niche="Política & Geopolítica">Política & Geopolítica</a>
+      <a class="macro-item" data-niche="Segurança Total">Segurança Total</a>
+      <a class="macro-item" data-niche="Sistema Prisional & Policial">Sistema Prisional</a>
+      <a class="macro-item" data-niche="Economia & Super Ricos">Super Ricos</a>
+      <a class="macro-item" data-niche="Saúde Mental">Saúde Mental</a>
+      <a class="macro-item" data-niche="Psicopatia & Comportamento Extremo">Psicopatia</a>
+      <a class="macro-item" data-niche="Família & Alienação Parental">Família & Alienação</a>
+      <a class="macro-item" data-niche="Crime & Investigação">Crime & Investigação</a>
+      <a class="macro-item" data-niche="Negócios & Estratégia">Negócios & Estratégia</a>
+      <a class="macro-item" data-niche="Futurismo & Inovação">Futurismo & IA</a>
+      <a class="macro-item" data-niche="Religião, Cristianismo & Perseguições">Cristianismo</a>
+      <a class="macro-item" data-niche="Esportes, Futebol & Ídolos">Futebol & Ídolos</a>
+      <!-- duplicados para animação -->
+      <a class="macro-item" data-niche="Política & Geopolítica">Política & Geopolítica</a>
+      <a class="macro-item" data-niche="Segurança Total">Segurança Total</a>
+      <a class="macro-item" data-niche="Sistema Prisional & Policial">Sistema Prisional</a>
+      <a class="macro-item" data-niche="Economia & Super Ricos">Super Ricos</a>
+      <a class="macro-item" data-niche="Saúde Mental">Saúde Mental</a>
+      <a class="macro-item" data-niche="Psicopatia & Comportamento Extremo">Psicopatia</a>
+      <a class="macro-item" data-niche="Família & Alienação Parental">Família & Alienação</a>
+      <a class="macro-item" data-niche="Crime & Investigação">Crime & Investigação</a>
+      <a class="macro-item" data-niche="Negócios & Estratégia">Negócios & Estratégia</a>
+      <a class="macro-item" data-niche="Futurismo & Inovação">Futurismo & IA</a>
+      <a class="macro-item" data-niche="Religião, Cristianismo & Perseguições">Cristianismo</a>
+      <a class="macro-item" data-niche="Esportes, Futebol & Ídolos">Futebol & Ídolos</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="index.html" class="footer-logo">PAUTA<span>ZERO</span></a>
+      
+      <div class="footer-links">
+        <a href="manifesto.html">Manifesto</a>
+        <span class="privacy-toggle" id="privacyToggle">Política de Privacidade <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 6px;"></i></span>
+        <a href="assinantes/editor-de-texto.html">Para Assinantes</a>
+      </div>
+
+      <div id="privacyPanel" class="privacy-panel" style="display: none;">
+        <h4>MANIFESTO PAUTAZERO · POLÍTICA DE PRIVACIDADE</h4>
+        <p><strong>clique nos títulos para expandir · Ambiente & Dados</strong></p>
+        <h4>Ambiente independente</h4>
+        <p>Este ambiente digital é mantido por responsável independente, atuando na produção de conteúdo informacional e analítico, comprometido com a proteção da privacidade e dos direitos fundamentais dos titulares de dados.</p>
+        <h4>Dados coletados</h4>
+        <p>Dados de navegação (IP anonimizado, cookies técnicos), informações enviadas voluntariamente por e-mail ou formulários. Nunca coletamos dados sensíveis sem consentimento explícito.</p>
+        <h4>Finalidade & LGPD</h4>
+        <p><strong>Finalidade:</strong> Melhorar a experiência, gerar estatísticas agregadas, responder contatos e garantir a segurança do site. Sem tratamento abusivo ou compartilhamento com terceiros não autorizados.</p>
+        <p><strong>Base legal (LGPD):</strong> Execução de legítimo interesse, cumprimento de obrigação legal e consentimento quando necessário. Respeitamos a Lei 13.709/2018 e os direitos dos titulares.</p>
+        <h4>Direitos & Contato</h4>
+        <p><strong>Seus direitos:</strong> Você pode acessar, retificar, eliminar, limitar ou portar seus dados a qualquer momento. Pedidos devem ser enviados ao e-mail abaixo.</p>
+        <p>Canal de atendimento ao titular: <a href="mailto:editorial.pautazero@outlook.com" style="color: var(--aged-gold); text-decoration: none;">editorial.pautazero@outlook.com</a> – Respondemos em até 15 dias úteis.</p>
+        <p>Esta política pode ser atualizada periodicamente. Consulte sempre a versão mais recente neste rodapé.</p>
+      </div>
+
+      <p class="copyright">&copy; 2026 PAUTAZERO. TODOS OS DIREITOS RESERVADOS. DESIGN BY PAUTA ZERO.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // ----- DADOS DE PROFISSIONAIS (EXEMPLO) -----
+      const professionalsData = [
+        {
+          name: "Dra. Helena Costa",
+          title: "Odontologia Estética",
+          category: "Saúde",
+          avatarIcon: "fa-tooth",
+          bio: "Especialista em reabilitação oral e facetas de porcelana. Atendimento personalizado com tecnologia digital.",
+          phone: "+55 11 99999-1111",
+          email: "helena.costa@exemplo.com",
+          site: "https://helenacosta.odo.br"
+        },
+        {
+          name: "Carlos Mendes",
+          title: "Marido de Aluguel · Faz-Tudo",
+          category: "Manutenção",
+          avatarIcon: "fa-wrench",
+          bio: "Pequenos reparos, montagem de móveis, elétrica e hidráulica residencial. Orçamento justo e serviço garantido.",
+          phone: "+55 11 98888-2222",
+          email: "carlos.faztudo@exemplo.com",
+          site: null
+        },
+        {
+          name: "Dra. Mariana Souza",
+          title: "Advogada de Família",
+          category: "Jurídico",
+          avatarIcon: "fa-gavel",
+          bio: "Atuação em divórcio, guarda de filhos, alienação parental e mediação de conflitos familiares.",
+          phone: "+55 11 97777-3333",
+          email: "mariana.souza@adv.com",
+          site: "https://marianasouza.adv.br"
+        },
+        {
+          name: "Ricardo Almeida",
+          title: "Personal Trainer",
+          category: "Saúde",
+          avatarIcon: "fa-dumbbell",
+          bio: "Treinamento funcional e preparação física para alta performance. Atendimento domiciliar e online.",
+          phone: "+55 11 96666-4444",
+          email: "ricardo.trainer@exemplo.com",
+          site: null
+        },
+        {
+          name: "Eletricista Oliveira",
+          title: "Instalações Elétricas",
+          category: "Manutenção",
+          avatarIcon: "fa-bolt",
+          bio: "Mais de 15 anos de experiência. Projetos, manutenção preventiva e corretiva, padrão de energia.",
+          phone: "+55 11 95555-5555",
+          email: "oliveira.eletrica@exemplo.com",
+          site: null
+        },
+        {
+          name: "Dra. Fernanda Lima",
+          title: "Psicóloga Clínica",
+          category: "Saúde",
+          avatarIcon: "fa-brain",
+          bio: "Terapia cognitivo-comportamental para ansiedade, depressão e traumas. Atendimento online.",
+          phone: "+55 11 94444-6666",
+          email: "fernanda.psi@exemplo.com",
+          site: "https://fernandalima.psc.br"
+        }
+      ];
+
+      // ----- RENDERIZAR GRID -----
+      const grid = document.getElementById('professionalsGrid');
+      
+      function renderProfessionals(filterCategory = 'all') {
+        const filtered = filterCategory === 'all' 
+          ? professionalsData 
+          : professionalsData.filter(p => p.category === filterCategory);
+        
+        if (filtered.length === 0) {
+          grid.innerHTML = '<p style="grid-column:1/-1; color:var(--text-muted); text-align:center;">Nenhum profissional encontrado nesta categoria.</p>';
+          return;
+        }
+
+        grid.innerHTML = filtered.map(prof => {
+          const contactHtml = `
+            <div class="professional-contacts">
+              ${prof.phone ? `<a href="tel:${prof.phone}" class="contact-icon" title="Telefone"><i class="fas fa-phone-alt"></i></a>` : ''}
+              ${prof.email ? `<a href="mailto:${prof.email}" class="contact-icon" title="E-mail"><i class="fas fa-envelope"></i></a>` : ''}
+              ${prof.site ? `<a href="${prof.site}" target="_blank" class="contact-icon" title="Website"><i class="fas fa-globe"></i></a>` : ''}
+            </div>
+          `;
+          
+          return `
+            <div class="professional-card">
+              <div class="professional-avatar">
+                <i class="fas ${prof.avatarIcon}"></i>
+              </div>
+              <h3 class="professional-name">${prof.name}</h3>
+              <div class="professional-title">${prof.title}</div>
+              <p class="professional-bio">${prof.bio}</p>
+              ${contactHtml}
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Inicial
+      renderProfessionals();
+
+      // ----- FILTROS -----
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          renderProfessionals(filter);
+        });
+      });
+
+      // ----- NICHOS (igual ao original, adaptado) -----
+      const niches = [
+        { title: "Política & Geopolítica", items: ["Monetária", "Relações Internacionais", "Regulação", "Poder Institucional"] },
+        { title: "Segurança Total", items: ["Pessoal", "Digital", "Patrimonial", "Inteligência Estratégica"] },
+        { title: "Sistema Prisional & Policial", items: ["Estrutura Carcerária", "Investigação", "Perícia", "Inteligência Policial"] },
+        { title: "Políticas Públicas", items: ["Segurança Pública", "Saúde Pública", "Economia Pública", "Regulação"] },
+        { title: "Economia & Super Ricos", items: ["Alta Renda", "Offshores", "Family Offices", "Patrimônio Invisível"] },
+        { title: "Saúde Mental", items: ["Transtornos", "Emoções", "Trauma", "Alta Performance"] },
+        { title: "Psicopatia & Comportamento Extremo", items: ["Manipulação", "Liderança Tóxica", "Serial Killers", "Falta de Empatia"] },
+        { title: "Família & Alienação Parental", items: ["Divórcio", "Guarda", "Falsas Acusações", "Danos Psicológicos"] },
+        { title: "Crime & Investigação", items: ["Perfil Criminal", "Crimes Financeiros", "Motivação", "Detecção"] },
+        { title: "Saúde Mental em Contextos Extremos", items: ["Prisional", "Alta Pressão", "Colapso", "Sobrevivência Psicológica"] },
+        { title: "Negócios & Estratégia", items: ["Modelos de Negócio", "Holdings", "Captação", "Branding"] },
+        { title: "Visão Global", items: ["Networking Internacional", "Mobilidade", "Expansão"] },
+        { title: "Impacto & Filantropia", items: ["Social", "Educação", "Investimento de Impacto", "Legado"] },
+        { title: "Histórias Reais", items: ["Superação", "Queda", "Ascensão", "Bastidores"] },
+        { title: "Conteúdos Híbridos", items: ["Psicopatia+Negócios", "Segurança+Economia", "Prisão+Psicologia"] },
+        { title: "Direito de Família e Saúde Mental", items: ["Sofrimento Materno", "Perícias Psicológicas", "Manipulação Narrativa"] },
+        { title: "Justiça e Tecnologia", items: ["IA no Judiciário", "Provas Digitais", "Cibercrimes", "Automação"] },
+        { title: "Educação e Desigualdade", items: ["Ensino Público", "Privatização", "Cotas", "Tecnologia na Educação"] },
+        { title: "Meio Ambiente e Conflitos", items: ["Garimpo Ilegal", "Desmatamento", "Justiça Climática", "Greenwashing"] },
+        { title: "Direitos Humanos e Sistema de Justiça", items: ["Tortura", "População de Rua", "Migração", "Comunidades Tradicionais"] },
+        { title: "Agronegócio, Logística e Transporte", items: ["Política de Fretes", "Greves de Caminhoneiros", "Infraestrutura", "Impactos"] },
+        { title: "Saúde Física e Medicina", items: ["Erros Médicos", "Acesso a Tratamentos", "Pandemias", "Sistema de Saúde"] },
+        { title: "Futurismo & Inovação", items: ["IA", "Cidades Inteligentes", "Transumanismo", "Pós-escassez"] },
+        { title: "Religião, Cristianismo & Perseguições", items: ["Cristianismo", "Poder Eclesiástico", "Perseguições", "Intolerância", "Fé"] },
+        { title: "Esportes, Futebol & Ídolos", items: ["Futebol", "Ídolos", "Outros Esportes", "Política Esportiva", "Psicologia do Atleta"] },
+        { title: "Nutrição & Pesquisa Alimentar", items: ["Bases Científicas", "Dietas Estratégicas", "Alimentos Funcionais"] }
+      ];
+
+      const nicheGrid = document.getElementById('nicheGrid');
+      const groupsMap = new Map();
+
+      niches.forEach((niche) => {
+        const group = document.createElement('div');
+        group.className = 'niche-group';
+        group.dataset.nicheTitle = niche.title;
+
+        let itemsHtml = '';
+        niche.items.forEach(item => {
+          itemsHtml += `<li class="theme-item"><span class="theme-link" data-subtema="${item}" data-eixo="${niche.title}">${item}</span></li>`;
+        });
+
+        group.innerHTML = `
+          <div class="group-header">
+            <h3 class="group-title">${niche.title}</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="group-content">
+            <ul class="theme-list">
+              ${itemsHtml}
+            </ul>
+          </div>
+        `;
+
+        const header = group.querySelector('.group-header');
+        header.addEventListener('click', (e) => {
+          e.stopPropagation();
+          group.classList.toggle('expanded');
+        });
+
+        nicheGrid.appendChild(group);
+        groupsMap.set(niche.title, group);
+      });
+
+      // Listeners subtemas (redirecionam para artigo.html - você pode adaptar)
+      document.querySelectorAll('.theme-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const subtema = link.dataset.subtema;
+          window.location.href = `artigo.html?subtema=${encodeURIComponent(subtema)}`;
+        });
+      });
+
+      // Carrossel
+      document.querySelectorAll('.macro-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const nicheTarget = item.getAttribute('data-niche');
+          const targetGroup = groupsMap.get(nicheTarget);
+          if (targetGroup) {
+            if (!targetGroup.classList.contains('expanded')) targetGroup.classList.add('expanded');
+            targetGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+
+      // Toggle privacidade
+      const privacyToggle = document.getElementById('privacyToggle');
+      const privacyPanel = document.getElementById('privacyPanel');
+      const toggleIcon = privacyToggle.querySelector('i');
+      privacyToggle.addEventListener('click', () => {
+        const isHidden = privacyPanel.style.display === 'none';
+        privacyPanel.style.display = isHidden ? 'block' : 'none';
+        toggleIcon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+
+      // Botão de convite (placeholder)
+      document.getElementById('inviteBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Em breve: formulário para solicitação de convite.\nEnquanto isso, entre em contato pelo e-mail editorial.pautazero@outlook.com');
+      });
+
+    })();
+  </script>
+</body>
+</html>
