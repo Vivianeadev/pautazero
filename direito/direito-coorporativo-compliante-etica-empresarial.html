@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>PautaZero · Ultra Luxo · Direito Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Cinzel:wght@400;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== CSS INTACTO — PRESERVADO NA ÍNTEGRA ===== */
+    :root {
+      --bg-color: #ffffff;
+      --petrol-blue: #0a3147;
+      --petrol-light: #1a4b6d;
+      --aged-gold: #b8860b;
+      --gold-line: rgba(184, 134, 11, 0.18);
+      --text-muted: #5a7d91;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Cinzel', serif;
+      --font-body: 'Marcellus', serif;
+      --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--petrol-blue);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* Header */
+    header {
+      padding: 60px 0 30px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(15px);
+      z-index: 1000;
+      border-bottom: 0.5px solid var(--gold-line);
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 8px;
+      text-decoration: none;
+      color: var(--petrol-blue);
+      display: block;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+
+    .logo span { color: var(--aged-gold); font-weight: 700; }
+
+    .tagline {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      color: var(--aged-gold);
+      opacity: 0.8;
+    }
+
+    .ethereal-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.25) 20%, rgba(184,134,11,0.4) 50%, rgba(184,134,11,0.25) 80%, transparent 100%);
+      margin: 0;
+      border: 0;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Hero (removida) */
+    .hero {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--aged-gold);
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      font-weight: 400;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 901px) {
+      .hero-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 3.2rem;
+      }
+    }
+
+    /* Painel de artigo — duas colunas */
+    .article-preview-panel {
+      margin: 40px 0 60px;
+      border: 0.5px solid var(--gold-line);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      padding: 30px 30px;
+      transition: var(--transition);
+      box-shadow: 0 15px 30px -10px rgba(10,49,71,0.05);
+    }
+
+    .preview-container {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 30px;
+    }
+
+    .preview-sidebar {
+      border-right: 0.5px solid var(--gold-line);
+      padding-right: 25px;
+    }
+
+    .preview-label {
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 0.5px solid var(--gold-line);
+    }
+
+    /* Lista de artigos */
+    .article-list {
+      list-style: none;
+      margin: 20px 0 0;
+    }
+
+    .article-list-item {
+      padding: 12px 0;
+      border-bottom: 0.5px dotted var(--gold-line);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .article-list-item:hover {
+      color: var(--aged-gold);
+      padding-left: 8px;
+    }
+
+    .article-list-item.active {
+      color: var(--aged-gold);
+      font-weight: 500;
+      border-left: 2px solid var(--aged-gold);
+      padding-left: 15px;
+    }
+
+    .list-item-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .list-item-meta {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    /* BLOCO DE METADADOS EM LINHA COM THUMBNAIL (minúsculo) */
+    .meta-inline-block {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 0.5px dotted var(--gold-line);
+    }
+
+    .meta-data-compact {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .meta-data-compact .meta-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .meta-data-compact .meta-label-mini {
+      font-weight: 400;
+      color: var(--aged-gold);
+      min-width: 50px;
+    }
+
+    .meta-data-compact .meta-value-mini {
+      font-weight: 400;
+      color: var(--petrol-blue);
+    }
+
+    .thumbnail-64 {
+      width: 64px;
+      height: 64px;
+      background: #eaeef2;
+      border: 0.5px solid var(--gold-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+
+    .preview-main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preview-image {
+      width: 100%;
+      aspect-ratio: 21 / 9;
+      background: #eaeaea;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 0.5px solid var(--gold-line);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .preview-subtema {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      margin-bottom: 8px;
+    }
+
+    .preview-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 15px;
+      color: var(--petrol-blue);
+    }
+
+    .article-body {
+      font-family: var(--font-body);
+      color: var(--petrol-blue);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .article-body p {
+      margin-bottom: 1.2rem;
+    }
+
+    .article-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 1.8rem 0 1rem;
+      color: var(--aged-gold);
+      letter-spacing: 0.5px;
+    }
+
+    .preview-link {
+      display: none;
+    }
+
+    /* Seção de Nichos */
+    .niche-section {
+      padding: 80px 0;
+      border-top: 0.5px solid var(--gold-line);
+    }
+
+    .niche-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .niche-group {
+      border-left: 0.5px solid var(--gold-line);
+      padding-left: 25px;
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .group-title {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      font-weight: 700;
+      margin: 0;
+      transition: var(--transition);
+    }
+
+    .group-header i {
+      color: var(--aged-gold);
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+      opacity: 0.6;
+    }
+
+    .niche-group.expanded .group-header i {
+      transform: rotate(180deg);
+    }
+
+    .group-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+                  opacity 0.5s ease,
+                  margin 0.3s ease;
+      margin-top: 0;
+    }
+
+    .niche-group.expanded .group-content {
+      max-height: 1200px;
+      opacity: 1;
+      margin-top: 25px;
+    }
+
+    .theme-list {
+      list-style: none;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+    }
+
+    .theme-item {
+      position: relative;
+    }
+
+    .theme-link {
+      text-decoration: none;
+      color: var(--petrol-blue);
+      font-size: 0.8rem;
+      font-weight: 300;
+      transition: var(--transition);
+      display: inline-block;
+      padding: 3px 0;
+      border-bottom: 1px dotted transparent;
+      cursor: pointer;
+    }
+
+    .theme-link:hover {
+      color: var(--aged-gold);
+      border-bottom-color: var(--aged-gold);
+    }
+
+    /* Carrossel inferior */
+    .macro-carousel {
+      padding: 25px 0;
+      background: #fafafa;
+      border-top: 0.5px solid var(--gold-line);
+      border-bottom: 0.5px solid var(--gold-line);
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+      animation: scroll 40s linear infinite;
+      width: max-content;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .macro-item {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--petrol-blue);
+      text-decoration: none;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      opacity: 0.6;
+      cursor: pointer;
+    }
+
+    .macro-item:hover {
+      opacity: 1;
+      color: var(--aged-gold);
+    }
+
+    .macro-item::after {
+      content: "•";
+      color: var(--aged-gold);
+      margin-left: 40px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 80px 0 40px;
+      background: var(--petrol-blue);
+      color: #fff;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      letter-spacing: 10px;
+      color: #fff;
+      margin-bottom: 30px;
+      display: block;
+      text-align: center;
+    }
+
+    .footer-logo span { color: var(--aged-gold); }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-bottom: 50px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .footer-links a, .footer-links .privacy-toggle {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .footer-links a:hover, .footer-links .privacy-toggle:hover {
+      color: var(--aged-gold);
+      border-bottom-color: var(--aged-gold);
+    }
+
+    .privacy-panel {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid var(--gold-line);
+      padding: 25px 30px;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+    }
+
+    .privacy-panel h4 {
+      font-family: var(--font-serif);
+      color: var(--aged-gold);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin: 20px 0 10px;
+      font-weight: 400;
+      border-bottom: 0.5px solid var(--gold-line);
+      padding-bottom: 5px;
+    }
+
+    .privacy-panel h4:first-of-type { margin-top: 0; }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .highlight-expand {
+      animation: highlightPulse 0.8s ease;
+    }
+
+    @keyframes highlightPulse {
+      0% { background-color: transparent; }
+      50% { background-color: rgba(184, 134, 11, 0.08); }
+      100% { background-color: transparent; }
+    }
+
+    @media (max-width: 1200px) {
+      .niche-grid { grid-template-columns: repeat(3, 1fr); }
+      .container { padding: 0 40px; }
+      .preview-container { grid-template-columns: 260px 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .niche-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+      .hero-title { font-size: 2.5rem; white-space: normal; }
+      .logo { font-size: 2.5rem; }
+      .preview-container { grid-template-columns: 1fr; gap: 20px; }
+      .preview-sidebar { border-right: none; padding-right: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .niche-grid { grid-template-columns: 1fr; gap: 24px; }
+      .container { padding: 0 20px; }
+      .hero-title { font-size: 1.8rem; }
+      .logo { font-size: 2rem; letter-spacing: 6px; }
+      .macro-item { font-size: 0.75rem; }
+      .footer-links { flex-direction: column; gap: 20px; align-items: center; }
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <!-- TOPO INTEGRALMENTE COPIADO -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo">PAUTA<span>ZERO</span></a>
+      <div class="tagline">A Revista Digital do Futuro</div>
+    </div>
+  </header>
+
+  <hr class="ethereal-divider" aria-hidden="true">
+
+  <main class="container">
+    <!-- PAINEL DO ARTIGO COMPLETO (EIXO DIREITO) -->
+    <section class="article-preview-panel" id="articleFullPanel">
+      <div class="preview-container">
+        <!-- COLUNA ESQUERDA: METADADOS + LISTA DE ARTIGOS -->
+        <div class="preview-sidebar">
+          <h4 class="preview-label">ARTIGOS EM DIREITO</h4>
+          
+          <!-- Bloco de metadados em linha (mini) com thumbnail -->
+          <div class="meta-inline-block" id="metaInlineBlock">
+            <!-- Preenchido via JS -->
+          </div>
+
+          <!-- Lista de artigos do mesmo eixo -->
+          <ul class="article-list" id="articleListContainer"></ul>
+        </div>
+
+        <!-- COLUNA DIREITA: FOTO + CONTEÚDO DO ARTIGO -->
+        <div class="preview-main" id="articleMainContent">
+          <!-- Renderizado dinamicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE NICHOS (MANTIDA) -->
+    <section class="niche-section">
+      <span class="section-label" style="margin-bottom: 60px;">Exploração por Nichos (64 Categorias)</span>
+      <div class="niche-grid" id="nicheGrid"></div>
+    </section>
+  </main>
+
+  <!-- CARROSSEL INFERIOR -->
+  <div class="macro-carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <a class="macro-item" data-niche="Sistemas de Saúde">Medicina & Biohacking</a>
+      <a class="macro-item" data-niche="Economia & Poder">Economia Estratégica</a>
+      <a class="macro-item" data-niche="Estratégia & Logística">Geopolítica Global</a>
+      <a class="macro-item" data-niche="Justiça & Direito">Justiça & Tecnologia</a>
+      <a class="macro-item" data-niche="Futurismo & Ciência">Futurismo Sistêmico</a>
+      <a class="macro-item" data-niche="Sociedade & Cultura">Psicologia Social</a>
+      <a class="macro-item" data-niche="Tecnologia & IA">Inteligência Artificial</a>
+      <a class="macro-item" data-niche="Estética & Design">Arquitetura & Design</a>
+      <!-- duplicados para scroll infinito -->
+      <a class="macro-item" data-niche="Sistemas de Saúde">Medicina & Biohacking</a>
+      <a class="macro-item" data-niche="Economia & Poder">Economia Estratégica</a>
+      <a class="macro-item" data-niche="Estratégia & Logística">Geopolítica Global</a>
+      <a class="macro-item" data-niche="Justiça & Direito">Justiça & Tecnologia</a>
+      <a class="macro-item" data-niche="Futurismo & Ciência">Futurismo Sistêmico</a>
+      <a class="macro-item" data-niche="Sociedade & Cultura">Psicologia Social</a>
+      <a class="macro-item" data-niche="Tecnologia & IA">Inteligência Artificial</a>
+      <a class="macro-item" data-niche="Estética & Design">Arquitetura & Design</a>
+    </div>
+  </div>
+
+  <!-- RODAPÉ INTEGRALMENTE COPIADO -->
+  <footer>
+    <div class="container">
+      <a href="#" class="footer-logo">PAUTA<span>ZERO</span></a>
+      <div class="footer-links">
+        <a href="manifesto.html">Manifesto</a>
+        <span class="privacy-toggle" id="privacyToggle">Política de Privacidade <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 6px;"></i></span>
+      </div>
+      <div id="privacyPanel" class="privacy-panel" style="display: none;">
+        <h4>MANIFESTO PAUTAZERO · POLÍTICA DE PRIVACIDADE</h4>
+        <p><strong>clique nos títulos para expandir · Ambiente & Dados</strong></p>
+        <h4>Ambiente independente</h4>
+        <p>Este ambiente digital é mantido por responsável independente, atuando na produção de conteúdo informacional e analítico, comprometido com a proteção da privacidade e dos direitos fundamentais dos titulares de dados.</p>
+        <h4>Dados coletados</h4>
+        <p>Dados de navegação (IP anonimizado, cookies técnicos), informações enviadas voluntariamente por e-mail ou formulários. Nunca coletamos dados sensíveis sem consentimento explícito.</p>
+        <h4>Finalidade & LGPD</h4>
+        <p><strong>Finalidade:</strong> Melhorar a experiência, gerar estatísticas agregadas, responder contatos e garantir a segurança do site. Sem tratamento abusivo ou compartilhamento com terceiros não autorizados.</p>
+        <p><strong>Base legal (LGPD):</strong> Execução de legítimo interesse, cumprimento de obrigação legal e consentimento quando necessário. Respeitamos a Lei 13.709/2018 e os direitos dos titulares.</p>
+        <h4>Direitos & Contato</h4>
+        <p><strong>Seus direitos:</strong> Você pode acessar, retificar, eliminar, limitar ou portar seus dados a qualquer momento. Pedidos devem ser enviados ao e-mail abaixo.</p>
+        <p>Canal de atendimento ao titular: <a href="mailto:editorial.pautazero@outlook.com" style="color: var(--aged-gold); text-decoration: none;">editorial.pautazero@outlook.com</a> – Respondemos em até 15 dias úteis.</p>
+        <p>Esta política pode ser atualizada periodicamente. Consulte sempre a versão mais recente neste rodapé.</p>
+      </div>
+      <p class="copyright">&copy; 2026 PAUTAZERO. TODOS OS DIREITOS RESERVADOS. DESIGN BY MANUS SUPER IA.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      "use strict";
+
+      // ========== BASE DE ARTIGOS (EIXO DIREITO) ==========
+      const artigosDireito = [
+        {
+          id: 'lgpd-soberania',
+          titulo: 'Soberania Digital e os Limites da Jurisdição na Era dos Algoritmos',
+          subtema: 'LGPD · Proteção de Dados',
+          tema: 'Direito Digital & Regulação',
+          imagemPlaceholder: 'ILUSTRAÇÃO · JUSTIÇA ALGORÍTMICA',
+          corpo: `
+            <p>A digitalização acelerada das relações sociais e econômicas impõe desafios inéditos ao direito contemporâneo. A Lei Geral de Proteção de Dados (LGPD) brasileira, inspirada no GDPR europeu, representa um marco civilizatório, mas sua efetividade ainda esbarra em questões de soberania e jurisdição transnacional.</p>
+            <h3>O paradoxo da nuvem</h3>
+            <p>Dados de cidadãos brasileiros frequentemente residem em servidores localizados nos Estados Unidos ou na Europa. Como fazer valer a legislação nacional quando a infraestrutura escapa ao controle territorial? O artigo 3º da LGPD estende sua aplicação a qualquer operação de tratamento realizada no Brasil ou que oferte bens/serviços a indivíduos localizados no país — uma cláusula de extraterritorialidade que ainda carece de precedentes consolidados.</p>
+            <h3>Conflito de competências</h3>
+            <p>Recentemente, a Autoridade Nacional de Proteção de Dados (ANPD) multou uma big tech por transferência irregular de dados. A empresa recorreu à justiça norte-americana, alegando que a decisão violava acordos comerciais. O caso revela a tensão entre a soberania estatal e a arquitetura global da internet. Especialistas defendem a criação de um tratado multilateral sobre fluxo de dados, semelhante ao que ocorre no direito marítimo.</p>
+            <h3>Direitos fundamentais em xeque</h3>
+            <p>Enquanto não houver harmonização internacional, o cidadão permanece vulnerável. A proteção efetiva exige não apenas leis robustas, mas capacidade técnica e diplomática para fiscalizar além das fronteiras. O futuro do direito digital passa, inevitavelmente, pela redefinição do conceito de soberania no ciberespaço.</p>
+          `
+        },
+        {
+          id: 'compliance-corporativo',
+          titulo: 'Compliance e Governança Corporativa: Além do Checklist Regulatório',
+          subtema: 'Compliance · Ética Empresarial',
+          tema: 'Direito Corporativo',
+          imagemPlaceholder: 'GOVERNANÇA · BOARDROOM',
+          corpo: `
+            <p>O compliance deixou de ser um departamento burocrático para se tornar pilar estratégico das organizações. Em um ambiente de escrutínio público e regulação crescente, a governança corporativa exige uma abordagem que vá além do mero cumprimento normativo.</p>
+            <h3>Integridade como ativo</h3>
+            <p>Empresas que adotam programas robustos de integridade não apenas mitigam riscos legais, mas fortalecem sua reputação e valuation. A Lei Anticorrupção brasileira (Lei 12.846/2013) e os acordos de leniência demonstram que a cooperação com as autoridades pode ser um diferencial competitivo.</p>
+            <h3>O papel do conselho</h3>
+            <p>A alta administração deve assumir o "tone at the top", garantindo que a cultura de conformidade permeie todos os níveis. Treinamentos periódicos, canais de denúncia eficazes e due diligence de terceiros são medidas indispensáveis. O futuro do compliance está na integração com a estratégia de negócio, não como um obstáculo, mas como um vetor de sustentabilidade.</p>
+          `
+        },
+        {
+          id: 'ia-responsabilidade-civil',
+          titulo: 'Inteligência Artificial e Responsabilidade Civil: Quem Responde pelos Danos Autônomos?',
+          subtema: 'IA · Responsabilidade Civil',
+          tema: 'Direito & Tecnologia',
+          imagemPlaceholder: 'ALGORITMO · ÉTICA DIGITAL',
+          corpo: `
+            <p>Veículos autônomos que causam acidentes, algoritmos de crédito discriminatórios, diagnósticos médicos equivocados por IA. A tecnologia avança mais rápido que o ordenamento jurídico, e a pergunta ecoa nos tribunais: a quem atribuir a culpa quando a máquina decide sozinha?</p>
+            <h3>Teorias em disputa</h3>
+            <p>O Código Civil brasileiro baseia-se na culpa ou no risco da atividade. Aplicar esses conceitos a sistemas autônomos é complexo. Propostas legislativas na União Europeia sugerem a criação de um regime de responsabilidade objetiva para IA de alto risco, enquanto outras correntes defendem a equiparação da IA a um "preposto" ou a responsabilização solidária do desenvolvedor e do usuário.</p>
+            <h3>Caminhos para o Brasil</h3>
+            <p>O Marco Legal da Inteligência Artificial (PL 2338/2023) em tramitação no Senado busca estabelecer diretrizes, incluindo a exigência de supervisão humana e avaliação de impacto. Até lá, a jurisprudência precisará lidar com casos concretos, equilibrando inovação e proteção aos direitos fundamentais.</p>
+          `
+        },
+        {
+          id: 'arbitragem-internacional',
+          titulo: 'Arbitragem Internacional: O Foro Privilegiado dos Conflitos Empresariais',
+          subtema: 'Arbitragem · Contratos Globais',
+          tema: 'Direito Internacional Privado',
+          imagemPlaceholder: 'CÂMARA DE COMÉRCIO · DISPUTAS',
+          corpo: `
+            <p>A arbitragem consolidou-se como o mecanismo preferencial para resolução de litígios comerciais transfronteiriços. A confidencialidade, a celeridade e a especialização dos árbitros oferecem vantagens inegáveis frente ao Judiciário estatal, muitas vezes lento e imprevisível.</p>
+            <h3>Cláusulas compromissórias</h3>
+            <p>A redação cuidadosa da cláusula arbitral é essencial para evitar o fenômeno da "arbitragem patológica". Definir com precisão a instituição arbitral (CCI, LCIA, CAM-CCBC), a sede, o idioma e a lei aplicável pode significar a diferença entre uma solução eficiente e anos de disputas preliminares.</p>
+            <h3>Homologação de sentenças estrangeiras</h3>
+            <p>O Brasil é signatário da Convenção de Nova Iorque, o que facilita o reconhecimento e a execução de laudos arbitrais estrangeiros. O Superior Tribunal de Justiça (STJ) tem adotado uma postura pró-arbitragem, respeitando a autonomia da vontade das partes e fortalecendo o ambiente de negócios no país.</p>
+          `
+        }
+      ];
+
+      // ========== FUNÇÕES AUXILIARES ==========
+      function calcularTempoLeitura(textoHtml) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = textoHtml;
+        const textoPuro = tempDiv.textContent || tempDiv.innerText || '';
+        const palavras = textoPuro.trim().split(/\s+/).length;
+        return Math.ceil(palavras / 200);
+      }
+
+      function formatarData() {
+        const hoje = new Date();
+        return hoje.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      // ========== RENDERIZAÇÃO ==========
+      const articleMain = document.getElementById('articleMainContent');
+      const articleListEl = document.getElementById('articleListContainer');
+      const metaInlineBlock = document.getElementById('metaInlineBlock');
+
+      let artigoAtual = artigosDireito[0];
+
+      function renderizarMetaInline(artigo) {
+        const minutos = calcularTempoLeitura(artigo.corpo);
+        const dataFormatada = formatarData();
+        
+        metaInlineBlock.innerHTML = `
+          <div class="meta-data-compact">
+            <div class="meta-row"><span class="meta-label-mini">EIXO</span> <span class="meta-value-mini">Direito</span></div>
+            <div class="meta-row"><span class="meta-label-mini">TEMA</span> <span class="meta-value-mini">${artigo.tema}</span></div>
+            <div class="meta-row"><span class="meta-label-mini">SUBTEMA</span> <span class="meta-value-mini">${artigo.subtema}</span></div>
+            <div class="meta-row"><span class="meta-label-mini">DATA</span> <span class="meta-value-mini">${dataFormatada}</span></div>
+            <div class="meta-row"><span class="meta-label-mini">LEITURA</span> <span class="meta-value-mini">${minutos} min</span></div>
+          </div>
+          <div class="thumbnail-64">
+            <i class="fas fa-gavel" style="margin-right:4px; opacity:0.8;"></i> ${artigo.subtema.split('·')[0].trim()}
+          </div>
+        `;
+      }
+
+      function renderizarArtigo(artigo) {
+        artigoAtual = artigo;
+        
+        renderizarMetaInline(artigo);
+        
+        articleMain.innerHTML = `
+          <div class="preview-image">
+            <i class="fas fa-scale-balanced" style="margin-right:8px;"></i> ${artigo.imagemPlaceholder}
+          </div>
+          <div>
+            <span class="preview-subtema">${artigo.subtema}</span>
+            <h2 class="preview-title">${artigo.titulo}</h2>
+            <div class="article-body">
+              ${artigo.corpo}
+            </div>
+          </div>
+        `;
+        
+        document.querySelectorAll('.article-list-item').forEach(item => {
+          item.classList.remove('active');
+          if (item.dataset.id === artigo.id) {
+            item.classList.add('active');
+          }
+        });
+      }
+
+      function renderizarListaArtigos() {
+        let html = '';
+        artigosDireito.forEach(art => {
+          html += `
+            <li class="article-list-item ${art.id === artigoAtual.id ? 'active' : ''}" data-id="${art.id}">
+              <div class="list-item-title">${art.titulo}</div>
+              <div class="list-item-meta">${art.subtema}</div>
+            </li>
+          `;
+        });
+        articleListEl.innerHTML = html;
+        
+        document.querySelectorAll('.article-list-item').forEach(item => {
+          item.addEventListener('click', (e) => {
+            const id = item.dataset.id;
+            const artigoSelecionado = artigosDireito.find(a => a.id === id);
+            if (artigoSelecionado) {
+              renderizarArtigo(artigoSelecionado);
+              document.getElementById('articleFullPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          });
+        });
+      }
+
+      // Inicialização
+      renderizarListaArtigos();
+      renderizarArtigo(artigosDireito[0]);
+
+      // ========== NICHOS (MANTIDO) ==========
+      const niches = [
+        { title: "Sistemas de Saúde", items: ["Medicina de Precisão", "Biohacking", "Longevidade", "Neurociência", "Saúde Pública", "Genética", "Nutrição Sistêmica", "Psiquiatria"] },
+        { title: "Economia & Poder", items: ["Mercados Globais", "Cripto-Economia", "Wealth Management", "Geopolítica Financeira", "Sustentabilidade", "Venture Capital", "Macroeconomia", "Fiscalidade"] },
+        { title: "Tecnologia & IA", items: ["Inteligência Artificial", "Computação Quântica", "Cibersegurança", "Blockchain", "Robótica", "Ética Digital", "Cloud Computing", "SaaS"] },
+        { title: "Justiça & Direito", items: ["Direito Digital", "Sistemas Jurídicos", "Compliance", "Propriedade Intelectual", "Direitos Humanos", "Arbitragem", "Legislação IA", "Governança"] },
+        { title: "Sociedade & Cultura", items: ["Psicologia Social", "Antropologia", "Educação do Futuro", "Comportamento", "Religião", "Filosofia", "Mídia & Verdade", "Urbanismo"] },
+        { title: "Estratégia & Logística", items: ["Supply Chain", "Infraestrutura", "Energia", "Mobilidade", "Agro-Logística", "Defesa", "Exploração Espacial", "Telecomunicações"] },
+        { title: "Estética & Design", items: ["Arquitetura", "Design de Luxo", "Moda Ética", "Artes Visuais", "Minimalismo", "Experiência do Usuário", "Branding", "Curadoria"] },
+        { title: "Futurismo & Ciência", items: ["Física Teórica", "Climatologia", "Biotecnologia", "Exploração Oceânica", "Energia Limpa", "Materiais Avançados", "Exoplanetas", "Singularidade"] }
+      ];
+
+      const grid = document.getElementById('nicheGrid');
+      const groupsMap = new Map();
+
+      niches.forEach((niche) => {
+        const group = document.createElement('div');
+        group.className = 'niche-group';
+        group.dataset.nicheTitle = niche.title;
+
+        let itemsHtml = '';
+        niche.items.forEach(item => {
+          itemsHtml += `<li class="theme-item"><span class="theme-link" data-subtema="${item}" data-eixo="${niche.title}">${item}</span></li>`;
+        });
+
+        group.innerHTML = `
+          <div class="group-header">
+            <h3 class="group-title">${niche.title}</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="group-content">
+            <ul class="theme-list">
+              ${itemsHtml}
+            </ul>
+          </div>
+        `;
+
+        const header = group.querySelector('.group-header');
+        header.addEventListener('click', (e) => {
+          e.stopPropagation();
+          group.classList.toggle('expanded');
+        });
+
+        grid.appendChild(group);
+        groupsMap.set(niche.title, group);
+      });
+
+      document.querySelectorAll('.theme-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const eixo = link.dataset.eixo;
+          const targetGroup = groupsMap.get(eixo);
+          if (targetGroup) {
+            if (!targetGroup.classList.contains('expanded')) targetGroup.classList.add('expanded');
+            targetGroup.classList.add('highlight-expand');
+            setTimeout(() => targetGroup.classList.remove('highlight-expand'), 800);
+            const headerOffset = 120;
+            const elementPosition = targetGroup.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Carrossel
+      const macroItems = document.querySelectorAll('.macro-item');
+      function expandAndScrollToGroup(groupElement) {
+        if (!groupElement) return;
+        if (!groupElement.classList.contains('expanded')) groupElement.classList.add('expanded');
+        groupElement.classList.add('highlight-expand');
+        setTimeout(() => groupElement.classList.remove('highlight-expand'), 800);
+        const headerOffset = 120;
+        const elementPosition = groupElement.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
+      }
+      macroItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const nicheTarget = item.getAttribute('data-niche');
+          const targetGroup = groupsMap.get(nicheTarget);
+          if (targetGroup) expandAndScrollToGroup(targetGroup);
+        });
+      });
+
+      // Privacidade
+      const privacyToggle = document.getElementById('privacyToggle');
+      const privacyPanel = document.getElementById('privacyPanel');
+      const toggleIcon = privacyToggle.querySelector('i');
+      privacyToggle.addEventListener('click', () => {
+        const isHidden = privacyPanel.style.display === 'none';
+        privacyPanel.style.display = isHidden ? 'block' : 'none';
+        toggleIcon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+
+      // URL params
+      function handleUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        const eixo = params.get('eixo') || params.get('niche');
+        if (eixo) {
+          const decoded = decodeURIComponent(eixo);
+          let targetGroup = groupsMap.get(decoded);
+          if (!targetGroup) {
+            for (let [title, group] of groupsMap.entries()) {
+              if (title.toLowerCase().includes(decoded.toLowerCase())) {
+                targetGroup = group; break;
+              }
+            }
+          }
+          if (targetGroup) setTimeout(() => expandAndScrollToGroup(targetGroup), 200);
+        }
+      }
+      handleUrlParams();
+    })();
+  </script>
+</body>
+</html>
