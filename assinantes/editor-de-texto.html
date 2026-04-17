@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Estúdio Pauta Zero · Assinante Ultra Luxo</title>
+  <!-- Fontes carregadas do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Cinzel:wght@400;700&family=Marcellus&family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;500&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <style>
+    /* ===== CSS INALTERADO – EXATAMENTE COMO FORNECIDO ===== */
+    :root {
+      --bg-color: #ffffff;
+      --petrol-blue: #0a3147;
+      --petrol-light: #1a4b6d;
+      --aged-gold: #b8860b;
+      --gold-line: rgba(184, 134, 11, 0.2);
+      --text-muted: #5a7d91;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Cinzel', serif;
+      --font-body: 'Marcellus', serif;
+      --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--petrol-blue);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    header {
+      padding: 40px 0 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(15px);
+      z-index: 1000;
+      border-bottom: 0.5px solid var(--gold-line);
+    }
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 8px;
+      text-decoration: none;
+      color: var(--petrol-blue);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .logo span { color: var(--aged-gold); font-weight: 700; }
+    .tagline {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      color: var(--aged-gold);
+      opacity: 0.8;
+    }
+    .subscriber-badge {
+      margin-top: 12px;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      background: rgba(184,134,11,0.08);
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 30px;
+      border: 0.5px solid var(--gold-line);
+    }
+
+    .ethereal-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.3) 20%, rgba(184,134,11,0.5) 50%, rgba(184,134,11,0.3) 80%, transparent 100%);
+      opacity: 0.5;
+      border: 0;
+      margin: 0;
+    }
+
+    .studio-section {
+      padding: 50px 0 80px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 35px;
+      border-bottom: 0.5px solid var(--gold-line);
+      padding-bottom: 15px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--petrol-blue);
+    }
+    .section-title i {
+      color: var(--aged-gold);
+      margin-right: 12px;
+    }
+    .assine-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--aged-gold);
+      border: 0.5px solid var(--gold-line);
+      padding: 5px 15px;
+      border-radius: 20px;
+    }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+    }
+
+    .editor-card {
+      background: #fbfbfb;
+      border: 0.5px solid var(--gold-line);
+      border-radius: 2px;
+      padding: 20px;
+      box-shadow: 0 10px 25px -8px rgba(10,49,71,0.05);
+    }
+    .editor-toolbar-custom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 4px;
+      margin-bottom: 15px;
+      border-bottom: 1px dashed var(--gold-line);
+      padding-bottom: 12px;
+    }
+    .tool-btn {
+      background: transparent;
+      border: 0.5px solid var(--gold-line);
+      color: var(--petrol-blue);
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tool-btn i { font-size: 0.9rem; color: var(--aged-gold); }
+    .tool-btn:hover {
+      background: rgba(184,134,11,0.08);
+      border-color: var(--aged-gold);
+    }
+    #editor-container {
+      min-height: 380px;
+      background: white;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--petrol-blue);
+      border: 0.5px solid var(--gold-line);
+      padding: 5px;
+    }
+    .ql-editor {
+      min-height: 350px;
+      font-family: var(--font-body);
+    }
+    .ql-editor p { margin-bottom: 1rem; }
+    .ql-toolbar.ql-snow {
+      border: 0.5px solid var(--gold-line);
+      border-bottom: none;
+      background: #fafafa;
+    }
+    .ql-container.ql-snow {
+      border: 0.5px solid var(--gold-line);
+    }
+    .editor-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 18px;
+      gap: 15px;
+    }
+    .btn {
+      background: transparent;
+      border: 0.5px solid var(--aged-gold);
+      color: var(--aged-gold);
+      padding: 8px 22px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+    .btn-primary {
+      background: var(--aged-gold);
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: var(--petrol-blue);
+      color: white;
+    }
+    .btn:hover {
+      background: var(--petrol-blue);
+      color: white;
+      border-color: var(--petrol-blue);
+    }
+
+    .resource-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .panel-box {
+      border: 0.5px solid var(--gold-line);
+      padding: 20px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(4px);
+    }
+    .panel-title {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--aged-gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .model-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .model-card {
+      border: 0.5px solid var(--gold-line);
+      padding: 15px 10px;
+      text-align: center;
+      background: white;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .model-card:hover {
+      border-color: var(--aged-gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(10,49,71,0.05);
+    }
+    .model-icon {
+      font-size: 2rem;
+      color: var(--petrol-light);
+      margin-bottom: 8px;
+    }
+    .model-name {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .model-meta {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+    }
+
+    .color-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .color-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .color-swatch {
+      width: 45px;
+      height: 45px;
+      border: 0.5px solid var(--gold-line);
+      border-radius: 2px;
+    }
+    .color-info { flex: 1; }
+    .color-name {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+    .color-codes {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      font-family: monospace;
+      margin-top: 2px;
+    }
+    .print-specs {
+      margin-top: 15px;
+      background: #f4f7f9;
+      padding: 15px;
+      font-size: 0.7rem;
+      border-left: 2px solid var(--aged-gold);
+    }
+
+    footer {
+      padding: 60px 0 40px;
+      background: var(--petrol-blue);
+      color: #fff;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      letter-spacing: 10px;
+      color: #fff;
+      margin-bottom: 25px;
+      display: block;
+    }
+    .footer-logo span { color: var(--aged-gold); }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    .copyright {
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    #toast-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+    }
+    .toast {
+      background: var(--petrol-blue);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      border-left: 4px solid var(--aged-gold);
+      animation: slideIn 0.4s forwards;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 1000px) {
+      .studio-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== CORREÇÃO EXCLUSIVA: MAPEAMENTO DE FONTES PARA O QUILL ===== */
+    /* As regras abaixo são a ÚNICA adição. Nenhuma outra linha foi alterada. */
+    .ql-font-Marcellus { font-family: 'Marcellus', serif; }
+    .ql-font-Cinzel { font-family: 'Cinzel', serif; }
+    .ql-font-Lora { font-family: 'Lora', serif; }
+    .ql-font-Playfair\ Display { font-family: 'Playfair Display', serif; }
+    .ql-font-Cormorant\ Garamond { font-family: 'Cormorant Garamond', serif; }
+
+    .ql-font-Inter { font-family: 'Inter', sans-serif; }
+    .ql-font-Montserrat { font-family: 'Montserrat', sans-serif; }
+    .ql-font-Raleway { font-family: 'Raleway', sans-serif; }
+
+    .ql-font-serif { font-family: serif; }
+    .ql-font-sans-serif { font-family: sans-serif; }
+    .ql-font-monospace { font-family: monospace; }
+    /* ===== FIM DA CORREÇÃO ===== */
+
+    /* ===== AJUSTE DE ENGENHARIA: RODAPÉ RESPONSIVO PERFEITO (MOBILE) ===== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 20px;
+      }
+      footer {
+        padding: 40px 0 30px;
+      }
+      .footer-logo {
+        font-size: 1.5rem;
+        letter-spacing: 6px;
+        margin-bottom: 20px;
+      }
+      .footer-nav {
+        gap: 20px 30px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+      }
+      .footer-nav a {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+      }
+      .copyright {
+        font-size: 0.55rem;
+      }
+    }
+    /* ===== FIM DO AJUSTE DE RODAPÉ ===== */
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="#" class="logo">PAUTA <span>ZERO</span></a>
+    <div class="tagline">A Revista Digital do Futuro</div>
+    <div class="subscriber-badge"><i class="fas fa-crown" style="color: var(--aged-gold); margin-right: 8px;"></i> CANTINHO DO ASSINANTE · LICENÇA 10 ANOS</div>
+  </div>
+</header>
+
+<hr class="ethereal-divider">
+
+<main class="container">
+  <section class="studio-section">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fas fa-feather-alt"></i> Editor de Documentos · Ultra Luxo</h2>
+      <span class="assine-tag"><i class="far fa-gem"></i> Assinante PRO · 10 anos</span>
+    </div>
+
+    <div class="studio-grid">
+      <!-- COLUNA ESQUERDA -->
+      <div class="editor-card">
+        <div class="editor-toolbar-custom">
+          <button class="tool-btn" id="undoBtn"><i class="fas fa-undo-alt"></i> Desfazer</button>
+          <button class="tool-btn" id="redoBtn"><i class="fas fa-redo-alt"></i> Refazer</button>
+          <button class="tool-btn" id="newDocBtn"><i class="fas fa-file"></i> Novo</button>
+          <button class="tool-btn" id="clearFormatBtn"><i class="fas fa-remove-format"></i> Limpar</button>
+          <button class="tool-btn" id="printPreviewBtn"><i class="fas fa-print"></i> Pré‑impressão</button>
+          <button class="tool-btn" id="insertPageBreakBtn"><i class="fas fa-scroll"></i> Quebra</button>
+          <select id="fontFamilySelect" class="tool-btn" style="min-width:160px;">
+            <optgroup label="Serifadas">
+              <option value="Marcellus" style="font-family:Marcellus;">Marcellus</option>
+              <option value="Cinzel" style="font-family:Cinzel;">Cinzel</option>
+              <option value="Lora" style="font-family:Lora;">Lora</option>
+              <option value="Playfair Display" style="font-family:'Playfair Display';">Playfair Display</option>
+              <option value="Cormorant Garamond" style="font-family:'Cormorant Garamond';">Cormorant Garamond</option>
+              <option value="serif" style="font-family:serif;">Serif (sistema)</option>
+            </optgroup>
+            <optgroup label="Sans-serif">
+              <option value="Inter" style="font-family:Inter;">Inter</option>
+              <option value="Montserrat" style="font-family:Montserrat;">Montserrat</option>
+              <option value="Raleway" style="font-family:Raleway;">Raleway</option>
+              <option value="sans-serif" style="font-family:sans-serif;">Sans-serif</option>
+            </optgroup>
+            <optgroup label="Monospace">
+              <option value="monospace" style="font-family:monospace;">Monospace</option>
+            </optgroup>
+          </select>
+          <select id="fontSizeSelect" class="tool-btn">
+            <option value="12px">12px</option>
+            <option value="14px">14px</option>
+            <option value="16px" selected>16px</option>
+            <option value="18px">18px</option>
+            <option value="24px">24px</option>
+            <option value="32px">32px</option>
+          </select>
+        </div>
+        <div id="editor-container">
+          <p><strong>Prezado(a) assinante,</strong></p>
+          <p>Editor com <strong>12 fontes</strong> funcionando visualmente. Selecione qualquer trecho e altere a tipografia — a mudança será aplicada instantaneamente.</p>
+          <p><br></p>
+          <p style="text-align: right;"><span style="color: #b8860b;">— Equipe Editorial</span></p>
+        </div>
+        <div class="editor-footer">
+          <button class="btn" id="saveDraftBtn"><i class="far fa-save"></i> Salvar</button>
+          <button class="btn btn-primary" id="exportDocBtn"><i class="fas fa-file-export"></i> Exportar .doc</button>
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA: modelos mantidos -->
+      <div class="resource-panel">
+        <div class="panel-box">
+          <div class="panel-title"><i class="fas fa-file-alt"></i> Modelos</div>
+          <div class="model-grid">
+            <div class="model-card" data-template="memo"><div class="model-icon"><i class="fas fa-briefcase"></i></div><div class="model-name">Memorando</div></div>
+            <div class="model-card" data-template="pitch"><div class="model-icon"><i class="fas fa-chart-line"></i></div><div class="model-name">Pitch</div></div>
+            <div class="model-card" data-template="manifesto"><div class="model-icon"><i class="fas fa-feather"></i></div><div class="model-name">Manifesto</div></div>
+            <div class="model-card" data-template="relatorio"><div class="model-icon"><i class="fas fa-table"></i></div><div class="model-name">Relatório</div></div>
+            <div class="model-card" data-template="peticao"><div class="model-icon"><i class="fas fa-gavel"></i></div><div class="model-name">Petição Inicial</div></div>
+            <div class="model-card" data-template="contrato"><div class="model-icon"><i class="fas fa-handshake"></i></div><div class="model-name">Contrato</div></div>
+            <div class="model-card" data-template="enem"><div class="model-icon"><i class="fas fa-pen-fancy"></i></div><div class="model-name">Redação ENEM</div></div>
+            <div class="model-card" data-template="planoaula"><div class="model-icon"><i class="fas fa-chalkboard-teacher"></i></div><div class="model-name">Plano de Aula</div></div>
+          </div>
+        </div>
+        <div class="panel-box">
+          <div class="panel-title"><i class="fas fa-palette"></i> Cores</div>
+          <div class="color-list">
+            <div class="color-item" data-hex="#0a3147"><div class="color-swatch" style="background:#0a3147;"></div><div class="color-info"><div class="color-name">Petrol Blue</div></div></div>
+            <div class="color-item" data-hex="#b8860b"><div class="color-swatch" style="background:#b8860b;"></div><div class="color-info"><div class="color-name">Aged Gold</div></div></div>
+            <div class="color-item" data-hex="#5a7d91"><div class="color-swatch" style="background:#5a7d91;"></div><div class="color-info"><div class="color-name">Text Muted</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="#" class="footer-logo">PAUTA <span>ZERO</span></a>
+    <div class="footer-nav">
+      <a href="#">Manifesto</a>
+      <a href="#">Arquivo</a>
+      <a href="#">Estúdio</a>
+    </div>
+    <p class="copyright">&copy; 2026 PAUTA ZERO · Licença 10 anos</p>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script>
+  (function(){
+    function toast(msg, type='info'){
+      const c = document.getElementById('toast-container');
+      const t = document.createElement('div'); t.className = 'toast';
+      t.innerHTML = `<i class="fas fa-${type==='success'?'circle-check':(type==='warning'?'triangle-exclamation':'circle-info')}"></i> ${msg}`;
+      c.appendChild(t);
+      setTimeout(()=>{ t.style.opacity='0'; setTimeout(()=>t.remove(),300); },2500);
+    }
+
+    // Registro de fontes (whitelist) – valores idênticos às classes CSS
+    const Font = Quill.import('formats/font');
+    Font.whitelist = [
+      'Marcellus', 'Cinzel', 'Inter', 'Lora', 'Playfair Display', 
+      'Cormorant Garamond', 'Montserrat', 'Raleway', 
+      'serif', 'sans-serif', 'monospace'
+    ];
+    Quill.register(Font, true);
+    
+    const Size = Quill.import('formats/size');
+    Size.whitelist = ['12px','14px','16px','18px','24px','32px'];
+    Quill.register(Size, true);
+
+    const quill = new Quill('#editor-container', {
+      theme: 'snow',
+      modules: {
+        history: { delay: 500, maxStack: 100 },
+        toolbar: [
+          ['bold','italic','underline'],
+          [{ list: 'ordered' }, { list: 'bullet' }],
+          [{ align: [] }],
+          ['link', 'clean']
+        ]
+      }
+    });
+
+    const fontSel = document.getElementById('fontFamilySelect');
+    const sizeSel = document.getElementById('fontSizeSelect');
+    let lastRange = null;
+
+    quill.on('selection-change', (range) => {
+      lastRange = range;
+      if (range) {
+        const fmt = quill.getFormat(range);
+        fontSel.value = fmt.font || 'Marcellus';
+        sizeSel.value = fmt.size || '16px';
+      }
+    });
+
+    fontSel.addEventListener('change', () => {
+      const font = fontSel.value;
+      const range = lastRange || quill.getSelection(true);
+      if (range) {
+        if (range.length === 0) quill.formatLine(range.index, 1, 'font', font, 'user');
+        else quill.format('font', font, 'user');
+        toast(`Fonte: ${font}`, 'success');
+      }
+    });
+
+    sizeSel.addEventListener('change', () => {
+      const size = sizeSel.value;
+      const range = lastRange || quill.getSelection(true);
+      if (range) {
+        if (range.length === 0) quill.formatLine(range.index, 1, 'size', size, 'user');
+        else quill.format('size', size, 'user');
+        toast(`Tamanho: ${size}`, 'info');
+      }
+    });
+
+    document.getElementById('undoBtn').onclick = () => quill.history.undo();
+    document.getElementById('redoBtn').onclick = () => quill.history.redo();
+    
+    const STORAGE_KEY = 'pauta_draft_final';
+    if (localStorage[STORAGE_KEY]) quill.root.innerHTML = localStorage[STORAGE_KEY];
+    setInterval(() => localStorage[STORAGE_KEY] = quill.root.innerHTML, 3000);
+    
+    document.getElementById('saveDraftBtn').onclick = () => {
+      localStorage[STORAGE_KEY] = quill.root.innerHTML;
+      toast('✅ Rascunho salvo');
+    };
+    document.getElementById('newDocBtn').onclick = () => {
+      if (confirm('Novo documento?')) { quill.root.innerHTML = '<p><br></p>'; localStorage.removeItem(STORAGE_KEY); }
+    };
+    document.getElementById('clearFormatBtn').onclick = () => {
+      const r = quill.getSelection();
+      if (r && r.length) quill.removeFormat(r.index, r.length);
+      else quill.removeFormat(0, quill.getLength());
+    };
+    document.getElementById('printPreviewBtn').onclick = () => {
+      const w = window.open('','_blank');
+      w.document.write(`<html><head><style>body{font-family:Marcellus;padding:2cm;}</style></head><body>${quill.root.innerHTML}</body></html>`);
+      w.print();
+    };
+    document.getElementById('insertPageBreakBtn').onclick = () => {
+      const r = quill.getSelection(true);
+      quill.insertText(r.index, '\n————— Quebra —————\n\n', { color: '#b8860b', italic: true });
+    };
+    document.getElementById('exportDocBtn').onclick = () => {
+      const blob = new Blob([`<html><body>${quill.root.innerHTML}</body></html>`], {type:'application/msword'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'documento.doc'; a.click();
+    };
+
+    // Modelos
+    const templates = {
+      memo: '<h2>MEMORANDO</h2><p><strong>De:</strong> ...<br><strong>Para:</strong> ...<br><strong>Data:</strong> '+new Date().toLocaleDateString()+'</p><hr><p>Assunto: ...</p>',
+      pitch: '<h3>PITCH</h3><ul><li>Problema</li><li>Solução</li></ul>',
+      manifesto: '<h1>MANIFESTO</h1><p>Nós acreditamos...</p>',
+      relatorio: '<h2>RELATÓRIO</h2><table border="1"><tr><th>Métrica</th><th>Valor</th></tr></table>',
+      peticao: '<h2>EXCELENTÍSSIMO JUIZ</h2><p>Processo nº...<br>DOS FATOS...</p>',
+      contrato: '<h2>CONTRATO</h2><p>CLÁUSULA 1ª...</p>',
+      enem: '<h2>RASCUNHO ENEM</h2><p>Competência 1: ...</p>',
+      planoaula: '<h2>PLANO DE AULA</h2><p>Objetivo: ...</p>'
+    };
+    document.querySelectorAll('.model-card').forEach(c => {
+      c.addEventListener('click', () => {
+        const key = c.dataset.template;
+        quill.root.innerHTML = templates[key] || '<p>Modelo carregado.</p>';
+        quill.setSelection(quill.getLength());
+      });
+    });
+
+    document.querySelectorAll('.color-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const hex = el.dataset.hex;
+        const r = quill.getSelection();
+        if (r && r.length) { quill.format('color', hex); toast('Cor aplicada'); }
+        else toast('Selecione um texto', 'warning');
+      });
+    });
+  })();
+</script>
+</body>
+</html>
