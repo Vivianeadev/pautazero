@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Pauta Zero · Ultra Luxo · A Revista Digital do Futuro</title>
+  <title>PautaZero · Ultra Luxo · A Revista Digital do Futuro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Cinzel:wght@400;700&family=Marcellus&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
       --petrol-blue: #0a3147;
       --petrol-light: #1a4b6d;
       --aged-gold: #b8860b;
-      --gold-line: rgba(184, 134, 11, 0.2);
+      --gold-line: rgba(184, 134, 11, 0.18);
       --text-muted: #5a7d91;
       --font-sans: 'Inter', sans-serif;
       --font-serif: 'Cinzel', serif;
@@ -74,53 +74,14 @@
       opacity: 0.8;
     }
 
-    /* Carrossel */
-    .macro-carousel {
-      padding: 25px 0;
-      background: #fafafa;
-      border-bottom: 0.5px solid var(--gold-line);
-      overflow: hidden;
-    }
-
-    .carousel-track {
-      display: flex;
-      gap: 50px;
-      justify-content: center;
-      align-items: center;
-      animation: scroll 40s linear infinite;
-      width: max-content;
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .macro-item {
-      font-family: var(--font-sans);
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--petrol-blue);
-      text-decoration: none;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: var(--transition);
-      opacity: 0.6;
-    }
-
-    .macro-item:hover {
-      opacity: 1;
-      color: var(--aged-gold);
-    }
-
-    .macro-item::after {
-      content: "•";
-      color: var(--aged-gold);
-      margin-left: 40px;
+    .ethereal-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.25) 20%, rgba(184,134,11,0.4) 50%, rgba(184,134,11,0.25) 80%, transparent 100%);
+      margin: 0;
+      border: 0;
+      opacity: 0.5;
+      pointer-events: none;
     }
 
     /* Hero */
@@ -145,10 +106,154 @@
       line-height: 1.1;
       margin-bottom: 30px;
       font-weight: 400;
-      max-width: 900px;
+      max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
     }
+
+    /* Força uma única linha em telas grandes */
+    @media (min-width: 901px) {
+      .hero-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 3.2rem;
+      }
+    }
+
+    /* Painel de Prévia do Artigo (acima dos eixos) */
+    .article-preview-panel {
+      margin: 40px 0 60px;
+      border: 0.5px solid var(--gold-line);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      padding: 30px 30px;
+      transition: var(--transition);
+      box-shadow: 0 15px 30px -10px rgba(10,49,71,0.05);
+    }
+
+    .preview-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+    }
+
+    .preview-sidebar {
+      border-right: 0.5px solid var(--gold-line);
+      padding-right: 25px;
+    }
+
+    .preview-label {
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 0.5px solid var(--gold-line);
+    }
+
+    .article-list {
+      list-style: none;
+    }
+
+    .article-list-item {
+      padding: 10px 0;
+      border-bottom: 0.5px dotted var(--gold-line);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .article-list-item:hover {
+      color: var(--aged-gold);
+      padding-left: 8px;
+    }
+
+    .article-list-item.active {
+      color: var(--aged-gold);
+      font-weight: 500;
+      border-left: 2px solid var(--aged-gold);
+      padding-left: 15px;
+    }
+
+    .list-item-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .list-item-meta {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .preview-main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preview-image {
+      width: 100%;
+      aspect-ratio: 21 / 9;
+      background: #eaeaea;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 0.5px solid var(--gold-line);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .preview-subtema {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      margin-bottom: 8px;
+    }
+
+    .preview-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 15px;
+      color: var(--petrol-blue);
+    }
+
+    .preview-excerpt {
+      font-family: var(--font-body);
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .preview-link {
+      text-decoration: none;
+      color: var(--aged-gold);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid transparent;
+      transition: var(--transition);
+      align-self: flex-start;
+    }
+
+    .preview-link i { font-size: 0.7rem; }
+    .preview-link:hover { border-bottom-color: var(--aged-gold); gap: 15px; }
 
     /* Seção de Nichos */
     .niche-section {
@@ -162,11 +267,11 @@
       gap: 40px;
     }
 
-    /* Grupo expansível */
     .niche-group {
       border-left: 0.5px solid var(--gold-line);
       padding-left: 25px;
       margin-bottom: 40px;
+      transition: var(--transition);
     }
 
     .group-header {
@@ -203,22 +308,21 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transition: max-height 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-                  opacity 0.4s ease,
+      transition: max-height 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+                  opacity 0.5s ease,
                   margin 0.3s ease;
       margin-top: 0;
     }
 
     .niche-group.expanded .group-content {
-      max-height: 2000px; /* suficiente para todo conteúdo */
+      max-height: 1200px;
       opacity: 1;
       margin-top: 25px;
     }
 
-    /* Lista de subtemas (sem numeração) */
     .theme-list {
       list-style: none;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px 20px;
@@ -237,6 +341,7 @@
       display: inline-block;
       padding: 3px 0;
       border-bottom: 1px dotted transparent;
+      cursor: pointer;
     }
 
     .theme-link:hover {
@@ -244,68 +349,62 @@
       border-bottom-color: var(--aged-gold);
     }
 
-    /* Grade de artigos (3 colunas) */
-    .article-preview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+    /* Carrossel inferior */
+    .macro-carousel {
+      padding: 25px 0;
+      background: #fafafa;
+      border-top: 0.5px solid var(--gold-line);
+      border-bottom: 0.5px solid var(--gold-line);
+      overflow: hidden;
     }
 
-    .article-card {
-      background: rgba(184, 134, 11, 0.03);
-      border: 0.5px solid var(--gold-line);
-      padding: 12px;
-      transition: var(--transition);
-      backdrop-filter: blur(2px);
+    .carousel-track {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+      animation: scroll 40s linear infinite;
+      width: max-content;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .macro-item {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--petrol-blue);
       text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .article-card:hover {
-      border-color: var(--aged-gold);
-      box-shadow: 0 10px 20px -5px rgba(10, 49, 71, 0.1);
-      transform: translateY(-4px);
-      background: rgba(184, 134, 11, 0.06);
-    }
-
-    .card-img {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #eaeaea;
-      margin-bottom: 10px;
+      white-space: nowrap;
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border: 0.5px solid var(--gold-line);
+      gap: 10px;
+      transition: var(--transition);
+      opacity: 0.6;
+      cursor: pointer;
     }
 
-    .card-subtema {
-      font-size: 0.55rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+    .macro-item:hover {
+      opacity: 1;
       color: var(--aged-gold);
-      margin-bottom: 5px;
     }
 
-    .card-title {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 400;
-      line-height: 1.3;
-      color: var(--petrol-blue);
+    .macro-item::after {
+      content: "•";
+      color: var(--aged-gold);
+      margin-left: 40px;
     }
 
     /* Footer */
     footer {
-      padding: 120px 0 60px;
+      padding: 80px 0 40px;
       background: var(--petrol-blue);
       color: #fff;
-      text-align: center;
     }
 
     .footer-logo {
@@ -315,45 +414,92 @@
       color: #fff;
       margin-bottom: 30px;
       display: block;
+      text-align: center;
     }
 
     .footer-logo span { color: var(--aged-gold); }
 
-    .footer-nav {
+    .footer-links {
       display: flex;
       justify-content: center;
-      gap: 50px;
-      margin-bottom: 60px;
-    }
-
-    .footer-nav a {
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
+      gap: 60px;
+      margin-bottom: 50px;
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 3px;
-      transition: var(--transition);
     }
 
-    .footer-nav a:hover { color: var(--aged-gold); }
+    .footer-links a, .footer-links .privacy-toggle {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .footer-links a:hover, .footer-links .privacy-toggle:hover {
+      color: var(--aged-gold);
+      border-bottom-color: var(--aged-gold);
+    }
+
+    .privacy-panel {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid var(--gold-line);
+      padding: 25px 30px;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      transition: var(--transition);
+      backdrop-filter: blur(4px);
+    }
+
+    .privacy-panel h4 {
+      font-family: var(--font-serif);
+      color: var(--aged-gold);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin: 20px 0 10px;
+      font-weight: 400;
+      border-bottom: 0.5px solid var(--gold-line);
+      padding-bottom: 5px;
+    }
+
+    .privacy-panel h4:first-of-type { margin-top: 0; }
 
     .copyright {
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 2px;
+      text-align: center;
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* Destaque visual */
+    .highlight-expand {
+      animation: highlightPulse 0.8s ease;
+    }
+
+    @keyframes highlightPulse {
+      0% { background-color: transparent; }
+      50% { background-color: rgba(184, 134, 11, 0.08); }
+      100% { background-color: transparent; }
     }
 
     /* Responsivo */
     @media (max-width: 1200px) {
       .niche-grid { grid-template-columns: repeat(3, 1fr); }
       .container { padding: 0 40px; }
+      .preview-container { grid-template-columns: 220px 1fr; }
     }
 
     @media (max-width: 900px) {
       .niche-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-      .hero-title { font-size: 2.8rem; }
+      .hero-title { font-size: 2.5rem; white-space: normal; }
       .logo { font-size: 2.5rem; }
-      .article-preview-grid { grid-template-columns: repeat(2, 1fr); }
+      .preview-container { grid-template-columns: 1fr; gap: 20px; }
+      .preview-sidebar { border-right: none; padding-right: 0; }
     }
 
     @media (max-width: 600px) {
@@ -362,41 +508,22 @@
       .hero-title { font-size: 1.8rem; }
       .logo { font-size: 2rem; letter-spacing: 6px; }
       .macro-item { font-size: 0.75rem; }
-      .footer-nav { flex-direction: column; gap: 20px; }
-      .article-preview-grid { grid-template-columns: 1fr; }
+      .footer-links { flex-direction: column; gap: 20px; align-items: center; }
     }
+
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
 
   <header>
     <div class="container">
-      <a href="#" class="logo">PAUTA <span>ZERO</span></a>
+      <a href="#" class="logo">PAUTA<span>ZERO</span></a>
       <div class="tagline">A Revista Digital do Futuro</div>
     </div>
   </header>
 
-  <div class="macro-carousel">
-    <div class="carousel-track">
-      <a href="#" class="macro-item">Medicina & Biohacking</a>
-      <a href="#" class="macro-item">Economia Estratégica</a>
-      <a href="#" class="macro-item">Geopolítica Global</a>
-      <a href="#" class="macro-item">Justiça & Tecnologia</a>
-      <a href="#" class="macro-item">Futurismo Sistêmico</a>
-      <a href="#" class="macro-item">Psicologia Social</a>
-      <a href="#" class="macro-item">Logística Avançada</a>
-      <a href="#" class="macro-item">Arquitetura & Design</a>
-      <!-- duplicados para scroll infinito -->
-      <a href="#" class="macro-item">Medicina & Biohacking</a>
-      <a href="#" class="macro-item">Economia Estratégica</a>
-      <a href="#" class="macro-item">Geopolítica Global</a>
-      <a href="#" class="macro-item">Justiça & Tecnologia</a>
-      <a href="#" class="macro-item">Futurismo Sistêmico</a>
-      <a href="#" class="macro-item">Psicologia Social</a>
-      <a href="#" class="macro-item">Logística Avançada</a>
-      <a href="#" class="macro-item">Arquitetura & Design</a>
-    </div>
-  </div>
+  <hr class="ethereal-divider" aria-hidden="true">
 
   <main class="container">
     
@@ -408,6 +535,27 @@
       </p>
     </section>
 
+    <!-- Painel de prévia do artigo (inicialmente oculto) -->
+    <section class="article-preview-panel" id="articlePreviewPanel" style="display: none;">
+      <div class="preview-container">
+        <div class="preview-sidebar">
+          <h4 class="preview-label">Artigos em <span id="currentEixoName">Sistemas de Saúde</span></h4>
+          <ul class="article-list" id="relatedArticlesList"></ul>
+        </div>
+        <div class="preview-main">
+          <div class="preview-image" id="previewImage">
+            <i class="fas fa-image" style="margin-right:8px;"></i> PAUTAZERO
+          </div>
+          <div>
+            <span class="preview-subtema" id="previewSubtema">Medicina de Precisão</span>
+            <h2 class="preview-title" id="previewTitle">A Nova Fronteira da Medicina Personalizada</h2>
+            <p class="preview-excerpt" id="previewExcerpt">Como a integração de dados genômicos e inteligência artificial está redefinindo diagnósticos e terapias individualizadas, inaugurando uma era de precisão sem precedentes.</p>
+            <a href="#" class="preview-link" id="previewLink">Ler artigo completo <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="niche-section">
       <span class="section-label" style="margin-bottom: 60px;">Exploração por Nichos (64 Categorias)</span>
       
@@ -416,90 +564,182 @@
 
   </main>
 
+  <!-- Carrossel inferior -->
+  <div class="macro-carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <a class="macro-item" data-niche="Sistemas de Saúde">Medicina & Biohacking</a>
+      <a class="macro-item" data-niche="Economia & Poder">Economia Estratégica</a>
+      <a class="macro-item" data-niche="Estratégia & Logística">Geopolítica Global</a>
+      <a class="macro-item" data-niche="Justiça & Direito">Justiça & Tecnologia</a>
+      <a class="macro-item" data-niche="Futurismo & Ciência">Futurismo Sistêmico</a>
+      <a class="macro-item" data-niche="Sociedade & Cultura">Psicologia Social</a>
+      <a class="macro-item" data-niche="Tecnologia & IA">Inteligência Artificial</a>
+      <a class="macro-item" data-niche="Estética & Design">Arquitetura & Design</a>
+      <!-- duplicados -->
+      <a class="macro-item" data-niche="Sistemas de Saúde">Medicina & Biohacking</a>
+      <a class="macro-item" data-niche="Economia & Poder">Economia Estratégica</a>
+      <a class="macro-item" data-niche="Estratégia & Logística">Geopolítica Global</a>
+      <a class="macro-item" data-niche="Justiça & Direito">Justiça & Tecnologia</a>
+      <a class="macro-item" data-niche="Futurismo & Ciência">Futurismo Sistêmico</a>
+      <a class="macro-item" data-niche="Sociedade & Cultura">Psicologia Social</a>
+      <a class="macro-item" data-niche="Tecnologia & IA">Inteligência Artificial</a>
+      <a class="macro-item" data-niche="Estética & Design">Arquitetura & Design</a>
+    </div>
+  </div>
+
   <footer>
     <div class="container">
-      <a href="#" class="footer-logo">PAUTA <span>ZERO</span></a>
-      <div class="footer-nav">
-        <a href="#">O Manifesto</a>
-        <a href="#">Arquivo Digital</a>
-        <a href="#">Privacidade de Dados</a>
-        <a href="#">Inteligência Editorial</a>
+      <a href="#" class="footer-logo">PAUTA<span>ZERO</span></a>
+      
+      <div class="footer-links">
+        <a href="manifesto.html">Manifesto</a>
+        <span class="privacy-toggle" id="privacyToggle">Política de Privacidade <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 6px;"></i></span>
       </div>
-      <p class="copyright">&copy; 2026 PAUTA ZERO. TODOS OS DIREITOS RESERVADOS. DESIGN BY MANUS ULTRA IA.</p>
+
+      <div id="privacyPanel" class="privacy-panel" style="display: none;">
+        <h4>MANIFESTO PAUTAZERO · POLÍTICA DE PRIVACIDADE</h4>
+        <p><strong>clique nos títulos para expandir · Ambiente & Dados</strong></p>
+        <h4>Ambiente independente</h4>
+        <p>Este ambiente digital é mantido por responsável independente, atuando na produção de conteúdo informacional e analítico, comprometido com a proteção da privacidade e dos direitos fundamentais dos titulares de dados.</p>
+        <h4>Dados coletados</h4>
+        <p>Dados de navegação (IP anonimizado, cookies técnicos), informações enviadas voluntariamente por e-mail ou formulários. Nunca coletamos dados sensíveis sem consentimento explícito.</p>
+        <h4>Finalidade & LGPD</h4>
+        <p><strong>Finalidade:</strong> Melhorar a experiência, gerar estatísticas agregadas, responder contatos e garantir a segurança do site. Sem tratamento abusivo ou compartilhamento com terceiros não autorizados.</p>
+        <p><strong>Base legal (LGPD):</strong> Execução de legítimo interesse, cumprimento de obrigação legal e consentimento quando necessário. Respeitamos a Lei 13.709/2018 e os direitos dos titulares.</p>
+        <h4>Direitos & Contato</h4>
+        <p><strong>Seus direitos:</strong> Você pode acessar, retificar, eliminar, limitar ou portar seus dados a qualquer momento. Pedidos devem ser enviados ao e-mail abaixo.</p>
+        <p>Canal de atendimento ao titular: <a href="mailto:editorial.pautazero@outlook.com" style="color: var(--aged-gold); text-decoration: none;">editorial.pautazero@outlook.com</a> – Respondemos em até 15 dias úteis.</p>
+        <p>Esta política pode ser atualizada periodicamente. Consulte sempre a versão mais recente neste rodapé.</p>
+      </div>
+
+      <p class="copyright">&copy; 2026 PAUTAZERO. TODOS OS DIREITOS RESERVADOS. DESIGN BY MANUS SUPER IA.</p>
     </div>
   </footer>
 
   <script>
     (function(){
+      // Dados mockados para artigos
+      const articleDB = {
+        "Medicina de Precisão": {
+          eixo: "Sistemas de Saúde",
+          title: "Medicina de Precisão: O Fim da Abordagem Generalista",
+          excerpt: "Terapias customizadas baseadas no perfil genético e biomarcadores individuais estão transformando a oncologia e as doenças raras. A convergência entre biotecnologia e big data redefine o conceito de cura.",
+          image: "",
+        },
+        "Biohacking": {
+          eixo: "Sistemas de Saúde",
+          title: "Biohacking e Longevidade Extrema",
+          excerpt: "Implantes, nootrópicos e monitoramento contínuo: a nova fronteira do aprimoramento humano levanta questões éticas e promete expandir os limites da biologia.",
+        },
+        "Mercados Globais": {
+          eixo: "Economia & Poder",
+          title: "A Reconfiguração dos Fluxos de Capital",
+          excerpt: "Com a ascensão de moedas digitais e blocos regionais, os mercados globais enfrentam uma transformação silenciosa mas profunda. Entenda os novos eixos de poder.",
+        },
+        "Inteligência Artificial": {
+          eixo: "Tecnologia & IA",
+          title: "IA Generativa e a Reinvenção da Criatividade",
+          excerpt: "Modelos fundacionais estão reescrevendo as regras da produção de conteúdo, do design à engenharia de software. O que é autoria na era dos algoritmos?",
+        },
+        "Direito Digital": {
+          eixo: "Justiça & Direito",
+          title: "Soberania de Dados e a Nova Geopolítica Jurídica",
+          excerpt: "Regulamentações como LGPD e GDPR moldam as relações entre estados e big techs. O direito digital emerge como campo de batalha do século XXI.",
+        },
+      };
+
+      // Função para gerar lista de artigos relacionados ao eixo
+      function getArticlesByEixo(eixoNome) {
+        const allArticles = Object.entries(articleDB).map(([subtema, data]) => ({ subtema, ...data }));
+        return allArticles.filter(a => a.eixo === eixoNome);
+      }
+
       const niches = [
-        {
-          title: "Sistemas de Saúde",
-          items: ["Medicina de Precisão", "Biohacking", "Longevidade", "Neurociência", "Saúde Pública", "Genética", "Nutrição Sistêmica", "Psiquiatria"]
-        },
-        {
-          title: "Economia & Poder",
-          items: ["Mercados Globais", "Cripto-Economia", "Wealth Management", "Geopolítica Financeira", "Sustentabilidade", "Venture Capital", "Macroeconomia", "Fiscalidade"]
-        },
-        {
-          title: "Tecnologia & IA",
-          items: ["Inteligência Artificial", "Computação Quântica", "Cibersegurança", "Blockchain", "Robótica", "Ética Digital", "Cloud Computing", "SaaS"]
-        },
-        {
-          title: "Justiça & Direito",
-          items: ["Direito Digital", "Sistemas Jurídicos", "Compliance", "Propriedade Intelectual", "Direitos Humanos", "Arbitragem", "Legislação IA", "Governança"]
-        },
-        {
-          title: "Sociedade & Cultura",
-          items: ["Psicologia Social", "Antropologia", "Educação do Futuro", "Comportamento", "Religião", "Filosofia", "Mídia & Verdade", "Urbanismo"]
-        },
-        {
-          title: "Estratégia & Logística",
-          items: ["Supply Chain", "Infraestrutura", "Energia", "Mobilidade", "Agro-Logística", "Defesa", "Exploração Espacial", "Telecomunicações"]
-        },
-        {
-          title: "Estética & Design",
-          items: ["Arquitetura", "Design de Luxo", "Moda Ética", "Artes Visuais", "Minimalismo", "Experiência do Usuário", "Branding", "Curadoria"]
-        },
-        {
-          title: "Futurismo & Ciência",
-          items: ["Física Teórica", "Climatologia", "Biotecnologia", "Exploração Oceânica", "Energia Limpa", "Materiais Avançados", "Exoplanetas", "Singularidade"]
-        }
+        { title: "Sistemas de Saúde", items: ["Medicina de Precisão", "Biohacking", "Longevidade", "Neurociência", "Saúde Pública", "Genética", "Nutrição Sistêmica", "Psiquiatria"] },
+        { title: "Economia & Poder", items: ["Mercados Globais", "Cripto-Economia", "Wealth Management", "Geopolítica Financeira", "Sustentabilidade", "Venture Capital", "Macroeconomia", "Fiscalidade"] },
+        { title: "Tecnologia & IA", items: ["Inteligência Artificial", "Computação Quântica", "Cibersegurança", "Blockchain", "Robótica", "Ética Digital", "Cloud Computing", "SaaS"] },
+        { title: "Justiça & Direito", items: ["Direito Digital", "Sistemas Jurídicos", "Compliance", "Propriedade Intelectual", "Direitos Humanos", "Arbitragem", "Legislação IA", "Governança"] },
+        { title: "Sociedade & Cultura", items: ["Psicologia Social", "Antropologia", "Educação do Futuro", "Comportamento", "Religião", "Filosofia", "Mídia & Verdade", "Urbanismo"] },
+        { title: "Estratégia & Logística", items: ["Supply Chain", "Infraestrutura", "Energia", "Mobilidade", "Agro-Logística", "Defesa", "Exploração Espacial", "Telecomunicações"] },
+        { title: "Estética & Design", items: ["Arquitetura", "Design de Luxo", "Moda Ética", "Artes Visuais", "Minimalismo", "Experiência do Usuário", "Branding", "Curadoria"] },
+        { title: "Futurismo & Ciência", items: ["Física Teórica", "Climatologia", "Biotecnologia", "Exploração Oceânica", "Energia Limpa", "Materiais Avançados", "Exoplanetas", "Singularidade"] }
       ];
 
       const grid = document.getElementById('nicheGrid');
+      const groupsMap = new Map();
+      
+      // Elementos do painel
+      const previewPanel = document.getElementById('articlePreviewPanel');
+      const currentEixoName = document.getElementById('currentEixoName');
+      const relatedArticlesList = document.getElementById('relatedArticlesList');
+      const previewSubtema = document.getElementById('previewSubtema');
+      const previewTitle = document.getElementById('previewTitle');
+      const previewExcerpt = document.getElementById('previewExcerpt');
+      const previewImage = document.getElementById('previewImage');
+      const previewLink = document.getElementById('previewLink');
 
-      // Função para gerar placeholders de artigos (3 por grupo)
-      function generateArticleCards(nicheTitle) {
-        const dummyTitles = [
-          "A Nova Fronteira da " + nicheTitle,
-          "Perspectivas Sistêmicas em " + nicheTitle,
-          "O Futuro Disruptivo de " + nicheTitle
-        ];
-        let cards = '';
-        for (let i = 0; i < 3; i++) {
-          cards += `
-            <a href="#" class="article-card">
-              <div class="card-img"><i class="fas fa-image" style="margin-right:5px;"></i> PAUTA ZERO</div>
-              <div class="card-subtema">${nicheTitle}</div>
-              <div class="card-title">${dummyTitles[i]}</div>
-            </a>
-          `;
+      let currentEixo = '';
+
+      // Função para atualizar o painel com base no subtema selecionado
+      function showArticlePreview(subtema, eixoTitle) {
+        const articleData = articleDB[subtema] || {
+          title: `${subtema}: Perspectivas Sistêmicas`,
+          excerpt: `Uma análise aprofundada sobre ${subtema} no contexto do pensamento contemporâneo. Explore as tendências e disrupções que moldam este campo.`,
+        };
+        
+        currentEixo = eixoTitle;
+        currentEixoName.textContent = eixoTitle;
+        previewSubtema.textContent = subtema;
+        previewTitle.textContent = articleData.title;
+        previewExcerpt.textContent = articleData.excerpt;
+        previewImage.innerHTML = `<i class="fas fa-image" style="margin-right:8px;"></i> PAUTAZERO · ${subtema}`;
+        previewLink.href = `#artigo/${encodeURIComponent(subtema)}`;
+
+        // Renderizar lista de artigos do mesmo eixo
+        const artigosEixo = getArticlesByEixo(eixoTitle);
+        if (artigosEixo.length === 0) {
+          // fallback: gera alguns títulos genéricos
+          const dummyList = niches.find(n => n.title === eixoTitle)?.items.slice(0,4) || [];
+          relatedArticlesList.innerHTML = dummyList.map(item => `
+            <li class="article-list-item" data-subtema="${item}">
+              <div class="list-item-title">${item}</div>
+              <div class="list-item-meta">PAUTAZERO · 2026</div>
+            </li>
+          `).join('');
+        } else {
+          relatedArticlesList.innerHTML = artigosEixo.map(a => `
+            <li class="article-list-item ${a.subtema === subtema ? 'active' : ''}" data-subtema="${a.subtema}">
+              <div class="list-item-title">${a.title}</div>
+              <div class="list-item-meta">${a.subtema}</div>
+            </li>
+          `).join('');
         }
-        return cards;
-      }
 
-      niches.forEach((niche, index) => {
-        const group = document.createElement('div');
-        group.className = 'niche-group';
-
-        // Lista de subtemas sem numeração
-        let itemsHtml = '';
-        niche.items.forEach(item => {
-          itemsHtml += `<li class="theme-item"><a href="#" class="theme-link">${item}</a></li>`;
+        // Adiciona listeners aos itens da lista
+        document.querySelectorAll('.article-list-item').forEach(item => {
+          item.addEventListener('click', (e) => {
+            const newSubtema = item.dataset.subtema;
+            if (newSubtema) {
+              showArticlePreview(newSubtema, eixoTitle);
+            }
+          });
         });
 
-        // Cards de artigos
-        const articleCardsHtml = generateArticleCards(niche.title);
+        previewPanel.style.display = 'block';
+        // Scroll suave até o painel
+        previewPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Construir grupos
+      niches.forEach((niche) => {
+        const group = document.createElement('div');
+        group.className = 'niche-group';
+        group.dataset.nicheTitle = niche.title;
+
+        let itemsHtml = '';
+        niche.items.forEach(item => {
+          itemsHtml += `<li class="theme-item"><span class="theme-link" data-subtema="${item}" data-eixo="${niche.title}">${item}</span></li>`;
+        });
 
         group.innerHTML = `
           <div class="group-header">
@@ -510,13 +750,9 @@
             <ul class="theme-list">
               ${itemsHtml}
             </ul>
-            <div class="article-preview-grid">
-              ${articleCardsHtml}
-            </div>
           </div>
         `;
 
-        // Toggle expansão ao clicar no cabeçalho
         const header = group.querySelector('.group-header');
         header.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -524,10 +760,101 @@
         });
 
         grid.appendChild(group);
+        groupsMap.set(niche.title, group);
       });
 
-      // Por padrão, o primeiro grupo já vem expandido (opcional)
-      // document.querySelector('.niche-group')?.classList.add('expanded');
+      // Adiciona listeners aos subtemas
+      document.querySelectorAll('.theme-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const subtema = link.dataset.subtema;
+          const eixo = link.dataset.eixo;
+          if (subtema) {
+            showArticlePreview(subtema, eixo);
+          }
+        });
+      });
+
+      // Carrossel: expande grupo
+      const macroItems = document.querySelectorAll('.macro-item');
+      
+      function expandAndScrollToGroup(groupElement) {
+        if (!groupElement) return;
+        if (!groupElement.classList.contains('expanded')) {
+          groupElement.classList.add('expanded');
+        }
+        groupElement.classList.add('highlight-expand');
+        setTimeout(() => groupElement.classList.remove('highlight-expand'), 800);
+        
+        const headerOffset = 120;
+        const elementPosition = groupElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+
+      macroItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const nicheTarget = item.getAttribute('data-niche');
+          if (nicheTarget) {
+            const targetGroup = groupsMap.get(nicheTarget);
+            if (targetGroup) expandAndScrollToGroup(targetGroup);
+            else {
+              for (let [title, group] of groupsMap.entries()) {
+                if (title.includes(nicheTarget) || nicheTarget.includes(title)) {
+                  expandAndScrollToGroup(group);
+                  break;
+                }
+              }
+            }
+          }
+        });
+      });
+
+      // URL params: ?eixo=Justiça%20%26%20Direito
+      function handleUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        const eixo = params.get('eixo') || params.get('niche');
+        if (eixo) {
+          const decoded = decodeURIComponent(eixo);
+          let targetGroup = groupsMap.get(decoded);
+          if (!targetGroup) {
+            for (let [title, group] of groupsMap.entries()) {
+              if (title.toLowerCase().includes(decoded.toLowerCase()) || decoded.toLowerCase().includes(title.toLowerCase())) {
+                targetGroup = group;
+                break;
+              }
+            }
+          }
+          if (targetGroup) {
+            setTimeout(() => expandAndScrollToGroup(targetGroup), 200);
+          }
+        }
+      }
+
+      // Toggle privacidade
+      const privacyToggle = document.getElementById('privacyToggle');
+      const privacyPanel = document.getElementById('privacyPanel');
+      const toggleIcon = privacyToggle.querySelector('i');
+      
+      privacyToggle.addEventListener('click', () => {
+        const isHidden = privacyPanel.style.display === 'none';
+        privacyPanel.style.display = isHidden ? 'block' : 'none';
+        toggleIcon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+
+      handleUrlParams();
+      
+      // Se houver hash, expande grupo
+      if (window.location.hash) {
+        const hash = decodeURIComponent(window.location.hash.substring(1));
+        for (let [title, group] of groupsMap.entries()) {
+          if (title.replace(/\s+/g, '-').toLowerCase() === hash.toLowerCase()) {
+            setTimeout(() => expandAndScrollToGroup(group), 200);
+            break;
+          }
+        }
+      }
     })();
   </script>
 </body>
